@@ -3,70 +3,117 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 border-t border-gray-100">
-      <div className="bg-hopkins-blue py-8 border-b border-gray-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/JHU.logo_horizontal.white.svg')] bg-no-repeat bg-[length:400px] bg-[center_right_-100px] opacity-5"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
-          <div className="flex items-center mb-4 md:mb-0">
+    <footer className="bg-hopkins-blue text-white border-t border-hopkins-blue/30 relative overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute -left-16 -top-48 w-64 h-64 bg-hopkins-spirit-blue/[0.15] rounded-full z-0"></div>
+      <div className="absolute right-0 bottom-0 w-32 h-32 bg-hopkins-gold/[0.12] rounded-full z-0"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Contact Information */}
+          <div className="text-center">
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-3 text-white">Contact</h3>
+            <p className="text-sm text-white/90 mb-2">
+              615 N. Wolfe Street<br />
+              Baltimore, MD 21205
+            </p>
+            <p className="text-sm text-white/90">
+              <span className="font-medium">Email:</span><br />
+              <a href="mailto:compepi@jhu.edu" className="hover:text-white hover:underline transition-colors">compepi@jhu.edu</a>
+            </p>
+          </div>
+          
+          {/* Logo in the middle */}
+          <div className="text-center flex flex-col items-center">
             <Image 
               src="/images/JHU.logo_horizontal.white.svg" 
               alt="Johns Hopkins University" 
-              width={150} 
-              height={35} 
-              className="mr-3"
+              width={220} 
+              height={55} 
+              className="mb-3"
             />
-          </div>
-          <div className="text-white">
-            <h3 className="text-xl font-bold">Computational Epidemiology Research Group</h3>
-          </div>
-        </div>
-      </div>
-      
-      <div className="py-12 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-              <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">About Us</h3>
-              <p className="text-gray-400 mb-6">
-                Our group develops computational models to understand disease dynamics, evaluate interventions, 
-                and inform public health policy for HIV, STIs, and other infectious diseases.
-              </p>
-              <p className="text-gray-400">
-                <strong className="text-white">Address:</strong><br />
-                615 N. Wolfe Street<br />
-                Baltimore, MD 21205
-              </p>
-              <p className="text-gray-400 mt-4">
-                <strong className="text-white">Email:</strong><br />
-                compepi@jhu.edu
-              </p>
+            <div className="text-sm text-white/90">
+              <span className="font-medium">Computational Epidemiology</span><br />
+              <span className="text-xs tracking-wider">RESEARCH GROUP</span>
             </div>
-            
-            <div>
-              <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Our Models</h3>
-              <ul className="space-y-3">
-                <li><Link href="/projects/jheem" className="text-gray-400 hover:text-white transition-colors flex items-center"><span className="w-2 h-2 bg-hopkins-blue rounded-full mr-2"></span> JHEEM</Link></li>
-                <li><Link href="/projects/shield" className="text-gray-400 hover:text-white transition-colors flex items-center"><span className="w-2 h-2 bg-hopkins-gold rounded-full mr-2"></span> SHIELD</Link></li>
-                <li><Link href="/projects/pearl" className="text-gray-400 hover:text-white transition-colors flex items-center"><span className="w-2 h-2 bg-hopkins-spirit-blue rounded-full mr-2"></span> PEARL</Link></li>
-                <li><Link href="/projects" className="text-gray-400 hover:text-white transition-colors mt-4 inline-block">View All Projects →</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
-              <ul className="space-y-3">
-                <li><Link href="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
-                <li><Link href="/publications" className="text-gray-400 hover:text-white transition-colors">Publications</Link></li>
-                <li><Link href="/team" className="text-gray-400 hover:text-white transition-colors">Our Team</Link></li>
-                <li><a href="https://www.jhu.edu" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Johns Hopkins University</a></li>
-                <li><a href="https://publichealth.jhu.edu" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">Bloomberg School of Public Health</a></li>
-              </ul>
+          </div>
+          
+          {/* Links Columns - moved closer together */}
+          <div className="text-center">
+            <div className="inline-grid grid-cols-2 gap-x-2 gap-y-2 text-center mx-auto">
+              <div>
+                <h4 className="text-xs font-medium uppercase tracking-wider mb-2 text-white/60">Models</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <Link href="/projects/jheem" className="text-white/90 hover:text-white transition-all">
+                      JHEEM
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/projects/shield" className="text-white/90 hover:text-white transition-all">
+                      SHIELD
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/projects/pearl" className="text-white/90 hover:text-white transition-all">
+                      PEARL
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/projects/tbmte" className="text-white/90 hover:text-white transition-all">
+                      TBMTE
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-medium uppercase tracking-wider mb-2 text-white/60">Pages</h4>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <Link href="/" className="text-white/90 hover:text-white transition-all">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/projects" className="text-white/90 hover:text-white transition-all">
+                      Projects
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/publications" className="text-white/90 hover:text-white transition-all">
+                      Publications
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/team" className="text-white/90 hover:text-white transition-all">
+                      Team
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-700 text-gray-500 text-sm text-center">
-          © {new Date().getFullYear()} Johns Hopkins University Computational Epidemiology Research Group. All rights reserved.
+        {/* Combined external links and copyright */}
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+          <div className="text-white/70 text-xs mb-4 md:mb-0">
+            © {new Date().getFullYear()} Johns Hopkins University Computational Epidemiology Research Group
+          </div>
+          <div className="flex space-x-6">
+            <a href="https://www.jhu.edu" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-white transition-all group inline-flex items-center">
+              Johns Hopkins University
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <a href="https://publichealth.jhu.edu" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-white transition-all group inline-flex items-center">
+              Bloomberg School of Public Health
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

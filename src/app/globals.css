@@ -37,3 +37,12 @@ a {
   border-top: 1px solid #f1f5f9;
   border-bottom: 1px solid #f1f5f9;
 }
+
+/* Clip path utilities */
+.clip-path-polygon-tr {
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+.clip-path-polygon-bl {
+  clip-path: polygon(0 100%, 100% 100%, 0 0);
+}

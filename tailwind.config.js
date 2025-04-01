@@ -21,6 +21,19 @@ module.exports = {
           '900': '#014451',
         },
       },
+      animation: {
+        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'spin-slow': 'spin 20s linear infinite',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '42': '10.5rem',
+        '58': '14.5rem',
+        '88': '22rem',
+      },
+      padding: {
+        '18': '4.5rem',
+      },
     },
   },
   plugins: [],
