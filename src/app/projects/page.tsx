@@ -10,7 +10,7 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <MainLayout>
-      {/* Enhanced header - more compact but visually interesting */}
+      {/* Enhanced header with visual interest and typography */}
       <section className="bg-hopkins-spirit-blue text-white py-12 relative overflow-hidden">
         {/* Enhanced background patterns */}
         <div className="absolute inset-0 bg-[url('/graph-pattern.svg')] bg-[length:24px_24px] opacity-[0.07] z-0"></div>
@@ -27,7 +27,6 @@ export default function ProjectsPage() {
         {/* Floating dots */}
         <div className="absolute right-20 top-1/3 w-2 h-2 bg-white rounded-full opacity-30 z-0"></div>
         <div className="absolute right-48 top-1/4 w-3 h-3 bg-white rounded-full opacity-20 z-0"></div>
-        <div className="absolute right-96 top-2/3 w-2 h-2 bg-white rounded-full opacity-30 z-0"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl relative">
@@ -56,8 +55,39 @@ export default function ProjectsPage() {
         </div>
       </section>
       
+      {/* NEW: Quick Navigation Project Bar */}
+      <section className="py-8 bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-4">
+            {projects.map((project) => (
+              <a 
+                key={project.id} 
+                href={`#${project.id}`} 
+                className="flex items-center px-4 py-3 bg-white rounded-lg border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1 group"
+              >
+                <div className={`w-8 h-8 rounded-full ${project.color} flex items-center justify-center mr-3 text-white font-bold text-sm`}>
+                  {project.shortName.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900 group-hover:text-hopkins-blue transition-colors">{project.shortName}</div>
+                  <div className="text-xs text-gray-500">
+                    {project.id === 'jheem' && 'HIV transmission modeling in 15+ cities'}
+                    {project.id === 'shield' && 'Integrated HIV/STI strategies optimization'}
+                    {project.id === 'pearl' && 'Aging HIV+ population health projections'}
+                    {project.id === 'tbmte' && 'Global TB control in 12+ countries'}
+                  </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-3 text-gray-400 group-hover:text-hopkins-blue transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* JHEEM Project Section */}
-      <section className="py-16 bg-white border-b border-gray-100">
+      <section id="jheem" className="py-16 bg-white border-b border-gray-100 scroll-mt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -120,7 +150,7 @@ export default function ProjectsPage() {
       </section>
       
       {/* SHIELD Project Section */}
-      <section className="py-16 bg-gray-50 border-b border-gray-100">
+      <section id="shield" className="py-16 bg-gray-50 border-b border-gray-100 scroll-mt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg bg-hopkins-gold border border-hopkins-gold/20 relative h-[400px]">
@@ -183,7 +213,7 @@ export default function ProjectsPage() {
       </section>
       
       {/* PEARL Project Section */}
-      <section className="py-16 bg-white border-b border-gray-100">
+      <section id="pearl" className="py-16 bg-white border-b border-gray-100 scroll-mt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -246,7 +276,7 @@ export default function ProjectsPage() {
       </section>
       
       {/* TBMTE Project Section */}
-      <section className="py-16 bg-gray-50 border-b border-gray-100">
+      <section id="tbmte" className="py-16 bg-gray-50 border-b border-gray-100 scroll-mt-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1 rounded-lg overflow-hidden shadow-lg bg-emerald-600 border border-emerald-600/20 relative h-[400px]">

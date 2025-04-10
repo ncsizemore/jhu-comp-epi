@@ -1,4 +1,9 @@
 import MainLayout from '@/components/layout/MainLayout';
+import ModernPublicationDisplay from '@/components/sections/publications/ModernPublicationDisplay';
+import RecentPublicationsCarousel from '@/components/sections/publications/RecentPublicationsCarousel';
+import PublicationsList from '@/components/sections/publications/PublicationsList';
+import { publications, publicationTags, publicationYears } from '@/data/publications';
+import './publications.css';
 
 export const metadata = {
   title: 'Publications | JHU Computational Epidemiology',
@@ -8,8 +13,8 @@ export const metadata = {
 export default function PublicationsPage() {
   return (
     <MainLayout>
-      {/* Enhanced header with visual interest and typography */}
-      <section className="bg-hopkins-spirit-blue text-white py-12 relative overflow-hidden">
+      {/* Enhanced header with impact stats */}
+      <section className="bg-hopkins-spirit-blue py-10 relative overflow-hidden">
         {/* Enhanced background patterns */}
         <div className="absolute inset-0 bg-[url('/graph-pattern.svg')] bg-[length:24px_24px] opacity-[0.07] z-0"></div>
         
@@ -17,49 +22,76 @@ export default function PublicationsPage() {
         <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-white/[0.03] clip-path-polygon-tr z-0"></div>
         <div className="absolute bottom-0 left-0 w-1/2 h-1/3 bg-white/[0.03] clip-path-polygon-bl z-0"></div>
         
-        {/* Abstract data visualization elements */}
-        <div className="absolute right-12 top-1/2 transform -translate-y-1/2 w-64 h-64 rounded-full border border-white/10 opacity-20 z-0"></div>
-        <div className="absolute right-24 top-1/2 transform -translate-y-1/2 w-40 h-40 rounded-full border border-white/10 opacity-20 z-0"></div>
-        <div className="absolute right-36 top-1/2 transform -translate-y-1/2 w-20 h-20 rounded-full border border-white/10 opacity-20 z-0"></div>
-        
-        {/* Floating dots */}
-        <div className="absolute right-20 top-1/3 w-2 h-2 bg-white rounded-full opacity-30 z-0"></div>
-        <div className="absolute right-48 top-1/4 w-3 h-3 bg-white rounded-full opacity-20 z-0"></div>
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl relative">
-            {/* Subtle highlight element */}
-            <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-hopkins-gold opacity-70 rounded"></div>
-            
-            {/* Enhanced typography - more compact */}
-            <div className="inline-flex items-center px-3 py-1 text-xs font-semibold tracking-widest uppercase bg-white/10 rounded-full mb-3 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 bg-hopkins-gold rounded-full mr-2"></span>
-              Research Impact
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div className="mb-6 md:mb-0 md:max-w-2xl">
+              <h1 className="text-3xl font-bold text-white mb-2 leading-tight drop-shadow-sm flex items-center">
+                <span className="mr-2">Research Impact</span>
+                <div className="w-10 h-px bg-hopkins-gold opacity-80"></div>
+              </h1>
+              
+              <p className="text-lg text-white/90 leading-relaxed mb-4">
+                Our most influential publications advancing computational epidemiology methods with significant real-world impact.
+              </p>
+              
+              <div className="flex flex-wrap gap-3">
+                <div className="bg-white/10 rounded-lg px-3 py-2 backdrop-blur-sm">
+                  <div className="text-white text-xl font-bold">300+</div>
+                  <div className="text-white/80 text-xs">Publications</div>
+                </div>
+                
+                <div className="bg-white/10 rounded-lg px-3 py-2 backdrop-blur-sm">
+                  <div className="text-white text-xl font-bold">12K+</div>
+                  <div className="text-white/80 text-xs">Citations</div>
+                </div>
+                
+                <div className="bg-white/10 rounded-lg px-3 py-2 backdrop-blur-sm">
+                  <div className="text-white text-xl font-bold">15+</div>
+                  <div className="text-white/80 text-xs">Policy Changes</div>
+                </div>
+              </div>
             </div>
             
-            <h1 className="text-4xl font-bold mb-3 leading-tight tracking-tight drop-shadow-sm">
-              <span className="relative inline-block">
-                Publications
-                <span className="absolute bottom-1 left-0 w-full h-1 bg-hopkins-gold/40 -z-10"></span>
-              </span>
-            </h1>
-            
-            <p className="text-lg text-white/90 leading-relaxed max-w-xl mb-0">
-              Our research has been published in leading peer-reviewed journals, 
-              providing valuable insights for public health policy and practice.
-            </p>
+            {/* Publication categories */}
+            <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm min-w-56">
+              <h3 className="text-white text-sm font-semibold mb-3">Research Areas</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-white/90 text-sm">HIV Modeling</span>
+                  <div className="w-24 h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full bg-hopkins-gold rounded-full" style={{width: '70%'}}></div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-white/90 text-sm">Public Health</span>
+                  <div className="w-24 h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full bg-hopkins-gold rounded-full" style={{width: '60%'}}></div>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-white/90 text-sm">Data Science</span>
+                  <div className="w-24 h-2 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full bg-hopkins-gold rounded-full" style={{width: '50%'}}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* Content section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-gray-600">Publications content will be added as the project develops.</p>
-          </div>
-        </div>
-      </section>
+      {/* Featured Publications */}
+      <ModernPublicationDisplay publications={publications} />
+      
+      {/* Recent Publications */}
+      <RecentPublicationsCarousel publications={publications} />
+      
+      {/* All Publications with Filters */}
+      <PublicationsList 
+        publications={publications} 
+        tags={publicationTags} 
+        years={publicationYears} 
+      />
     </MainLayout>
   );
 }
