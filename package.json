@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fetch-publications": "node scripts/fetch-publications.js",
+    "apply-publications": "node scripts/apply-publications.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

@@ -1,7 +1,6 @@
 import MainLayout from '@/components/layout/MainLayout';
-import ModernPublicationDisplay from '@/components/sections/publications/ModernPublicationDisplay';
 import FeaturedPublications from '@/components/sections/publications/FeaturedPublications'; // Import the updated component
-import RecentPublicationsCarousel from '@/components/sections/publications/RecentPublicationsCarousel';
+import RecentPublicationsHighlight from '@/components/sections/publications/RecentPublicationsHighlight';
 import PublicationsList from '@/components/sections/publications/PublicationsList';
 import { publications, publicationTags, publicationYears } from '@/data/publications';
 import './publications.css';
@@ -85,7 +84,7 @@ export default function PublicationsPage() {
       <FeaturedPublications publications={publications} /> {/* Use the updated component */}
 
       {/* Recent Publications */}
-      <RecentPublicationsCarousel publications={publications} />
+      <RecentPublicationsHighlight publications={publications} />
 
       {/* All Publications with Filters */}
       <PublicationsList

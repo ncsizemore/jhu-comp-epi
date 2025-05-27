@@ -1,4 +1,11 @@
 import MainLayout from '@/components/layout/MainLayout';
+import TeamSection from '@/components/sections/team/TeamSection';
+import ContactSection from '@/components/sections/team/ContactSection';
+import { 
+  teamCategories, 
+  contactInfo, 
+  getTeamMembersByCategory 
+} from '@/data/team';
 
 export const metadata = {
   title: 'Our Team | JHU Computational Epidemiology',
@@ -44,22 +51,58 @@ export default function TeamPage() {
               </span>
             </h1>
             
-            <p className="text-lg text-white/90 leading-relaxed max-w-xl mb-0">
+            <p className="text-lg text-white/90 leading-relaxed max-w-xl mb-6">
               The Computational Epidemiology Research Group brings together experts from 
               epidemiology, biostatistics, computer science, and clinical medicine.
             </p>
+
+            {/* Team Stats */}
+            <div className="flex flex-wrap gap-6">
+              <div className="bg-white/10 rounded-lg px-4 py-2 backdrop-blur-sm">
+                <div className="text-white text-xl font-bold">
+                  {getTeamMembersByCategory('faculty').length + getTeamMembersByCategory('postdoc').length}
+                </div>
+                <div className="text-white/80 text-xs">Faculty & Researchers</div>
+              </div>
+              
+              <div className="bg-white/10 rounded-lg px-4 py-2 backdrop-blur-sm">
+                <div className="text-white text-xl font-bold">
+                  {getTeamMembersByCategory('student').length}
+                </div>
+                <div className="text-white/80 text-xs">Graduate Students</div>
+              </div>
+
+              <div className="bg-white/10 rounded-lg px-4 py-2 backdrop-blur-sm">
+                <div className="text-white text-xl font-bold">
+                  {getTeamMembersByCategory('staff').length}
+                </div>
+                <div className="text-white/80 text-xs">Research Staff</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* Content section */}
+      {/* Team Sections */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-gray-600">Team member information will be added as the project develops.</p>
-          </div>
+          {teamCategories
+            .sort((a, b) => a.order - b.order)
+            .map((category) => {
+              const members = getTeamMembersByCategory(category.id);
+              return (
+                <TeamSection
+                  key={category.id}
+                  category={category}
+                  members={members}
+                />
+              );
+            })}
         </div>
       </section>
+
+      {/* Contact Section */}
+      <ContactSection contactInfo={contactInfo} />
     </MainLayout>
   );
 }

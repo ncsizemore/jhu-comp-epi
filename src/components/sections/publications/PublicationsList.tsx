@@ -68,7 +68,7 @@ export default function PublicationsList({ publications, tags, years }: Publicat
   });
 
   return (
-    <section className="py-12 bg-white">
+    <section id="all-publications" className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <div className="flex items-center mb-4">
