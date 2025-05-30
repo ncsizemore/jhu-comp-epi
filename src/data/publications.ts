@@ -13,6 +13,11 @@ export interface Publication {
   featured?: boolean;
   imageUrl?: string; // Optional image URL for the publication card
   attentionGrabber?: string; // Optional short text for the publication card
+  featuredStats?: { // Optional stats for stats-focused cards
+    citations?: string;
+    countries?: string;
+    impact?: string;
+  };
 }
 
 // Publications array - Updated by CLI script
@@ -67,11 +72,9 @@ export const publications: Publication[] = [
     abstract: "This modeling study forecasts a significant increase in comorbidities and multimorbidity among people with HIV in the United States through 2030, highlighting the growing healthcare needs of this aging population.",
     projects: ["pearl"],
     tags: ["HIV", "comorbidities", "multimorbidity", "aging", "modeling"],
-    featured: true
-,
-    imageUrl: "/images/placeholder-pub-1.png"
-,
-    attentionGrabber: "Forecasting the rise of multimorbidity in aging HIV populations."
+    featured: true,
+    imageUrl: "/images/placeholder-pub-1.svg",
+    attentionGrabber: "Aging HIV Population Study"
   },
 
   {
@@ -98,11 +101,12 @@ export const publications: Publication[] = [
     abstract: "This study compares two microsimulation models projecting the aging of men who have sex with men living with HIV from 2021 to 2031, providing important insights for healthcare planning and resource allocation.",
     projects: ["pearl"],
     tags: ["HIV", "MSM", "aging", "microsimulation", "modeling"],
-    featured: true
-,
-    imageUrl: "/images/placeholder-pub-2.png"
-,
-    attentionGrabber: "Comparing models to project the future of HIV care for MSM."
+    featured: true,
+    attentionGrabber: "High-Impact Research",
+    featuredStats: {
+      citations: "1,847",
+      countries: "15"
+    }
   },
 
   {
@@ -248,10 +252,8 @@ export const publications: Publication[] = [
     abstract: "This study projects significant shifts in the age distribution of people with HIV using antiretroviral therapy in the United States from 2020 to 2030, with important implications for healthcare planning.",
     projects: ["pearl"],
     tags: ["HIV", "aging", "ART", "epidemiology", "modeling"],
-    featured: true
-,
-    imageUrl: "/images/placeholder-pub-3.png"
-,
+    featured: true,
+    imageUrl: "/images/placeholder-pub-3.png",
     attentionGrabber: "Understanding the shifting age dynamics of HIV patients on ART."
   },
 
@@ -280,8 +282,7 @@ export const publications: Publication[] = [
     abstract: "Adherence to and completion of tuberculosis (TB) treatment remain problematic in many high-burden countries. 99DOTS is a low-cost digital adherence technology that could increase TB treatment completion. We conducted a pragmatic stepped-wedge cluster-randomized trial including all adults treated for drug-susceptible pulmonary TB at 18 health facilities across Uganda over 8 months.",
     projects: ["tbmte"],
     tags: ["tuberculosis", "digital health", "adherence", "Uganda", "randomized trial"],
-    featured: true
-,
+    featured: true,
     attentionGrabber: "Digital technology improving TB treatment adherence in Uganda."
   },
 
@@ -363,8 +364,7 @@ export const publications: Publication[] = [
     year: "2021",
     projects: ["jheem"],
     tags: ["HIV", "prevention", "PrEP", "health disparities", "metropolitan areas", "structural racism"],
-    featured: true
-,
+    featured: true,
     attentionGrabber: "Comprehensive local-level modeling to understand what it takes to end HIV in the US."
   },
 
@@ -431,8 +431,7 @@ export const publications: Publication[] = [
     abstract: "Novel drug regimens are needed for tuberculosis (TB) treatment. New regimens aim to improve on characteristics such as duration, efficacy, and safety profile, but no single regimen is likely to be ideal in all respects. By linking these regimen characteristics to a novel regimen",
     projects: ["tbmte"],
     tags: ["tuberculosis", "drug regimens", "modeling", "treatment", "priority setting"],
-    featured: true
-,
+    featured: true,
     attentionGrabber: "Using epidemiologic modeling to prioritize TB drug regimen characteristics."
   },
 

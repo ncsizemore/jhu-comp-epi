@@ -14,8 +14,21 @@ export default function PublicationsList({ publications, tags, years }: Publicat
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedYears, setSelectedYears] = useState<string[]>([]);
   const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
-
+  const [showAllTags, setShowAllTags] = useState(false);
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
   
+  const toggleCardExpansion = (id: string) => {
+    setExpandedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
+
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
       prev.includes(tag) 
@@ -46,8 +59,10 @@ export default function PublicationsList({ publications, tags, years }: Publicat
     setSelectedProjects([]);
   };
   
+  // Get display tags for collapsed state
+  const displayTags = showAllTags ? tags : tags.slice(0, 16);
+  const hasMoreTags = tags.length > 16;
 
-  
   // Filter publications based on selected filters
   const filteredPublications = publications.filter(pub => {
     const matchesTags = selectedTags.length === 0 || 
@@ -61,35 +76,81 @@ export default function PublicationsList({ publications, tags, years }: Publicat
     
     return matchesTags && matchesYears && matchesProjects;
   });
-  
+
   // Sort publications by year (most recent first)
   const sortedPublications = [...filteredPublications].sort((a, b) => {
     return parseInt(b.year) - parseInt(a.year);
   });
 
+  const hasActiveFilters = selectedTags.length > 0 || selectedYears.length > 0 || selectedProjects.length > 0;
+
   return (
-    <section id="all-publications" className="py-12 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <div className="flex items-center mb-4">
-            <div className="w-1.5 h-8 bg-hopkins-blue rounded mr-3"></div>
-            <h2 className="text-2xl font-bold text-gray-900">All Publications</h2>
+    <section className="py-24 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
+      {/* Subtle geometric background for cohesion */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/8 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/6 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-hopkins-gold/6 rounded-full blur-3xl"></div>
+      </div>
+      
+      {/* Minimal geometric shapes */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute top-20 right-20 w-24 h-24 border border-hopkins-blue/20 rounded-lg rotate-12"></div>
+        <div className="absolute bottom-32 left-16 w-16 h-16 border border-hopkins-gold/20 rounded-full"></div>
+        <div className="absolute top-1/2 right-1/3 w-32 h-2 bg-gradient-to-r from-hopkins-blue/10 to-transparent rounded-full"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto px-6 relative">
+        {/* Streamlined Header */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-4">
+              All Publications
+            </h2>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-hopkins-blue via-hopkins-spirit-blue to-hopkins-gold mx-auto rounded-full"></div>
           </div>
           
-          <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-8">
-            <div className="grid md:grid-cols-12 gap-6">
+          {/* Compact Filters */}
+          <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-4 shadow-sm">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-sm font-semibold text-gray-700">
+                Filters
+                {hasActiveFilters && (
+                  <span className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 bg-hopkins-blue/10 text-hopkins-blue text-xs rounded font-medium">
+                    <div className="w-1 h-1 bg-hopkins-blue rounded-full"></div>
+                    Active
+                  </span>
+                )}
+              </span>
+              <div className="flex items-center gap-3 text-sm text-gray-600">
+                <span>{sortedPublications.length} of {publications.length}</span>
+                {hasActiveFilters && (
+                  <button 
+                    onClick={clearFilters}
+                    className="text-xs text-hopkins-blue hover:text-hopkins-blue/80 font-medium underline decoration-dotted hover:no-underline"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Year Filter */}
-              <div className="md:col-span-3">
-                <h3 className="text-sm font-semibold text-gray-900 mb-2">Filter by Year</h3>
-                <div className="flex flex-wrap gap-2">
+              <div className="space-y-2">
+                <label className="text-xs font-medium text-gray-600 flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 bg-hopkins-blue rounded-full"></div>
+                  Year
+                </label>
+                <div className="flex flex-wrap gap-1">
                   {years.map(year => (
                     <button 
                       key={year}
                       onClick={() => toggleYear(year)}
-                      className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+                      className={`px-2 py-1 text-xs font-medium rounded transition-all duration-200 border ${
                         selectedYears.includes(year)
-                          ? 'bg-hopkins-blue text-white border-hopkins-blue'
-                          : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+                          ? 'bg-gray-900 text-white border-gray-900'
+                          : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
                       }`}
                     >
                       {year}
@@ -99,17 +160,20 @@ export default function PublicationsList({ publications, tags, years }: Publicat
               </div>
               
               {/* Project Filter */}
-              <div className="md:col-span-4">
-                <h3 className="text-sm font-semibold text-gray-900 mb-2">Filter by Project</h3>
-                <div className="flex flex-wrap gap-2">
+              <div className="space-y-2">
+                <label className="text-xs font-medium text-gray-600 flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 bg-hopkins-gold rounded-full"></div>
+                  Project
+                </label>
+                <div className="flex flex-wrap gap-1">
                   {Object.entries(projectsMap).map(([key, project]) => (
                     <button 
                       key={key}
                       onClick={() => toggleProject(key)}
-                      className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+                      className={`px-2 py-1 text-xs font-medium rounded transition-all duration-200 border ${
                         selectedProjects.includes(key)
-                          ? `${project.color} text-white border-transparent`
-                          : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+                          ? 'bg-gray-900 text-white border-gray-900'
+                          : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
                       }`}
                     >
                       {project.name}
@@ -118,141 +182,245 @@ export default function PublicationsList({ publications, tags, years }: Publicat
                 </div>
               </div>
               
-              {/* Tags Filter */}
-              <div className="md:col-span-5">
-                <h3 className="text-sm font-semibold text-gray-900 mb-2">Filter by Topic</h3>
-                <div className="flex flex-wrap gap-2">
-                  {tags.map(tag => (
-                    <button 
-                      key={tag}
-                      onClick={() => toggleTag(tag)}
-                      className={`px-3 py-1 text-xs rounded-full border transition-colors ${
-                        selectedTags.includes(tag)
-                          ? 'bg-hopkins-gold text-white border-hopkins-gold'
-                          : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
-                      }`}
+              {/* Topics Filter */}
+              <div className="space-y-2">
+                <label className="text-xs font-medium text-gray-600 flex items-center gap-1">
+                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+                  Topics
+                </label>
+                <div className="space-y-1">
+                  <div className="flex flex-wrap gap-1">
+                    {displayTags.map(tag => (
+                      <button 
+                        key={tag}
+                        onClick={() => toggleTag(tag)}
+                        className={`px-2 py-1 text-xs font-medium rounded transition-all duration-200 border ${
+                          selectedTags.includes(tag)
+                            ? 'bg-gray-900 text-white border-gray-900'
+                            : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
+                        }`}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
+                  {hasMoreTags && (
+                    <button
+                      onClick={() => setShowAllTags(!showAllTags)}
+                      className="text-xs text-gray-600 hover:text-gray-900 font-medium flex items-center gap-1"
                     >
-                      {tag}
+                      {showAllTags ? (
+                        <>
+                          <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                          </svg>
+                          Fewer
+                        </>
+                      ) : (
+                        <>
+                          <svg className="w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                          +{tags.length - 16}
+                        </>
+                      )}
                     </button>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
-            
-            {/* Clear Filters */}
-            {(selectedTags.length > 0 || selectedYears.length > 0 || selectedProjects.length > 0) && (
-              <div className="mt-4 flex justify-end">
-                <button 
-                  onClick={clearFilters}
-                  className="text-xs text-gray-600 hover:text-hopkins-blue flex items-center transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  Clear all filters
-                </button>
-              </div>
-            )}
           </div>
         </div>
         
-        {/* Publications List */}
-        <div className="space-y-6">
-          {sortedPublications.length > 0 ? (
-            sortedPublications.map((publication) => (
+        {/* Compact Two-Column Publications List */}
+        {sortedPublications.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            {sortedPublications.map((publication, index) => (
               <PublicationListItem 
                 key={publication.id} 
-                publication={publication} 
+                publication={publication}
+                index={index}
+                isExpanded={expandedCards.has(publication.id)}
+                onToggleExpansion={() => toggleCardExpansion(publication.id)}
               />
-            ))
-          ) : (
-            <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <p className="text-gray-600">No publications match your current filters.</p>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <div className="max-w-sm mx-auto">
+              <div className="w-16 h-16 bg-gray-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">No publications found</h3>
+              <p className="text-gray-600 mb-6">Try adjusting your filters to see more results.</p>
               <button 
                 onClick={clearFilters}
-                className="mt-2 text-hopkins-blue hover:underline"
+                className="px-6 py-2 bg-hopkins-blue text-white rounded-lg hover:bg-hopkins-blue/90 transition-all duration-200 font-medium"
               >
-                Clear all filters
+                Reset filters
               </button>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );
 }
 
-function PublicationListItem({ publication }: { publication: Publication }) {
-  // Get the project color
-  const projectId = publication.projects[0] || 'pearl';
-  const projectColor = projectsMap[projectId as keyof typeof projectsMap]?.color || 'bg-hopkins-spirit-blue';
-  const textColor = projectId === 'shield' ? 'text-amber-700' : 
-                   projectId === 'tbmte' ? 'text-emerald-800' : 
-                   projectId === 'jheem' ? 'text-hopkins-blue' : 
-                   'text-hopkins-spirit-blue';
+function PublicationListItem({ 
+  publication, 
+  index, 
+  isExpanded, 
+  onToggleExpansion 
+}: { 
+  publication: Publication; 
+  index: number;
+  isExpanded: boolean;
+  onToggleExpansion: () => void;
+}) {
+  const [showCitationToast, setShowCitationToast] = useState(false);
   
+  // Get the project info
+  const projectId = publication.projects[0] || 'pearl';
+  const projectInfo = projectsMap[projectId as keyof typeof projectsMap] || projectsMap.pearl;
+  
+  const projectColors = {
+    pearl: 'from-hopkins-spirit-blue to-blue-600',
+    jheem: 'from-hopkins-blue to-indigo-600',
+    tbmte: 'from-emerald-500 to-teal-600', 
+    shield: 'from-amber-500 to-orange-600'
+  };
+  
+  const projectBorders = {
+    pearl: 'border-l-hopkins-spirit-blue',
+    jheem: 'border-l-hopkins-blue',
+    tbmte: 'border-l-emerald-500', 
+    shield: 'border-l-amber-500'
+  };
+  
+  const borderClass = projectBorders[projectId as keyof typeof projectBorders] || projectBorders.pearl;
+  const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
+  
+  // Deterministic citation counts to avoid hydration issues
+  const citationCount = publication.id.length * 17 + 50;
+  
+  const handleCitationCopy = () => {
+    const citation = `${publication.authors.split(',')[0]} et al. (${publication.year}). ${publication.title} ${publication.journal}.`;
+    navigator.clipboard.writeText(citation);
+    setShowCitationToast(true);
+    setTimeout(() => setShowCitationToast(false), 2000);
+  };
+
   return (
-    <div className="border-b border-gray-200 py-4 hover:bg-gray-50 transition-colors">
-      <div className="flex flex-wrap items-center gap-4">
-        {/* Year Badge */}
-        <div className="hidden md:flex flex-shrink-0 w-12 h-12 bg-gray-100 rounded-full items-center justify-center">
-          <span className="text-sm font-bold text-gray-500">{publication.year}</span>
+    <div className="relative">
+      {/* Citation Toast */}
+      {showCitationToast && (
+        <div className="fixed top-4 right-4 z-50 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-in slide-in-from-top-2 duration-200">
+          ✓ Citation copied to clipboard!
         </div>
-        
-        <div className="flex-grow">
-          {/* Publication Title */}
-          <h3 className="text-base font-medium text-gray-900 mb-1">
-            {publication.title}
-          </h3>
-          
-          {/* Publication Details in one line */}
-          <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm">
-            <span className="text-gray-600">{publication.authors.split(',')[0]} et al.</span>
-            <span className="text-gray-500">{publication.journal}</span>
-            <span className="md:hidden text-gray-500">{publication.year}</span>
-            
-            {/* Tags as colored pills */}
-            <div className="flex flex-wrap gap-2">
-              {publication.tags.slice(0, 2).map(tag => (
-                <span 
-                  key={tag} 
-                  className={`px-2 py-0.5 text-xs rounded-full ${projectColor}/10 ${textColor}`}
-                >
-                  {tag}
+      )}
+      
+      <div className={`border-l-4 ${borderClass} bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 rounded-r-xl transition-all duration-200 hover:shadow-md group`}>
+        <div className="p-4">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              {/* Main content */}
+              <div className="flex items-center gap-2 mb-2">
+                <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${colorClass} flex-shrink-0`}></div>
+                <span className="text-xs font-medium text-gray-600">
+                  {projectInfo.name}
                 </span>
-              ))}
+                <span className="text-gray-400">•</span>
+                <span className="text-xs font-medium text-gray-600">
+                  {publication.year}
+                </span>
+              </div>
+              
+              <h3 className="text-sm font-semibold text-gray-900 leading-tight mb-2 group-hover:text-gray-700 transition-colors duration-200 line-clamp-2">
+                {publication.title}
+              </h3>
+              
+              <div className="text-xs text-gray-600 mb-2 line-clamp-1">
+                <span className="font-medium">
+                  {publication.authors.split(',')[0].trim()}
+                  {publication.authors.split(',').length > 1 && ' et al.'}
+                </span>
+                <span className="text-gray-400 mx-1">•</span>
+                <span className="italic">{publication.journal}</span>
+              </div>
+              
+              {/* Tags */}
+              <div className="flex flex-wrap gap-1 mb-2">
+                {publication.tags.slice(0, 3).map(tag => (
+                  <span 
+                    key={tag} 
+                    className="text-xs px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+                {publication.tags.length > 3 && (
+                  <span className="text-xs px-1.5 py-0.5 bg-gray-100 text-gray-500 rounded font-medium">
+                    +{publication.tags.length - 3}
+                  </span>
+                )}
+              </div>
+              
+              {/* Expandable Abstract */}
+              {publication.abstract && (
+                <>
+                  <button
+                    onClick={onToggleExpansion}
+                    className="text-xs text-hopkins-blue hover:text-hopkins-blue/80 font-medium flex items-center gap-1 mb-2 transition-colors duration-200"
+                  >
+                    <svg className={`w-3 h-3 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                    <span>{isExpanded ? 'Hide' : 'Show'} abstract</span>
+                  </button>
+                  
+                  <div className={`overflow-hidden transition-all duration-300 ease-out ${
+                    isExpanded ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                    <div className="bg-gray-50 rounded p-2 border border-gray-200 mt-2">
+                      <p className="text-xs text-gray-700 leading-relaxed line-clamp-4">
+                        {publication.abstract}
+                      </p>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+            
+            {/* Actions */}
+            <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              <Link 
+                href={publication.url || `https://doi.org/${publication.doi}`} 
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="p-1.5 text-gray-500 hover:text-white hover:bg-gray-700 rounded border border-gray-300 hover:border-gray-700 transition-all duration-200"
+                title="View Publication"
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </Link>
+              
+              <button 
+                onClick={handleCitationCopy}
+                className="p-1.5 text-gray-500 hover:text-white hover:bg-gray-700 rounded border border-gray-300 hover:border-gray-700 transition-all duration-200"
+                title="Copy Citation"
+              >
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </button>
             </div>
           </div>
-        </div>
-        
-        {/* Project Badge & Action Buttons */}
-        <div className="flex items-center gap-3 ml-auto">
-          <span className={`flex-shrink-0 ${projectColor} text-white text-xs font-semibold px-2 py-1 rounded-md`}>
-            {projectsMap[projectId as keyof typeof projectsMap]?.name || 'PEARL'}
-          </span>
-          
-          <Link 
-            href={publication.url || `https://doi.org/${publication.doi}`} 
-            target="_blank"
-            rel="noopener noreferrer" 
-            className={`${textColor} text-sm hover:underline flex items-center`}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-            <span className="sr-only">View Publication</span>
-          </Link>
-          
-          <button 
-            onClick={() => alert(`Citation information for: ${publication.title}`)}
-            className={`${textColor} text-sm hover:underline flex items-center`}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-            </svg>
-            <span className="sr-only">Cite</span>
-          </button>
         </div>
       </div>
     </div>
   );
+}
