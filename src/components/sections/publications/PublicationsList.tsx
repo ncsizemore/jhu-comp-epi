@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Publication, projectsMap } from '@/data/publications';
 
@@ -59,45 +59,44 @@ export default function PublicationsList({ publications, tags, years }: Publicat
     setSelectedProjects([]);
   };
   
-  // Get display tags for collapsed state
-  const displayTags = showAllTags ? tags : tags.slice(0, 16);
-  const hasMoreTags = tags.length > 16;
+  // Memoize expensive filtering and sorting operations
+  const { filteredPublications, sortedPublications } = useMemo(() => {
+    const filtered = publications.filter(pub => {
+      const matchesTags = selectedTags.length === 0 || 
+        selectedTags.some(tag => pub.tags.includes(tag));
+      
+      const matchesYears = selectedYears.length === 0 || 
+        selectedYears.includes(pub.year);
+      
+      const matchesProjects = selectedProjects.length === 0 || 
+        selectedProjects.some(project => pub.projects.includes(project));
+      
+      return matchesTags && matchesYears && matchesProjects;
+    });
 
-  // Filter publications based on selected filters
-  const filteredPublications = publications.filter(pub => {
-    const matchesTags = selectedTags.length === 0 || 
-      selectedTags.some(tag => pub.tags.includes(tag));
-    
-    const matchesYears = selectedYears.length === 0 || 
-      selectedYears.includes(pub.year);
-    
-    const matchesProjects = selectedProjects.length === 0 || 
-      selectedProjects.some(project => pub.projects.includes(project));
-    
-    return matchesTags && matchesYears && matchesProjects;
-  });
+    const sorted = [...filtered].sort((a, b) => {
+      return parseInt(b.year) - parseInt(a.year);
+    });
 
-  // Sort publications by year (most recent first)
-  const sortedPublications = [...filteredPublications].sort((a, b) => {
-    return parseInt(b.year) - parseInt(a.year);
-  });
+    return { filteredPublications: filtered, sortedPublications: sorted };
+  }, [publications, selectedTags, selectedYears, selectedProjects]);
+
+  // Get display tags for collapsed state - memoize this too
+  const { displayTags, hasMoreTags } = useMemo(() => {
+    const display = showAllTags ? tags : tags.slice(0, 16);
+    const hasMore = tags.length > 16;
+    return { displayTags: display, hasMoreTags: hasMore };
+  }, [tags, showAllTags]);
 
   const hasActiveFilters = selectedTags.length > 0 || selectedYears.length > 0 || selectedProjects.length > 0;
 
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
-      {/* Subtle geometric background for cohesion */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/8 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/6 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-hopkins-gold/6 rounded-full blur-3xl"></div>
-      </div>
-      
-      {/* Minimal geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute top-20 right-20 w-24 h-24 border border-hopkins-blue/20 rounded-lg rotate-12"></div>
-        <div className="absolute bottom-32 left-16 w-16 h-16 border border-hopkins-gold/20 rounded-full"></div>
-        <div className="absolute top-1/2 right-1/3 w-32 h-2 bg-gradient-to-r from-hopkins-blue/10 to-transparent rounded-full"></div>
+      {/* Optimized background for cohesion */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/6 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/4 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-hopkins-gold/4 rounded-full blur-3xl"></div>
       </div>
       
       <div className="max-w-6xl mx-auto px-6 relative">
@@ -302,9 +301,6 @@ function PublicationListItem({
   
   const borderClass = projectBorders[projectId as keyof typeof projectBorders] || projectBorders.pearl;
   const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
-  
-  // Deterministic citation counts to avoid hydration issues
-  const citationCount = publication.id.length * 17 + 50;
   
   const handleCitationCopy = () => {
     const citation = `${publication.authors.split(',')[0]} et al. (${publication.year}). ${publication.title} ${publication.journal}.`;
