@@ -141,8 +141,8 @@ function ResearchAtScaleSection() {
           {/* Compact Header with Scale Stats */}
           <div className="p-8 pb-6">
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-black text-gray-900 tracking-tight mb-3">
-                Computational Models at <span className="text-hopkins-blue">Global Scale</span>
+              <h3 className="text-2xl font-bold text-gray-900 tracking-tight mb-3">
+                Geographic Coverage & Research Network
               </h3>
               <p className="text-gray-600 font-medium max-w-2xl mx-auto">
                 Our mathematical frameworks operate across vast geographic networks,
