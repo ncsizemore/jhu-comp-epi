@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
@@ -70,6 +70,12 @@ function EnhancedHeroSection() {
 // Geographic Impact & Research Scale Section
 function ResearchAtScaleSection() {
   const [hoveredCity, setHoveredCity] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // US TopoJSON file URL (free from react-simple-maps)
   const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
@@ -129,96 +135,99 @@ function ResearchAtScaleSection() {
           </p>
         </div>
 
-        {/* Geographic Impact Visualization */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-28 h-28 bg-gradient-to-br from-hopkins-blue to-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg transform rotate-2">
-                <div className="text-2xl font-black text-white">32</div>
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-hopkins-gold rounded-full"></div>
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">US Cities</h3>
-            <p className="text-gray-600 text-sm">JHEEM & SHIELD models covering high-burden metropolitan areas</p>
-          </div>
+        {/* SCALE-FOCUSED: Map as Hero for Geographic Reach */}
+        <div className="bg-gradient-to-br from-white/95 via-white/98 to-gray-50/95 backdrop-blur-xl border border-gray-200/60 rounded-3xl overflow-hidden shadow-2xl shadow-gray-900/10">
 
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-28 h-28 bg-gradient-to-br from-hopkins-spirit-blue to-blue-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg transform -rotate-1">
-                <div className="text-2xl font-black text-white">200+</div>
-              </div>
-              <div className="absolute -top-1 -left-1 w-4 h-4 bg-emerald-400 rounded-full"></div>
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Clinical Sites</h3>
-            <p className="text-gray-600 text-sm">PEARL project spanning North American AIDS Cohort Collaboration</p>
-          </div>
-
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-28 h-28 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg transform rotate-1">
-                <div className="text-2xl font-black text-white">12+</div>
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-amber-400 rounded-full"></div>
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Countries</h3>
-            <p className="text-gray-600 text-sm">TBMTE global tuberculosis elimination modeling</p>
-          </div>
-
-          <div className="text-center">
-            <div className="relative mb-6">
-              <div className="w-28 h-28 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg transform -rotate-2">
-                <div className="text-lg font-black text-white">190K+</div>
-              </div>
-              <div className="absolute -top-1 -left-1 w-4 h-4 bg-hopkins-blue rounded-full"></div>
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Participants</h3>
-            <p className="text-gray-600 text-sm">Research cohort spanning multiple studies and datasets</p>
-          </div>
-        </div>
-
-        {/* Research Integration */}
-        <div className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8 shadow-lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Integrated Research Portfolio
+          {/* Compact Header with Scale Stats */}
+          <div className="p-8 pb-6">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-black text-gray-900 tracking-tight mb-3">
+                Computational Models at <span className="text-hopkins-blue">Global Scale</span>
               </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Four specialized modeling frameworks address distinct but interconnected epidemiological challenges. 
-                From local HIV dynamics to global TB elimination, our models translate complex data into actionable policy insights.
+              <p className="text-gray-600 font-medium max-w-2xl mx-auto">
+                Our mathematical frameworks operate across vast geographic networks,
+                from metropolitan areas to international health systems.
               </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-hopkins-blue rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">HIV transmission & prevention (JHEEM)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">HIV-syphilis co-infections (SHIELD)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-hopkins-spirit-blue rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">Aging HIV populations (PEARL)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-700">Global tuberculosis elimination (TBMTE)</span>
-                </div>
-              </div>
             </div>
 
-            {/* Real US Map with react-simple-maps */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-xl p-4 h-96 relative overflow-hidden border border-gray-200/50 shadow-sm">
-                
-                {/* Hover tooltip */}
-                {hoveredCity && (
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-gray-200 z-10">
-                    <p className="font-medium text-gray-900 text-sm">{hoveredCity}</p>
-                  </div>
-                )}
+            {/* Scale Stats Row */}
+            <div className="grid grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-hopkins-blue to-indigo-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-xl font-black text-white">32</div>
+                </div>
+                <h4 className="font-black text-gray-900 text-sm tracking-tight">US Cities</h4>
+                <p className="text-xs text-gray-600 font-medium">Metropolitan Areas</p>
+              </div>
 
-                {/* Actual US Map */}
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-hopkins-spirit-blue to-cyan-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-base font-black text-white">200+</div>
+                </div>
+                <h4 className="font-black text-gray-900 text-sm tracking-tight">Clinical Sites</h4>
+                <p className="text-xs text-gray-600 font-medium">Research Network</p>
+              </div>
+
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-xl font-black text-white">12+</div>
+                </div>
+                <h4 className="font-black text-gray-900 text-sm tracking-tight">Countries</h4>
+                <p className="text-xs text-gray-600 font-medium">Global Reach</p>
+              </div>
+
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-base font-black text-white">190K+</div>
+                </div>
+                <h4 className="font-black text-gray-900 text-sm tracking-tight">Participants</h4>
+                <p className="text-xs text-gray-600 font-medium">Research Cohort</p>
+              </div>
+            </div>
+          </div>
+
+
+
+          {/* Hero Map - Optimized Aspect Ratio */}
+          <div className="relative">
+            <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black h-[400px] relative overflow-hidden">
+              
+              {/* Sophisticated background pattern */}
+              <div className="absolute inset-0 opacity-25 pointer-events-none">
+                <div className="absolute top-12 right-12 w-40 h-40 bg-gradient-to-br from-hopkins-blue/40 to-indigo-600/30 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-12 left-12 w-32 h-32 bg-gradient-to-br from-hopkins-gold/40 to-amber-500/30 rounded-full blur-2xl"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-emerald-500/30 to-teal-600/20 rounded-full blur-xl"></div>
+              </div>
+
+              {/* Premium hover tooltip */}
+              {hoveredCity && (
+                <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-xl rounded-xl p-4 shadow-2xl border border-white/20 z-10">
+                  <p className="font-black text-gray-900 text-lg tracking-tight">{hoveredCity}</p>
+                  <p className="text-gray-600 text-sm font-medium">JHEEM/SHIELD Coverage</p>
+                </div>
+              )}
+
+              {/* Scale messaging overlay */}
+              <div className="absolute top-6 left-6 z-10">
+                <div className="bg-black/40 backdrop-blur-xl rounded-xl p-4 border border-white/10">
+                  <h3 className="text-white font-black text-xl tracking-tight mb-1">US Research Network</h3>
+                  <p className="text-gray-200 text-sm font-medium">32 High-Burden Metropolitan Areas</p>
+                </div>
+              </div>
+
+              {/* Scale indicator */}
+              <div className="absolute bottom-6 left-6 z-10">
+                <div className="bg-black/40 backdrop-blur-xl rounded-xl p-4 border border-white/10">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-3 h-3 bg-hopkins-blue rounded-full"></div>
+                    <span className="text-sm font-medium">Active Model Coverage</span>
+                  </div>
+                  <p className="text-gray-300 text-xs mt-1">JHEEM & SHIELD Frameworks</p>
+                </div>
+              </div>
+
+              {/* Optimized Map */}
+              {isMounted && (
                 <ComposableMap
                   projection="geoAlbersUsa"
                   className="w-full h-full"
@@ -230,51 +239,89 @@ function ResearchAtScaleSection() {
                         <Geography
                           key={geo.rsmKey}
                           geography={geo}
-                          fill="#f8fafc"
-                          stroke="#e2e8f0"
-                          strokeWidth={0.75}
+                          fill="#1e293b"
+                          stroke="#374151"
+                          strokeWidth={1}
                           style={{
                             default: { outline: "none" },
-                            hover: { outline: "none", fill: "#f1f5f9" },
+                            hover: { outline: "none", fill: "#334155" },
                             pressed: { outline: "none" },
                           }}
                         />
                       ))
                     }
                   </Geographies>
-                  
-                  {/* City markers */}
+
+                  {/* Scale-focused city markers */}
                   {cities.map((city, index) => (
                     <Marker
-                      key={index}
+                      key={`${city.name}-${index}`}
                       coordinates={city.coordinates}
                       onMouseEnter={() => setHoveredCity(city.name)}
                       onMouseLeave={() => setHoveredCity(null)}
                     >
                       <circle
-                        r={hoveredCity === city.name ? 8 : 5}
-                        fill="#1d4ed8"
+                        r={hoveredCity === city.name ? 12 : 7}
+                        fill={hoveredCity === city.name ? "#3b82f6" : "#1d4ed8"}
                         stroke="#ffffff"
-                        strokeWidth={2}
-                        opacity={0.95}
-                        className="cursor-pointer transition-all duration-200 drop-shadow-sm"
+                        strokeWidth={hoveredCity === city.name ? 3 : 2}
+                        opacity={1}
+                        className="cursor-pointer transition-all duration-400"
                         style={{
-                          filter: hoveredCity === city.name ? 'drop-shadow(0 4px 8px rgba(29, 78, 216, 0.4))' : 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
+                          filter: hoveredCity === city.name
+                            ? 'drop-shadow(0 0 16px rgba(59, 130, 246, 0.9)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))'
+                            : 'drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3))'
                         }}
                       />
+                      {/* Scale emphasis pulse */}
+                      {hoveredCity === city.name && (
+                        <circle
+                          r={20}
+                          fill="none"
+                          stroke="#3b82f6"
+                          strokeWidth={2}
+                          opacity={0.5}
+                          style={{ pointerEvents: 'none' }}
+                          className="animate-ping"
+                        />
+                      )}
                     </Marker>
                   ))}
                 </ComposableMap>
-              </div>
-              
-              {/* Map Legend - moved below the map */}
-              <div className="mt-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-gray-200/50">
-                <h4 className="font-bold text-gray-900 mb-2 text-center">JHEEM & SHIELD Cities</h4>
-                <div className="flex items-center justify-center gap-2 text-sm mb-1">
-                  <div className="w-3 h-3 bg-blue-700 rounded-full border border-white"></div>
-                  <span className="text-gray-700">32 High-Burden Metropolitan Areas</span>
+              )}
+            </div>
+          </div>
+
+          {/* Bottom: Scale Impact Summary */}
+          <div className="p-8 pt-6 bg-gradient-to-r from-gray-50/80 to-white/80">
+            <div className="max-w-4xl mx-auto text-center">
+              <h3 className="text-xl font-black text-gray-900 tracking-tight mb-3">
+                Mathematical Models with Real-World Reach
+              </h3>
+              <p className="text-gray-600 font-medium mb-6 leading-relaxed">
+                From HIV prevention in San Francisco to tuberculosis elimination globally,
+                our computational frameworks translate complex epidemiological data into actionable insights at unprecedented scale.
+              </p>
+
+              <div className="grid grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-br from-hopkins-blue to-indigo-600 bg-clip-text text-transparent mb-1">
+                    Multi-City
+                  </div>
+                  <p className="text-sm text-gray-600 font-medium">Local calibration across diverse metropolitan areas</p>
                 </div>
-                <p className="text-xs text-gray-600 text-center">Hover over cities for details</p>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-br from-emerald-500 to-teal-600 bg-clip-text text-transparent mb-1">
+                    Cross-Border
+                  </div>
+                  <p className="text-sm text-gray-600 font-medium">International collaboration and data integration</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-black bg-gradient-to-br from-amber-500 to-orange-600 bg-clip-text text-transparent mb-1">
+                    Population-Scale
+                  </div>
+                  <p className="text-sm text-gray-600 font-medium">Cohorts spanning hundreds of thousands of participants</p>
+                </div>
               </div>
             </div>
           </div>
@@ -310,7 +357,7 @@ function ActiveResearchSection() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">HIV-STI Co-epidemic Dynamics</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    With syphilis rates doubling in five years and 25-50% of infections among people with HIV, 
+                    With syphilis rates doubling in five years and 25-50% of infections among people with HIV,
                     our SHIELD framework models intervention strategies across 32 high-burden cities.
                   </p>
                 </div>
@@ -323,7 +370,7 @@ function ActiveResearchSection() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Aging HIV Populations</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    As life expectancy approaches general population levels, PEARL models emerging multimorbidity patterns 
+                    As life expectancy approaches general population levels, PEARL models emerging multimorbidity patterns
                     across 200+ clinical sites and 190,000+ participants.
                   </p>
                 </div>
@@ -336,7 +383,7 @@ function ActiveResearchSection() {
                 <div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">Global TB Elimination</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    TBMTE frameworks translate mathematical modeling into policy decisions, 
+                    TBMTE frameworks translate mathematical modeling into policy decisions,
                     supporting the global community's mission to eliminate tuberculosis as a public health threat.
                   </p>
                 </div>
@@ -348,11 +395,11 @@ function ActiveResearchSection() {
             <div className="text-center mb-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Research Philosophy</h3>
               <p className="text-gray-600 leading-relaxed">
-                "Mathematical models provide a bridge between complex epidemiological data and actionable public health decisions. 
+                "Mathematical models provide a bridge between complex epidemiological data and actionable public health decisions.
                 Our work demonstrates that rigorous computational science can directly prevent disease transmission and save lives."
               </p>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="text-center">
                 <div className="text-2xl font-black text-hopkins-blue mb-1">180</div>
@@ -419,17 +466,17 @@ function ResearchImpactSection() {
                 <div className="w-3 h-3 bg-hopkins-blue rounded-full"></div>
                 <span className="text-sm font-bold text-gray-700 uppercase tracking-wider">Featured Study</span>
               </div>
-              
+
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Ryan White HIV/AIDS Program Evaluation
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed mb-6">
-                Our JHEEM model, informed by surveys of 180 clinic directors across 31 US cities, 
-                projected that ending Ryan White services could increase HIV infections by 49% over five years. 
+                Our JHEEM model, informed by surveys of 180 clinic directors across 31 US cities,
+                projected that ending Ryan White services could increase HIV infections by 49% over five years.
                 This research provides critical evidence for policy decisions about essential HIV care programs.
               </p>
-              
+
               <div className="flex flex-wrap gap-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-hopkins-blue/10 rounded-lg">
                   <span className="text-sm font-medium text-gray-700">Survey + Modeling Integration</span>
