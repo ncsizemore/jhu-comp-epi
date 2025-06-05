@@ -30,7 +30,7 @@ function EnhancedHeroSection() {
           </h1>
 
           <p className="text-xl font-medium text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Advanced mathematical models informing evidence-based policy research across 200+ sites and 12+ countries worldwide
+            Advanced mathematical models informing evidence-based policy research across 200+ sites nationwide
           </p>
 
           <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -85,6 +85,19 @@ function ActiveResearchSection() {
           <div>
             <div className="space-y-8">
               <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-hopkins-blue to-blue-800 rounded-xl flex-shrink-0 flex items-center justify-center">
+                  <div className="w-6 h-6 bg-white rounded-full"></div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">HIV Transmission & Prevention</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Our JHEEM framework simulates HIV transmission dynamics across diverse populations and geographic scales,
+                    evaluating prevention strategies from PrEP to treatment interventions across 32 metropolitan areas.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex-shrink-0 flex items-center justify-center">
                   <div className="w-6 h-6 bg-white rounded-full"></div>
                 </div>
@@ -106,19 +119,6 @@ function ActiveResearchSection() {
                   <p className="text-gray-600 text-sm leading-relaxed">
                     As life expectancy approaches general population levels, PEARL models emerging multimorbidity patterns
                     across 200+ clinical sites and 190,000+ participants.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex-shrink-0 flex items-center justify-center">
-                  <div className="w-6 h-6 bg-white rounded-full"></div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">Global TB Elimination</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    TBMTE frameworks translate mathematical modeling into policy decisions,
-                    supporting the global community&apos;s mission to eliminate tuberculosis as a public health threat.
                   </p>
                 </div>
               </div>

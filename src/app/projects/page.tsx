@@ -3,18 +3,18 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Our Projects | JHU Computational Epidemiology',
-  description: 'Four specialized computational frameworks addressing HIV/STI co-infections, aging population health, global TB elimination, and epidemic modeling through dynamic mathematical models and agent-based simulations.',
+  description: 'Three specialized computational frameworks addressing HIV/STI co-infections, aging population health, and epidemic modeling through dynamic mathematical models and agent-based simulations.',
 };
 
 export default function ProjectsPage() {
   const projectDetails = {
     jheem: {
-      title: 'Johns Hopkins HIV Epidemiological & Economic Model',
+      title: 'Johns Hopkins Epidemiological & Economic Model',
       description: 'Dynamic, compartmental model calibrated to 32 US cities for the Ending the HIV Epidemic Initiative. Simulates HIV transmission across 945 compartments stratified by age, race, sex, sexual behavior, and drug use to project intervention effects on future transmission.',
       challenge: 'Ending the HIV Epidemic in the US',
       scope: '32 EtE cities, 945 compartments',
       highlights: 'Real-time intervention modeling • Testing, PrEP & viral suppression • Demographic targeting',
-      url: '#', // Will be updated when JHEEM site is ready
+      url: 'https://jheem.shinyapps.io/ryan-white/', // JHEEM interactive app
       gradient: 'from-hopkins-blue to-indigo-800',
       accent: 'from-hopkins-blue to-indigo-600'
     },
@@ -37,16 +37,6 @@ export default function ProjectsPage() {
       url: 'https://pearlhivmodel.org/',
       gradient: 'from-hopkins-spirit-blue to-blue-800',
       accent: 'from-hopkins-spirit-blue to-blue-600'
-    },
-    tbmte: {
-      title: 'TB Modeling & Translational Epidemiology',
-      description: 'Mathematical modeling and data science advancing global tuberculosis elimination. Combines empirical data, epidemic modeling, and economic evaluation to translate research into policy-level decisions. Committed to open-source distribution of all published code.',
-      challenge: 'Global TB elimination mission',
-      scope: '12+ countries, open-source',
-      highlights: 'Policy translation • Global community • Open science commitment',
-      url: 'https://modeltb.org/',
-      gradient: 'from-emerald-600 to-teal-800',
-      accent: 'from-emerald-500 to-teal-600'
     }
   };
 
@@ -78,12 +68,12 @@ export default function ProjectsPage() {
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-hopkins-gold via-amber-400 to-orange-400 mx-auto rounded-full mb-8"></div>
               <p className="text-xl font-medium text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Four computational platforms reshaping how we understand and combat global health crises—from dual HIV/STI epidemics to aging population challenges and the race toward TB elimination
+                Three computational platforms reshaping how we understand and combat health crises—from dual HIV/STI epidemics to aging population challenges
               </p>
             </div>
             
             {/* Compelling stats teaser with enhanced animations */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
               <div className="text-center group cursor-default">
                 <div className="text-3xl font-black text-hopkins-gold mb-2 group-hover:scale-110 transition-transform duration-500">32</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wide font-semibold">US Cities</div>
@@ -93,11 +83,6 @@ export default function ProjectsPage() {
                 <div className="text-3xl font-black text-hopkins-spirit-blue mb-2 group-hover:scale-110 transition-transform duration-500">945</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wide font-semibold">Compartments</div>
                 <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-hopkins-spirit-blue to-transparent mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-              <div className="text-center group cursor-default">
-                <div className="text-3xl font-black text-emerald-400 mb-2 group-hover:scale-110 transition-transform duration-500">12+</div>
-                <div className="text-xs text-gray-400 uppercase tracking-wide font-semibold">Countries</div>
-                <div className="w-8 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent mx-auto mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               <div className="text-center group cursor-default">
                 <div className="text-3xl font-black text-amber-400 mb-2 group-hover:scale-110 transition-transform duration-500">190K</div>
@@ -129,11 +114,11 @@ export default function ProjectsPage() {
         
         <div className="max-w-7xl mx-auto px-6 relative">
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="space-y-8 max-w-6xl mx-auto">
             {Object.entries(projectDetails).map(([key, project], index) => (
               <div
                 key={key}
-                className="group relative bg-white/90 backdrop-blur-sm rounded-3xl border border-white/30 overflow-hidden hover:shadow-2xl hover:shadow-gray-900/25 transition-all duration-700 hover:-translate-y-4 hover:scale-[1.03] min-h-[580px] flex flex-col animate-in slide-in-from-bottom-8 fade-in"
+                className="group relative bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-200/50 overflow-hidden hover:shadow-xl hover:shadow-gray-900/10 transition-all duration-500 hover:-translate-y-2 animate-in slide-in-from-bottom-8 fade-in"
                 style={{ 
                   animationDelay: `${index * 200}ms`,
                   animationDuration: '800ms',
@@ -297,7 +282,7 @@ export default function ProjectsPage() {
                 </h2>
                 
                 <p className="text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-                  From real-time HIV intervention modeling to global TB elimination strategies, these four platforms work in concert to provide the computational backbone for evidence-based public health policy worldwide.
+                  From real-time HIV intervention modeling to aging population health challenges, these three platforms work in concert to provide the computational backbone for evidence-based public health policy nationwide.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

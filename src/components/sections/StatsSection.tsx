@@ -36,7 +36,7 @@ export default function StatsSection() {
     { 
       label: "Active Models", 
       value: "4", 
-      description: "JHEEM, SHIELD, PEARL, TBMTE",
+      description: "JHEEM, SHIELD, PEARL",
       accent: "bg-hopkins-blue",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 mb-4 text-hopkins-blue mx-auto group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">

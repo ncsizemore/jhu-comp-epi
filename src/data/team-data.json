@@ -145,7 +145,7 @@
         "institution": "Johns Hopkins Bloomberg School of Public Health",
         "department": "Department of Epidemiology"
       },
-      "bio": "Dr. Dowdy is an internist and Professor of Epidemiology at the JHBSPH and is an expert in infectious disease modeling and cost-effectiveness analysis. He is the Principal Investigator of NIAID-sponsored studies in South Africa and Uganda that include transmission models of HIV-associated tuberculosis, and the subcontract PI of a cooperative agreement with the CDC for modeling of HIV and TB and STIs in the US. He serves as a Co-Investigator on the JHEEM and SHIELD studies, providing support to model design and computer simulation methodology, formulating intervention scenarios, as well as costing and cost-effectiveness analysis.",
+      "bio": "Dr. Dowdy is an internist and Professor of Epidemiology at the JHBSPH and is an expert in infectious disease modeling and cost-effectiveness analysis. He is the Principal Investigator of NIAID-sponsored studies in South Africa and Uganda that include transmission models of HIV-associated infections, and the subcontract PI of a cooperative agreement with the CDC for modeling of HIV and STIs in the US. He serves as a Co-Investigator on the JHEEM and SHIELD studies, providing support to model design and computer simulation methodology, formulating intervention scenarios, as well as costing and cost-effectiveness analysis.",
       "shortBio": "Professor and internist specializing in infectious disease modeling and cost-effectiveness analysis.",
       "photo": "images/team/dowdy-headshot.jpg",
       "projects": [
@@ -155,7 +155,6 @@
       "expertise": [
         "Infectious disease modeling",
         "Cost-effectiveness analysis",
-        "TB modeling",
         "HIV modeling"
       ],
       "order": 4

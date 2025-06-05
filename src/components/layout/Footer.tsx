@@ -60,9 +60,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/projects/tbmte" className="text-white/90 hover:text-white transition-all">
-                      TBMTE
-                    </Link>
+
                   </li>
                 </ul>
               </div>

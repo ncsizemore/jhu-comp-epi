@@ -41,8 +41,7 @@ function EnhancedPublicationsList({ publications, years }: { publications: Publi
   const projectsMap = {
     jheem: { name: "JHEEM", color: "bg-hopkins-blue" },
     shield: { name: "SHIELD", color: "bg-hopkins-gold" },
-    pearl: { name: "PEARL", color: "bg-hopkins-spirit-blue" },
-    tbmte: { name: "TBMTE", color: "bg-emerald-600" }
+    pearl: { name: "PEARL", color: "bg-hopkins-spirit-blue" }
   };
 
   return (
@@ -151,7 +150,7 @@ function EnhancedPublicationsList({ publications, years }: { publications: Publi
                   Topics
                 </label>
                 <div className="flex flex-wrap gap-1">
-                  {['HIV', 'tuberculosis', 'modeling', 'epidemiology', 'cost-effectiveness'].map(tag => (
+                  {['HIV', 'modeling', 'epidemiology', 'cost-effectiveness', 'prevention'].map(tag => (
                     <button
                       key={tag}
                       onClick={() => setSelectedTags(prev =>
@@ -180,7 +179,6 @@ function EnhancedPublicationsList({ publications, years }: { publications: Publi
             const projectColors = {
               pearl: 'border-l-hopkins-spirit-blue',
               jheem: 'border-l-hopkins-blue',
-              tbmte: 'border-l-emerald-500',
               shield: 'border-l-amber-500'
             };
 
@@ -199,7 +197,7 @@ function EnhancedPublicationsList({ publications, years }: { publications: Publi
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-2">
-                        <div className={`w-2 h-2 rounded-full ${projectId === 'pearl' ? 'bg-hopkins-spirit-blue' : projectId === 'jheem' ? 'bg-hopkins-blue' : projectId === 'tbmte' ? 'bg-emerald-500' : 'bg-amber-500'}`}></div>
+                        <div className={`w-2 h-2 rounded-full ${projectId === 'pearl' ? 'bg-hopkins-spirit-blue' : projectId === 'jheem' ? 'bg-hopkins-blue' : 'bg-amber-500'}`}></div>
                         <span className="text-xs font-medium text-gray-600">{project.name}</span>
                         <span className="text-gray-400">•</span>
                         <span className="text-xs font-medium text-gray-600">{publication.year}</span>

@@ -88,7 +88,7 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
               const projectGradients = {
                 pearl: 'from-hopkins-spirit-blue/30 to-blue-900/30',
                 jheem: 'from-hopkins-blue/30 to-indigo-900/30',
-                tbmte: 'from-emerald-500/30 to-teal-900/30',
+
                 shield: 'from-amber-500/30 to-orange-900/30'
               };
               
