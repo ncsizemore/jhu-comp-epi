@@ -11,7 +11,10 @@
       "shortName": "Keri Althoff",
       "title": "Principal Investigator & Professor",
       "position": "Professor of Epidemiology",
-      "credentials": ["PhD", "MPH"],
+      "credentials": [
+        "PhD",
+        "MPH"
+      ],
       "category": "faculty",
       "status": "current",
       "primaryAffiliation": {
@@ -38,8 +41,15 @@
         "googleScholar": "scholar-id",
         "orcid": "0000-0000-0000-0000"
       },
-      "projects": ["pearl"],
-      "expertise": ["HIV epidemiology", "Chronic conditions", "Multimorbidity", "Longitudinal studies"],
+      "projects": [
+        "pearl"
+      ],
+      "expertise": [
+        "HIV epidemiology",
+        "Chronic conditions",
+        "Multimorbidity",
+        "Longitudinal studies"
+      ],
       "publications": 100,
       "order": 1
     },
@@ -49,7 +59,10 @@
       "shortName": "Parastu Kasaie",
       "title": "Principal Investigator & Associate Scientist",
       "position": "Associate Scientist in Epidemiology",
-      "credentials": ["MS", "PhD"],
+      "credentials": [
+        "MS",
+        "PhD"
+      ],
       "category": "faculty",
       "status": "current",
       "primaryAffiliation": {
@@ -70,8 +83,17 @@
         "googleScholar": "scholar-id",
         "orcid": "0000-0000-0000-0000"
       },
-      "projects": ["pearl", "shield", "jheem"],
-      "expertise": ["Computational modeling", "Disease simulation", "HIV/STI epidemiology", "Mathematical modeling"],
+      "projects": [
+        "pearl",
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "Computational modeling",
+        "Disease simulation",
+        "HIV/STI epidemiology",
+        "Mathematical modeling"
+      ],
       "publications": 50,
       "order": 2
     },
@@ -81,7 +103,10 @@
       "shortName": "Todd Fojo",
       "title": "Assistant Professor",
       "position": "Assistant Professor of Medicine",
-      "credentials": ["MD", "MHS"],
+      "credentials": [
+        "MD",
+        "MHS"
+      ],
       "category": "faculty",
       "status": "current",
       "primaryAffiliation": {
@@ -91,8 +116,16 @@
       "bio": "Dr. Todd Fojo is an Assistant Professor of Medicine in the Department of Medicine at the Johns Hopkins School of Medicine. He earned a B.S. in Computer Science from Stanford University and an M.D. from Washington University School of Medicine in St. Louis. Dr. Fojo completed his residency in internal medicine at Barnes-Jewish Hospital, followed by a General Internal Medicine Fellowship and a Master of Health Science (MHS) in Biostatistics at the Johns Hopkins School of Public Health. Dr. Fojo's research is centered on developing dynamic transmission models for HIV, with a particular focus on innovative calibration techniques for high-dimensional parameter spaces. He is a principal investigator on the Johns Hopkins Epidemiological and Economic Model (JHEEM), which forecasts future HIV incidence across 15 key subgroups under various scenarios aimed at achieving the goals of Ending the HIV Epidemic (EHE). Supported by NIH grant R01MD018539 (NIMDH), Dr. Fojo's work also contributes to the JHEEM2 framework, which serves as the summation engine for the SHIELD simulation model.",
       "shortBio": "Assistant Professor developing dynamic transmission models for HIV with focus on calibration techniques.",
       "photo": "images/team/fojo-headshot.jpg",
-      "projects": ["shield", "jheem"],
-      "expertise": ["HIV transmission modeling", "Dynamic modeling", "Biostatistics", "Epidemic forecasting"],
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "HIV transmission modeling",
+        "Dynamic modeling",
+        "Biostatistics",
+        "Epidemic forecasting"
+      ],
       "order": 3
     },
     {
@@ -101,7 +134,11 @@
       "shortName": "David Dowdy",
       "title": "Co-Investigator & Professor",
       "position": "Professor of Epidemiology",
-      "credentials": ["MD", "PhD", "ScM"],
+      "credentials": [
+        "MD",
+        "PhD",
+        "ScM"
+      ],
       "category": "faculty",
       "status": "current",
       "primaryAffiliation": {
@@ -111,8 +148,16 @@
       "bio": "Dr. Dowdy is an internist and Professor of Epidemiology at the JHBSPH and is an expert in infectious disease modeling and cost-effectiveness analysis. He is the Principal Investigator of NIAID-sponsored studies in South Africa and Uganda that include transmission models of HIV-associated tuberculosis, and the subcontract PI of a cooperative agreement with the CDC for modeling of HIV and TB and STIs in the US. He serves as a Co-Investigator on the JHEEM and SHIELD studies, providing support to model design and computer simulation methodology, formulating intervention scenarios, as well as costing and cost-effectiveness analysis.",
       "shortBio": "Professor and internist specializing in infectious disease modeling and cost-effectiveness analysis.",
       "photo": "images/team/dowdy-headshot.jpg",
-      "projects": ["shield", "jheem"],
-      "expertise": ["Infectious disease modeling", "Cost-effectiveness analysis", "TB modeling", "HIV modeling"],
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "Infectious disease modeling",
+        "Cost-effectiveness analysis",
+        "TB modeling",
+        "HIV modeling"
+      ],
       "order": 4
     },
     {
@@ -121,7 +166,10 @@
       "shortName": "Maunank Shah",
       "title": "Co-Investigator & Professor",
       "position": "Professor, Division of Infectious Diseases",
-      "credentials": ["MD", "MHS"],
+      "credentials": [
+        "MD",
+        "MHS"
+      ],
       "category": "faculty",
       "status": "current",
       "primaryAffiliation": {
@@ -137,8 +185,16 @@
       "bio": "Dr. Shah is a Professor in the Division of Infectious Diseases at the Johns Hopkins University School of Medicine and has a joint appointment at the Department of Epidemiology, JHBSPH. He has expertise conducting modeling and economic evaluations of HIV care-continuum interventions. He has previously led HIV modeling efforts under a CDC subcontract cooperative agreement and has developed the initial version of JHEEM mathematical model. He serves as a Co-Investigator of the SHIELD and JHEEM studies, providing detailed support to model design, formulation of intervention scenarios, as well as costing and cost-effectiveness analysis",
       "shortBio": "Professor with expertise in HIV care-continuum modeling and economic evaluations.",
       "photo": "images/team/shah-headshot.jpg",
-      "projects": ["shield", "jheem"],
-      "expertise": ["HIV care modeling", "Economic evaluation", "Care-continuum interventions", "Mathematical modeling"],
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "HIV care modeling",
+        "Economic evaluation",
+        "Care-continuum interventions",
+        "Mathematical modeling"
+      ],
       "order": 5
     },
     {
@@ -147,7 +203,9 @@
       "shortName": "Khalil Ghanem",
       "title": "Co-Investigator & Professor",
       "position": "Professor, Division of Infectious Diseases",
-      "credentials": ["MD"],
+      "credentials": [
+        "MD"
+      ],
       "category": "faculty",
       "status": "current",
       "primaryAffiliation": {
@@ -157,8 +215,15 @@
       "bio": "Dr. Ghanem is a Professor in the Division of Infectious Diseases at Johns Hopkins University School of Medicine. He brings public health and content expertise regarding syphilis and STI. He was previously the Director of Clinical Services for STD, HIV, and TB at the Baltimore City Health Department, bringing local level knowledge of STD prevention strategies. He was a consultant for the 2010 and 2015 CDC STD Treatment Guidelines and authored the background papers for the syphilis sections. He was an external consultant for the syphilis section on the Guidelines for Prevention and Treatment of Opportunistic Infections in HIV-Infected Adults and Adolescents. He is currently acting as a member of the external working group for the development of the CDC's Laboratory Guidelines for Syphilis Serology. Dr. Ghanem serves as a Co-Investigator on the SHIELD study, providing support to ensure that the models reflect the epidemiology and biology of syphilis, and that the suggested interventions are both clinically and epidemiologically well-founded.",
       "shortBio": "Professor with expertise in syphilis, STI prevention, and CDC treatment guidelines development.",
       "photo": "images/team/ghanem-headshot.jpg",
-      "projects": ["shield"],
-      "expertise": ["Syphilis epidemiology", "STI prevention", "Clinical guidelines", "Public health policy"],
+      "projects": [
+        "shield"
+      ],
+      "expertise": [
+        "Syphilis epidemiology",
+        "STI prevention",
+        "Clinical guidelines",
+        "Public health policy"
+      ],
       "order": 6
     },
     {
@@ -167,7 +232,10 @@
       "shortName": "Melissa Schnure",
       "title": "Epidemiologist",
       "position": "Epidemiologist",
-      "credentials": ["PhD", "MS"],
+      "credentials": [
+        "PhD",
+        "MS"
+      ],
       "category": "postdoc",
       "status": "current",
       "primaryAffiliation": {
@@ -177,8 +245,15 @@
       "bio": "Melissa is an epidemiologist at the Johns Hopkins School of Medicine. She holds a PhD and a Master of Science in Infectious Disease Epidemiology from Johns Hopkins Bloomberg School of Public Health. She joined the team as a student in 2019 working with Drs. Dowdy, Kasaie, and Fojo on a suite of dynamic HIV modeling tools. She currently supports the development and application of the JHEEM and SHIELD models.",
       "shortBio": "Epidemiologist supporting development and application of HIV modeling tools.",
       "photo": "images/team/schnure-headshot.jpg",
-      "projects": ["shield", "jheem"],
-      "expertise": ["Infectious disease epidemiology", "HIV modeling", "Dynamic modeling"],
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "Infectious disease epidemiology",
+        "HIV modeling",
+        "Dynamic modeling"
+      ],
       "order": 1
     },
     {
@@ -187,7 +262,9 @@
       "shortName": "Yao Zhao",
       "title": "PhD Candidate",
       "position": "PhD Candidate in Applied Mathematics and Statistics",
-      "credentials": ["M.S.E"],
+      "credentials": [
+        "M.S.E"
+      ],
       "category": "student",
       "status": "current",
       "primaryAffiliation": {
@@ -197,8 +274,15 @@
       "bio": "Yao Zhao is a Ph.D. Candidate in Applied Mathematics and Statistics, M.S.E in Financial Mathematics at Johns Hopkins University, with research areas on epidemiology, precision medicine care, and medical imaging. Yao has also worked extensively on Artificial Intelligence including Large Language Models and machine learning. He has contributed to research in AI-driven healthcare as well as AI model architecture innovation, focusing on medical diagnosis/prognosis models, precision medicine care in HIV. Beyond academia, Yao is also a CFA Level 2 candidate and Erhu (traditional Chinese instrument) player.",
       "shortBio": "PhD candidate focusing on AI-driven healthcare, precision medicine, and medical imaging applications.",
       "photo": "images/team/zhao-headshot.jpg",
-      "projects": ["pearl"],
-      "expertise": ["Machine Learning", "AI in Healthcare", "Precision Medicine", "Medical Imaging"],
+      "projects": [
+        "pearl"
+      ],
+      "expertise": [
+        "Machine Learning",
+        "AI in Healthcare",
+        "Precision Medicine",
+        "Medical Imaging"
+      ],
       "order": 1
     },
     {
@@ -207,7 +291,10 @@
       "shortName": "Andrew Zalesak",
       "title": "Senior Programmer Analyst",
       "position": "Senior Programmer Analyst",
-      "credentials": ["B.S.", "M.S."],
+      "credentials": [
+        "B.S.",
+        "M.S."
+      ],
       "category": "staff",
       "status": "current",
       "primaryAffiliation": {
@@ -217,8 +304,16 @@
       "bio": "Andrew Zalesak is a Senior Programmer Analyst at the Johns Hopkins School of Medicine. He earned a B.S. in Biochemistry and an M.S. in Environmental Science from the University of North Carolina at Chapel Hill before joining the JHEEM team in Spring of 2023. His main duties are as an R programmer for the JHEEM2 package and its associated web tool. Andrew has previously worked at the U.S. Environmental Protection Agency as a research fellow studying transportation sector. As a Programmer Analyst, Andrew plays a key role in the development and maintenance of the JHEEM2 simulation package and its associated web tool. He provides essential support in the ongoing enhancement and functionality of the tool, ensuring it meets the needs of the project and contributes to the success of the team's epidemiological modeling efforts.",
       "shortBio": "Senior programmer analyst developing R packages and web tools for epidemiological modeling.",
       "photo": "images/team/zalesak-headshot.jpg",
-      "projects": ["shield", "jheem"],
-      "expertise": ["R programming", "Software development", "Web tools", "Simulation packages"],
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "R programming",
+        "Software development",
+        "Web tools",
+        "Simulation packages"
+      ],
       "order": 1
     },
     {
@@ -227,7 +322,9 @@
       "shortName": "Zoe Dansky",
       "title": "Epidemiologist & Data Manager",
       "position": "Epidemiologist",
-      "credentials": ["MPH"],
+      "credentials": [
+        "MPH"
+      ],
       "category": "staff",
       "status": "current",
       "primaryAffiliation": {
@@ -237,8 +334,16 @@
       "bio": "Zoe Dansky is an epidemiologist at the Johns Hopkins School of Medicine, where she joined the modeling team in 2023. In her role, she focuses on compiling and organizing the data that underpins various models. Zoe holds a Master's in Public Health from Tulane University and has a diverse public health background, having worked with local health departments on HIV/STI testing and outreach, as well as outbreak epidemiology for COVID-19 and Mpox. As the data manager for the JHEEM and SHIELD projects, Zoe oversees data acquisition, setup, and maintenance, ensuring smooth integration into the models. Her work plays a critical role in the success of these projects, supporting the development of data-driven insights for public health strategies.",
       "shortBio": "Epidemiologist and data manager specializing in HIV/STI data integration and outbreak epidemiology.",
       "photo": "images/team/dansky-headshot.jpg",
-      "projects": ["shield", "jheem"],
-      "expertise": ["Data management", "HIV/STI epidemiology", "Outbreak investigation", "Public health"],
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "Data management",
+        "HIV/STI epidemiology",
+        "Outbreak investigation",
+        "Public health"
+      ],
       "order": 2
     },
     {
@@ -256,8 +361,15 @@
       "bio": "Kendall Reid is a programmer analyst for the PEARL team in charge of maintaining the PEARL agent based simulation model. Kendall has over 10 years programming experience and has training in mathematics, statistics, computer science, and biology. He has previously been a data scientist, startup cofounder, rare disease researcher, and is now focused on applying data driven methodology to bioinformatics and public health problems.",
       "shortBio": "Senior programmer analyst specializing in agent-based simulation models and bioinformatics.",
       "photo": "images/team/reid-headshot.jpeg",
-      "projects": ["pearl"],
-      "expertise": ["Agent-based modeling", "Simulation development", "Bioinformatics", "Data Science"],
+      "projects": [
+        "pearl"
+      ],
+      "expertise": [
+        "Agent-based modeling",
+        "Simulation development",
+        "Bioinformatics",
+        "Data Science"
+      ],
       "order": 3
     },
     {
@@ -276,8 +388,14 @@
       "shortBio": "Project coordinator providing administrative support and logistics management for multiple research initiatives.",
       "photo": "images/team/gerace-headshot.png",
       "email": "lucas.gerace@jhu.edu",
-      "projects": ["pearl"],
-      "expertise": ["Project Management", "Event Coordination", "Administrative Support"],
+      "projects": [
+        "pearl"
+      ],
+      "expertise": [
+        "Project Management",
+        "Event Coordination",
+        "Administrative Support"
+      ],
       "order": 4
     },
     {
@@ -294,9 +412,73 @@
       },
       "bio": "Liz Humes is a senior biostatistician in the Department of Epidemiology at the Johns Hopkins Bloomberg School of Public Health. She has been a member of the PEARL team since 2018. Her expertise is in data management and longitudinal study design and she provides statistical support for the PEARL project.",
       "shortBio": "Senior biostatistician specializing in data management and longitudinal study design.",
-      "projects": ["pearl"],
-      "expertise": ["Biostatistics", "Data Management", "Longitudinal Studies", "Statistical Analysis"],
+      "projects": [
+        "pearl"
+      ],
+      "expertise": [
+        "Biostatistics",
+        "Data Management",
+        "Longitudinal Studies",
+        "Statistical Analysis"
+      ],
       "order": 5
+    },
+    {
+      "id": "ryan-forster",
+      "name": "Dr. Ryan Forster",
+      "shortName": "Ryan Forster",
+      "title": "Postdoctoral Research Fellow",
+      "position": "Postdoctoral Research Fellow",
+      "credentials": [
+        "PhD"
+      ],
+      "category": "postdoc",
+      "status": "current",
+      "primaryAffiliation": {
+        "institution": "Johns Hopkins Bloomberg School of Public Health",
+        "department": "Department of Epidemiology"
+      },
+      "bio": "Details to be updated.",
+      "shortBio": "Postdoctoral Research Fellow specializing in computational epidemiology.",
+      "email": "rforste3@jhu.edu",
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "Computational epidemiology"
+      ],
+      "publications": 0,
+      "order": 2
+    },
+    {
+      "id": "nicholas-sizemore",
+      "name": "Nicholas Sizemore",
+      "shortName": "Nicholas Sizemore",
+      "title": "Senior Programmer Analyst",
+      "position": "Senior Programmer Analyst",
+      "credentials": [
+        "PhD"
+      ],
+      "category": "staff",
+      "status": "current",
+      "primaryAffiliation": {
+        "institution": "Johns Hopkins Bloomberg School of Public Health",
+        "department": "Department of Epidemiology"
+      },
+      "bio": "Details to be updated.",
+      "shortBio": "Senior Programmer Analyst.",
+      "email": "nsizemo1@jhu.edu",
+      "projects": [
+        "shield",
+        "jheem"
+      ],
+      "expertise": [
+        "Programming",
+        "Data analysis"
+      ],
+      "publications": 0,
+      "order": 6
     }
   ],
   "teamCategories": [
