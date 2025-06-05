@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
 
 interface ProjectStat {
-  [key: string]: string;
+  [key: string]: string | undefined;
 }
 
 interface ProjectCardProps {

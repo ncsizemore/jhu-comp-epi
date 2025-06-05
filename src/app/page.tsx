@@ -69,7 +69,7 @@ function EnhancedHeroSection() {
 
 // Geographic Impact & Research Scale Section
 function ResearchAtScaleSection() {
-  const [hoveredCity, setHoveredCity] = useState(null);
+  const [hoveredCity, setHoveredCity] = useState<string | null>(null);
   const [isMounted, setIsMounted] = useState(false);
 
   // Prevent hydration mismatch
@@ -81,7 +81,7 @@ function ResearchAtScaleSection() {
   const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
   // JHEEM/SHIELD cities with real coordinates
-  const cities = [
+  const cities: Array<{ name: string; coordinates: [number, number] }> = [
     { name: "Los Angeles, CA", coordinates: [-118.2437, 34.0522] },
     { name: "San Francisco, CA", coordinates: [-122.4194, 37.7749] },
     { name: "San Diego, CA", coordinates: [-117.1611, 32.7157] },
@@ -387,8 +387,8 @@ function ActiveResearchSection() {
             <div className="text-center mb-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Research Philosophy</h3>
               <p className="text-gray-600 leading-relaxed">
-                "Mathematical models provide a bridge between complex epidemiological data and actionable public health decisions.
-                Our work demonstrates that rigorous computational science can directly prevent disease transmission and save lives."
+                &ldquo;Mathematical models provide a bridge between complex epidemiological data and actionable public health decisions.
+                Our work demonstrates that rigorous computational science can directly prevent disease transmission and save lives.&rdquo;
               </p>
             </div>
 

@@ -4,11 +4,11 @@ import { useState } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import FeaturedPublications from '@/components/sections/publications/FeaturedPublications';
 import RecentPublicationsHighlight from '@/components/sections/publications/RecentPublicationsHighlight';
-import { publications, publicationTags, publicationYears } from '@/data/publications';
+import { publications, publicationYears, Publication } from '@/data/publications';
 import './publications.css';
 
 // Enhanced Publications List with sophisticated animations
-function EnhancedPublicationsList({ publications, tags, years }: { publications: any[], tags: string[], years: string[] }) {
+function EnhancedPublicationsList({ publications, years }: { publications: Publication[], years: string[] }) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedYears, setSelectedYears] = useState<string[]>([]);
   const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
@@ -300,7 +300,6 @@ export default function PublicationsPage() {
       {/* Enhanced Publications List */}
       <EnhancedPublicationsList
         publications={publications}
-        tags={publicationTags}
         years={publicationYears}
       />
     </MainLayout>

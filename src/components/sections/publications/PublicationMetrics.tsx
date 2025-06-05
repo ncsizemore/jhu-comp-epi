@@ -7,7 +7,7 @@ interface PublicationMetricsProps {
   publication: Publication;
 }
 
-export default function PublicationMetrics({ publication }: PublicationMetricsProps) {
+export default function PublicationMetrics({ }: PublicationMetricsProps) {
   const [animated, setAnimated] = useState(false);
   
   // Example impact data - would come from publication object in real implementation

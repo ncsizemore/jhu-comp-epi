@@ -50,7 +50,7 @@ export default function StatsSection() {
     <section className="relative z-10 -mt-5 mb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div 
               key={stat.label} 
               className="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300 relative"
