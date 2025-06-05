@@ -22,44 +22,11 @@ export interface Publication {
 
 // Publications array - Updated by CLI script
 export const publications: Publication[] = [
-  {
-    id: "ryckmants-2025",
-    title: "Modeling the impact of case finding for tuberculosis: The role of infection dynamics.",
-    authors: "Ryckman TS, Shrestha S, Fojo AT, Kasaie P, Dowdy DW, Kendall EA",
-    journal: "medRxiv : the preprint server for health sciences",
-    year: "2025",
-    doi: "10.1101/2025.04.15.25325877",
-    url: "https://pubmed.ncbi.nlm.nih.gov/40321291/",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "modeling"],
-    featured: false
-  },
 
-  {
-    id: "brmmerle-2025",
-    title: "Importance of confirmatory test characteristics in optimizing community-based screening for tuberculosis: An epidemiological modeling analysis.",
-    authors: "Brümmer LE, Ryckman TS, Shrestha S, Marx FM, Worodria W, Christopher DJ, Theron G, Cattamanchi A, Denkinger CM, Dowdy DW, Kendall EA",
-    journal: "medRxiv : the preprint server for health sciences",
-    year: "2025",
-    doi: "10.1101/2025.05.09.25327330",
-    url: "https://pubmed.ncbi.nlm.nih.gov/40385422/",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "modeling"],
-    featured: false
-  },
 
-  {
-    id: "shresthas-2025",
-    title: "Model-Based Analysis of Impact, Costs, and Cost-effectiveness of Tuberculosis Outbreak Investigations, United States.",
-    authors: "Shrestha S, Cilloni L, Asay GRB, Kammerer JS, Raz K, Shaw T, Cilnis M, Wortham J, Marks SM, Dowdy D",
-    journal: "Emerging infectious diseases",
-    year: "2025",
-    doi: "10.3201/eid3103.240633",
-    url: "https://pubmed.ncbi.nlm.nih.gov/40023804/",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "modeling", "cost-effectiveness"],
-    featured: false
-  },
+
+
+
 
   {
     id: "althoff-2024",
@@ -122,43 +89,11 @@ export const publications: Publication[] = [
     featured: false
   },
 
-  {
-    id: "kasaie-2023-mdrtb-impact",
-    title: "The Impact of Preventive Treatment for Multidrug- and Rifampin-Resistant Tuberculosis Exceeds Trial-Based Estimates",
-    authors: "Kasaie P",
-    journal: "Clinical Infectious Diseases",
-    year: "2023",
-    doi: "10.1093/cid/ciad557",
-    url: "https://doi.org/10.1093/cid/ciad557",
-    abstract: "Several clinical trials of tuberculosis preventive treatment (TPT) for household contacts of patients with multidrug- or rifampin-resistant tuberculosis (MDR/RR-TB) are nearing completion. The potential benefits of delivering TPT to MDR/RR-TB contacts extend beyond the outcomes that clinical trials can measure.",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "MDR-TB", "preventive treatment", "contact tracing", "India", "simulation"],
-    featured: false
-  },
 
-  {
-    id: "kasaie-2023-mdrtb-trials",
-    title: "Trials underestimate the impact of preventive treatment for household contacts exposed to multidrug-resistant tuberculosis: a simulation study",
-    authors: "Kasaie P",
-    journal: "medRxiv",
-    year: "2023",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "MDR-TB", "household contacts", "simulation", "preventive treatment"],
-    featured: false
-  },
 
-  {
-    id: "zallalc-2023",
-    title: "Evaluating Clinic-Based Interventions to Reduce Racial Differences in Mortality Among People With Human Immunodeficiency Virus in the United States.",
-    authors: "Zalla LC, Cole SR, Eron JJ, Adimora AA, Vines AI, Althoff KN, Marconi VC, Gill MJ, Horberg MA, Silverberg MJ, Rebeiro PF, Lang R, Kasaie P, Moore RD, Edwards JK",
-    journal: "The Journal of infectious diseases",
-    year: "2023",
-    doi: "10.1093/infdis/jiad263",
-    url: "https://pubmed.ncbi.nlm.nih.gov/37437108/",
-    projects: ["tbmte"],
-    tags: ["epidemiology"],
-    featured: false
-  },
+
+
+
 
   {
     id: "nosykb-2023",
@@ -236,8 +171,8 @@ export const publications: Publication[] = [
     year: "2022",
     doi: "10.1093/cid/ciab1030",
     url: "https://pubmed.ncbi.nlm.nih.gov/34983066/",
-    projects: ["tbmte"],
-    tags: ["treatment"],
+    projects: ["pearl"],
+    tags: ["HIV", "treatment"],
     featured: false
   },
 
@@ -271,90 +206,17 @@ export const publications: Publication[] = [
     featured: false
   },
 
-  {
-    id: "cattamanchi-2021",
-    title: "Digital adherence technology for tuberculosis treatment supervision: A stepped-wedge cluster-randomized trial in Uganda",
-    authors: "Cattamanchi A, Crowder R, Kityamuwesi A, Kiwanuka N, Lamunu M, Namale C, Tinka LK, Nakate AS, Ggita J, Turimumahoro P, Babirye D, Oyuku D, Berger C, Tucker A, Patel D, Sammann A, Turyahabwe S, Dowdy D, Katamba A",
-    journal: "PLoS medicine",
-    year: "2021",
-    doi: "10.1371/journal.pmed.1003628",
-    url: "https://doi.org/10.1371/journal.pmed.1003628",
-    abstract: "Adherence to and completion of tuberculosis (TB) treatment remain problematic in many high-burden countries. 99DOTS is a low-cost digital adherence technology that could increase TB treatment completion. We conducted a pragmatic stepped-wedge cluster-randomized trial including all adults treated for drug-susceptible pulmonary TB at 18 health facilities across Uganda over 8 months.",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "digital health", "adherence", "Uganda", "randomized trial"],
-    featured: true,
-    attentionGrabber: "Digital technology improving TB treatment adherence in Uganda."
-  },
 
-  {
-    id: "ricks-2021",
-    title: "Quantifying the potential value of antigen-detection rapid diagnostic tests for COVID-19: a modelling analysis",
-    authors: "Ricks S, Kendall EA, Dowdy DW, Sacks JA, Schumacher SG, Arinaminpathy N",
-    journal: "BMC medicine",
-    year: "2021",
-    doi: "10.1186/s12916-021-01948-z",
-    url: "https://doi.org/10.1186/s12916-021-01948-z",
-    abstract: "Testing plays a critical role in treatment and prevention responses to the COVID-19 pandemic. Compared to nucleic acid tests (NATs), antigen-detection rapid diagnostic tests (Ag-RDTs) can be more accessible, but typically have lower sensitivity and specificity. By quantifying these trade-offs, we aimed to inform decisions about when an Ag-RDT would offer greater public health value than reliance on NAT.",
-    projects: ["tbmte"],
-    tags: ["COVID-19", "diagnostic testing", "modeling", "public health", "antigen testing"],
-    featured: false
-  },
 
-  {
-    id: "shrestha-2021",
-    title: "Quantifying geographic heterogeneity in TB incidence and the potential impact of geographically targeted interventions in South and North City Corporations of Dhaka, Bangladesh: a model-based study",
-    authors: "Shrestha S, Reja M, Gomes I, Baik Y, Pennington J, Islam S, Jamil Faisel A, Cordon O, Roy T, Suarez PG, Hussain H, Dowdy DW",
-    journal: "Epidemiology and infection",
-    year: "2021",
-    doi: "10.1017/S0950268821000911",
-    url: "https://doi.org/10.1017/S0950268821000911",
-    abstract: "In rapidly growing and high-burden urban centres, identifying tuberculosis (TB) transmission hotspots and understanding the potential impact of interventions can inform future control and prevention strategies. Using data on local demography, TB reports and patient reporting patterns in Dhaka South City Corporation (DSCC) and Dhaka North City Corporation (DNCC), Bangladesh, between 2010 and 2017, we developed maps of TB reporting rates across wards in DSCC and DNCC.",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "geographic modeling", "Bangladesh", "urban health", "transmission"],
-    featured: false
-  },
 
-  {
-    id: "jo-2021",
-    title: "Cost-effectiveness of scaling up short course preventive therapy for tuberculosis among children across 12 countries",
-    authors: "Jo Y, Gomes I, Flack J, Salazar-Austin N, Churchyard G, Chaisson RE, Dowdy DW",
-    journal: "EClinicalMedicine",
-    year: "2021",
-    doi: "10.1016/j.eclinm.2021.100707",
-    url: "https://doi.org/10.1016/j.eclinm.2021.100707",
-    abstract: "While household contact investigation is widely recommended as a means to reduce the burden of tuberculosis (TB) among children, only 27% of eligible pediatric household contacts globally received preventive treatment in 2018. We assessed the cost-effectiveness of household contact investigation for TB treatment and short-course preventive therapy provision for children under 15 years old across 12 high TB burden countries.",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "children", "preventive therapy", "cost-effectiveness", "contact investigation"],
-    featured: false
-  },
 
-  {
-    id: "sohn-2021",
-    title: "Determining the value of TB active case-finding: current evidence and methodological considerations",
-    authors: "Sohn H, Sweeney S, Mudzengi D, Creswell J, Menzies NA, Fox GJ, MacPherson P, Dowdy DW",
-    journal: "The international journal of tuberculosis and lung disease",
-    year: "2021",
-    doi: "10.5588/ijtld.20.0565",
-    url: "https://doi.org/10.5588/ijtld.20.0565",
-    abstract: "Active case-finding (ACF) is an important component of the End TB Strategy. However, ACF is resource-intensive, and the economics of ACF are not well-understood. Data on the costs of ACF are limited, with little consistency in the units and methods used to estimate and report costs.",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "active case finding", "cost-effectiveness", "methodology"],
-    featured: false
-  },
 
-  {
-    id: "kendall-2021",
-    title: "Reply to Pierce: Subclinical Tuberculosis: Some Flies in the Ointment",
-    authors: "Kendall EA, Shrestha S, Dowdy DW",
-    journal: "American journal of respiratory and critical care medicine",
-    year: "2021",
-    doi: "10.1164/rccm.202012-4481LE",
-    url: "https://doi.org/10.1164/rccm.202012-4481LE",
-    abstract: "Reply discussing subclinical tuberculosis and methodological considerations in TB research.",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "subclinical TB", "methodology"],
-    featured: false
-  },
+
+
+
+
+
+
 
   {
     id: "fojo-2021-end-hiv",
@@ -368,18 +230,7 @@ export const publications: Publication[] = [
     attentionGrabber: "Comprehensive local-level modeling to understand what it takes to end HIV in the US."
   },
 
-  {
-    id: "shresthas-2021",
-    title: "Achieving a \"step change\" in the tuberculosis epidemic through comprehensive community-wide intervention: a model-based analysis.",
-    authors: "Shrestha S, Kendall EA, Chang R, Joseph R, Kasaie P, Gillini L, Fojo AT, Campbell M, Arinaminpathy N, Dowdy DW",
-    journal: "BMC medicine",
-    year: "2021",
-    doi: "10.1186/s12916-021-02110-5",
-    url: "https://pubmed.ncbi.nlm.nih.gov/34645429/",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "modeling"],
-    featured: false
-  },
+
 
   {
     id: "kasaiep-2020",
@@ -402,8 +253,8 @@ export const publications: Publication[] = [
     year: "2020",
     doi: "10.1002/jia2.25451",
     url: "https://pubmed.ncbi.nlm.nih.gov/32112512/",
-    projects: ["tbmte"],
-    tags: ["modeling", "cost-effectiveness"],
+    projects: ["jheem"],
+    tags: ["HIV", "PrEP", "modeling", "cost-effectiveness"],
     featured: false
   },
 
@@ -420,34 +271,9 @@ export const publications: Publication[] = [
     featured: false
   },
 
-  {
-    id: "kendall-2017",
-    title: "Priority-Setting for Novel Drug Regimens to Treat Tuberculosis: An Epidemiologic Model",
-    authors: "Kendall EA, Shrestha S, Cohen T, Nuermberger E, Dooley KE, Gonzalez-Angulo L, Churchyard GJ, Nahid P, Rich ML, Bansbach C, Forissier T, Lienhardt C, Dowdy DW",
-    journal: "PLoS medicine",
-    year: "2017",
-    doi: "10.1371/journal.pmed.1002202",
-    url: "https://doi.org/10.1371/journal.pmed.1002202",
-    abstract: "Novel drug regimens are needed for tuberculosis (TB) treatment. New regimens aim to improve on characteristics such as duration, efficacy, and safety profile, but no single regimen is likely to be ideal in all respects. By linking these regimen characteristics to a novel regimen",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "drug regimens", "modeling", "treatment", "priority setting"],
-    featured: true,
-    attentionGrabber: "Using epidemiologic modeling to prioritize TB drug regimen characteristics."
-  },
 
-  {
-    id: "kendall-2017-mdr",
-    title: "MDR-TB treatment as prevention: The projected population-level impact of expanded treatment for multidrug-resistant tuberculosis",
-    authors: "Kendall EA, Azman AS, Cobelens FG, Dowdy DW",
-    journal: "PloS one",
-    year: "2017",
-    doi: "10.1371/journal.pone.0172748",
-    url: "https://doi.org/10.1371/journal.pone.0172748",
-    abstract: "In 2013, approximately 480,000 people developed active multidrug-resistant tuberculosis (MDR-TB), while only 97,000 started MDR-TB treatment. We sought to estimate the impact of improving access to MDR-TB diagnosis and treatment, under multiple diagnostic algorithm and treatment regimen scenarios, on ten-year projections of MDR-TB incidence and mortality.",
-    projects: ["tbmte"],
-    tags: ["tuberculosis", "MDR-TB", "treatment", "modeling", "drug resistance"],
-    featured: false
-  }
+
+
 ];
 
 // Extract unique tags and years for filters
@@ -505,7 +331,7 @@ export const publicationTags: string[] = [
   "subclinical TB",
   "transmission",
   "treatment",
-  "tuberculosis",
+
   "urban health",
   "validation"
 ];
@@ -527,5 +353,5 @@ export const projectsMap = {
   jheem: { name: "JHEEM", color: "bg-hopkins-blue" },
   shield: { name: "SHIELD", color: "bg-hopkins-gold" },
   pearl: { name: "PEARL", color: "bg-hopkins-spirit-blue" },
-  tbmte: { name: "TBMTE", color: "bg-emerald-600" }
+
 };

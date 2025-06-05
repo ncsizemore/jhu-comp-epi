@@ -288,14 +288,14 @@ function PublicationListItem({
   const projectColors = {
     pearl: 'from-hopkins-spirit-blue to-blue-600',
     jheem: 'from-hopkins-blue to-indigo-600',
-    tbmte: 'from-emerald-500 to-teal-600', 
+
     shield: 'from-amber-500 to-orange-600'
   };
   
   const projectBorders = {
     pearl: 'border-l-hopkins-spirit-blue',
     jheem: 'border-l-hopkins-blue',
-    tbmte: 'border-l-emerald-500', 
+
     shield: 'border-l-amber-500'
   };
   

@@ -104,7 +104,7 @@ export default function RecentPublicationsHighlight({
                       const projectColors = {
                         pearl: 'from-hopkins-spirit-blue to-blue-600',
                         jheem: 'from-hopkins-blue to-indigo-600',
-                        tbmte: 'from-emerald-500 to-teal-600', 
+
                         shield: 'from-amber-500 to-orange-600'
                       };
                       const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
@@ -151,7 +151,7 @@ export default function RecentPublicationsHighlight({
                         const projectColors = {
                           pearl: 'from-hopkins-spirit-blue to-blue-600',
                           jheem: 'from-hopkins-blue to-indigo-600',
-                          tbmte: 'from-emerald-500 to-teal-600', 
+  
                           shield: 'from-amber-500 to-orange-600'
                         };
                         const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;

@@ -24,7 +24,7 @@ export const projects: Project[] = [
     shortName: 'JHEEM',
     description: 'A comprehensive framework for simulating HIV transmission dynamics and evaluating the impact of prevention and treatment interventions across diverse populations.',
     color: 'bg-hopkins-blue',
-    stats: { cities: '15', publications: '24' }
+    stats: { cities: '15', publications: '8' }
   },
   {
     id: 'shield',
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     shortName: 'SHIELD',
     description: 'Modeling the complex interactions between syphilis and HIV transmission to optimize intervention strategies and resource allocation at the local level.',
     color: 'bg-hopkins-gold',
-    stats: { cities: '8', publications: '13' }
+    stats: { cities: '8', publications: '0' }
   },
   {
     id: 'pearl',
@@ -40,14 +40,6 @@ export const projects: Project[] = [
     shortName: 'PEARL',
     description: 'A novel modeling approach to understand and forecast age-related comorbidities and medication interactions in populations living with HIV.',
     color: 'bg-hopkins-spirit-blue',
-    stats: { scenarios: '10+', publications: '9' }
-  },
-  {
-    id: 'tbmte',
-    title: 'TB Modeling and Translational Epidemiology',
-    shortName: 'TBMTE',
-    description: 'Applying mathematical modeling and data science to address critical questions in tuberculosis epidemiology, transmission dynamics, and control strategies worldwide.',
-    color: 'bg-emerald-600',
-    stats: { countries: '12', publications: '18' }
+    stats: { scenarios: '10+', publications: '8' }
   }
 ];
