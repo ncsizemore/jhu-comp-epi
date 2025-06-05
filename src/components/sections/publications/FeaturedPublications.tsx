@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Publication, projectsMap } from '@/data/publications';
+import { getAssetPath } from '@/utils/paths';
 
 interface FeaturedPublicationsProps {
   publications: Publication[];
@@ -161,7 +162,7 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
                                   </div>
                                   <div className="flex-1 bg-white/10 rounded-xl overflow-hidden">
                                     <img 
-                                      src={publication.imageUrl} 
+                                      src={getAssetPath(publication.imageUrl!)} 
                                       alt={publication.title}
                                       className="w-full h-full object-cover"
                                     />
