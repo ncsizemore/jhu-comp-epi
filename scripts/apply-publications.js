@@ -233,7 +233,7 @@ class PublicationApplier {
       url: enhanced.url || existing.url,
       journal: enhanced.journal && enhanced.journal !== 'Journal to be verified' ? enhanced.journal : existing.journal,
       // Keep existing projects and tags
-      projects: existing.projects || ['tbmte'],
+      projects: existing.projects || ['pearl'],
       tags: existing.tags || this.inferTags(enhanced)
     };
   }
@@ -284,19 +284,15 @@ class PublicationApplier {
     const title = pub.title.toLowerCase();
     const abstract = (pub.abstract || '').toLowerCase();
     const content = `${title} ${abstract}`;
-    
+
     if (content.includes('hiv') || content.includes('aids')) {
       if (content.includes('jheem')) return ['jheem'];
       if (content.includes('pearl')) return ['pearl'];
       if (content.includes('shield')) return ['shield'];
       return ['jheem']; // Default for HIV-related
     }
-    
-    if (content.includes('tuberculosis') || content.includes('tb ')) {
-      return ['tbmte'];
-    }
-    
-    return ['tbmte']; // Default project
+
+    return ['pearl']; // Default project
   }
 
   inferTags(pub) {
@@ -413,8 +409,7 @@ ${allYears.map(year => `  "${year}"`).join(',\n')}
 export const projectsMap = {
   jheem: { name: "JHEEM", color: "bg-hopkins-blue" },
   shield: { name: "SHIELD", color: "bg-hopkins-gold" },
-  pearl: { name: "PEARL", color: "bg-hopkins-spirit-blue" },
-  tbmte: { name: "TBMTE", color: "bg-emerald-600" }
+  pearl: { name: "PEARL", color: "bg-hopkins-spirit-blue" }
 };
 `;
   }
