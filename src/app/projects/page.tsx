@@ -1,5 +1,7 @@
 import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
+import ExternalLinkButton from '@/components/ExternalLinkButton';
+import ClickableProjectCard from '@/components/ClickableProjectCard';
 
 export const metadata = {
   title: 'Our Projects | JHU Computational Epidemiology',
@@ -14,7 +16,7 @@ export default function ProjectsPage() {
       challenge: 'Ending the HIV Epidemic in the US',
       scope: '32 EtE cities, 945 compartments',
       highlights: 'Real-time intervention modeling • Testing, PrEP & viral suppression • Demographic targeting',
-      url: 'https://jheem.shinyapps.io/ryan-white/',
+      url: 'https://jheem-portal.vercel.app',
       gradient: 'from-hopkins-blue to-indigo-800',
       accent: 'from-hopkins-blue to-indigo-600'
     },
@@ -83,9 +85,9 @@ export default function ProjectsPage() {
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="space-y-8 max-w-6xl mx-auto">
             {Object.entries(projectDetails).map(([key, project]) => (
-              <div
+              <ClickableProjectCard
                 key={key}
-                className="group relative bg-white/95 backdrop-blur-sm rounded-2xl border border-gray-200/50 overflow-hidden hover:shadow-xl hover:shadow-gray-900/10 transition-all duration-500 hover:-translate-y-2"
+                href={`/projects/${key}`}
               >
                 <div className="flex flex-col lg:flex-row">
                   {/* Left Side - Content */}
@@ -119,17 +121,11 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Action Button */}
-                    <a
+                    <ExternalLinkButton
                       href={project.url}
-                      target={project.url.startsWith('http') ? '_blank' : '_self'}
-                      rel={project.url.startsWith('http') ? 'noopener noreferrer' : ''}
-                      className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${project.accent} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105`}
-                    >
-                      <span>Explore {key.toUpperCase()}</span>
-                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
+                      label={`Explore ${key.toUpperCase()}`}
+                      accentGradient={project.accent}
+                    />
                   </div>
 
                   {/* Right Side - Stats & Visual */}
@@ -140,7 +136,7 @@ export default function ProjectsPage() {
                       <div className="space-y-3">
                         <div className="flex justify-between items-center">
                           <span className="text-gray-600 text-sm">Cities/Sites</span>
-                          <span className="font-bold text-gray-900">{key === 'jheem' ? '15' : key === 'shield' ? '8' : '200+'}</span>
+                          <span className="font-bold text-gray-900">{key === 'jheem' ? '32' : key === 'shield' ? '32' : '200+'}</span>
                         </div>
                         <div className="flex justify-between items-center">
                           <span className="text-gray-600 text-sm">Publications</span>
@@ -168,7 +164,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </ClickableProjectCard>
             ))}
           </div>
         </div>
