@@ -34,6 +34,13 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
+// Project-specific button colors
+const projectButtonColors: Record<string, string> = {
+  jheem: 'from-hopkins-blue to-indigo-600',
+  shield: 'from-amber-500 to-orange-600',
+  pearl: 'from-hopkins-spirit-blue to-blue-600'
+};
+
 // Project-specific content
 const projectContent: Record<string, {
   fullDescription: string;
@@ -46,8 +53,7 @@ const projectContent: Record<string, {
     keyFeatures: [
       "Real-time intervention modeling",
       "Testing, PrEP & viral suppression",
-      "Demographic targeting",
-      "Cost-effectiveness analysis"
+      "Demographic targeting"
     ],
     externalUrl: "https://jheem-portal.vercel.app",
     externalLabel: "Access JHEEM Portal"
@@ -152,7 +158,7 @@ export default async function ProjectPage({ params }: Props) {
                   href={content.externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-hopkins-blue to-indigo-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105"
+                  className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${projectButtonColors[id]} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105`}
                 >
                   <span>{content.externalLabel}</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

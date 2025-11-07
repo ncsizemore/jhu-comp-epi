@@ -30,8 +30,8 @@ export const projects: Project[] = [
     title: 'Syphilis and HIV Integrated Epidemiologic and Economic Dynamics',
     shortName: 'SHIELD',
     description: 'Modeling the complex interactions between syphilis and HIV transmission to optimize intervention strategies and resource allocation at the local level.',
-    color: 'bg-hopkins-gold',
-    stats: { cities: '8', publications: '0' }
+    color: 'bg-gradient-to-br from-amber-500 to-orange-600',
+    stats: { cities: '32', publications: '0' }
   },
   {
     id: 'pearl',

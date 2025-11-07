@@ -12,7 +12,7 @@ export default function ProjectsPage() {
   const projectDetails = {
     jheem: {
       title: 'Johns Hopkins Epidemiological & Economic Model',
-      description: 'Dynamic, compartmental model calibrated to 32 US cities for the Ending the HIV Epidemic Initiative. Simulates HIV transmission across 945 compartments stratified by age, race, sex, sexual behavior, and drug use to project intervention effects on future transmission.',
+      description: 'Projects HIV intervention impact across diverse populations in 32 US cities.',
       challenge: 'Ending the HIV Epidemic in the US',
       scope: '32 EtE cities, 945 compartments',
       highlights: 'Real-time intervention modeling • Testing, PrEP & viral suppression • Demographic targeting',
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
     },
     shield: {
       title: 'Syphilis & HIV Integrated Epidemiologic Dynamics',
-      description: 'Novel modeling framework tackling the US syphilis epidemic at its highest levels in decades. Syphilis rates have doubled in five years, with 25-50% of infections occurring among people with HIV. Evaluates cost-effective strategies for testing, partner services, and preventive counseling.',
+      description: 'Models HIV-syphilis co-epidemic strategies across high-burden urban jurisdictions.',
       challenge: 'Dual STI epidemics at crisis levels',
       scope: '32 US cities, 60% of diagnoses',
       highlights: 'Doxy-PEP innovation • Point-of-care testing • At-home diagnostics',
@@ -32,7 +32,7 @@ export default function ProjectsPage() {
     },
     pearl: {
       title: 'Projecting Age, Multimorbidity, & Polypharmacy',
-      description: 'Agent-based simulation leveraging NA-ACCORD data from 200+ sites with 190K+ participants. Models aging HIV population health through 2030, addressing multimorbidity burden and polypharmacy challenges as life expectancy approaches general population levels.',
+      description: 'Simulates multimorbidity and healthcare needs for aging populations living with HIV.',
       challenge: 'Aging HIV+ population health',
       scope: 'NA-ACCORD: 200+ sites, 190K+ participants',
       highlights: 'Demographic modeling • Healthcare costs • 2009-2030 projections',
@@ -104,7 +104,7 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+                    <p className="text-lg text-gray-700 font-medium leading-relaxed mb-8">
                       {project.description}
                     </p>
 
