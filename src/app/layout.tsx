@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "JHU Computational Epidemiology Group",
-  description: "Computational models for infectious disease dynamics at Johns Hopkins University",
+  title: "The Computational Epidemiology Lab",
+  description: "The Computational Epidemiology Lab develops and applies mathematical, statistical, and computational approaches to study infectious disease dynamics at Johns Hopkins University.",
 };
 
 export default function RootLayout({

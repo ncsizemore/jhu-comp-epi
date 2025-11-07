@@ -25,16 +25,15 @@ function EnhancedHeroSection() {
       <div className="max-w-7xl mx-auto px-6 py-24 relative">
         <div className="text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
-            Computational <span className="text-transparent bg-clip-text bg-gradient-to-r from-hopkins-gold to-amber-400">Epidemiology</span><br />
-            Research Group
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-hopkins-gold to-amber-400">Computational Epidemiology</span> Lab
           </h1>
 
           <p className="text-xl font-medium text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-            Advanced mathematical models informing evidence-based policy research across 200+ sites nationwide
+            The Computational Epidemiology Lab develops and applies mathematical, statistical, and computational approaches to study infectious disease dynamics. Our work spans modeling, simulation, and data-driven analyses to inform surveillance, prevention, and public health decision-making in the United States. Our interdisciplinary team leverages these methods to generate actionable insights that guide public health interventions.
           </p>
 
           <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Johns Hopkins Bloomberg School of Public Health
+            Johns Hopkins Bloomberg School of Public Health & School of Medicine
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

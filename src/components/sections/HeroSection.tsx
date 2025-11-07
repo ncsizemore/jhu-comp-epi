@@ -25,11 +25,11 @@ export default function HeroSection() {
             
             {/* Improved typography with letter spacing and line height */}
             <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-5 text-gray-900">
-              Computational <span className="text-hopkins-blue relative">
-                Epidemiology
+              The <span className="text-hopkins-blue relative">
+                Computational Epidemiology
                 <span className="absolute bottom-1 left-0 w-full h-2 bg-hopkins-gold/20 -z-10 skew-x-3"></span>
               </span> <br className="hidden md:block" />
-              Research Group
+              Lab
             </h1>
             
             <h2 className="text-xl md:text-2xl text-gray-600 font-normal mb-5 max-w-3xl leading-relaxed">

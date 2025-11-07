@@ -96,7 +96,7 @@ export default function Footer() {
         {/* Combined external links and copyright */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           <div className="text-white/70 text-xs mb-4 md:mb-0">
-            © {new Date().getFullYear()} Johns Hopkins University Computational Epidemiology Research Group
+            © {new Date().getFullYear()} The Computational Epidemiology Lab, Johns Hopkins University
           </div>
           <div className="flex space-x-6">
             <a href="https://www.jhu.edu" target="_blank" rel="noopener noreferrer" className="text-xs text-white/70 hover:text-white transition-all group inline-flex items-center">

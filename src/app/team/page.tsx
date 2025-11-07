@@ -8,8 +8,8 @@ import {
 } from '@/data/team';
 
 export const metadata = {
-  title: 'Our Team | JHU Computational Epidemiology',
-  description: 'Meet the researchers and staff of the Johns Hopkins University Computational Epidemiology Research Group',
+  title: 'Our Team | The Computational Epidemiology Lab',
+  description: 'Meet the researchers and staff of The Computational Epidemiology Lab at Johns Hopkins University',
 };
 
 export default function TeamPage() {
@@ -40,11 +40,11 @@ export default function TeamPage() {
             </h1>
 
             <p className="text-xl font-medium text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-              The Computational Epidemiology Research Group brings together experts from epidemiology, biostatistics, computer science, and clinical medicine
+              The Computational Epidemiology Lab brings together experts from epidemiology, biostatistics, computer science, and clinical medicine
             </p>
 
             <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Johns Hopkins Bloomberg School of Public Health
+              Johns Hopkins Bloomberg School of Public Health & School of Medicine
             </p>
 
             {/* Team Stats */}
