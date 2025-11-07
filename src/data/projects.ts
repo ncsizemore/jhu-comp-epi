@@ -4,7 +4,6 @@ export interface ProjectStats {
   publications: string;
   scenarios?: string;
   countries?: string;
-  [key: string]: string | undefined;
 }
 
 export interface Project {

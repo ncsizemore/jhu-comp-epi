@@ -95,10 +95,16 @@ export default function PublicationDetails({ publication }: PublicationDetailsPr
           
           <button
             className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
-            onClick={() => {
-              if (navigator.clipboard) {
-                navigator.clipboard.writeText(`${publication.authors}. (${publication.year}). ${publication.title}. ${publication.journal}. https://doi.org/${publication.doi}`);
-                // Would add a toast notification here in a real implementation
+            onClick={async () => {
+              try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                  await navigator.clipboard.writeText(`${publication.authors}. (${publication.year}). ${publication.title}. ${publication.journal}. https://doi.org/${publication.doi}`);
+                  // Would add a toast notification here in a real implementation
+                } else {
+                  console.warn('Clipboard API not available');
+                }
+              } catch (error) {
+                console.error('Failed to copy citation:', error);
               }
             }}
           >

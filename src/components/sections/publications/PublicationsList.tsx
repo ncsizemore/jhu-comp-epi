@@ -302,11 +302,20 @@ function PublicationListItem({
   const borderClass = projectBorders[projectId as keyof typeof projectBorders] || projectBorders.pearl;
   const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
   
-  const handleCitationCopy = () => {
+  const handleCitationCopy = async () => {
     const citation = `${publication.authors.split(',')[0]} et al. (${publication.year}). ${publication.title} ${publication.journal}.`;
-    navigator.clipboard.writeText(citation);
-    setShowCitationToast(true);
-    setTimeout(() => setShowCitationToast(false), 2000);
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(citation);
+        setShowCitationToast(true);
+        setTimeout(() => setShowCitationToast(false), 2000);
+      } else {
+        console.warn('Clipboard API not available');
+      }
+    } catch (error) {
+      console.error('Failed to copy citation:', error);
+    }
   };
 
   return (

@@ -1,13 +1,13 @@
 import { notFound } from 'next/navigation';
 import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
-import { projects, Project } from '@/data/projects';
+import { projects } from '@/data/projects';
 
-// Define the page parameters
+// Define the page parameters (Next.js 15 - params is a promise)
 type Props = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 // Generate static params for all projects
@@ -18,9 +18,10 @@ export function generateStaticParams() {
 }
 
 // Generate metadata for each project page
-export function generateMetadata({ params }: Props) {
-  const project = projects.find((p) => p.id === params.id);
-  
+export async function generateMetadata({ params }: Props) {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+
   if (!project) {
     return {
       title: 'Project Not Found',
@@ -33,9 +34,10 @@ export function generateMetadata({ params }: Props) {
   };
 }
 
-export default function ProjectPage({ params }: Props) {
+export default async function ProjectPage({ params }: Props) {
   // Find the project by ID
-  const project = projects.find((p) => p.id === params.id);
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
   
   // If project doesn't exist, return 404
   if (!project) {

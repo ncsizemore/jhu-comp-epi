@@ -173,8 +173,11 @@ class PublicationFetcher {
           `db=pubmed&term=${encodeURIComponent(searchTerm)}&` +
           `mindate=${startYear}&maxdate=${currentYear}&` +
           `retmax=${CONFIG.MAX_RESULTS_PER_AUTHOR}&retmode=json`;
-        
+
         const searchResponse = await fetch(searchUrl);
+        if (!searchResponse.ok) {
+          throw new Error(`PubMed search failed: HTTP ${searchResponse.status}`);
+        }
         const searchData = await searchResponse.json();
         
         if (!searchData.esearchresult?.idlist?.length) {
@@ -188,8 +191,11 @@ class PublicationFetcher {
         // Step 2: Fetch detailed information
         const detailUrl = `${CONFIG.PUBMED_BASE_URL}esummary.fcgi?` +
           `db=pubmed&id=${ids.join(',')}&retmode=json`;
-        
+
         const detailResponse = await fetch(detailUrl);
+        if (!detailResponse.ok) {
+          throw new Error(`PubMed detail fetch failed: HTTP ${detailResponse.status}`);
+        }
         const detailData = await detailResponse.json();
         
         // Process results

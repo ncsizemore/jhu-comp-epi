@@ -1,12 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
-
-interface ProjectStat {
-  [key: string]: string;
-}
+import { ProjectStats } from '@/data/projects';
 
 interface ProjectCardProps {
   id: string;
@@ -14,7 +10,7 @@ interface ProjectCardProps {
   shortName: string;
   description: string;
   color: string;
-  stats: ProjectStat;
+  stats: ProjectStats;
   imageUrl?: string;
 }
 

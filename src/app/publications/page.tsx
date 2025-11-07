@@ -1,30 +1,34 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import FeaturedPublications from '@/components/sections/publications/FeaturedPublications';
 import RecentPublicationsHighlight from '@/components/sections/publications/RecentPublicationsHighlight';
-import { publications, publicationTags, publicationYears } from '@/data/publications';
+import { publications, publicationYears, Publication } from '@/data/publications';
 import './publications.css';
 
 // Enhanced Publications List with sophisticated animations
-function EnhancedPublicationsList({ publications, tags, years }: { publications: any[], tags: string[], years: string[] }) {
+function EnhancedPublicationsList({ publications, years }: { publications: Publication[], years: string[] }) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selectedYears, setSelectedYears] = useState<string[]>([]);
   const [selectedProjects, setSelectedProjects] = useState<string[]>([]);
   const [displayCount, setDisplayCount] = useState(20);
 
-  // Simple filtering without heavy memoization
-  const filteredPublications = publications.filter(pub => {
-    const matchesTags = selectedTags.length === 0 || selectedTags.some(tag => pub.tags.includes(tag));
-    const matchesYears = selectedYears.length === 0 || selectedYears.includes(pub.year);
-    const matchesProjects = selectedProjects.length === 0 || selectedProjects.some(project => pub.projects.includes(project));
-    return matchesTags && matchesYears && matchesProjects;
-  });
+  // Memoized filtering for better performance
+  const filteredPublications = useMemo(() => {
+    return publications.filter(pub => {
+      const matchesTags = selectedTags.length === 0 || selectedTags.some(tag => pub.tags.includes(tag));
+      const matchesYears = selectedYears.length === 0 || selectedYears.includes(pub.year);
+      const matchesProjects = selectedProjects.length === 0 || selectedProjects.some(project => pub.projects.includes(project));
+      return matchesTags && matchesYears && matchesProjects;
+    });
+  }, [publications, selectedTags, selectedYears, selectedProjects]);
 
-  const sortedPublications = filteredPublications
-    .sort((a, b) => parseInt(b.year) - parseInt(a.year))
-    .slice(0, displayCount);
+  const sortedPublications = useMemo(() => {
+    return [...filteredPublications]
+      .sort((a, b) => parseInt(b.year) - parseInt(a.year))
+      .slice(0, displayCount);
+  }, [filteredPublications, displayCount]);
 
   const clearFilters = () => {
     setSelectedTags([]);
@@ -302,7 +306,6 @@ export default function PublicationsPage() {
       {/* Enhanced Publications List */}
       <EnhancedPublicationsList
         publications={publications}
-        tags={publicationTags}
         years={publicationYears}
       />
     </MainLayout>

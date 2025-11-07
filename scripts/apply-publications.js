@@ -58,13 +58,26 @@ class PublicationApplier {
 
   async loadReviewFile() {
     console.log('📂 Loading review file...');
-    
+
     if (!fs.existsSync(CONFIG.REVIEW_FILE_PATH)) {
       throw new Error(`Review file not found: ${CONFIG.REVIEW_FILE_PATH}\nRun 'npm run fetch-publications' first.`);
     }
-    
-    this.reviewData = JSON.parse(fs.readFileSync(CONFIG.REVIEW_FILE_PATH, 'utf8'));
-    console.log(`📄 Found ${this.reviewData.publications.length} publications to review`);
+
+    try {
+      const fileContent = fs.readFileSync(CONFIG.REVIEW_FILE_PATH, 'utf8');
+      this.reviewData = JSON.parse(fileContent);
+
+      if (!this.reviewData.publications || !Array.isArray(this.reviewData.publications)) {
+        throw new Error('Invalid review file format: missing or invalid publications array');
+      }
+
+      console.log(`📄 Found ${this.reviewData.publications.length} publications to review`);
+    } catch (error) {
+      if (error instanceof SyntaxError) {
+        throw new Error(`Invalid JSON in review file: ${error.message}`);
+      }
+      throw error;
+    }
   }
 
   async validateReviewFile() {
@@ -178,9 +191,13 @@ class PublicationApplier {
 
   async createBackup() {
     console.log('💾 Creating backup...');
-    
-    fs.copyFileSync(CONFIG.PUBLICATIONS_PATH, CONFIG.BACKUP_PATH);
-    console.log(`✅ Backup created: ${CONFIG.BACKUP_PATH}`);
+
+    try {
+      fs.copyFileSync(CONFIG.PUBLICATIONS_PATH, CONFIG.BACKUP_PATH);
+      console.log(`✅ Backup created: ${CONFIG.BACKUP_PATH}`);
+    } catch (error) {
+      throw new Error(`Failed to create backup: ${error.message}`);
+    }
   }
 
   async processApprovedPublications() {
@@ -311,21 +328,25 @@ class PublicationApplier {
 
   async updatePublicationsFile() {
     console.log('📝 Updating publications file...');
-    
-    // Sort publications by year (newest first)
-    this.currentPublications.sort((a, b) => {
-      const yearA = parseInt(a.year) || 0;
-      const yearB = parseInt(b.year) || 0;
-      return yearB - yearA;
-    });
-    
-    // Generate new TypeScript file content
-    const newContent = this.generatePublicationsTS();
-    
-    // Write updated file
-    fs.writeFileSync(CONFIG.PUBLICATIONS_PATH, newContent, 'utf8');
-    
-    console.log('✅ Publications file updated');
+
+    try {
+      // Sort publications by year (newest first)
+      this.currentPublications.sort((a, b) => {
+        const yearA = parseInt(a.year) || 0;
+        const yearB = parseInt(b.year) || 0;
+        return yearB - yearA;
+      });
+
+      // Generate new TypeScript file content
+      const newContent = this.generatePublicationsTS();
+
+      // Write updated file
+      fs.writeFileSync(CONFIG.PUBLICATIONS_PATH, newContent, 'utf8');
+
+      console.log('✅ Publications file updated');
+    } catch (error) {
+      throw new Error(`Failed to update publications file: ${error.message}`);
+    }
   }
 
   generatePublicationsTS() {
