@@ -25,7 +25,8 @@ function EnhancedHeroSection() {
       <div className="max-w-7xl mx-auto px-6 py-24 relative">
         <div className="text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6 tracking-tight leading-tight">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-hopkins-gold to-amber-400">Computational Epidemiology</span> Lab
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-hopkins-gold to-amber-400">Computational</span><br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-hopkins-gold to-amber-400">Epidemiology</span> Lab
           </h1>
 
           <p className="text-xl font-medium text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">

@@ -22,8 +22,7 @@ export default function Header() {
               <div className="border-l border-white/30 mx-4 h-10 hidden md:block"></div>
               
               <div className="hidden md:block">
-                <div className="text-white font-bold text-lg group-hover:text-hopkins-gold transition-colors duration-300">Computational Epidemiology</div>
-                <div className="text-white/80 text-xs tracking-wider group-hover:text-white transition-colors duration-300">RESEARCH GROUP</div>
+                <div className="text-white font-bold text-lg group-hover:text-hopkins-gold transition-colors duration-300">Computational Epidemiology Lab</div>
               </div>
             </div>
             {/* Subtle hover effect - animated underline */}

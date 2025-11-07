@@ -33,8 +33,7 @@ export default function Footer() {
               className="mb-3"
             />
             <div className="text-sm text-white/90">
-              <span className="font-medium">Computational Epidemiology</span><br />
-              <span className="text-xs tracking-wider">RESEARCH GROUP</span>
+              <span className="font-medium">Computational Epidemiology Lab</span>
             </div>
           </div>
           
