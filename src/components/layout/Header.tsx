@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { getAssetPath } from '@/utils/paths';
 import Image from 'next/image';
 
 export default function Header() {
@@ -11,8 +10,8 @@ export default function Header() {
           <Link href="/" className="flex items-center group relative overflow-hidden">
             <div className="flex-shrink-0 flex items-center">
               <div className="flex items-center">
-                <Image 
-                  src={getAssetPath("/images/JHU.logo_horizontal.white.svg")} 
+                <Image
+                  src="/images/JHU.logo_horizontal.white.svg"
                   alt="Johns Hopkins University" 
                   width={200} 
                   height={50} 

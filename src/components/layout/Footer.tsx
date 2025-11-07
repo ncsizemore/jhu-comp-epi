@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { getAssetPath } from '@/utils/paths';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -8,7 +7,7 @@ export default function Footer() {
       {/* Subtle background elements */}
       <div className="absolute -left-16 -top-48 w-64 h-64 bg-hopkins-spirit-blue/[0.15] rounded-full z-0"></div>
       <div className="absolute right-0 bottom-0 w-32 h-32 bg-hopkins-gold/[0.12] rounded-full z-0"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact Information */}
@@ -23,11 +22,11 @@ export default function Footer() {
               <a href="mailto:compepi@jhu.edu" className="hover:text-white hover:underline transition-colors">compepi@jhu.edu</a>
             </p>
           </div>
-          
+
           {/* Logo in the middle */}
           <div className="text-center flex flex-col items-center">
-            <Image 
-              src={getAssetPath("/images/JHU.logo_horizontal.white.svg")} 
+            <Image
+              src="/images/JHU.logo_horizontal.white.svg"
               alt="Johns Hopkins University" 
               width={220} 
               height={55} 
