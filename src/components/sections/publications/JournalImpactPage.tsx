@@ -8,7 +8,7 @@ interface JournalImpactPageProps {
   isRightPage?: boolean;
 }
 
-export default function JournalImpactPage({ publication, isRightPage = false }: JournalImpactPageProps) {
+export default function JournalImpactPage({ isRightPage = false }: JournalImpactPageProps) {
   const [animated, setAnimated] = useState(false);
   
   // Example impact data - would come from publication object in real implementation
@@ -41,7 +41,7 @@ export default function JournalImpactPage({ publication, isRightPage = false }: 
   // Generate monthly citation data for the chart
   const generateMonthlyData = () => {
     // Current trend with some randomness but overall growth
-    let citationTrend = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3];
+    const citationTrend = [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3];
     
     return citationTrend.map(value => {
       // Add some randomness, but ensure overall trend

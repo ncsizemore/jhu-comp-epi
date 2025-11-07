@@ -35,7 +35,6 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function ProjectPage({ params }: Props) {
-  // Find the project by ID
   const { id } = await params;
   const project = projects.find((p) => p.id === id);
   

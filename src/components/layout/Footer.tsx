@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getAssetPath } from '@/utils/paths';
 import Image from 'next/image';
 
 export default function Footer() {
@@ -26,7 +27,7 @@ export default function Footer() {
           {/* Logo in the middle */}
           <div className="text-center flex flex-col items-center">
             <Image 
-              src="/images/JHU.logo_horizontal.white.svg" 
+              src={getAssetPath("/images/JHU.logo_horizontal.white.svg")} 
               alt="Johns Hopkins University" 
               width={220} 
               height={55} 

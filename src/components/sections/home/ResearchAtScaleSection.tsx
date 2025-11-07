@@ -63,11 +63,11 @@ export default function ResearchAtScaleSection() {
       <div className="max-w-7xl mx-auto px-6 relative">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
-            Research at <span className="text-hopkins-blue">Global Scale</span>
+            Research at <span className="text-hopkins-blue">National Scale</span>
           </h2>
 
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From local cities to global health systems, our computational frameworks model epidemic dynamics across diverse geographic and demographic landscapes
+            From local cities to national health systems, our computational frameworks model epidemic dynamics across diverse geographic and demographic landscapes
           </p>
         </div>
 
@@ -82,12 +82,12 @@ export default function ResearchAtScaleSection() {
               </h3>
               <p className="text-gray-600 font-medium max-w-2xl mx-auto">
                 Our mathematical frameworks operate across vast geographic networks,
-                from metropolitan areas to international health systems.
+                from metropolitan areas to national health systems.
               </p>
             </div>
 
             {/* Scale Stats Row */}
-            <div className="grid grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-hopkins-blue to-indigo-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <div className="text-xl font-black text-white">32</div>
@@ -102,14 +102,6 @@ export default function ResearchAtScaleSection() {
                 </div>
                 <h4 className="font-black text-gray-900 text-sm tracking-tight">Clinical Sites</h4>
                 <p className="text-xs text-gray-600 font-medium">Research Network</p>
-              </div>
-
-              <div className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <div className="text-xl font-black text-white">12+</div>
-                </div>
-                <h4 className="font-black text-gray-900 text-sm tracking-tight">Countries</h4>
-                <p className="text-xs text-gray-600 font-medium">Global Reach</p>
               </div>
 
               <div className="text-center group">
@@ -233,7 +225,7 @@ export default function ResearchAtScaleSection() {
                 Mathematical Models with Real-World Reach
               </h3>
               <p className="text-gray-600 font-medium mb-6 leading-relaxed">
-                From HIV prevention in San Francisco to tuberculosis elimination globally,
+                From HIV prevention in San Francisco to syphilis elimination strategies nationwide,
                 our computational frameworks translate complex epidemiological data into actionable insights at unprecedented scale.
               </p>
 
@@ -246,9 +238,9 @@ export default function ResearchAtScaleSection() {
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-black bg-gradient-to-br from-emerald-500 to-teal-600 bg-clip-text text-transparent mb-1">
-                    Cross-Border
+                    Nationwide
                   </div>
-                  <p className="text-sm text-gray-600 font-medium">International collaboration and data integration</p>
+                  <p className="text-sm text-gray-600 font-medium">National policy and intervention strategies</p>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-black bg-gradient-to-br from-amber-500 to-orange-600 bg-clip-text text-transparent mb-1">

@@ -60,7 +60,7 @@ export default function PublicationsList({ publications, tags, years }: Publicat
   };
   
   // Memoize expensive filtering and sorting operations
-  const { filteredPublications, sortedPublications } = useMemo(() => {
+  const { sortedPublications } = useMemo(() => {
     const filtered = publications.filter(pub => {
       const matchesTags = selectedTags.length === 0 || 
         selectedTags.some(tag => pub.tags.includes(tag));
@@ -78,7 +78,7 @@ export default function PublicationsList({ publications, tags, years }: Publicat
       return parseInt(b.year) - parseInt(a.year);
     });
 
-    return { filteredPublications: filtered, sortedPublications: sorted };
+    return { sortedPublications: sorted };
   }, [publications, selectedTags, selectedYears, selectedProjects]);
 
   // Get display tags for collapsed state - memoize this too
@@ -234,11 +234,10 @@ export default function PublicationsList({ publications, tags, years }: Publicat
         {/* Compact Two-Column Publications List */}
         {sortedPublications.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-            {sortedPublications.map((publication, index) => (
+            {sortedPublications.map((publication) => (
               <PublicationListItem 
                 key={publication.id} 
                 publication={publication}
-                index={index}
                 isExpanded={expandedCards.has(publication.id)}
                 onToggleExpansion={() => toggleCardExpansion(publication.id)}
               />
@@ -270,12 +269,10 @@ export default function PublicationsList({ publications, tags, years }: Publicat
 
 function PublicationListItem({ 
   publication, 
-  index, 
   isExpanded, 
   onToggleExpansion 
 }: { 
   publication: Publication; 
-  index: number;
   isExpanded: boolean;
   onToggleExpansion: () => void;
 }) {
