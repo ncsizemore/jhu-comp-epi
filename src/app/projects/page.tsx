@@ -25,7 +25,7 @@ export default function ProjectsPage() {
       description: 'Models HIV-syphilis co-epidemic strategies across high-burden urban jurisdictions.',
       challenge: 'Dual STI epidemics at crisis levels',
       scope: '32 US cities, 60% of diagnoses',
-      highlights: 'Doxy-PEP innovation • Point-of-care testing • At-home diagnostics',
+      highlights: 'Doxy-PEP innovation • Point-of-care testing • At-home diagnostics • Cost-effectiveness analysis',
       url: 'https://ncsizemore.github.io/shield-project/',
       gradient: 'from-amber-500 to-orange-600',
       accent: 'from-amber-500 to-orange-600'
