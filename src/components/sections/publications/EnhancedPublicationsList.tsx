@@ -184,8 +184,11 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
                 key={publication.id}
                 className={`border-l-4 ${borderClass} bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 hover:border-gray-300/70 rounded-r-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group`}
                 style={{
-                  animationDelay: `${index * 50}ms`,
-                  animation: 'fadeIn 0.5s ease-out forwards'
+                  animationName: 'fadeIn',
+                  animationDuration: '0.5s',
+                  animationTimingFunction: 'ease-out',
+                  animationFillMode: 'forwards',
+                  animationDelay: `${index * 50}ms`
                 }}
               >
                 <div className="p-4">
