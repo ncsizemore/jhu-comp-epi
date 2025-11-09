@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Publication } from '@/data/publications';
+import { Publication } from '@/lib/data/publications';
 
 interface JournalImpactPageProps {
   publication: Publication;

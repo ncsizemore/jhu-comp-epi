@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { TeamMember } from '@/data/team';
+import { TeamMember } from '@/lib/data/team';
 
 interface TeamMemberCardProps {
   member: TeamMember;

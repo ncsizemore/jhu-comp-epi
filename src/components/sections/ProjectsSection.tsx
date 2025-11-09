@@ -1,7 +1,11 @@
-import { projects } from '@/data/projects';
+import { Project } from '@/lib/data/projects';
 import ProjectCard from '@/components/ui/ProjectCard';
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  projects: Project[];
+}
+
+export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section className="py-16 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

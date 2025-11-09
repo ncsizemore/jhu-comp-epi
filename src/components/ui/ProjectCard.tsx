@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { ProjectStats } from '@/data/projects';
+import { ProjectStats } from '@/lib/data/projects';
 
 interface ProjectCardProps {
   id: string;

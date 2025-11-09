@@ -1,18 +1,21 @@
 import MainLayout from '@/components/layout/MainLayout';
 import TeamSection from '@/components/sections/team/TeamSection';
 import ContactSection from '@/components/sections/team/ContactSection';
-import { 
-  teamCategories, 
-  contactInfo, 
-  getTeamMembersByCategory 
-} from '@/data/team';
+import {
+  getTeamCategories,
+  getContactInfo,
+  getTeamMembersByCategory
+} from '@/lib/data/team';
 
 export const metadata = {
   title: 'Our Team | The Computational Epidemiology Lab',
   description: 'Meet the researchers and staff of The Computational Epidemiology Lab at Johns Hopkins University',
 };
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  // Fetch data using the data access layer
+  const teamCategories = await getTeamCategories();
+  const contactInfo = await getContactInfo();
   return (
     <MainLayout>
       {/* Enhanced hero section matching home page aesthetic */}
@@ -51,21 +54,21 @@ export default function TeamPage() {
             <div className="flex flex-wrap justify-center gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4 border border-white/20">
                 <div className="text-white text-2xl font-black mb-1">
-                  {getTeamMembersByCategory('faculty').length + getTeamMembersByCategory('postdoc').length}
+                  {(await getTeamMembersByCategory('faculty')).length + (await getTeamMembersByCategory('postdoc')).length}
                 </div>
                 <div className="text-gray-300 text-sm font-medium">Faculty & Researchers</div>
               </div>
-              
+
               <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4 border border-white/20">
                 <div className="text-white text-2xl font-black mb-1">
-                  {getTeamMembersByCategory('student').length}
+                  {(await getTeamMembersByCategory('student')).length}
                 </div>
                 <div className="text-gray-300 text-sm font-medium">Graduate Students</div>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-4 border border-white/20">
                 <div className="text-white text-2xl font-black mb-1">
-                  {getTeamMembersByCategory('staff').length}
+                  {(await getTeamMembersByCategory('staff')).length}
                 </div>
                 <div className="text-gray-300 text-sm font-medium">Research Staff</div>
               </div>
@@ -77,18 +80,20 @@ export default function TeamPage() {
       {/* Team Sections */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          {teamCategories
-            .sort((a, b) => a.order - b.order)
-            .map((category) => {
-              const members = getTeamMembersByCategory(category.id);
-              return (
-                <TeamSection
-                  key={category.id}
-                  category={category}
-                  members={members}
-                />
-              );
-            })}
+          {await Promise.all(
+            teamCategories
+              .sort((a, b) => a.order - b.order)
+              .map(async (category) => {
+                const members = await getTeamMembersByCategory(category.id);
+                return (
+                  <TeamSection
+                    key={category.id}
+                    category={category}
+                    members={members}
+                  />
+                );
+              })
+          )}
         </div>
       </section>
 

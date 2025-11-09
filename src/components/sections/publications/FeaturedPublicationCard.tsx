@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Publication } from '@/data/publications';
+import { Publication } from '@/lib/data/publications';
 
 interface FeaturedPublicationCardProps {
     publication: Publication;

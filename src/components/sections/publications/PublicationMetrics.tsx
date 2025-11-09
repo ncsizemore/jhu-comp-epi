@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Publication } from '@/data/publications';
+import { Publication } from '@/lib/data/publications';
 
 interface PublicationMetricsProps {
   publication: Publication;

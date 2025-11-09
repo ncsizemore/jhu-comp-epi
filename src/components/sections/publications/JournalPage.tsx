@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Publication } from '@/data/publications';
+import { Publication } from '@/lib/data/publications';
 
 interface JournalPageProps {
   publication: Publication;

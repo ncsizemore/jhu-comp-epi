@@ -1,4 +1,4 @@
-import { TeamMember, TeamCategory } from '@/data/team';
+import { TeamMember, TeamCategory } from '@/lib/data/team';
 import TeamMemberCard from './TeamMemberCard';
 
 interface TeamSectionProps {

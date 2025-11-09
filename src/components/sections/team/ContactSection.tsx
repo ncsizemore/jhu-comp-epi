@@ -1,4 +1,4 @@
-import { ContactInfo } from '@/data/team';
+import { ContactInfo } from '@/lib/data/team';
 
 interface ContactSectionProps {
   contactInfo: ContactInfo;

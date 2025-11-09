@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
-import { projects } from '@/data/projects';
+import { getProjects, getProjectById } from '@/lib/data/projects';
 import { getProjectTheme } from '@/lib/projects/config';
 
 // Define the page parameters (Next.js 15 - params is a promise)
@@ -12,7 +12,8 @@ type Props = {
 };
 
 // Generate static params for all projects
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const projects = await getProjects();
   return projects.map((project) => ({
     id: project.id,
   }));
@@ -21,7 +22,7 @@ export function generateStaticParams() {
 // Generate metadata for each project page
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
-  const project = projects.find((p) => p.id === id);
+  const project = await getProjectById(id);
 
   if (!project) {
     return {
@@ -78,7 +79,7 @@ const projectContent: Record<string, {
 
 export default async function ProjectPage({ params }: Props) {
   const { id } = await params;
-  const project = projects.find((p) => p.id === id);
+  const project = await getProjectById(id);
 
   // If project doesn't exist, return 404
   if (!project) {

@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Publication, projectsMap } from '@/data/publications';
+import { Publication } from '@/lib/data/publications';
+import { projectsMap } from '@/lib/projects/config';
 
 interface RecentPublicationsHighlightProps {
   publications: Publication[];

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Publication } from '@/data/publications';
+import { Publication } from '@/lib/data/publications';
 import PublicationDetails from './PublicationDetails';
 import PublicationMetrics from './PublicationMetrics';
 

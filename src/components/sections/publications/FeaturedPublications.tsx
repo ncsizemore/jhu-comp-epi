@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Publication } from '@/data/publications';
+import { Publication } from '@/lib/data/publications';
 import { getProjectTheme, projectsMap } from '@/lib/projects/config';
 
 interface FeaturedPublicationsProps {
