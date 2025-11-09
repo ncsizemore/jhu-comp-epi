@@ -2,6 +2,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import ClickableProjectCard from '@/components/ClickableProjectCard';
+import { getProjectTheme } from '@/lib/projects/config';
 
 export const metadata = {
   title: 'Our Projects | JHU Computational Epidemiology',
@@ -17,8 +18,6 @@ export default function ProjectsPage() {
       scope: '32 EtE cities, 945 compartments',
       highlights: 'Real-time intervention modeling • Testing, PrEP & viral suppression • Demographic targeting',
       url: 'https://jheem-portal.vercel.app',
-      gradient: 'from-hopkins-blue to-indigo-800',
-      accent: 'from-hopkins-blue to-indigo-600'
     },
     shield: {
       title: 'Syphilis & HIV Integrated Epidemiologic Dynamics',
@@ -27,8 +26,6 @@ export default function ProjectsPage() {
       scope: '32 US cities, 60% of diagnoses',
       highlights: 'Doxy-PEP innovation • Point-of-care testing • At-home diagnostics • Cost-effectiveness analysis',
       url: 'https://ncsizemore.github.io/shield-project/',
-      gradient: 'from-amber-500 to-orange-600',
-      accent: 'from-amber-500 to-orange-600'
     },
     pearl: {
       title: 'Projecting Age, Multimorbidity, & Polypharmacy',
@@ -37,8 +34,6 @@ export default function ProjectsPage() {
       scope: 'NA-ACCORD: 200+ sites, 190K+ participants',
       highlights: 'Demographic modeling • Healthcare costs • 2009-2030 projections',
       url: 'https://pearlhivmodel.org/',
-      gradient: 'from-hopkins-spirit-blue to-blue-800',
-      accent: 'from-hopkins-spirit-blue to-blue-600'
     }
   };
 
@@ -84,7 +79,10 @@ export default function ProjectsPage() {
       <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="space-y-8 max-w-6xl mx-auto">
-            {Object.entries(projectDetails).map(([key, project]) => (
+            {Object.entries(projectDetails).map(([key, project]) => {
+              const theme = getProjectTheme(key);
+
+              return (
               <ClickableProjectCard
                 key={key}
                 href={`/projects/${key}`}
@@ -94,7 +92,7 @@ export default function ProjectsPage() {
                   <div className="flex-1 p-8 lg:p-12">
                     {/* Project Badge */}
                     <div className="flex items-center gap-4 mb-6">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${project.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
+                      <div className={`w-12 h-12 bg-gradient-to-br ${theme.colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
                         <div className="w-6 h-6 bg-white rounded-md"></div>
                       </div>
                       <div>
@@ -124,7 +122,7 @@ export default function ProjectsPage() {
                     <ExternalLinkButton
                       href={project.url}
                       label={`Explore ${key.toUpperCase()}`}
-                      accentGradient={project.accent}
+                      accentGradient={theme.colors.gradient}
                     />
                   </div>
 
@@ -150,7 +148,7 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Visual Element */}
-                    <div className={`h-32 bg-gradient-to-br ${project.gradient} rounded-xl relative overflow-hidden`}>
+                    <div className={`h-32 bg-gradient-to-br ${theme.colors.gradient} rounded-xl relative overflow-hidden`}>
                       <div className="absolute inset-0 opacity-20">
                         <div className="absolute top-4 right-4 w-8 h-8 border-2 border-white/60 rounded-full"></div>
                         <div className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/60 rounded-lg rotate-45"></div>
@@ -165,7 +163,8 @@ export default function ProjectsPage() {
                   </div>
                 </div>
               </ClickableProjectCard>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

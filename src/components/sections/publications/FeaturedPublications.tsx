@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Publication, projectsMap } from '@/data/publications';
+import { Publication } from '@/data/publications';
+import { getProjectTheme, projectsMap } from '@/lib/projects/config';
 
 interface FeaturedPublicationsProps {
   publications: Publication[];
@@ -84,15 +85,9 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
             {featuredPubs.map((publication, index) => {
               const projectId = publication.projects[0] || 'pearl';
               const project = projectsMap[projectId as keyof typeof projectsMap];
-              
-              const projectGradients = {
-                pearl: 'from-hopkins-spirit-blue/30 to-blue-900/30',
-                jheem: 'from-hopkins-blue/30 to-indigo-900/30',
+              const projectTheme = getProjectTheme(projectId);
 
-                shield: 'from-amber-500/30 to-orange-900/30'
-              };
-              
-              const gradientClass = projectGradients[projectId as keyof typeof projectGradients] || projectGradients.pearl;
+              const gradientClass = projectTheme.colors.gradientDark;
               
               return (
                 <div

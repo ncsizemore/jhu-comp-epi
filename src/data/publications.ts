@@ -348,10 +348,6 @@ export const publicationYears: string[] = [
   "2017"
 ];
 
-// Project mappings
-export const projectsMap = {
-  jheem: { name: "JHEEM", color: "bg-hopkins-blue" },
-  shield: { name: "SHIELD", color: "bg-hopkins-gold" },
-  pearl: { name: "PEARL", color: "bg-hopkins-spirit-blue" },
-
-};
+// DEPRECATED: Import from @/lib/projects/config instead
+// Re-export for backwards compatibility
+export { projectsMap } from '@/lib/projects/config';

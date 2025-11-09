@@ -2,7 +2,8 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Publication, projectsMap } from '@/data/publications';
+import { Publication } from '@/data/publications';
+import { getProjectTheme, projectsMap } from '@/lib/projects/config';
 
 interface PublicationsListProps {
   publications: Publication[];
@@ -278,26 +279,13 @@ function PublicationListItem({
 }) {
   const [showCitationToast, setShowCitationToast] = useState(false);
   
-  // Get the project info
+  // Get the project info and theme
   const projectId = publication.projects[0] || 'pearl';
   const projectInfo = projectsMap[projectId as keyof typeof projectsMap] || projectsMap.pearl;
-  
-  const projectColors = {
-    pearl: 'from-hopkins-spirit-blue to-blue-600',
-    jheem: 'from-hopkins-blue to-indigo-600',
+  const projectTheme = getProjectTheme(projectId);
 
-    shield: 'from-amber-500 to-orange-600'
-  };
-  
-  const projectBorders = {
-    pearl: 'border-l-hopkins-spirit-blue',
-    jheem: 'border-l-hopkins-blue',
-
-    shield: 'border-l-amber-500'
-  };
-  
-  const borderClass = projectBorders[projectId as keyof typeof projectBorders] || projectBorders.pearl;
-  const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
+  const borderClass = projectTheme.colors.border;
+  const colorClass = projectTheme.colors.gradient;
   
   const handleCitationCopy = async () => {
     const citation = `${publication.authors.split(',')[0]} et al. (${publication.year}). ${publication.title} ${publication.journal}.`;

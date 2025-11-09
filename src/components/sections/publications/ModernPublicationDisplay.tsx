@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Publication } from '@/data/publications';
 import PublicationDetails from './PublicationDetails';
 import PublicationMetrics from './PublicationMetrics';
@@ -17,42 +17,42 @@ export default function ModernPublicationDisplay({ publications }: ModernPublica
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Navigate to a specific publication
-  const goToPublication = (index: number) => {
+  const goToPublication = useCallback((index: number) => {
     if (isTransitioning || index === currentIndex) return;
-    
+
     setIsTransitioning(true);
     setCurrentIndex(index);
-    
+
     // Reset transition state after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
     }, 500);
-  };
+  }, [isTransitioning, currentIndex]);
 
-  const goToNextPub = () => {
+  const goToNextPub = useCallback(() => {
     const nextIndex = (currentIndex + 1) % featuredPubs.length;
     goToPublication(nextIndex);
-  };
+  }, [currentIndex, featuredPubs.length, goToPublication]);
 
-  const goToPrevPub = () => {
+  const goToPrevPub = useCallback(() => {
     const prevIndex = (currentIndex - 1 + featuredPubs.length) % featuredPubs.length;
     goToPublication(prevIndex);
-  };
+  }, [currentIndex, featuredPubs.length, goToPublication]);
 
   // Auto-rotate publications
   useEffect(() => {
     if (!autoplay || isTransitioning) return;
-    
+
     timerRef.current = setTimeout(() => {
       goToNextPub();
     }, 8000); // Change publication every 8 seconds
-    
+
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
     };
-  }, [autoplay, isTransitioning, currentIndex, featuredPubs.length]);
+  }, [autoplay, isTransitioning, goToNextPub]);
 
   // Pause autoplay on hover
   const handleMouseEnter = () => setAutoplay(false);

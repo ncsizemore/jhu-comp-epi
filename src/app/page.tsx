@@ -2,6 +2,8 @@ import React from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
 import SimpleMapDisplay from '@/components/sections/home/SimpleMapDisplay';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { SectionErrorFallback } from '@/components/SectionErrorFallback';
 
 // Enhanced Hero Section
 function EnhancedHeroSection() {
@@ -88,7 +90,9 @@ function ResearchSection() {
         <div className="bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-2xl overflow-hidden shadow-lg mb-10">
           {/* Map */}
           <div className="p-6">
-            <SimpleMapDisplay />
+            <ErrorBoundary fallback={<SectionErrorFallback title="Map temporarily unavailable" message="The interactive map could not be loaded. The map shows our research locations across the United States." />}>
+              <SimpleMapDisplay />
+            </ErrorBoundary>
           </div>
 
           {/* Research Areas - directly below map in same card */}

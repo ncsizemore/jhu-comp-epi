@@ -5,6 +5,9 @@ import MainLayout from '@/components/layout/MainLayout';
 import FeaturedPublications from '@/components/sections/publications/FeaturedPublications';
 import RecentPublicationsHighlight from '@/components/sections/publications/RecentPublicationsHighlight';
 import { publications, publicationYears, Publication } from '@/data/publications';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { SectionErrorFallback } from '@/components/SectionErrorFallback';
+import { projectsMap } from '@/lib/projects/config';
 import './publications.css';
 
 // Enhanced Publications List with sophisticated animations
@@ -37,12 +40,6 @@ function EnhancedPublicationsList({ publications, years }: { publications: Publi
   };
 
   const hasActiveFilters = selectedTags.length > 0 || selectedYears.length > 0 || selectedProjects.length > 0;
-
-  const projectsMap = {
-    jheem: { name: "JHEEM", color: "bg-hopkins-blue" },
-    shield: { name: "SHIELD", color: "bg-hopkins-gold" },
-    pearl: { name: "PEARL", color: "bg-hopkins-spirit-blue" }
-  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
@@ -296,10 +293,14 @@ export default function PublicationsPage() {
   return (
     <MainLayout>
       {/* Featured Publications */}
-      <FeaturedPublications publications={publications} />
+      <ErrorBoundary fallback={<SectionErrorFallback title="Featured publications unavailable" message="Unable to load featured publications. Please try refreshing the page." />}>
+        <FeaturedPublications publications={publications} />
+      </ErrorBoundary>
 
       {/* Recent Publications */}
-      <RecentPublicationsHighlight publications={publications} />
+      <ErrorBoundary fallback={<SectionErrorFallback title="Recent publications unavailable" message="Unable to load recent publications. Please try refreshing the page." />}>
+        <RecentPublicationsHighlight publications={publications} />
+      </ErrorBoundary>
 
       {/* Enhanced Publications List */}
       <EnhancedPublicationsList
