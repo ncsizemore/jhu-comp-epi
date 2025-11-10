@@ -21,7 +21,7 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
   );
 
   // Use custom carousel hook for all carousel logic
-  const { currentSlide, isAutoPlaying, goToSlide, nextSlide, prevSlide, pause, resume } =
+  const { currentSlide, isAutoPlaying, goToSlide, nextSlide, prevSlide, pause, resume, toggleAutoPlay } =
     useCarousel({
       itemCount: featuredPubs.length,
       autoPlayInterval: 6000,
@@ -251,7 +251,7 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
             onPrevious={prevSlide}
             onNext={nextSlide}
             onGoToSlide={goToSlide}
-            onToggleAutoPlay={() => setIsAutoPlaying(!isAutoPlaying)}
+            onToggleAutoPlay={toggleAutoPlay}
           />
         </div>
       </div>

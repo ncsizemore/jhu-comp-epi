@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { getProjectTheme, ProjectId, PROJECT_THEME } from '@/lib/projects/config';
+import { getProjectTheme, PROJECT_THEME } from '@/lib/projects/config';
 
 /**
  * Custom hook for accessing project theme configuration

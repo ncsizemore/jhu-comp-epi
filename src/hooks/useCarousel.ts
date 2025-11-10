@@ -24,6 +24,8 @@ export interface UseCarouselResult {
   pause: () => void;
   /** Resume auto-play */
   resume: () => void;
+  /** Toggle auto-play on/off */
+  toggleAutoPlay: () => void;
 }
 
 /**
@@ -84,6 +86,10 @@ export function useCarousel({
     setIsAutoPlaying(true);
   }, []);
 
+  const toggleAutoPlay = useCallback(() => {
+    setIsAutoPlaying(prev => !prev);
+  }, []);
+
   return {
     currentSlide,
     isAutoPlaying,
@@ -92,5 +98,6 @@ export function useCarousel({
     prevSlide,
     pause,
     resume,
+    toggleAutoPlay,
   };
 }
