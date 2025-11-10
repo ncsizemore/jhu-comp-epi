@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Publication } from '@/lib/data/publications';
 import { getProjectTheme, projectsMap } from '@/lib/projects/config';
 import { HeroBackground } from '@/components/ui/HeroBackground';
+import { useCarousel } from '@/hooks/useCarousel';
 import CarouselControls from '@/components/ui/CarouselControls';
 
 interface FeaturedPublicationsProps {
@@ -19,38 +20,13 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
     [publications]
   );
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
-  // Auto-rotate slides
-  useEffect(() => {
-    if (!isAutoPlaying || featuredPubs.length <= 1) return;
-    
-    const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % featuredPubs.length);
-    }, 6000);
-    
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, featuredPubs.length]);
-
-  // Memoize callback functions to prevent unnecessary re-renders
-  const goToSlide = useCallback((index: number) => {
-    setCurrentSlide(index);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  }, []);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev + 1) % featuredPubs.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  }, [featuredPubs.length]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev - 1 + featuredPubs.length) % featuredPubs.length);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  }, [featuredPubs.length]);
+  // Use custom carousel hook for all carousel logic
+  const { currentSlide, isAutoPlaying, goToSlide, nextSlide, prevSlide, pause, resume } =
+    useCarousel({
+      itemCount: featuredPubs.length,
+      autoPlayInterval: 6000,
+      pauseDuration: 10000,
+    });
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -71,10 +47,10 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
         </div>
 
         {/* Space-Efficient Carousel - Optimized Width */}
-        <div 
+        <div
           className="relative group max-w-5xl mx-auto"
-          onMouseEnter={() => setIsAutoPlaying(false)}
-          onMouseLeave={() => setIsAutoPlaying(true)}
+          onMouseEnter={pause}
+          onMouseLeave={resume}
         >
           <div className="relative h-[520px] overflow-hidden rounded-3xl border border-white/10 mx-8 transition-all duration-500 group-hover:border-white/20 group-hover:shadow-2xl group-hover:shadow-black/20">
             {featuredPubs.map((publication, index) => {
