@@ -6,11 +6,17 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',           // Show fallback font immediately
+  preload: true,             // Preload critical fonts
+  adjustFontFallback: true,  // Match fallback font metrics
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

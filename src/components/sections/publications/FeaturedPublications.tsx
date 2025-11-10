@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Publication } from '@/lib/data/publications';
 import { getProjectTheme, projectsMap } from '@/lib/projects/config';
+import { HeroBackground } from '@/components/ui/HeroBackground';
 import CarouselControls from '@/components/ui/CarouselControls';
 
 interface FeaturedPublicationsProps {
@@ -53,22 +54,8 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
-      {/* Sophisticated static background for consistency */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-hopkins-blue/15 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/12 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-hopkins-gold/8 rounded-full blur-3xl"></div>
-      </div>
-      
-      {/* Static geometric shapes with modern sophistication */}
-      <div className="absolute inset-0 overflow-hidden opacity-25">
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-hopkins-gold/20 to-amber-400/30 transform rotate-45 rounded-2xl shadow-lg"></div>
-        <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-tr from-emerald-400/25 to-teal-500/35 rounded-full shadow-md"></div>
-        <div className="absolute top-1/2 left-20 w-16 h-64 bg-gradient-to-b from-hopkins-blue/15 to-transparent rounded-full"></div>
-        <div className="absolute bottom-20 right-1/3 w-20 h-20 border-2 border-white/15 rounded-lg rotate-12"></div>
-        <div className="absolute top-40 left-1/3 w-12 h-32 bg-gradient-to-b from-emerald-400/10 to-transparent rounded-full transform -rotate-12"></div>
-      </div>
-      
+      <HeroBackground />
+
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Minimal Elegant Header */}
         <div className="text-center mb-20">

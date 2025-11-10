@@ -2,6 +2,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
 import ExternalLinkButton from '@/components/ExternalLinkButton';
 import ClickableProjectCard from '@/components/ClickableProjectCard';
+import { HeroBackground } from '@/components/ui/HeroBackground';
 import { getProjectTheme } from '@/lib/projects/config';
 
 export const metadata = {
@@ -41,11 +42,7 @@ export default function ProjectsPage() {
     <MainLayout>
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-hopkins-blue/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/15 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-hopkins-gold/10 rounded-full blur-3xl"></div>
-        </div>
+        <HeroBackground />
 
         <div className="max-w-6xl mx-auto px-6 relative">
           <div className="text-center mb-16">

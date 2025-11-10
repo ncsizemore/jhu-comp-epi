@@ -12,6 +12,9 @@ export const metadata = {
   description: 'Research publications from the Johns Hopkins Computational Epidemiology Group, covering HIV modeling, epidemiology, and public health interventions.',
 };
 
+// Enable Incremental Static Regeneration - regenerate every hour
+export const revalidate = 3600;
+
 export default async function PublicationsPage() {
   // Fetch data using the data access layer
   const publications = await getPublications();

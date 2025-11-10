@@ -416,7 +416,22 @@ export const projectsMap = {
 
   escapeString(str) {
     if (!str) return '';
-    return str.replace(/"/g, '\\"').replace(/\n/g, '\\n');
+    if (typeof str !== 'string') return '';
+
+    // Comprehensive escaping for TypeScript/JavaScript string literals
+    // IMPORTANT: Backslash must be escaped first to prevent double-escaping
+    return str
+      .replace(/\\/g, '\\\\')      // Escape backslashes FIRST
+      .replace(/"/g, '\\"')         // Escape double quotes
+      .replace(/'/g, "\\'")         // Escape single quotes
+      .replace(/\n/g, '\\n')        // Escape newlines
+      .replace(/\r/g, '\\r')        // Escape carriage returns
+      .replace(/\t/g, '\\t')        // Escape tabs
+      .replace(/\f/g, '\\f')        // Escape form feeds
+      .replace(/\v/g, '\\v')        // Escape vertical tabs
+      .replace(/\u2028/g, '\\u2028') // Escape line separator
+      .replace(/\u2029/g, '\\u2029') // Escape paragraph separator
+      .replace(/\0/g, '\\0');       // Escape null character
   }
 }
 

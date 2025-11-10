@@ -2,6 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
+import { HeroBackground } from '@/components/ui/HeroBackground';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
 
@@ -24,20 +25,7 @@ const SimpleMapDisplay = dynamic(
 function EnhancedHeroSection() {
   return (
     <section className="relative bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-hidden">
-      {/* Sophisticated background matching projects/publications */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-hopkins-blue/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/15 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-hopkins-gold/10 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Static geometric shapes with modern sophistication */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-hopkins-gold/20 to-amber-400/30 transform rotate-45 rounded-2xl shadow-lg"></div>
-        <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-tr from-emerald-400/25 to-teal-500/35 rounded-full shadow-md"></div>
-        <div className="absolute top-1/2 left-20 w-16 h-64 bg-gradient-to-b from-hopkins-blue/15 to-transparent rounded-full"></div>
-        <div className="absolute bottom-20 right-1/3 w-20 h-20 border-2 border-white/10 rounded-lg rotate-12"></div>
-      </div>
+      <HeroBackground />
 
       <div className="max-w-7xl mx-auto px-6 py-16 relative">
         <div className="text-center">

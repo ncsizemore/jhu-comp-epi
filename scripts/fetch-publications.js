@@ -402,20 +402,38 @@ class PublicationFetcher {
   }
 
   calculateTitleSimilarity(title1, title2) {
-    // Simple title similarity calculation
-    const normalize = (str) => str.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+    // Prevent ReDoS attacks by limiting input length
+    const MAX_TITLE_LENGTH = 1000;
+
+    const safeTrim = (str) => {
+      if (!str || typeof str !== 'string') return '';
+      return str.length > MAX_TITLE_LENGTH
+        ? str.substring(0, MAX_TITLE_LENGTH)
+        : str;
+    };
+
+    // Simple title similarity calculation with safe input handling
+    const normalize = (str) => {
+      const safe = safeTrim(str);
+      return safe
+        .toLowerCase()
+        .replace(/[^\w\s]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+
     const norm1 = normalize(title1);
     const norm2 = normalize(title2);
-    
+
     if (norm1 === norm2) return 1.0;
-    
+
     // Calculate Jaccard similarity on words
     const words1 = new Set(norm1.split(' '));
     const words2 = new Set(norm2.split(' '));
     const intersection = new Set([...words1].filter(x => words2.has(x)));
     const union = new Set([...words1, ...words2]);
-    
-    return intersection.size / union.size;
+
+    return union.size === 0 ? 0 : intersection.size / union.size;
   }
 
   needsEnhancement(existing, found) {
