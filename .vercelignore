@@ -1,0 +1,16 @@
+# Vercel Ignore File
+# Files/folders to exclude from Vercel deployment
+
+# Publication PDFs (for internal reference only)
+docs/publications/*.pdf
+
+# Session logs
+.claude-sessions/
+
+# Documentation
+*.md
+!README.md
+
+# Development files
+.vscode/
+.idea/

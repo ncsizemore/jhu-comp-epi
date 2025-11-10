@@ -8,10 +8,12 @@ export interface Publication {
   doi?: string;
   url?: string;
   abstract?: string;
+  keyFindings?: string; // Optional 1-2 sentence key takeaway (requires author verification)
   projects: string[]; // Array of project IDs related to this publication
   tags: string[]; // Keywords or categories
   featured?: boolean;
-  imageUrl?: string; // Optional image URL for the publication card
+  imageUrl?: string; // Optional image URL for the publication card (key figure from paper)
+  imageCaption?: string; // Optional caption for the key figure
   attentionGrabber?: string; // Optional short text for the publication card
   featuredStats?: { // Optional stats for stats-focused cards
     citations?: string;
@@ -222,8 +224,10 @@ export const publications: Publication[] = [
     id: "fojo-2021-end-hiv",
     title: "What Will It Take to End HIV in the United States? A Comprehensive, Local-Level Modeling Study",
     authors: "Fojo AT, Schnure M, Kasaie P, Dowdy DW, Shah M",
-    journal: "Clinical Infectious Diseases",
+    journal: "Annals of Internal Medicine",
     year: "2021",
+    doi: "10.7326/M21-1501",
+    url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8595759/",
     projects: ["jheem"],
     tags: ["HIV", "prevention", "PrEP", "health disparities", "metropolitan areas", "structural racism"],
     featured: true,

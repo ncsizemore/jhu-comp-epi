@@ -8,6 +8,7 @@ import { getProjectTheme, projectsMap } from '@/lib/projects/config';
 import { HeroBackground } from '@/components/ui/HeroBackground';
 import { useCarousel } from '@/hooks/useCarousel';
 import CarouselControls from '@/components/ui/CarouselControls';
+import { formatAuthors } from '@/lib/utils/authors';
 
 interface FeaturedPublicationsProps {
   publications: Publication[];
@@ -105,8 +106,7 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
                           {publication.title}
                         </h2>
                         <p className="text-gray-300 text-sm">
-                          <span className="font-medium">{publication.authors.split(',')[0]}</span>
-                          {publication.authors.split(',').length > 1 && <span className="text-gray-400"> et al.</span>}
+                          <span className="font-medium">{formatAuthors(publication.authors)}</span>
                           <span className="text-gray-400 mx-2">•</span>
                           <span className="italic">{publication.journal}</span>
                         </p>
@@ -138,14 +138,14 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
                                 
                                 {/* Content column */}
                                 <div className="w-3/5 flex flex-col justify-center">
-                                  {publication.abstract && (
+                                  {(publication.keyFindings || publication.abstract) && (
                                     <div>
                                       <div className="flex items-center gap-2 mb-4">
                                         <div className="w-2 h-2 bg-gradient-to-r from-hopkins-gold to-amber-400 rounded-full animate-pulse"></div>
                                         <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Key Findings</span>
                                       </div>
                                       <p className="text-gray-200 leading-relaxed font-medium text-base">
-                                        {publication.abstract}
+                                        {publication.keyFindings || publication.abstract}
                                       </p>
                                     </div>
                                   )}
@@ -176,26 +176,28 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
                                     <div className="text-sm text-gray-300 uppercase tracking-wide font-semibold">Countries</div>
                                   </div>
                                 </div>
-                                {publication.abstract && (
+                                {(publication.keyFindings || publication.abstract) && (
                                   <p className="text-gray-200 leading-relaxed font-medium text-sm text-center">
-                                    {publication.abstract.substring(0, 120)}...
+                                    {publication.keyFindings || (publication.abstract ? `${publication.abstract.substring(0, 120)}...` : '')}
                                   </p>
                                 )}
                               </div>
                             </div>
                           </div>
-                        ) : publication.abstract ? (
-                          /* Abstract-focused layout - Centered with optimal reading width */
+                        ) : (publication.keyFindings || publication.abstract) ? (
+                          /* Text-focused layout - Centered with optimal reading width */
                           <div className="h-full flex flex-col">
                             <div className="flex-1 bg-white/5 backdrop-blur-sm border border-white/20 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
                               <div className="h-full flex flex-col justify-center max-w-xl mx-auto">
                                 <div className="flex items-center justify-center gap-2 mb-6">
-                                  <div className="w-2 h-2 bg-gradient-to-r from-gray-300 to-white rounded-full"></div>
-                                  <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Research Overview</span>
+                                  <div className="w-2 h-2 bg-gradient-to-r from-hopkins-gold to-amber-400 rounded-full animate-pulse"></div>
+                                  <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">
+                                    {publication.keyFindings ? 'Key Findings' : 'Research Overview'}
+                                  </span>
                                 </div>
                                 <div className="text-center">
                                   <p className="text-gray-200 leading-relaxed font-medium text-lg">
-                                    {publication.abstract}
+                                    {publication.keyFindings || publication.abstract}
                                   </p>
                                 </div>
                               </div>

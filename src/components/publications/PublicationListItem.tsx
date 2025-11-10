@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { Publication } from '@/lib/data/publications';
 import { getProjectTheme } from '@/lib/projects/config';
+import { formatAuthors } from '@/lib/utils/authors';
 
 interface PublicationListItemProps {
   publication: Publication;
@@ -41,8 +42,7 @@ function PublicationListItem({ publication, index }: PublicationListItemProps) {
 
             <div className="text-xs text-gray-600 mb-2 line-clamp-1">
               <span className="font-medium">
-                {publication.authors.split(',')[0].trim()}
-                {publication.authors.split(',').length > 1 && ' et al.'}
+                {formatAuthors(publication.authors)}
               </span>
               <span className="text-gray-400 mx-1">•</span>
               <span className="italic">{publication.journal}</span>
