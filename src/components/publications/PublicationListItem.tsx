@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Publication } from '@/lib/data/publications';
-import { projectsMap } from '@/lib/projects/config';
+import { getProjectTheme } from '@/lib/projects/config';
 
 interface PublicationListItemProps {
   publication: Publication;
@@ -9,22 +9,10 @@ interface PublicationListItemProps {
 
 function PublicationListItem({ publication, index }: PublicationListItemProps) {
   const projectId = publication.projects[0] || 'pearl';
-  const project = projectsMap[projectId as keyof typeof projectsMap] || projectsMap.pearl;
+  const theme = getProjectTheme(projectId);
 
-  const projectColors = {
-    pearl: 'border-l-hopkins-spirit-blue',
-    jheem: 'border-l-hopkins-blue',
-    shield: 'border-l-amber-500'
-  };
-
-  const projectDotColors = {
-    pearl: 'bg-hopkins-spirit-blue',
-    jheem: 'bg-hopkins-blue',
-    shield: 'bg-amber-500'
-  };
-
-  const borderClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
-  const dotClass = projectDotColors[projectId as keyof typeof projectDotColors] || projectDotColors.pearl;
+  const borderClass = theme.colors.border;
+  const dotClass = theme.colors.solid;
 
   return (
     <div
@@ -42,7 +30,7 @@ function PublicationListItem({ publication, index }: PublicationListItemProps) {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-2">
               <div className={`w-2 h-2 rounded-full ${dotClass}`}></div>
-              <span className="text-xs font-medium text-gray-600">{project.name}</span>
+              <span className="text-xs font-medium text-gray-600">{theme.name}</span>
               <span className="text-gray-400">•</span>
               <span className="text-xs font-medium text-gray-600">{publication.year}</span>
             </div>
