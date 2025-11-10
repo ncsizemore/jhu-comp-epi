@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { ProjectStats } from '@/lib/data/projects';
 
 interface ProjectCardProps {
@@ -22,7 +22,7 @@ const patterns = {
   'bg-emerald-600': '/project-patterns/data-nodes-emerald.svg',
 };
 
-export default function ProjectCard({ 
+function ProjectCard({ 
   id, 
   title, 
   shortName, 
@@ -111,3 +111,6 @@ export default function ProjectCard({
     </div>
   );
 }
+
+// Memoize to prevent unnecessary re-renders in project lists
+export default memo(ProjectCard);

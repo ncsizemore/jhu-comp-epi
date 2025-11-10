@@ -1,9 +1,24 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
-import SimpleMapDisplay from '@/components/sections/home/SimpleMapDisplay';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
+
+// Lazy load the map component (it's heavy with react-simple-maps)
+const SimpleMapDisplay = dynamic(
+  () => import('@/components/sections/home/SimpleMapDisplay'),
+  {
+    loading: () => (
+      <div className="flex items-center justify-center h-64 bg-gray-50 rounded-xl">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-8 h-8 border-4 border-hopkins-blue border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-sm text-gray-600">Loading map...</p>
+        </div>
+      </div>
+    )
+  }
+);
 
 // Enhanced Hero Section
 function EnhancedHeroSection() {
@@ -224,7 +239,7 @@ function InTheNewsCallout() {
                 Experts warn of consequences from proposed HIV funding cuts
               </h3>
               <p className="text-sm text-gray-600 mb-2 leading-relaxed">
-                Dr. Anthony Fojo discusses how eliminating the CDC's HIV-prevention division could disrupt critical functions as models project over 213,000 additional infections through 2030.
+                Dr. Anthony Fojo discusses how eliminating the CDC&apos;s HIV-prevention division could disrupt critical functions as models project over 213,000 additional infections through 2030.
               </p>
               <span className="text-xs text-hopkins-blue font-semibold inline-flex items-center gap-1">
                 Read article

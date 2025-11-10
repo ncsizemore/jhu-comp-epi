@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Image from 'next/image';
 import { TeamMember } from '@/lib/data/team';
 
@@ -5,7 +6,7 @@ interface TeamMemberCardProps {
   member: TeamMember;
 }
 
-export default function TeamMemberCard({ member }: TeamMemberCardProps) {
+function TeamMemberCard({ member }: TeamMemberCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
       {/* Photo Section */}
@@ -160,3 +161,6 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
     </div>
   );
 }
+
+// Memoize to prevent unnecessary re-renders when rendering multiple cards
+export default memo(TeamMemberCard);
