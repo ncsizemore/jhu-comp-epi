@@ -14,7 +14,9 @@ This document tracks our analysis of featured publications for the website, incl
 
 **Year:** 2024
 
-**DOI:** 10.1371/journal.pmed.1004325
+**DOI:** [10.1371/journal.pmed.1004325](https://doi.org/10.1371/journal.pmed.1004325)
+
+**Link:** https://doi.org/10.1371/journal.pmed.1004325
 
 **PDF:** `docs/publications/althoff-2024.pdf`
 
@@ -45,7 +47,9 @@ This document tracks our analysis of featured publications for the website, incl
 
 **Year:** 2023
 
-**DOI:** 10.1093/infdis/jiac473
+**DOI:** [10.1093/infdis/jiac473](https://doi.org/10.1093/infdis/jiac473)
+
+**Link:** https://doi.org/10.1093/infdis/jiac473
 
 **PDF:** `docs/publications/hyle-2023.pdf`
 
@@ -78,7 +82,9 @@ This document tracks our analysis of featured publications for the website, incl
 
 **Year:** 2021
 
-**DOI:** 10.1097/QAD.0000000000003128
+**DOI:** [10.1097/QAD.0000000000003128](https://doi.org/10.1097/QAD.0000000000003128)
+
+**Link:** https://doi.org/10.1097/QAD.0000000000003128
 
 **PDF:** `docs/publications/althoff-2021.pdf`
 
@@ -115,7 +121,9 @@ This document tracks our analysis of featured publications for the website, incl
 
 **Year:** 2021
 
-**DOI:** 10.7326/M21-1501
+**DOI:** [10.7326/M21-1501](https://doi.org/10.7326/M21-1501)
+
+**Link:** https://doi.org/10.7326/M21-1501
 
 **PDF:** `docs/publications/fojo-2021-end-hiv.pdf`
 
