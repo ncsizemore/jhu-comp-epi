@@ -105,3 +105,34 @@
   background-color: rgba(0, 45, 114, 0.1);
   color: #002D72;
 }
+
+/* Timeline highlight flash animation */
+@keyframes highlightFlash {
+  0% {
+    background-color: rgba(251, 191, 36, 0.3);
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4);
+  }
+  50% {
+    background-color: rgba(251, 191, 36, 0.5);
+    box-shadow: 0 0 0 10px rgba(251, 191, 36, 0);
+  }
+  100% {
+    background-color: transparent;
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
+  }
+}
+
+.highlight-flash {
+  animation: highlightFlash 2s ease-out;
+}
+
+/* Remove focus outline from Recharts */
+.recharts-wrapper:focus,
+.recharts-surface:focus {
+  outline: none !important;
+}
+
+.recharts-wrapper *:focus,
+.recharts-surface *:focus {
+  outline: none !important;
+}

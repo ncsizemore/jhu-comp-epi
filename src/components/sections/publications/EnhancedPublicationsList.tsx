@@ -163,11 +163,12 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
         {/* Enhanced Publications Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
           {sortedPublications.map((publication, index) => (
-            <PublicationListItem
-              key={publication.id}
-              publication={publication}
-              index={index}
-            />
+            <div key={publication.id} id={`pub-${publication.id}`}>
+              <PublicationListItem
+                publication={publication}
+                index={index}
+              />
+            </div>
           ))}
         </div>
 
