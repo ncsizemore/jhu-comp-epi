@@ -14,6 +14,7 @@ export interface Publication {
   featured?: boolean;
   imageUrl?: string; // Optional image URL for the publication card (key figure from paper)
   imageCaption?: string; // Optional caption for the key figure
+  additionalImages?: string[]; // Optional array of additional figure URLs (archived for future use)
   attentionGrabber?: string; // Optional short text for the publication card
   featuredStats?: { // Optional stats for stats-focused cards
     citations?: string;
@@ -43,8 +44,11 @@ export const publications: Publication[] = [
     projects: ["pearl"],
     tags: ["HIV", "comorbidities", "multimorbidity", "aging", "modeling"],
     featured: true,
-    imageUrl: "/images/publications/althoff-2024.png",
+    imageUrl: "/images/publications/althoff-2024-fig2.png",
     imageCaption: "Figure 2: Forecasted number of PWH using ART in the US and forecasted prevalence of mental and physical comorbidities and multimorbidity",
+    additionalImages: [
+      "/images/publications/althoff-2024-fig1.png"
+    ],
     attentionGrabber: "Aging HIV Population Study"
   },
 
@@ -74,7 +78,7 @@ export const publications: Publication[] = [
     projects: ["pearl"],
     tags: ["HIV", "MSM", "aging", "microsimulation", "modeling"],
     featured: true,
-    imageUrl: "/images/publications/hyle-2023.png",
+    imageUrl: "/images/publications/hyle-2023-fig2.png",
     imageCaption: "Figure 2: The projected age distribution, age, and numbers of MSM on ART from the CEPAC-US and PEARL models (2021–2031)",
     attentionGrabber: "High-Impact Research",
     featuredStats: {
@@ -196,7 +200,7 @@ export const publications: Publication[] = [
     projects: ["pearl"],
     tags: ["HIV", "aging", "ART", "epidemiology", "modeling"],
     featured: true,
-    imageUrl: "/images/publications/althoff-2021.png",
+    imageUrl: "/images/publications/althoff-2021-fig3a.png",
     imageCaption: "Figure 3a: Projected age distributions of people with HIV using ART in the United States in 2010, 2020, and 2030",
     attentionGrabber: "Understanding the shifting age dynamics of HIV patients on ART."
   },
@@ -239,7 +243,7 @@ export const publications: Publication[] = [
     projects: ["jheem"],
     tags: ["HIV", "prevention", "PrEP", "health disparities", "metropolitan areas", "structural racism"],
     featured: true,
-    imageUrl: "/images/publications/fojo-2021-end-hiv.png",
+    imageUrl: "/images/publications/fojo-2021-end-hiv-fig4.png",
     imageCaption: "Figure 4: Reduction in HIV incidence from 2020 to 2030 for intervention scenarios across 32 MSAs",
     attentionGrabber: "Comprehensive local-level modeling to understand what it takes to end HIV in the US."
   },
