@@ -121,10 +121,6 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
                               <div className="h-full flex gap-6">
                                 {/* Image column - narrower */}
                                 <div className="w-2/5 flex flex-col">
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <div className="w-2 h-2 bg-gradient-to-r from-gray-300 to-white rounded-full"></div>
-                                    <span className="text-gray-300 text-xs font-bold uppercase tracking-wider">Research Visualization</span>
-                                  </div>
                                   <div className="flex-1 bg-white/10 rounded-xl overflow-hidden relative">
                                     <Image
                                       src={publication.imageUrl!}
@@ -206,37 +202,19 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
                         ) : null}
                       </div>
                       
-                      {/* Footer CTA - 20% of space */}
-                      <div className="flex items-center justify-between p-6 pt-4">
-                        <Link 
+                      {/* Footer - Subtle Link */}
+                      <div className="px-6 pb-6 pt-4">
+                        <Link
                           href={publication.url || `https://doi.org/${publication.doi}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/cta inline-flex items-center gap-3 px-6 py-3 bg-white/20 backdrop-blur-sm border-2 border-white/30 rounded-2xl text-white hover:bg-white/30 transition-all duration-300 font-bold hover:shadow-2xl hover:shadow-white/20 transform hover:scale-105"
+                          className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-200 text-sm font-medium group"
                         >
-                          <span>Explore Research</span>
-                          <svg className="w-4 h-4 group-hover/cta:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          <span>View publication</span>
+                          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </Link>
-                        
-                        {/* Context badges */}
-                        <div className="text-right text-white/70">
-                          <div className="flex items-center gap-4 text-xs">
-                            <span className="flex items-center gap-1">
-                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                              </svg>
-                              Peer Reviewed
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                              </svg>
-                              High Impact
-                            </span>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>

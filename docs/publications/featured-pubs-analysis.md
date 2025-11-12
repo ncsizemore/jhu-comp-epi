@@ -163,11 +163,17 @@ This document tracks our analysis of featured publications for the website, incl
 ### In Progress
 - [ ] User to review drafted key findings and revise as needed
 - [ ] User to extract and save key figures from each paper
+  - Location: `public/images/publications/`
+  - Format: PNG (300 DPI, RGB)
+  - Naming: `{publication-id}.png` (e.g., `althoff-2024.png`)
+  - See `public/images/publications/README.md` for guidelines
 
 ### Pending
 - [ ] Get author verification on all drafted key findings
 - [ ] Update `src/data/publications.ts` with verified key findings for all 4 featured publications
 - [ ] Add figure paths to `imageUrl` fields in publications.ts
+  - Path format: `/images/publications/{publication-id}.png`
 - [ ] Add figure captions to `imageCaption` fields in publications.ts
+  - Format: "Figure X: [Brief description from paper]"
 - [ ] Test featured publications carousel with new content
 - [ ] Repeat process for remaining featured publications as needed

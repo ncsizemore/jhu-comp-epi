@@ -39,10 +39,12 @@ export const publications: Publication[] = [
     doi: "10.1371/journal.pmed.1004325",
     url: "https://doi.org/10.1371/journal.pmed.1004325",
     abstract: "This modeling study forecasts a significant increase in comorbidities and multimorbidity among people with HIV in the United States through 2030, highlighting the growing healthcare needs of this aging population.",
+    keyFindings: "By 2030, 70% of people with HIV on antiretroviral therapy in the US will have multimorbidity (≥2 comorbidities), up from 63% in 2020. Mental health conditions (depression/anxiety) will affect 64%, while chronic kidney disease, diabetes, and dyslipidemia will see the largest increases, with significant variation across demographic subgroups.",
     projects: ["pearl"],
     tags: ["HIV", "comorbidities", "multimorbidity", "aging", "modeling"],
     featured: true,
-    imageUrl: "/images/placeholder-pub-1.svg",
+    imageUrl: "/images/publications/althoff-2024.png",
+    imageCaption: "Figure 2: Forecasted number of PWH using ART in the US and forecasted prevalence of mental and physical comorbidities and multimorbidity",
     attentionGrabber: "Aging HIV Population Study"
   },
 
@@ -68,9 +70,12 @@ export const publications: Publication[] = [
     doi: "10.1093/infdis/jiac473",
     url: "https://doi.org/10.1093/infdis/jiac473",
     abstract: "This study compares two microsimulation models projecting the aging of men who have sex with men living with HIV from 2021 to 2031, providing important insights for healthcare planning and resource allocation.",
+    keyFindings: "Two independent microsimulation models project that MSM on antiretroviral therapy in the US will more than double from ~60,000 to over 110,000-147,000 individuals aged 65+ by 2031. This dramatic aging of the HIV population underscores the need for healthcare systems to prepare for rising multimorbidity and complex medical decision-making.",
     projects: ["pearl"],
     tags: ["HIV", "MSM", "aging", "microsimulation", "modeling"],
     featured: true,
+    imageUrl: "/images/publications/hyle-2023.png",
+    imageCaption: "Figure 2: The projected age distribution, age, and numbers of MSM on ART from the CEPAC-US and PEARL models (2021–2031)",
     attentionGrabber: "High-Impact Research",
     featuredStats: {
       citations: "1,847",
@@ -187,10 +192,12 @@ export const publications: Publication[] = [
     doi: "10.1097/QAD.0000000000003128",
     url: "https://pubmed.ncbi.nlm.nih.gov/34750289/",
     abstract: "This study projects significant shifts in the age distribution of people with HIV using antiretroviral therapy in the United States from 2020 to 2030, with important implications for healthcare planning.",
+    keyFindings: "By 2030, the US will have over 900,000 people with HIV on antiretroviral therapy, with a median age of 52 years and 23% aged 65 or older. The age distribution will evolve from unimodal to bimodal, with significant heterogeneity across demographic groups, underscoring the critical need to prepare healthcare systems for an aging HIV population with increasing multimorbidity.",
     projects: ["pearl"],
     tags: ["HIV", "aging", "ART", "epidemiology", "modeling"],
     featured: true,
-    imageUrl: "/images/placeholder-pub-3.png",
+    imageUrl: "/images/publications/althoff-2021.png",
+    imageCaption: "Figure 3a: Projected age distributions of people with HIV using ART in the United States in 2010, 2020, and 2030",
     attentionGrabber: "Understanding the shifting age dynamics of HIV patients on ART."
   },
 
@@ -228,9 +235,12 @@ export const publications: Publication[] = [
     year: "2021",
     doi: "10.7326/M21-1501",
     url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8595759/",
+    keyFindings: "Ending the HIV epidemic will require substantial investment beyond current trends. Across 32 priority US cities, modest increases in testing, PrEP coverage, and viral suppression could reduce HIV incidence by 34-67% by 2030. Only 13 of 32 cities could achieve the 90% reduction goal even with intensive interventions targeting the entire at-risk population, highlighting the need for locally-tailored strategies rather than one-size-fits-all approaches.",
     projects: ["jheem"],
     tags: ["HIV", "prevention", "PrEP", "health disparities", "metropolitan areas", "structural racism"],
     featured: true,
+    imageUrl: "/images/publications/fojo-2021-end-hiv.png",
+    imageCaption: "Figure 4: Reduction in HIV incidence from 2020 to 2030 for intervention scenarios across 32 MSAs",
     attentionGrabber: "Comprehensive local-level modeling to understand what it takes to end HIV in the US."
   },
 
