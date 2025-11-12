@@ -1,5 +1,5 @@
 import MainLayout from '@/components/layout/MainLayout';
-import FeaturedPublications from '@/components/sections/publications/FeaturedPublications';
+import FeaturedPublicationsGrid from '@/components/sections/publications/FeaturedPublicationsGrid';
 import RecentPublicationsHighlight from '@/components/sections/publications/RecentPublicationsHighlight';
 import EnhancedPublicationsList from '@/components/sections/publications/EnhancedPublicationsList';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -24,7 +24,7 @@ export default async function PublicationsPage() {
     <MainLayout>
       {/* Featured Publications */}
       <ErrorBoundary fallback={<SectionErrorFallback title="Featured publications unavailable" message="Unable to load featured publications. Please try refreshing the page." />}>
-        <FeaturedPublications publications={publications} />
+        <FeaturedPublicationsGrid publications={publications} />
       </ErrorBoundary>
 
       {/* Recent Publications */}
