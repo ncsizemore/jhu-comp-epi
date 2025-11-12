@@ -1,6 +1,5 @@
 import MainLayout from '@/components/layout/MainLayout';
 import FeaturedPublicationsGrid from '@/components/sections/publications/FeaturedPublicationsGrid';
-import PublicationsTimeline from '@/components/sections/publications/PublicationsTimeline';
 import EnhancedPublicationsList from '@/components/sections/publications/EnhancedPublicationsList';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
@@ -27,12 +26,7 @@ export default async function PublicationsPage() {
         <FeaturedPublicationsGrid publications={publications} />
       </ErrorBoundary>
 
-      {/* Research Timeline */}
-      <ErrorBoundary fallback={<SectionErrorFallback title="Timeline unavailable" message="Unable to load research timeline. Please try refreshing the page." />}>
-        <PublicationsTimeline publications={publications} />
-      </ErrorBoundary>
-
-      {/* Enhanced Publications List */}
+      {/* All Publications with Integrated Timeline */}
       <EnhancedPublicationsList
         publications={publications}
         years={publicationYears}
