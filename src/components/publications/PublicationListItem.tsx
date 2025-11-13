@@ -17,7 +17,7 @@ function PublicationListItem({ publication, index }: PublicationListItemProps) {
 
   return (
     <div
-      className={`border-l-4 ${borderClass} bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 hover:border-gray-300/70 rounded-r-xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group`}
+      className={`border-l-4 ${borderClass} bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 hover:border-gray-300/70 rounded-r-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group`}
       style={{
         animationName: 'fadeIn',
         animationDuration: '0.5s',
@@ -26,21 +26,21 @@ function PublicationListItem({ publication, index }: PublicationListItemProps) {
         animationDelay: `${index * 50}ms`
       }}
     >
-      <div className="p-4">
+      <div className="p-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-2 mb-3">
               <div className={`w-2 h-2 rounded-full ${dotClass}`}></div>
-              <span className="text-xs font-medium text-gray-600">{theme.name}</span>
+              <span className="text-xs font-bold text-gray-700 uppercase tracking-wide">{theme.name}</span>
               <span className="text-gray-400">•</span>
-              <span className="text-xs font-medium text-gray-600">{publication.year}</span>
+              <span className="text-xs font-bold text-gray-700">{publication.year}</span>
             </div>
 
-            <h3 className="text-sm font-semibold text-gray-900 leading-tight mb-2 group-hover:text-gray-700 transition-colors duration-300 line-clamp-2">
+            <h3 className="text-base font-bold text-gray-900 leading-snug mb-3 group-hover:text-hopkins-blue transition-colors duration-300 line-clamp-2">
               {publication.title}
             </h3>
 
-            <div className="text-xs text-gray-600 mb-2 line-clamp-1">
+            <div className="text-sm text-gray-600 mb-3 line-clamp-1">
               <span className="font-medium">
                 {formatAuthors(publication.authors)}
               </span>
@@ -49,14 +49,14 @@ function PublicationListItem({ publication, index }: PublicationListItemProps) {
             </div>
 
             {/* Enhanced Tags */}
-            <div className="flex flex-wrap gap-1 mb-2">
+            <div className="flex flex-wrap gap-1.5">
               {publication.tags.slice(0, 3).map((tag: string) => (
-                <span key={tag} className="text-xs px-2 py-0.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-md font-medium transition-colors duration-200">
+                <span key={tag} className="text-xs px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md font-medium transition-colors duration-200">
                   {tag}
                 </span>
               ))}
               {publication.tags.length > 3 && (
-                <span className="text-xs px-2 py-0.5 bg-gray-100 text-gray-500 rounded-md font-medium">
+                <span className="text-xs px-2.5 py-1 bg-gray-100 text-gray-500 rounded-md font-medium">
                   +{publication.tags.length - 3}
                 </span>
               )}

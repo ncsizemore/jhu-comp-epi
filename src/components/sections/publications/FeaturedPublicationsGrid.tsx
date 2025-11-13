@@ -50,15 +50,18 @@ export default function FeaturedPublicationsGrid({ publications }: FeaturedPubli
 
   return (
     <>
-      {/* Hero Section - Title Only */}
-      <section className="py-16 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+      {/* Hero Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
         <HeroBackground />
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-black text-white mb-4 tracking-tight">
-              Featured Research
+              Publications
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-hopkins-gold via-amber-400 to-orange-400 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-hopkins-gold via-amber-400 to-orange-400 mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
+              Explore our research in computational epidemiology, HIV modeling, and public health interventions
+            </p>
           </div>
         </div>
       </section>

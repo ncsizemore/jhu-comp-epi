@@ -172,44 +172,12 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
 
   return (
     <>
-      {/* Hero Header */}
-      <section className="py-16 bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 relative overflow-hidden">
-        {/* Animated background elements */}
+      {/* Publications List Section - streamlined without redundant hero */}
+      <section className="pt-12 pb-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative">
+        {/* Subtle background - simplified */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/30 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-hopkins-spirit-blue/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-6xl mx-auto px-6 relative">
-          <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
-              Explore Research Archive
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-hopkins-blue via-hopkins-spirit-blue to-hopkins-gold mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-300 text-base max-w-3xl mx-auto leading-relaxed">
-              Browse {publications.length} publications spanning {timelineData.minYear}–{timelineData.maxYear}.
-              Click years or papers on the timeline to filter by year and project.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Publications List Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative">
-        {/* Sophisticated background matching projects page */}
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/8 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-hopkins-gold/6 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
-        </div>
-
-        {/* Enhanced geometric shapes with animations */}
-        <div className="absolute inset-0 overflow-hidden opacity-30">
-          <div className="absolute top-20 right-20 w-32 h-32 border-2 border-hopkins-blue/20 rounded-2xl rotate-12 animate-pulse hover:rotate-45 transition-transform duration-1000"></div>
-          <div className="absolute bottom-32 left-16 w-20 h-20 border-2 border-hopkins-gold/25 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/2 right-1/3 w-40 h-3 bg-gradient-to-r from-hopkins-blue/15 to-transparent rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/4 left-1/2 w-6 h-40 bg-gradient-to-b from-emerald-400/10 to-transparent rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
-          <div className="absolute bottom-1/4 right-1/4 w-16 h-16 border border-amber-400/20 rounded-lg rotate-45 animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-hopkins-spirit-blue/8 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-6xl mx-auto px-6">
@@ -388,23 +356,39 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
           </div>
           </div> {/* Close mb-12 relative */}
 
-          {/* Enhanced Filters with glass morphism */}
-          <div className="sticky top-[6.5rem] z-20 bg-white/90 backdrop-blur-md border border-gray-200/50 rounded-xl p-4 shadow-lg mb-6">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-semibold text-gray-700">
-                Filters
-                {hasActiveFilters && (
-                  <span className="ml-2 inline-flex items-center gap-1 px-2 py-0.5 bg-hopkins-blue/10 text-hopkins-blue text-xs rounded font-medium">
-                    <div className="w-1 h-1 bg-hopkins-blue rounded-full"></div>
-                    Active
+          {/* Enhanced Filters - redesigned to match page visual language */}
+          <div className="sticky top-[6.5rem] z-20 bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-md border-2 border-gray-200 rounded-2xl p-6 shadow-2xl shadow-gray-900/10 mb-8">
+            {/* Header with gradient accent */}
+            <div className="flex items-center justify-between mb-5 pb-4 border-b-2 border-gradient-to-r from-hopkins-blue/20 via-hopkins-gold/20 to-hopkins-spirit-blue/20">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-hopkins-blue to-hopkins-spirit-blue flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-gray-900">
+                    Filter Publications
+                  </h3>
+                  {hasActiveFilters && (
+                    <span className="text-xs text-gray-600 font-medium">
+                      {filteredCount} of {totalCount} publications
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {!hasActiveFilters && (
+                  <span className="text-sm text-gray-600 font-medium">
+                    {totalCount} publications
                   </span>
                 )}
-              </span>
-              <div className="flex items-center gap-3 text-sm text-gray-600">
-                <span>{filteredCount} of {totalCount}</span>
                 {hasActiveFilters && (
-                  <button onClick={clearFilters} className="text-xs text-hopkins-blue hover:text-hopkins-blue/80 font-medium underline decoration-dotted hover:no-underline">
-                    Clear
+                  <button
+                    onClick={clearFilters}
+                    className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-bold rounded-lg transition-all duration-200 border border-gray-300 hover:border-gray-400"
+                  >
+                    Clear All
                   </button>
                 )}
               </div>
@@ -412,21 +396,21 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
               {/* Year Filter (desktop only - mobile uses dropdown above) */}
-              <div className="space-y-2 hidden lg:block">
-                <label className="text-xs font-medium text-gray-600 flex items-center gap-1">
+              <div className="space-y-3 hidden lg:block">
+                <label className="text-sm font-bold text-gray-900 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-hopkins-blue rounded-full"></div>
                   Year
                 </label>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-2">
                   {years.slice(0, 8).map(year => (
                     <button
                       key={year}
                       onClick={() => setSelectedYears(prev =>
                         prev.includes(year) ? prev.filter(y => y !== year) : [...prev, year]
                       )}
-                      className={`px-2 py-1 text-xs font-medium rounded transition-all duration-200 border ${selectedYears.includes(year)
-                          ? 'bg-gray-900 text-white border-gray-900 shadow-md'
-                          : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400 hover:shadow-sm'
+                      className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all duration-200 border-2 ${selectedYears.includes(year)
+                          ? 'bg-gradient-to-br from-hopkins-blue to-hopkins-spirit-blue text-white border-hopkins-blue shadow-lg'
+                          : 'bg-white text-gray-700 border-gray-300 hover:border-hopkins-blue hover:shadow-md'
                         }`}
                     >
                       {year}
@@ -436,21 +420,21 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
               </div>
 
               {/* Project Filter */}
-              <div className="space-y-2">
-                <label className="text-xs font-medium text-gray-600 flex items-center gap-1">
+              <div className="space-y-3">
+                <label className="text-sm font-bold text-gray-900 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-hopkins-gold rounded-full"></div>
                   Project
                 </label>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-2">
                   {Object.entries(projectsMap).map(([key, project]) => (
                     <button
                       key={key}
                       onClick={() => setSelectedProjects(prev =>
                         prev.includes(key) ? prev.filter(p => p !== key) : [...prev, key]
                       )}
-                      className={`px-2 py-1 text-xs font-medium rounded transition-all duration-200 border ${selectedProjects.includes(key)
-                          ? 'bg-gray-900 text-white border-gray-900 shadow-md'
-                          : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400 hover:shadow-sm'
+                      className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all duration-200 border-2 ${selectedProjects.includes(key)
+                          ? 'bg-gradient-to-br from-hopkins-gold to-amber-400 text-gray-900 border-hopkins-gold shadow-lg'
+                          : 'bg-white text-gray-700 border-gray-300 hover:border-hopkins-gold hover:shadow-md'
                         }`}
                     >
                       {project.name}
@@ -460,21 +444,21 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
               </div>
 
               {/* Top Tags Filter */}
-              <div className="space-y-2">
-                <label className="text-xs font-medium text-gray-600 flex items-center gap-1">
+              <div className="space-y-3">
+                <label className="text-sm font-bold text-gray-900 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
                   Topics
                 </label>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-2">
                   {['HIV', 'modeling', 'epidemiology', 'cost-effectiveness', 'prevention'].map(tag => (
                     <button
                       key={tag}
                       onClick={() => setSelectedTags(prev =>
                         prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
                       )}
-                      className={`px-2 py-1 text-xs font-medium rounded transition-all duration-200 border ${selectedTags.includes(tag)
-                          ? 'bg-gray-900 text-white border-gray-900 shadow-md'
-                          : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400 hover:shadow-sm'
+                      className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all duration-200 border-2 ${selectedTags.includes(tag)
+                          ? 'bg-gradient-to-br from-emerald-500 to-teal-500 text-white border-emerald-500 shadow-lg'
+                          : 'bg-white text-gray-700 border-gray-300 hover:border-emerald-500 hover:shadow-md'
                         }`}
                     >
                       {tag}
@@ -486,7 +470,7 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
           </div>
 
           {/* Enhanced Publications Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {sortedPublications.map((publication, index) => (
               <div key={publication.id} id={`pub-${publication.id}`}>
                 <PublicationListItem
