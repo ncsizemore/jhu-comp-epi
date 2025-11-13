@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Publication } from '@/lib/data/publications';
 import { getProjectTheme, projectsMap } from '@/lib/projects/config';
 import PublicationListItem from '@/components/publications/PublicationListItem';
@@ -14,6 +14,8 @@ interface EnhancedPublicationsListProps {
 export default function EnhancedPublicationsList({ publications, years }: EnhancedPublicationsListProps) {
   const [displayCount, setDisplayCount] = useState(20);
   const [hoveredPub, setHoveredPub] = useState<Publication | null>(null);
+  const [focusedYearIndex, setFocusedYearIndex] = useState<number>(-1);
+  const [focusedPubIndex, setFocusedPubIndex] = useState<number>(-1);
 
   // Use custom hook for filtering logic
   const {
@@ -63,6 +65,98 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
     setSelectedProjects([projectId]);
   };
 
+  // Keyboard navigation for timeline
+  const handleTimelineKeyDown = (e: React.KeyboardEvent, yearIndex: number, pubIndex: number = -1) => {
+    const year = timelineData.years[yearIndex];
+    const yearPubs = timelineData.pubsByYear[year];
+
+    // If on a year label (no pub selected)
+    if (pubIndex === -1) {
+      switch (e.key) {
+        case 'ArrowRight':
+          e.preventDefault();
+          if (yearIndex < timelineData.years.length - 1) {
+            setFocusedYearIndex(yearIndex + 1);
+            setFocusedPubIndex(-1);
+          }
+          break;
+        case 'ArrowLeft':
+          e.preventDefault();
+          if (yearIndex > 0) {
+            setFocusedYearIndex(yearIndex - 1);
+            setFocusedPubIndex(-1);
+          }
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          if (yearPubs.length > 0) {
+            setFocusedYearIndex(yearIndex);
+            setFocusedPubIndex(0);
+          }
+          break;
+        case 'Enter':
+        case ' ':
+          e.preventDefault();
+          handleYearClick(year);
+          break;
+      }
+    } else {
+      // On a publication icon
+      switch (e.key) {
+        case 'ArrowUp':
+          e.preventDefault();
+          if (pubIndex > 0) {
+            setFocusedPubIndex(pubIndex - 1);
+          } else {
+            setFocusedYearIndex(yearIndex);
+            setFocusedPubIndex(-1);
+          }
+          break;
+        case 'ArrowDown':
+          e.preventDefault();
+          if (pubIndex < yearPubs.length - 1) {
+            setFocusedPubIndex(pubIndex + 1);
+          }
+          break;
+        case 'ArrowLeft':
+          e.preventDefault();
+          if (yearIndex > 0) {
+            const prevYear = timelineData.years[yearIndex - 1];
+            const prevYearPubs = timelineData.pubsByYear[prevYear];
+            setFocusedYearIndex(yearIndex - 1);
+            setFocusedPubIndex(Math.min(pubIndex, prevYearPubs.length - 1));
+          }
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          if (yearIndex < timelineData.years.length - 1) {
+            const nextYear = timelineData.years[yearIndex + 1];
+            const nextYearPubs = timelineData.pubsByYear[nextYear];
+            setFocusedYearIndex(yearIndex + 1);
+            setFocusedPubIndex(Math.min(pubIndex, nextYearPubs.length - 1));
+          }
+          break;
+        case 'Enter':
+        case ' ':
+          e.preventDefault();
+          const pub = yearPubs[pubIndex];
+          handlePaperClick(year, pub.projects[0] || 'pearl');
+          break;
+      }
+    }
+  };
+
+  // Effect to focus the appropriate element when keyboard navigation state changes
+  useEffect(() => {
+    if (focusedYearIndex !== -1) {
+      const elementId = focusedPubIndex === -1
+        ? `timeline-year-${focusedYearIndex}`
+        : `timeline-pub-${focusedYearIndex}-${focusedPubIndex}`;
+      const element = document.getElementById(elementId);
+      element?.focus();
+    }
+  }, [focusedYearIndex, focusedPubIndex]);
+
   // Memoize sorting and pagination
   const sortedPublications = useMemo(() => {
     return [...filteredPublications]
@@ -101,7 +195,7 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
       </section>
 
       {/* Publications List Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative">
         {/* Sophisticated background matching projects page */}
         <div className="absolute inset-0 opacity-40">
           <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/10 rounded-full blur-3xl animate-pulse"></div>
@@ -118,12 +212,42 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
           <div className="absolute bottom-1/4 right-1/4 w-16 h-16 border border-amber-400/20 rounded-lg rotate-45 animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 relative">
+        <div className="max-w-6xl mx-auto px-6">
           {/* Timeline and Filters */}
-          <div className="mb-12">
+          <div className="mb-12 relative">
 
-          {/* Research Timeline */}
-          <div className="mb-8 max-w-6xl mx-auto">
+          {/* Mobile Year Selector (visible on mobile only) */}
+          <div className="lg:hidden mb-8">
+            <label htmlFor="mobile-year-select" className="block text-sm font-semibold text-gray-700 mb-2">
+              Filter by Year
+            </label>
+            <select
+              id="mobile-year-select"
+              value={selectedYears.length === 1 ? selectedYears[0] : ''}
+              onChange={(e) => {
+                const year = e.target.value;
+                if (year) {
+                  setSelectedYears([year]);
+                } else {
+                  setSelectedYears([]);
+                }
+              }}
+              className="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-xl text-gray-900 font-medium focus:outline-none focus:border-hopkins-blue focus:ring-2 focus:ring-hopkins-blue/20 transition-all"
+            >
+              <option value="">All Years ({publications.length} publications)</option>
+              {timelineData.years.sort((a, b) => b - a).map(year => {
+                const count = timelineData.pubsByYear[year].length;
+                return (
+                  <option key={year} value={year}>
+                    {year} ({count} {count === 1 ? 'publication' : 'publications'})
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          {/* Research Timeline (desktop only) */}
+          <div className="hidden lg:block mb-8 max-w-6xl mx-auto">
             <div className="relative" style={{ height: `${timelineHeight}px` }}>
               {/* Timeline bar */}
               <div className="absolute left-0 right-0 top-12 h-2 bg-gradient-to-r from-hopkins-blue/20 via-hopkins-spirit-blue/30 to-hopkins-blue/20 rounded-full"></div>
@@ -150,8 +274,14 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
                   >
                     {/* Year label - clickable */}
                     <button
+                      id={`timeline-year-${yearIndex}`}
                       onClick={() => handleYearClick(year)}
-                      className={`absolute top-0 left-1/2 -translate-x-1/2 transition-all duration-200 ${
+                      onKeyDown={(e) => handleTimelineKeyDown(e, yearIndex)}
+                      onFocus={() => {
+                        setFocusedYearIndex(yearIndex);
+                        setFocusedPubIndex(-1);
+                      }}
+                      className={`timeline-year-button absolute top-0 left-1/2 -translate-x-1/2 transition-all duration-200 ${
                         isYearSelected ? 'scale-110' : 'hover:scale-105'
                       }`}
                     >
@@ -186,10 +316,18 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
                             style={{ top: `${index * dotSpacing}px`, zIndex: isHovered ? 100 : 10 }}
                           >
                             <button
+                              id={`timeline-pub-${yearIndex}-${index}`}
                               onClick={() => handlePaperClick(year, projectId)}
+                              onKeyDown={(e) => handleTimelineKeyDown(e, yearIndex, index)}
+                              onFocus={() => {
+                                setFocusedYearIndex(yearIndex);
+                                setFocusedPubIndex(index);
+                                setHoveredPub(pub);
+                              }}
+                              onBlur={() => setHoveredPub(null)}
                               onMouseEnter={() => setHoveredPub(pub)}
                               onMouseLeave={() => setHoveredPub(null)}
-                              className="relative group"
+                              className="timeline-paper-button relative group"
                               aria-label={`${pub.title} (${pub.year})`}
                             >
                               <svg
@@ -248,9 +386,10 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
               })}
             </div>
           </div>
+          </div> {/* Close mb-12 relative */}
 
           {/* Enhanced Filters with glass morphism */}
-          <div className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-4 shadow-lg">
+          <div className="sticky top-[6.5rem] z-20 bg-white/90 backdrop-blur-md border border-gray-200/50 rounded-xl p-4 shadow-lg mb-6">
             <div className="flex items-center justify-between mb-3">
               <span className="text-sm font-semibold text-gray-700">
                 Filters
@@ -271,9 +410,9 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Year Filter */}
-              <div className="space-y-2">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              {/* Year Filter (desktop only - mobile uses dropdown above) */}
+              <div className="space-y-2 hidden lg:block">
                 <label className="text-xs font-medium text-gray-600 flex items-center gap-1">
                   <div className="w-1.5 h-1.5 bg-hopkins-blue rounded-full"></div>
                   Year
@@ -345,23 +484,22 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Enhanced Publications Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          {sortedPublications.map((publication, index) => (
-            <div key={publication.id} id={`pub-${publication.id}`}>
-              <PublicationListItem
-                publication={publication}
-                index={index}
-              />
-            </div>
-          ))}
-        </div>
+          {/* Enhanced Publications Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+            {sortedPublications.map((publication, index) => (
+              <div key={publication.id} id={`pub-${publication.id}`}>
+                <PublicationListItem
+                  publication={publication}
+                  index={index}
+                />
+              </div>
+            ))}
+          </div>
 
-        {/* Enhanced Load More */}
-        <div className="text-center mt-12">
-          {displayCount < filteredPublications.length ? (
+          {/* Enhanced Load More */}
+          <div className="text-center mt-12">
+            {displayCount < filteredPublications.length ? (
             <button
               onClick={() => setDisplayCount(prev => prev + 20)}
               className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-hopkins-blue/25 transition-all duration-500 transform hover:scale-105 relative overflow-hidden"
@@ -391,11 +529,11 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
               </button>
             </div>
           ) : (
-            <p className="text-sm text-gray-500">All {filteredPublications.length} publications loaded</p>
-          )}
-        </div>
-      </div>
-    </section>
+              <p className="text-sm text-gray-500">All {filteredPublications.length} publications loaded</p>
+            )}
+          </div>
+        </div> {/* Close max-w-6xl */}
+      </section>
     </>
   );
 }

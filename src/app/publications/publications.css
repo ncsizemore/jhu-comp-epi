@@ -126,6 +126,26 @@
   animation: highlightFlash 2s ease-out;
 }
 
+/* Focus indicators for timeline and interactive elements */
+button:focus-visible {
+  outline: 2px solid #F2C413;
+  outline-offset: 2px;
+  z-index: 100;
+}
+
+/* Timeline-specific focus styles */
+.timeline-year-button:focus-visible {
+  outline: 3px solid #F2C413;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(242, 196, 19, 0.2);
+}
+
+.timeline-paper-button:focus-visible {
+  outline: 2px solid #F2C413;
+  outline-offset: 2px;
+  transform: scale(1.2);
+}
+
 /* Remove focus outline from Recharts */
 .recharts-wrapper:focus,
 .recharts-surface:focus {
