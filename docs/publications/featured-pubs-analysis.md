@@ -152,6 +152,167 @@ This document tracks our analysis of featured publications for the website, incl
 
 ---
 
+---
+
+## 5. Forster 2025 - Annals of Internal Medicine
+
+**Full Title:** The Potential Impact of Ending the Ryan White HIV/AIDS Program on HIV Incidence: A Simulation Study in 31 U.S. Cities
+
+**Authors:** Ryan Forster, PhD; Melissa Schnure, PhD; Joyce Jones, MD; Catherine Lesko, PhD; D. Scott Batey, PhD, MSW; Isolde Butler, MD, MPH; Dafina Ward, JD; Karen Musgrove, PhD, MEd; Keri N. Althoff, PhD, MPH; Mamta K. Jain, MD, MPH; Kelly A. Gebo, MD, MPH; David W. Dowdy, MD, PhD; Maunank Shah, MD, PhD; Parastu Kasaie, PhD; and Anthony T. Fojo, MD, MHS
+
+**Journal:** Annals of Internal Medicine
+
+**Year:** 2025
+
+**DOI:** [10.7326/ANNALS-25-01737](https://doi.org/10.7326/ANNALS-25-01737)
+
+**Link:** https://doi.org/10.7326/ANNALS-25-01737
+
+**Published:** September 9, 2025
+
+**PDF:** `docs/publications/forster-2025.pdf`
+
+### Key Figure Recommendation
+
+**Figure 2** (page 5) - "Projected HIV incidence if Ryan White programs end or are interrupted"
+- Multi-panel figure showing projections for Houston, 4 Texas cities, 10 Medicaid nonexpansion cities, 21 Medicaid expansion cities, and all 31 cities
+- Shows 4 scenarios: continuation, cessation, prolonged interruption (18 months), brief interruption (42 months)
+- Time series graphs from 2020-2030 with ribbons showing 95% credible intervals
+- Clearly demonstrates the dramatic impact of service disruptions on HIV incidence
+- Visual comparison across different geographic aggregations
+
+**Alternative: Figure 4** - Box plots showing city-level relative excess HIV infections for all 31 cities, organized by Medicaid expansion status
+
+### Drafted Key Findings
+
+"Ending the Ryan White HIV/AIDS Program could result in 75,436 additional HIV infections (95% CrI, 19,251 to 134,175) across 31 high-burden U.S. cities from 2025 to 2030—a 49% increase. Even temporary interruptions lasting 18-42 months would cause 19-38% more infections. The impact varies dramatically by city, from 9% increase in Riverside, CA to 110% in Baltimore, MD, highlighting the critical public health value of Ryan White services."
+
+### Notes
+- Open access (Annals of Internal Medicine) - check copyright for figure reuse
+- JHEEM model (Johns Hopkins HIV Economic-Epidemiologic Model)
+- Covers all 31 EHE priority cities (excluding Cincinnati due to data limitations)
+- Novel survey of 180 Ryan White clinic directors, administrators, and health officials
+- Primary analysis based on survey; "conservative" analysis incorporates observational studies
+- Interactive web tool available at www.jheem.org/ryan-white
+- Published September 9, 2025 (very recent)
+- Key conclusion: Even brief disruptions could have substantial long-term consequences for HIV epidemic control
+- Important policy-relevant research demonstrating value of Ryan White program
+- Study emphasizes local heterogeneity - different cities would experience vastly different impacts
+
+---
+
+## 6. Balasubramanian 2025 - medRxiv (PREPRINT)
+
+**Full Title:** The Potential Effect of Ending CDC Funding for HIV Tests: A Modeling Study in 18 States
+
+**Authors:** Ruchita Balasubramanian, MPhil; Melissa Schnure, PhD ScM; Ryan Forster, PhD; William P. Hanage, PhD; D. Scott Batey, PhD MSW; Keri N. Althoff, PhD MPH; Kelly A. Gebo, MD MPH; David W. Dowdy, MD PhD; Maunank Shah, MD PhD; Parastu Kasaie, PhD MS; Anthony T. Fojo, MD MHS
+
+**Journal:** medRxiv (preprint)
+
+**Year:** 2025
+
+**DOI:** [10.1101/2025.09.19.25336182](https://doi.org/10.1101/2025.09.19.25336182)
+
+**Link:** https://doi.org/10.1101/2025.09.19.25336182
+
+**Posted:** September 21, 2025
+
+**Status:** PREPRINT - Not yet peer-reviewed
+
+**PDF:** `docs/publications/balasubramanian-2025.pdf`
+
+### Key Figure Recommendation
+
+**Figure 1** - "Projected HIV Infections in Illinois, Texas and Louisiana if CDC-funded HIV Testing is Disrupted"
+- Multi-panel time series showing three states across the spectrum of impact
+- Shows 3 scenarios: cessation, prolonged interruption, brief interruption
+- Clearly demonstrates the compounding effect over time
+- Visual comparison of different recovery timelines
+
+**Alternative: Figure 4** - Scatter plots showing state-level variation by key determinants (proportion of diagnoses from CDC tests, proportion of tests funded by CDC, transmission rate, urban/rural distribution)
+
+### Drafted Key Findings
+
+"Ending CDC funding for HIV tests in October 2025 could cause 12,719 additional infections (95% CrI 4,547 to 21,896) by 2030 across 18 states—a 10% increase. Impact varies dramatically by state, from 2.7% in Washington to 29.9% in Louisiana. Rural states face disproportionate risk, with one excess infection for every 913 CDC-funded tests foregone. Even temporary interruptions would substantially increase transmission."
+
+### Notes
+- PREPRINT - Public domain (medRxiv, CC-0)
+- JHEEM model (Johns Hopkins HIV Economic-Epidemiologic Model) - state-level
+- Covers 18 states (mix of urban/rural, Medicaid expansion status)
+- Novel focus on CDC testing activities specifically
+- Complementary to Forster 2025 (Ryan White) study
+- Interactive web tool available at www.jheem.org/cdc-testing
+- Key insight: Rural states more vulnerable to testing disruptions
+- Assumes 50% of CDC tests would be replaced through other means (with wide uncertainty)
+- First author from Harvard, collaborating with JHU team
+- Policy-relevant: CDC HIV testing activities at risk of cuts
+
+---
+
+## 7. Zalesak 2025 - medRxiv (PREPRINT)
+
+**Full Title:** Proposed Cuts to the Ryan White Program Could Raise HIV Incidence by 18% in 30 US States and the District of Columbia: A Simulation Study
+
+**Authors:** Andrew Zalesak, MS; Melissa Schnure, PhD ScM; Ryan Forster, PhD; Joyce L. Jones, MD MS; Catherine R. Lesko, PhD; D. Scott Batey, PhD MSW; Keri N. Althoff, PhD MPH; Kelly A. Gebo, MD MPH; David W. Dowdy, MD PhD; Maunank Shah, MD PhD; Parastu Kasaie, PhD MS; Anthony T. Fojo, MD MHS
+
+**Journal:** medRxiv (preprint)
+
+**Year:** 2025
+
+**DOI:** [10.1101/2025.10.14.25337745](https://doi.org/10.1101/2025.10.14.25337745)
+
+**Link:** https://doi.org/10.1101/2025.10.14.25337745
+
+**Posted:** October 15, 2025
+
+**Status:** PREPRINT - Not yet peer-reviewed
+
+**PDF:** `docs/publications/zalesak-2025.pdf`
+
+### Key Figure Recommendation
+
+**Figure** - "Relative Excess HIV Infections from 2025-2030 If Ryan White HIV/AIDS Program Part C, D, Minority AIDS Initiative, and Ending the HIV Epidemic Initiative Programs are Stopped or Interrupted in 30 States and Washington, DC"
+- Comprehensive box plot showing all 30 states + DC
+- Clear visual hierarchy by state impact
+- Highlights EHE priority states (marked with asterisk)
+- Shows both cessation and interruption scenarios side-by-side
+- Dramatic variation: 4.4% (Indiana) to 53.8% (South Carolina)
+
+### Drafted Key Findings
+
+"Proposed cuts to Ryan White Parts C and D, Minority AIDS Initiative, and Ending the HIV Epidemic programs would lead to 23,883 additional HIV infections (95% CrI 2,812 to 53,813) over five years—a 17.6% increase. The seven EHE priority states with high rural HIV burden face disproportionate impact, with four of the five most affected states being EHE priorities. Even a 3-year interruption would cause 17,710 excess infections, threatening to reverse progress in HIV epidemic control."
+
+### Notes
+- PREPRINT - CC-BY 4.0 license (medRxiv)
+- JHEEM model - state-level analysis in 30 states + DC
+- Focused specifically on proposed cuts to Parts C, D, Minority AIDS, and EHE
+- Complementary to Forster 2025 (all Ryan White) and Balasubramanian 2025 (CDC testing)
+- This forms the "middle ground" - specific Ryan White components, not the entire program
+- Key insight: EHE priority states (rural burden) disproportionately affected
+- Based on state-level fraction of non-ADAP Ryan White funds from these programs
+- Uses same survey methodology as Forster 2025 for estimating suppression loss
+- Very recent (October 2025)
+- Policy-relevant: Specific proposed cuts under consideration
+
+---
+
+## The Three Studies Together: A Policy Research Trilogy
+
+These three studies form a comprehensive examination of potential HIV program disruptions:
+
+1. **Forster 2025** (Published, Ann Intern Med): Complete cessation of Ryan White → 75,436 excess infections (49% increase) in 31 cities
+2. **Zalesak 2025** (Preprint): Cuts to Ryan White Parts C/D/MAI/EHE → 23,883 excess infections (17.6% increase) in 30 states + DC
+3. **Balasubramanian 2025** (Preprint): Ending CDC testing → 12,719 excess infections (10% increase) in 18 states
+
+**Common Themes:**
+- All use JHEEM model with local-level calibration
+- All demonstrate compounding effects over time
+- All show disproportionate impact on rural and underserved communities
+- All emphasize long-term consequences even from temporary disruptions
+- Interactive web tools for all three studies
+
+---
+
 ## Next Steps
 
 ### Completed
@@ -159,6 +320,9 @@ This document tracks our analysis of featured publications for the website, incl
 - [x] Review Hyle 2023 PDF and extract key figure + draft findings
 - [x] Review Althoff 2021 PDF and extract key figure + draft findings
 - [x] Review Fojo 2021 PDF and extract key figure + draft findings
+- [x] Review Forster 2025 PDF and extract key figure + draft findings
+- [x] Review Balasubramanian 2025 preprint and extract key figure + draft findings
+- [x] Review Zalesak 2025 preprint and extract key figure + draft findings
 
 ### In Progress
 - [ ] User to review drafted key findings and revise as needed
@@ -170,7 +334,7 @@ This document tracks our analysis of featured publications for the website, incl
 
 ### Pending
 - [ ] Get author verification on all drafted key findings
-- [ ] Update `src/data/publications.ts` with verified key findings for all 4 featured publications
+- [ ] Update `src/data/publications.ts` with verified key findings for all featured publications
 - [ ] Add figure paths to `imageUrl` fields in publications.ts
   - Path format: `/images/publications/{publication-id}.png`
 - [ ] Add figure captions to `imageCaption` fields in publications.ts

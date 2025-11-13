@@ -26,7 +26,51 @@ export interface Publication {
 // Publications array - Updated by CLI script
 export const publications: Publication[] = [
 
+  // 2025 Policy Research Trilogy - All JHEEM model studies examining HIV program disruptions
+  {
+    id: "forster-2025",
+    title: "Potential Impact of Ending the Ryan White HIV/AIDS Program on HIV Incidence in the United States: A Modeling Study",
+    authors: "Forster RJ, Kasaie P, Schnure MC, Dowdy DW, Shah M, Fojo AT",
+    journal: "Annals of Internal Medicine",
+    year: "2025",
+    doi: "10.7326/ANNALS-25-01737",
+    url: "https://doi.org/10.7326/ANNALS-25-01737",
+    abstract: "This modeling study examines the potential impact of ending the Ryan White HIV/AIDS Program on HIV incidence across 31 high-burden U.S. cities, demonstrating critical public health consequences and wide geographic variation in program dependency.",
+    keyFindings: "Ending the Ryan White HIV/AIDS Program could result in 75,436 additional HIV infections (95% CrI, 19,251 to 134,175) across 31 high-burden U.S. cities from 2025 to 2030—a 49% increase. Even temporary interruptions lasting 18-42 months would cause 19-38% more infections. The impact varies dramatically by city, from 9% increase in Riverside, CA to 110% in Baltimore, MD, highlighting the critical public health value of Ryan White services.",
+    projects: ["jheem"],
+    tags: ["HIV", "Ryan White", "policy", "modeling", "health disparities", "public health"],
+    featured: true
+  },
 
+  {
+    id: "zalesak-2025",
+    title: "Impact of Proposed Cuts to the Ryan White HIV/AIDS Program on HIV Incidence: A State-Level Analysis",
+    authors: "Zalesak A, Kasaie P, Schnure MC, Dowdy DW, Shah M, Fojo AT",
+    journal: "medRxiv (preprint)",
+    year: "2025",
+    doi: "10.1101/2025.10.14.25337745",
+    url: "https://doi.org/10.1101/2025.10.14.25337745",
+    abstract: "This preprint examines the potential impact of proposed cuts to Ryan White Parts C, D, Minority AIDS Initiative, and Ending the HIV Epidemic funding on HIV incidence across 30 U.S. states and Washington, DC.",
+    keyFindings: "Proposed cuts to Ryan White Parts C/D, Minority AIDS Initiative, and Ending the HIV Epidemic programs could result in 23,883 additional HIV infections (17.6% increase) across 30 states and DC from 2025 to 2030. The impact would be largest in states with high Ryan White dependency, with rural and underserved communities experiencing disproportionate effects.",
+    projects: ["jheem"],
+    tags: ["HIV", "Ryan White", "policy", "modeling", "health disparities", "preprint"],
+    featured: false
+  },
+
+  {
+    id: "balasubramanian-2025",
+    title: "Potential Effect of Ending CDC Funding for HIV Testing on HIV Incidence in the United States: A Modeling Study",
+    authors: "Balasubramanian R, Kasaie P, Schnure MC, Dowdy DW, Shah M, Fojo AT",
+    journal: "medRxiv (preprint)",
+    year: "2025",
+    doi: "10.1101/2025.09.19.25336182",
+    url: "https://doi.org/10.1101/2025.09.19.25336182",
+    abstract: "This preprint models the potential impact of ending CDC funding for HIV testing across 18 U.S. states, examining how reduced testing capacity could affect HIV incidence and diagnosis rates.",
+    keyFindings: "Ending CDC funding for HIV testing could result in 12,719 additional HIV infections (9.6% increase) across 18 states from 2025 to 2030. Testing reductions would delay HIV diagnoses by an average of 0.5-1.5 years, increasing onward transmission and worsening health outcomes, with disproportionate impacts in rural and underserved communities.",
+    projects: ["jheem"],
+    tags: ["HIV", "testing", "CDC", "policy", "modeling", "health disparities", "preprint"],
+    featured: false
+  },
 
 
 
@@ -130,20 +174,6 @@ export const publications: Publication[] = [
     abstract: "This study validates findings across two independent microsimulation models, projecting an aging population of men who have sex with men living with HIV through 2031.",
     projects: ["pearl"],
     tags: ["HIV", "MSM", "aging", "microsimulation", "validation"],
-    featured: false
-  },
-
-  {
-    id: "althoff-2022-med",
-    title: "The projected prevalence of comorbidities and multimorbidity in people with HIV in the United States through the year 2030",
-    authors: "Althoff KN, Stewart CN, Humes E, Gerace L, Boyd CM, Gebo K, Justice AC, Hyle E, Coburn S, Lang R, Silverberg MJ, Horberg M, Lima VD, Gill MJ, Karris M, Rebeiro PF, Thorne J, Rich AJ, Crane H, Kitahata M, Rubtsova A, Wong C, Leng S, Marconi VC, D",
-    journal: "medRxiv",
-    year: "2022",
-    doi: "10.11010/2022.11.04.22281891",
-    url: "https://doi.org/10.11010/2022.11.04.22281891",
-    abstract: "This preprint describes projections of comorbidities and multimorbidity prevalence in people with HIV in the US through 2030, highlighting the increasing healthcare complexity of this population.",
-    projects: ["pearl"],
-    tags: ["HIV", "comorbidities", "multimorbidity", "aging", "modeling", "preprint"],
     featured: false
   },
 
@@ -299,6 +329,7 @@ export const publicationTags: string[] = [
   "ART",
   "Bangladesh",
   "CD4",
+  "CDC",
   "COVID-19",
   "HIV",
   "Hispanic ethnicity",
@@ -336,6 +367,7 @@ export const publicationTags: string[] = [
   "mortality",
   "multimorbidity",
   "pandemic",
+  "policy",
   "preprint",
   "prevention",
   "preventive therapy",
@@ -344,9 +376,11 @@ export const publicationTags: string[] = [
   "public health",
   "racial disparities",
   "randomized trial",
+  "Ryan White",
   "simulation",
   "structural racism",
   "subclinical TB",
+  "testing",
   "transmission",
   "treatment",
 

@@ -3,10 +3,11 @@
 This table provides a quick reference for all publications in the database, useful for content creation and analysis work.
 
 ## Quick Stats
-- **Total Publications**: 25
-- **Featured Publications**: 4
+- **Total Publications**: 27 (excluding removed preprint duplicate)
+- **Featured Publications**: 4 (+ 1 featured new + 2 preprints to feature)
 - **Projects**: PEARL (majority), JHEEM
-- **Years**: 2018-2024
+- **Years**: 2018-2025
+- **Preprints**: 2 (to be replaced when published)
 
 ---
 
@@ -14,6 +15,9 @@ This table provides a quick reference for all publications in the database, usef
 
 | ID | Year | Featured | First Author | Title (Shortened) | Journal | Link | Project | PDF | Key Findings | Image |
 |----|------|----------|--------------|-------------------|---------|------|---------|-----|--------------|-------|
+| `forster-2025` | 2025 | ✅ | Forster R | Potential Impact of Ending Ryan White HIV/AIDS Program on HIV Incidence (31 US cities) | Ann Intern Med | [DOI](https://doi.org/10.7326/ANNALS-25-01737) | JHEEM | ✅ | ✅ (drafted) | ❌ |
+| `zalesak-2025` | 2025 | ❌ (preprint) | Zalesak A | Proposed Cuts to Ryan White Parts C/D Could Raise HIV Incidence 18% (30 states + DC) | medRxiv (preprint) | [DOI](https://doi.org/10.1101/2025.10.14.25337745) | JHEEM | ✅ | ✅ (drafted) | ❌ |
+| `balasubramanian-2025` | 2025 | ❌ (preprint) | Balasubramanian R | Potential Effect of Ending CDC Funding for HIV Tests (18 states) | medRxiv (preprint) | [DOI](https://doi.org/10.1101/2025.09.19.25336182) | JHEEM | ✅ | ✅ (drafted) | ❌ |
 | `althoff-2024` | 2024 | ✅ | Althoff KN | Forecasted prevalence of comorbidities and multimorbidity in PWH (2030) | PLoS Medicine | [DOI](https://doi.org/10.1371/journal.pmed.1004325) | PEARL | ✅ | ❌ | Placeholder |
 | `schnuremc-2024` | 2024 | ❌ | Schnure MC | Forecasting effect of HIV interventions on age distribution in Kenya | AIDS | [DOI](https://doi.org/10.1097/QAD.0000000000003895) | JHEEM | ❌ | ❌ | ❌ |
 | `hyle-2023` | 2023 | ✅ | Hyle EP | Growing number of MSM aging with HIV (2021-2031) - model comparison | J Infect Dis | [DOI](https://doi.org/10.1093/infdis/jiac473) | PEARL | ✅ | ❌ | ❌ |
@@ -79,9 +83,12 @@ Focus: Projecting Age, multimoRbidity, and poLypharmacy in adults with HIV
 - Althoff 2021 ⭐
 - Kasaie 2021
 
-### JHEEM Project (12 publications)
+### JHEEM Project (16 publications)
 Focus: Johns Hopkins HIV Economic-Epidemiologic Model
 
+- **Forster 2025** ⭐ (Ryan White - full program impact, 31 cities)
+- **Zalesak 2025** (preprint) (Ryan White Parts C/D/MAI/EHE, 30 states + DC)
+- **Balasubramanian 2025** (preprint) (CDC testing impact, 18 states)
 - Schnure 2024
 - Nosyk 2023
 - Fojo 2022 (COVID-19)
@@ -114,3 +121,20 @@ For each publication requiring content extraction:
 - PDFs stored in `docs/publications/` (gitignored from Vercel builds)
 - See `featured-pubs-analysis.md` for detailed analysis of featured publications
 - Priority: Complete featured publications first, then expand to others as needed
+
+### Recent Changes
+
+- **Removed:** `althoff-2022-med` (medRxiv preprint) - duplicate of published `althoff-2024` (PLoS Medicine)
+- **New (Published):** `forster-2025` added - Ryan White full program impact (31 cities), published September 2025 in Ann Intern Med - **FEATURED**
+- **New (Preprints):** Two related preprints added:
+  - `zalesak-2025` - Ryan White Parts C/D/MAI/EHE cuts (30 states + DC), posted October 2025
+  - `balasubramanian-2025` - CDC testing funding cuts (18 states), posted September 2025
+
+### The 2025 Policy Research Trilogy
+
+Three complementary studies examine different aspects of HIV program disruptions:
+1. **Forster 2025** (Published): Full Ryan White cessation → 75K excess infections (49% ↑)
+2. **Zalesak 2025** (Preprint): Partial Ryan White cuts → 24K excess infections (18% ↑)
+3. **Balasubramanian 2025** (Preprint): CDC testing cuts → 13K excess infections (10% ↑)
+
+All use JHEEM model, all demonstrate disproportionate rural/underserved impact, all have interactive web tools.
