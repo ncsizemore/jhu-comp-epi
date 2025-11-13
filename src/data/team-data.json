@@ -302,7 +302,7 @@
       },
       "bio": "Andrew Zalesak is a Senior Programmer Analyst at the Johns Hopkins School of Medicine. He earned a B.S. in Biochemistry and an M.S. in Environmental Science from the University of North Carolina at Chapel Hill before joining the JHEEM team in Spring of 2023. His main duties are as an R programmer for the JHEEM2 package and its associated web tool. Andrew has previously worked at the U.S. Environmental Protection Agency as a research fellow studying transportation sector. As a Programmer Analyst, Andrew plays a key role in the development and maintenance of the JHEEM2 simulation package and its associated web tool. He provides essential support in the ongoing enhancement and functionality of the tool, ensuring it meets the needs of the project and contributes to the success of the team's epidemiological modeling efforts.",
       "shortBio": "Senior programmer analyst developing R packages and web tools for epidemiological modeling.",
-      "photo": "images/team/zalesak-headshot.jpg",
+      "photo": "images/team/zalesak-headshot.png",
       "projects": [
         "shield",
         "jheem"

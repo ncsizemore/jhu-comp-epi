@@ -4,11 +4,15 @@ import { TeamMember } from '@/lib/data/team';
 
 interface TeamMemberCardProps {
   member: TeamMember;
+  onClick?: () => void;
 }
 
-function TeamMemberCard({ member }: TeamMemberCardProps) {
+function TeamMemberCard({ member, onClick }: TeamMemberCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+    <div
+      className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer hover:-translate-y-1 flex flex-col h-full"
+      onClick={onClick}
+    >
       {/* Photo Section */}
       <div className="relative bg-gray-100 h-64 overflow-hidden">
         {member.photo ? (
@@ -26,15 +30,6 @@ function TeamMemberCard({ member }: TeamMemberCardProps) {
             </div>
           </div>
         )}
-        
-        {/* Category Badge */}
-        <div className="absolute top-3 left-3">
-          <span className="bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-medium px-2 py-1 rounded-full">
-            {member.category === 'faculty' ? 'Faculty' :
-             member.category === 'postdoc' ? 'Postdoc' :
-             member.category === 'student' ? 'Student' : 'Staff'}
-          </span>
-        </div>
 
         {/* Social Links Overlay */}
         {(member.email || member.websites || member.socialMedia) && (
@@ -87,10 +82,10 @@ function TeamMemberCard({ member }: TeamMemberCardProps) {
       </div>
 
       {/* Content Section */}
-      <div className="p-6">
+      <div className="p-6 flex-1 flex flex-col">
         {/* Name and Title */}
         <div className="mb-4">
-          <h3 className="text-xl font-bold text-gray-900 mb-1">
+          <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-hopkins-blue transition-colors">
             {member.name}
           </h3>
           <p className="text-hopkins-blue font-medium text-sm mb-1">
@@ -113,50 +108,65 @@ function TeamMemberCard({ member }: TeamMemberCardProps) {
           </p>
         </div>
 
-        {/* Short Bio */}
-        {member.shortBio && (
-          <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-            {member.shortBio}
-          </p>
-        )}
+        {/* Short Bio - fixed height */}
+        <div className="mb-4 flex-1">
+          {member.shortBio && (
+            <p className="text-sm text-gray-600 line-clamp-3">
+              {member.shortBio}
+            </p>
+          )}
+        </div>
 
-        {/* Expertise Tags */}
-        {member.expertise && member.expertise.length > 0 && (
-          <div className="mb-4">
-            <div className="flex flex-wrap gap-1">
-              {member.expertise.slice(0, 3).map((skill, index) => (
-                <span
-                  key={index}
-                  className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
-                >
-                  {skill}
-                </span>
-              ))}
-              {member.expertise.length > 3 && (
-                <span className="text-gray-500 text-xs px-2 py-1">
-                  +{member.expertise.length - 3} more
-                </span>
-              )}
+        {/* Bottom section - always at bottom */}
+        <div className="mt-auto space-y-4">
+          {/* Expertise Tags */}
+          {member.expertise && member.expertise.length > 0 && (
+            <div>
+              <div className="flex flex-wrap gap-1">
+                {member.expertise.slice(0, 3).map((skill, index) => (
+                  <span
+                    key={index}
+                    className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+                {member.expertise.length > 3 && (
+                  <span className="text-gray-500 text-xs px-2 py-1">
+                    +{member.expertise.length - 3} more
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Projects */}
-        {member.projects && member.projects.length > 0 && (
+          {/* Projects */}
+          {member.projects && member.projects.length > 0 && (
+            <div className="pt-3 border-t border-gray-100">
+              <p className="text-xs text-gray-500 mb-2">Projects:</p>
+              <div className="flex flex-wrap gap-2">
+                {member.projects.map((project) => (
+                  <span
+                    key={project}
+                    className="bg-hopkins-spirit-blue/10 text-hopkins-spirit-blue text-xs font-medium px-2 py-1 rounded"
+                  >
+                    {project.toUpperCase()}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Click indicator */}
           <div className="pt-3 border-t border-gray-100">
-            <p className="text-xs text-gray-500 mb-2">Projects:</p>
-            <div className="flex flex-wrap gap-2">
-              {member.projects.map((project) => (
-                <span
-                  key={project}
-                  className="bg-hopkins-spirit-blue/10 text-hopkins-spirit-blue text-xs font-medium px-2 py-1 rounded"
-                >
-                  {project.toUpperCase()}
-                </span>
-              ))}
-            </div>
+            <p className="text-xs text-gray-400 group-hover:text-hopkins-blue transition-colors flex items-center gap-1">
+              <span>Click for full profile</span>
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </p>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
