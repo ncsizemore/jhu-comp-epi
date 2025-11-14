@@ -39,7 +39,9 @@ export const publications: Publication[] = [
     keyFindings: "Ending the Ryan White HIV/AIDS Program could result in 75,436 additional HIV infections (95% CrI, 19,251 to 134,175) across 31 high-burden U.S. cities from 2025 to 2030—a 49% increase. Even temporary interruptions lasting 18-42 months would cause 19-38% more infections. The impact varies dramatically by city, from 9% increase in Riverside, CA to 110% in Baltimore, MD, highlighting the critical public health value of Ryan White services.",
     projects: ["jheem"],
     tags: ["HIV", "Ryan White", "policy", "modeling", "health disparities", "public health"],
-    featured: true
+    featured: true,
+    imageUrl: "/images/publications/forster-2025-fig2.png",
+    imageCaption: "Figure 2: Projected HIV incidence if Ryan White programs end or are interrupted"
   },
 
   {
@@ -229,7 +231,7 @@ export const publications: Publication[] = [
     keyFindings: "By 2030, the US will have over 900,000 people with HIV on antiretroviral therapy, with a median age of 52 years and 23% aged 65 or older. The age distribution will evolve from unimodal to bimodal, with significant heterogeneity across demographic groups, underscoring the critical need to prepare healthcare systems for an aging HIV population with increasing multimorbidity.",
     projects: ["pearl"],
     tags: ["HIV", "aging", "ART", "epidemiology", "modeling"],
-    featured: true,
+    featured: false,
     imageUrl: "/images/publications/althoff-2021-fig3a.png",
     imageCaption: "Figure 3a: Projected age distributions of people with HIV using ART in the United States in 2010, 2020, and 2030",
     attentionGrabber: "Understanding the shifting age dynamics of HIV patients on ART."
@@ -312,11 +314,17 @@ export const publications: Publication[] = [
     id: "kasaie-2018-spain-art",
     title: "Economic and epidemiologic impact of guidelines for early ART initiation irrespective of CD4 count in Spain",
     authors: "Kasaie P, Radford M, Kapoor S, Jung Y, Hernandez Novoa B, Dowdy D, Shah M",
-    journal: "Clinical Infectious Diseases",
+    journal: "PLoS ONE",
     year: "2018",
+    doi: "10.1371/journal.pone.0206755",
+    url: "https://doi.org/10.1371/journal.pone.0206755",
+    abstract: "This cost-effectiveness study evaluates Spain's 2016 policy shift to recommend ART initiation at any CD4 count, using the JHEEM model to project epidemiologic and economic impacts over 20 years compared to delayed ART initiation.",
+    keyFindings: "Early ART initiation irrespective of CD4 count could avert 20,100 new HIV infections (28% reduction) and 3,800 deaths over 20 years in Spain, at an incremental cost of €1.05 billion and cost-effectiveness ratio of €29,700 per QALY gained. When combined with improved HIV screening among high-risk groups, the intervention could prevent 58% of new infections, demonstrating the critical synergy between treatment as prevention and enhanced diagnosis.",
     projects: ["jheem"],
-    tags: ["HIV", "ART", "guidelines", "Spain", "economic impact", "CD4"],
-    featured: false
+    tags: ["HIV", "ART", "guidelines", "Spain", "economic impact", "CD4", "cost-effectiveness", "modeling"],
+    featured: false,
+    imageUrl: "/images/publications/kasaie-2018-fig1.jpg",
+    imageCaption: "Figure 1: Projected new HIV infections, cumulative infections averted, HIV deaths, and cumulative deaths averted in Spain from 2017 to 2037 under early versus delayed ART"
   },
 
 

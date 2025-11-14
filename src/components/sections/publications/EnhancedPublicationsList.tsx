@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { Publication } from '@/lib/data/publications';
 import { getProjectTheme, projectsMap } from '@/lib/projects/config';
 import PublicationListItem from '@/components/publications/PublicationListItem';
+import PublicationModal from '@/components/publications/PublicationModal';
 import { usePublicationFilters } from '@/hooks/usePublicationFilters';
 
 interface EnhancedPublicationsListProps {
@@ -16,6 +17,8 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
   const [hoveredPub, setHoveredPub] = useState<Publication | null>(null);
   const [focusedYearIndex, setFocusedYearIndex] = useState<number>(-1);
   const [focusedPubIndex, setFocusedPubIndex] = useState<number>(-1);
+  const [selectedPub, setSelectedPub] = useState<Publication | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
   // Use custom hook for filtering logic
   const {
@@ -163,6 +166,24 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
       .sort((a, b) => parseInt(b.year) - parseInt(a.year))
       .slice(0, displayCount);
   }, [filteredPublications, displayCount]);
+
+  // Modal handlers
+  const handleCardClick = (publication: Publication, index: number) => {
+    setSelectedPub(publication);
+    setSelectedIndex(index);
+  };
+
+  const handleNext = () => {
+    const nextIndex = (selectedIndex + 1) % sortedPublications.length;
+    setSelectedIndex(nextIndex);
+    setSelectedPub(sortedPublications[nextIndex]);
+  };
+
+  const handlePrevious = () => {
+    const prevIndex = (selectedIndex - 1 + sortedPublications.length) % sortedPublications.length;
+    setSelectedIndex(prevIndex);
+    setSelectedPub(sortedPublications[prevIndex]);
+  };
 
   // Timeline sizing
   const maxStackHeight = Math.max(...Object.values(timelineData.pubsByYear).map(pubs => pubs.length));
@@ -476,6 +497,7 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
                 <PublicationListItem
                   publication={publication}
                   index={index}
+                  onClick={() => handleCardClick(publication, index)}
                 />
               </div>
             ))}
@@ -518,6 +540,16 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
           </div>
         </div> {/* Close max-w-6xl */}
       </section>
+
+      {/* Publication Modal */}
+      {selectedPub && (
+        <PublicationModal
+          publication={selectedPub}
+          onClose={() => setSelectedPub(null)}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+        />
+      )}
     </>
   );
 }

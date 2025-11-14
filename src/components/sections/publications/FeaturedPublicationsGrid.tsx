@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
 import { Publication } from '@/lib/data/publications';
-import { getProjectTheme, projectsMap } from '@/lib/projects/config';
+import { getProjectTheme, PROJECT_THEME } from '@/lib/projects/config';
 import { HeroBackground } from '@/components/ui/HeroBackground';
 import { formatAuthors } from '@/lib/utils/authors';
 import PublicationModal from '@/components/publications/PublicationModal';
@@ -16,20 +16,12 @@ export default function FeaturedPublicationsGrid({ publications }: FeaturedPubli
   const [selectedPub, setSelectedPub] = useState<Publication | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-  // Get featured publications, grouped by project
-  const { pearlPubs, jheemPubs } = useMemo(() => {
-    const featured = publications.filter(pub => pub.featured);
-    return {
-      pearlPubs: featured.filter(pub => pub.projects.includes('pearl')),
-      jheemPubs: featured.filter(pub => pub.projects.includes('jheem')),
-    };
-  }, [publications]);
-
-  // Combine them in alternating order for visual balance, or group by project
+  // Get featured publications, sorted chronologically (newest first)
   const featuredPubs = useMemo(() => {
-    // For now, show PEARL first, then JHEEM
-    return [...pearlPubs, ...jheemPubs];
-  }, [pearlPubs, jheemPubs]);
+    return publications
+      .filter(pub => pub.featured)
+      .sort((a, b) => parseInt(b.year) - parseInt(a.year));
+  }, [publications]);
 
   const handleCardClick = (publication: Publication, index: number) => {
     setSelectedPub(publication);
@@ -75,19 +67,19 @@ export default function FeaturedPublicationsGrid({ publications }: FeaturedPubli
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative">
-          {/* 2-Column Hero Cards Grid */}
+          {/* 2-Column Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {featuredPubs.map((publication, index) => {
-            const projectId = publication.projects[0] || 'pearl';
-            const project = projectsMap[projectId as keyof typeof projectsMap];
-            const projectTheme = getProjectTheme(projectId);
+            {featuredPubs.map((publication, index) => {
+              const projectId = publication.projects[0] || 'pearl';
+              const project = PROJECT_THEME[projectId as keyof typeof PROJECT_THEME];
+              const projectTheme = getProjectTheme(projectId);
 
-            return (
-              <article
-                key={publication.id}
-                onClick={() => handleCardClick(publication, index)}
-                className="group bg-white border border-gray-200 rounded-3xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-900/10 flex flex-col cursor-pointer"
-              >
+              return (
+                <article
+                  key={publication.id}
+                  onClick={() => handleCardClick(publication, index)}
+                  className="group bg-white border border-gray-200 rounded-3xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-2xl hover:shadow-gray-900/10 flex flex-col cursor-pointer"
+                >
                 {/* Image Header (if available) */}
                 {publication.imageUrl && (
                   <div className="relative h-64 bg-white/10 overflow-hidden">

@@ -33,7 +33,7 @@ This table provides a quick reference for all publications in the database, usef
 | `fojo-2021-end-hiv` | 2021 | ✅ | Fojo AT | What will it take to end HIV in the US? (32 MSAs) | Ann Intern Med | [DOI](https://doi.org/10.7326/M21-1501) | JHEEM | ✅ | ❌ | ❌ |
 | `kasaiep-2020` | 2020 | ❌ | Kasaie P | Integrated screening/treatment for HIV, hypertension, diabetes in Kenya | JIAS | [DOI](https://doi.org/10.1002/jia2.25499) | JHEEM | ❌ | ❌ | ❌ |
 | `pretoriusc-2020` | 2020 | ❌ | Pretorius C | Impact/cost-effectiveness of oral PrEP in 13 low-resource countries | JIAS | [DOI](https://doi.org/10.1002/jia2.25451) | JHEEM | ❌ | ❌ | ❌ |
-| `kasaie-2018-spain-art` | 2018 | ❌ | Kasaie P | Economic/epidemiologic impact of early ART guidelines in Spain | Clin Infect Dis | [URL](https://pubmed.ncbi.nlm.nih.gov/PMID) | JHEEM | ❌ | ❌ | ❌ |
+| `kasaie-2018-spain-art` | 2018 | ❌ | Kasaie P | Economic/epidemiologic impact of early ART initiation (Spain) | PLoS ONE | [DOI](https://doi.org/10.1371/journal.pone.0206755) | JHEEM | ✅ | ❌ | ❌ |
 
 ---
 

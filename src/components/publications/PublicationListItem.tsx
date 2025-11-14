@@ -6,9 +6,10 @@ import { formatAuthors } from '@/lib/utils/authors';
 interface PublicationListItemProps {
   publication: Publication;
   index: number;
+  onClick?: () => void;
 }
 
-function PublicationListItem({ publication, index }: PublicationListItemProps) {
+function PublicationListItem({ publication, index, onClick }: PublicationListItemProps) {
   const projectId = publication.projects[0] || 'pearl';
   const theme = getProjectTheme(projectId);
 
@@ -17,7 +18,8 @@ function PublicationListItem({ publication, index }: PublicationListItemProps) {
 
   return (
     <div
-      className={`border-l-4 ${borderClass} bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 hover:border-gray-300/70 rounded-r-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group`}
+      onClick={onClick}
+      className={`border-l-4 ${borderClass} bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 hover:border-gray-300/70 rounded-r-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group ${onClick ? 'cursor-pointer' : ''}`}
       style={{
         animationName: 'fadeIn',
         animationDuration: '0.5s',
@@ -69,6 +71,7 @@ function PublicationListItem({ publication, index }: PublicationListItemProps) {
               href={publication.url || `https://doi.org/${publication.doi}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="p-2 text-gray-500 hover:text-white hover:bg-gray-700 rounded-lg border border-gray-300 hover:border-gray-700 transition-all duration-300 hover:shadow-md"
               title="View Publication"
             >

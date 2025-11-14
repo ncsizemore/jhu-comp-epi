@@ -313,6 +313,62 @@ These three studies form a comprehensive examination of potential HIV program di
 
 ---
 
+## 8. Kasaie 2018 - PLoS ONE (Spain ART Guidelines)
+
+**Full Title:** Economic and epidemiologic impact of guidelines for early ART initiation irrespective of CD4 count in Spain
+
+**Authors:** Parastu Kasaie, Matthew Radford, Sunaina Kapoor, Younghee Jung, Beatriz Hernandez Novoa, David Dowdy, Maunank Shah
+
+**Journal:** PLoS ONE
+
+**Year:** 2018
+
+**DOI:** [10.1371/journal.pone.0206755](https://doi.org/10.1371/journal.pone.0206755)
+
+**Link:** https://doi.org/10.1371/journal.pone.0206755
+
+**Published:** November 5, 2018
+
+**Status:** NOT FEATURED - Reference only
+
+**PDF:** `docs/publications/kasaie-2018.pdf`
+
+### Key Figure Recommendation
+
+**Figure 1** (page 5) - "Projected new HIV infections, cumulative infections averted, HIV deaths, and cumulative deaths averted in Spain from 2017 to 2037"
+- Four-panel figure showing epidemiologic impacts over 20 years
+- Panel A: New HIV infections comparing delayed vs early ART initiation
+- Panel B: Cumulative infections averted
+- Panel C: HIV deaths over time
+- Panel D: Cumulative deaths averted
+- Shows scenarios with and without additional care continuum improvements
+- Clear demonstration of treatment as prevention
+
+**Alternative: Figure 2** - Cost-effectiveness acceptability curve showing probability of cost-effectiveness at varying willingness-to-pay thresholds
+
+### Summary of Findings
+
+Early ART initiation (irrespective of CD4 count) in Spain is projected to:
+- Avert 20,100 [11,100-83,000] new HIV infections over 20 years (28% reduction)
+- Prevent 9,000 [6,300-26,400] AIDS and non-AIDS events (15% reduction)
+- Avert 3,800 [2,100-11,400] deaths (17% reduction)
+- Incremental cost of €1.05 billion [€0.66-€1.63] over 20 years
+- ICER of €29,700 [€13,700-€41,200] per QALY gained (cost-effective at €30,000 WTP threshold)
+- When combined with improved HIV screening, could avert 41,600 [23,200-172,200] infections (58% reduction)
+
+### Notes
+- Open access (PLoS ONE) - Creative Commons Attribution License, no copyright concerns
+- JHEEM model applied to Spain's HIV epidemic (150,000 PLWH)
+- Cost-effectiveness study with 20-, 30-, and 40-year projections
+- ICER improves with longer time horizons (€12,700 at 30 years, €5,200 at 40 years)
+- 62% probability of being cost-effective at €30,000/QALY threshold; 99% at €80,000/QALY
+- Emphasizes importance of combining early ART with improved HIV care continuum (diagnosis, linkage, retention)
+- Spain's primary care continuum gap is undiagnosed fraction (~20% unaware)
+- Bayesian melding calibration approach
+- Funded by Johns Hopkins Center for AIDS Research and ViiV Healthcare
+
+---
+
 ## Next Steps
 
 ### Completed
