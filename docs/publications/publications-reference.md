@@ -19,13 +19,13 @@ This table provides a quick reference for all publications in the database, usef
 | `zalesak-2025` | 2025 | ❌ (preprint) | Zalesak A | Proposed Cuts to Ryan White Parts C/D Could Raise HIV Incidence 18% (30 states + DC) | medRxiv (preprint) | [DOI](https://doi.org/10.1101/2025.10.14.25337745) | JHEEM | ✅ | ✅ (drafted) | ❌ |
 | `balasubramanian-2025` | 2025 | ❌ (preprint) | Balasubramanian R | Potential Effect of Ending CDC Funding for HIV Tests (18 states) | medRxiv (preprint) | [DOI](https://doi.org/10.1101/2025.09.19.25336182) | JHEEM | ✅ | ✅ (drafted) | ❌ |
 | `althoff-2024` | 2024 | ✅ | Althoff KN | Forecasted prevalence of comorbidities and multimorbidity in PWH (2030) | PLoS Medicine | [DOI](https://doi.org/10.1371/journal.pmed.1004325) | PEARL | ✅ | ❌ | Placeholder |
-| `schnuremc-2024` | 2024 | ❌ | Schnure MC | Forecasting effect of HIV interventions on age distribution in Kenya | AIDS | [DOI](https://doi.org/10.1097/QAD.0000000000003895) | JHEEM | ❌ | ❌ | ❌ |
+| `schnuremc-2024` | 2024 | ❌ | Schnure MC | Forecasting effect of HIV interventions on age distribution in Kenya | AIDS | [DOI](https://doi.org/10.1097/QAD.0000000000003895) | JHEEM | ✅ | ✅ (drafted) | ✅ (4 figs) |
 | `hyle-2023` | 2023 | ✅ | Hyle EP | Growing number of MSM aging with HIV (2021-2031) - model comparison | J Infect Dis | [DOI](https://doi.org/10.1093/infdis/jiac473) | PEARL | ✅ | ❌ | ❌ |
 | `kasaie-2023-subgroup` | 2023 | ❌ | Kasaie P | Impact of subgroup heterogeneities on forecasted population size and deaths | Ann Epidemiol | [DOI](https://doi.org/10.1016/j.annepidem.2023.09.005) | PEARL | ❌ | ❌ | ❌ |
-| `nosykb-2023` | 2023 | ❌ | Nosyk B | Testing imperative for US EHE program | Clin Infect Dis | [DOI](https://doi.org/10.1093/cid/ciad103) | JHEEM | ❌ | ❌ | ❌ |
+| `nosykb-2023` | 2023 | ❌ | Nosyk B | Testing imperative for US EHE program | Clin Infect Dis | [DOI](https://doi.org/10.1093/cid/ciad103) | JHEEM | ✅ | ✅ (drafted) | ✅ (1 fig) |
 | `hyle-2022` | 2022 | ❌ | Hyle EP | MSM aging with HIV (2021-2031) - microsimulation models | J Infect Dis | [DOI](https://doi.org/10.1093/infdis/jiac473) | PEARL | ❌ | ❌ | ❌ |
 | `althoff-2022-med` | 2022 | ❌ | Althoff KN | Projected prevalence of comorbidities/multimorbidity through 2030 (preprint) | medRxiv | [DOI](https://doi.org/10.11010/2022.11.04.22281891) | PEARL | ❌ | ❌ | ❌ |
-| `fojo-2022-covid-hiv` | 2022 | ❌ | Fojo A | Potential effects of COVID-19 on HIV transmission (32 US cities) | Clin Infect Dis | [DOI](https://doi.org/10.1093/cid/ciab1029) | JHEEM | ❌ | ❌ | ❌ |
+| `fojo-2022-covid-hiv` | 2022 | ❌ | Fojo A | Potential effects of COVID-19 on HIV transmission (32 US cities) | Clin Infect Dis | [DOI](https://doi.org/10.1093/cid/ciab1029) | JHEEM | ✅ | ✅ (drafted) | ✅ (4 figs) |
 | `balasubramanianr-2022` | 2022 | ❌ | Balasubramanian R | Projected impact of expanded long-acting injectable PrEP among MSM | JAIDS | [DOI](https://doi.org/10.1097/QAI.0000000000003029) | JHEEM | ❌ | ❌ | ❌ |
 | `edwardsjk-2022` | 2022 | ❌ | Edwards JK | 5-year mortality for adults entering HIV care under universal early treatment | Clin Infect Dis | [DOI](https://doi.org/10.1093/cid/ciab1030) | PEARL | ❌ | ❌ | ❌ |
 | `althoff-2021` | 2021 | ✅ | Althoff KN | Shifting age distribution of PWH using ART in US (2020-2030) | AIDS | [DOI](https://doi.org/10.1097/QAD.0000000000003128) | PEARL | ✅ | ❌ | Placeholder |

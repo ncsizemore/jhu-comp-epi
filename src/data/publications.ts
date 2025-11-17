@@ -100,15 +100,19 @@ export const publications: Publication[] = [
 
   {
     id: "schnuremc-2024",
-    title: "Forecasting the effect of HIV-targeted interventions on the age distribution of people with HIV in Kenya.",
+    title: "Forecasting the effect of HIV-targeted interventions on the age distribution of people with HIV in Kenya",
     authors: "Schnure MC, Kasaie P, Dowdy DW, Genberg BL, Kendall EA, Fojo AT",
-    journal: "AIDS (London, England)",
+    journal: "AIDS",
     year: "2024",
     doi: "10.1097/QAD.0000000000003895",
-    url: "https://pubmed.ncbi.nlm.nih.gov/38537051/",
+    url: "https://doi.org/10.1097/QAD.0000000000003895",
+    abstract: "This modeling study forecasts changes in the age distribution of people with HIV in Kenya from 2025 to 2040 under status quo and intervention scenarios, demonstrating an aging HIV population and the need for integrated noncommunicable disease care.",
+    keyFindings: "PWH in Kenya are forecasted to age over the next 15 years, with the median age increasing from 39 in 2025 to 43 in 2040 without intervention (46 with full HIV care scale-up). The population over age 50 will grow from 376,000 (26%) to 479,000 (34%), driven by declining new infections among younger ages and longer survival on ART. This demographic shift underscores Kenya's urgent need to integrate HIV care with screening and treatment for age-related noncommunicable diseases.",
     projects: ["jheem"],
-    tags: ["HIV"],
-    featured: false
+    tags: ["HIV", "Kenya", "aging", "modeling", "noncommunicable diseases", "Africa"],
+    featured: false,
+    imageUrl: "/images/publications/schnuremc-2024-fig3.jpeg",
+    imageCaption: "Figure 3: Age structure of people with HIV in Kenya in 2025, 2040 (status quo), and 2040 (full intervention)"
   },
 
   {
@@ -154,15 +158,19 @@ export const publications: Publication[] = [
 
   {
     id: "nosykb-2023",
-    title: "The Testing Imperative: Why the US Ending the Human Immunodeficiency Virus (HIV) Epidemic Program Needs to Renew Efforts to Expand HIV Testing in Clinical and Community-Based Settings.",
+    title: "The Testing Imperative: Why the US Ending the Human Immunodeficiency Virus (HIV) Epidemic Program Needs to Renew Efforts to Expand HIV Testing in Clinical and Community-Based Settings",
     authors: "Nosyk B, Fojo AT, Kasaie P, Enns B, Trigg L, Piske M, Hutchinson AB, DiNenno EA, Zang X, Del Rio C",
-    journal: "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+    journal: "Clinical Infectious Diseases",
     year: "2023",
     doi: "10.1093/cid/ciad103",
-    url: "https://pubmed.ncbi.nlm.nih.gov/36815334/",
+    url: "https://doi.org/10.1093/cid/ciad103",
+    abstract: "This viewpoint article argues that large-scale increases in HIV testing across settings with high burden of HIV may produce the largest incidence reductions to support the US Ending the HIV Epidemic initiative's goal of reducing new HIV infections 90% by 2030, despite recent declines in testing volumes and flat prevention funding.",
+    keyFindings: "Data from several modeling studies demonstrate that large-scale increases in HIV testing may produce the largest incidence reductions to support the EHE initiative. Despite CDC recommendations, fewer than half of US adults report ever receiving an HIV test, and CDC-funded tests dropped 56% from 2015 to 2020. Modeling suggests biannual testing for MSM/PWID and annual testing for heterosexuals could yield a 55% decline in HIV incidence, with testing expansion being cost-saving in most settings.",
     projects: ["jheem"],
-    tags: ["HIV"],
-    featured: false
+    tags: ["HIV", "testing", "EHE", "policy", "prevention", "public health"],
+    featured: false,
+    imageUrl: "/images/publications/nosykb-2023-fig1.jpeg",
+    imageCaption: "Figure 1: Total testing volumes and test positivity of CDC-funded HIV tests (2013-2020)"
   },
 
   {
@@ -187,10 +195,13 @@ export const publications: Publication[] = [
     year: "2022",
     doi: "10.1093/cid/ciab1029",
     url: "https://doi.org/10.1093/cid/ciab1029",
-    abstract: "The degree to which the 2019 novel coronavirus disease (COVID-19) pandemic will affect the US human immunodeficiency virus (HIV) epidemic is unclear. We used the Johns Hopkins Epidemiologic and Economic Model to project HIV infections from 2020 to 2025 in 32 US metropolitan statistical areas (MSAs).",
+    abstract: "We used the Johns Hopkins Epidemiologic and Economic Model to project HIV infections from 2020 to 2025 in 32 US metropolitan statistical areas, examining how COVID-19 pandemic disruptions to sexual transmission, HIV testing, viral suppression, and PrEP use might affect HIV incidence.",
+    keyFindings: "The effects of COVID-19 on HIV transmission remain uncertain and differ between cities. Under optimistic scenarios where sexual transmission decreased and healthcare access was maintained, HIV incidence could fall 8% (95% CrI: 14% lower to no change), while pessimistic scenarios with maintained transmission but disrupted care could increase incidence 11% (1-21% higher). Critically, reported HIV diagnoses are likely to correlate poorly with underlying incidence in 2020-2021, with diagnoses dropping then rebounding regardless of actual transmission trends.",
     projects: ["jheem"],
-    tags: ["HIV", "COVID-19", "pandemic", "transmission", "modeling", "metropolitan areas"],
-    featured: false
+    tags: ["HIV", "COVID-19", "pandemic", "transmission", "modeling", "metropolitan areas", "health disruptions"],
+    featured: false,
+    imageUrl: "/images/publications/fojo-2022-covid-hiv-fig2.jpeg",
+    imageCaption: "Figure 2: Projected incidence and reported diagnoses, according to potential effects of COVID-19 on sexual transmission and viral suppression"
   },
 
   {
@@ -335,13 +346,16 @@ export const publications: Publication[] = [
 // Extract unique tags and years for filters
 export const publicationTags: string[] = [
   "ART",
+  "Africa",
   "Bangladesh",
   "CD4",
   "CDC",
   "COVID-19",
+  "EHE",
   "HIV",
   "Hispanic ethnicity",
   "India",
+  "Kenya",
   "MDR-TB",
   "MSM",
   "PWID",
@@ -367,6 +381,7 @@ export const publicationTags: string[] = [
   "geographic modeling",
   "guidelines",
   "health disparities",
+  "health disruptions",
   "household contacts",
   "methodology",
   "metropolitan areas",
@@ -374,6 +389,7 @@ export const publicationTags: string[] = [
   "modeling",
   "mortality",
   "multimorbidity",
+  "noncommunicable diseases",
   "pandemic",
   "policy",
   "preprint",
@@ -391,7 +407,6 @@ export const publicationTags: string[] = [
   "testing",
   "transmission",
   "treatment",
-
   "urban health",
   "validation"
 ];
