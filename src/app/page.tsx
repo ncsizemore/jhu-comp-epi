@@ -82,56 +82,18 @@ function ResearchSection() {
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
-            Our <span className="text-hopkins-blue">Research</span>
+            US <span className="text-hopkins-blue">Research Network</span>
           </h2>
-          <p className="text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From local cities to national health systems, our computational frameworks model epidemic dynamics across diverse geographic and demographic landscapes
+          <p className="text-base text-gray-600 max-w-xl mx-auto leading-relaxed">
+            In addition to national-level modeling, our models span 32 metropolitan areas most affected by the highest burden of HIV and syphilis epidemics
           </p>
         </div>
 
-        {/* Map + Research Areas - One Unified Card */}
-        <div className="bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-2xl overflow-hidden shadow-lg mb-10">
-          {/* Map */}
-          <div className="p-6">
-            <ErrorBoundary fallback={<SectionErrorFallback title="Map temporarily unavailable" message="The interactive map could not be loaded. The map shows our research locations across the United States." />}>
-              <SimpleMapDisplay />
-            </ErrorBoundary>
-          </div>
-
-          {/* Research Areas - directly below map in same card */}
-          <div className="px-6 pb-6 pt-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gray-50 rounded-xl p-5">
-                <div className="w-14 h-14 bg-gradient-to-br from-hopkins-blue to-blue-800 rounded-xl flex items-center justify-center mb-4">
-                  <div className="w-7 h-7 bg-white rounded-full"></div>
-                </div>
-                <h3 className="text-base font-bold text-gray-900 mb-2">HIV Transmission & Prevention</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  JHEEM simulates dynamics across 32 cities, evaluating PrEP and treatment strategies.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-xl p-5">
-                <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
-                  <div className="w-7 h-7 bg-white rounded-full"></div>
-                </div>
-                <h3 className="text-base font-bold text-gray-900 mb-2">HIV-STI Co-epidemic Dynamics</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  SHIELD models dual epidemic strategies across high-burden jurisdictions.
-                </p>
-              </div>
-
-              <div className="bg-gray-50 rounded-xl p-5">
-                <div className="w-14 h-14 bg-gradient-to-br from-hopkins-spirit-blue to-blue-600 rounded-xl flex items-center justify-center mb-4">
-                  <div className="w-7 h-7 bg-white rounded-full"></div>
-                </div>
-                <h3 className="text-base font-bold text-gray-900 mb-2">Aging HIV Populations</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  PEARL models multimorbidity patterns across 200+ clinical sites.
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* Map with Models */}
+        <div className="bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-6 shadow-lg mb-10">
+          <ErrorBoundary fallback={<SectionErrorFallback title="Map temporarily unavailable" message="The interactive map could not be loaded. The map shows our research locations across the United States." />}>
+            <SimpleMapDisplay />
+          </ErrorBoundary>
         </div>
 
         {/* Featured Impact Story */}

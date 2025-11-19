@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
+import { PROJECT_THEME } from '@/lib/projects/config';
 
 export default function SimpleMapDisplay() {
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
@@ -49,60 +50,16 @@ export default function SimpleMapDisplay() {
   ];
 
   return (
-    <>
-      {/* Stats Row */}
-      <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto mb-6">
-        <div className="text-center group">
-          <div className="w-20 h-20 bg-gradient-to-br from-hopkins-blue to-indigo-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <div className="text-2xl font-black text-white">32</div>
-          </div>
-          <h4 className="font-black text-gray-900 text-base tracking-tight">US Cities</h4>
-          <p className="text-sm text-gray-600 font-medium">Metropolitan Areas</p>
-        </div>
-
-        <div className="text-center group">
-          <div className="w-20 h-20 bg-gradient-to-br from-hopkins-spirit-blue to-cyan-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <div className="text-xl font-black text-white">200+</div>
-          </div>
-          <h4 className="font-black text-gray-900 text-base tracking-tight">Clinical Sites</h4>
-          <p className="text-sm text-gray-600 font-medium">Research Network</p>
-        </div>
-
-        <div className="text-center group">
-          <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <div className="text-xl font-black text-white">190K+</div>
-          </div>
-          <h4 className="font-black text-gray-900 text-base tracking-tight">Participants</h4>
-          <p className="text-sm text-gray-600 font-medium">Research Cohort</p>
-        </div>
-      </div>
-
-      {/* Map */}
-      <div className="relative -mx-6">
-        <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black h-[400px] relative overflow-hidden">
-          {hoveredCity && (
-            <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-xl rounded-xl p-4 shadow-2xl border border-white/20 z-10">
-              <p className="font-black text-gray-900 text-lg tracking-tight">{hoveredCity}</p>
-              <p className="text-gray-600 text-sm font-medium">JHEEM/SHIELD Coverage</p>
-            </div>
-          )}
-
-          <div className="absolute top-6 left-6 z-10">
-            <div className="bg-black/40 backdrop-blur-xl rounded-xl p-4 border border-white/10">
-              <h3 className="text-white font-black text-xl tracking-tight mb-1">US Research Network</h3>
-              <p className="text-gray-200 text-sm font-medium">32 High-Burden Metropolitan Areas</p>
-            </div>
-          </div>
-
-          <div className="absolute bottom-6 left-6 z-10">
-            <div className="bg-black/40 backdrop-blur-xl rounded-xl p-4 border border-white/10">
-              <div className="flex items-center gap-3 text-white">
-                <div className="w-3 h-3 bg-hopkins-blue rounded-full"></div>
-                <span className="text-sm font-medium">Active Model Coverage</span>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Map Section */}
+        <div className="lg:col-span-2 relative">
+          <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black h-[500px] rounded-xl relative overflow-hidden">
+            {hoveredCity && (
+              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-xl rounded-xl p-4 shadow-2xl border border-white/20 z-10">
+                <p className="font-black text-gray-900 text-lg tracking-tight">{hoveredCity}</p>
+                <p className="text-gray-600 text-sm font-medium">JHEEM/SHIELD Coverage</p>
               </div>
-              <p className="text-gray-300 text-xs mt-1">JHEEM & SHIELD Frameworks</p>
-            </div>
-          </div>
+            )}
 
           {isMounted && (
             <ComposableMap
@@ -166,6 +123,48 @@ export default function SimpleMapDisplay() {
           )}
         </div>
       </div>
-    </>
+
+      {/* Models Legend - Right Side */}
+      <div className="space-y-4">
+        {/* JHEEM */}
+        <div className="bg-hopkins-blue/5 border-2 border-hopkins-blue/30 rounded-xl p-4 hover:shadow-lg hover:border-hopkins-blue/50 transition-all duration-300">
+          <div className="flex items-center gap-3 mb-3">
+            <div className={`w-10 h-10 bg-gradient-to-br ${PROJECT_THEME.jheem.colors.gradient} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
+              <div className="w-4 h-4 bg-white rounded-full"></div>
+            </div>
+            <h3 className="text-base font-black text-gray-900">{PROJECT_THEME.jheem.name}</h3>
+          </div>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Models HIV transmission and prevention across 32 high burden US cities to help end the HIV epidemic.
+          </p>
+        </div>
+
+        {/* SHIELD */}
+        <div className="bg-amber-500/5 border-2 border-amber-500/30 rounded-xl p-4 hover:shadow-lg hover:border-amber-500/50 transition-all duration-300">
+          <div className="flex items-center gap-3 mb-3">
+            <div className={`w-10 h-10 bg-gradient-to-br ${PROJECT_THEME.shield.colors.gradient} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
+              <div className="w-4 h-4 bg-white rounded-full"></div>
+            </div>
+            <h3 className="text-base font-black text-gray-900">{PROJECT_THEME.shield.name}</h3>
+          </div>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Modeling HIV-Syphilis co-epidemic across high level jurisdictions.
+          </p>
+        </div>
+
+        {/* PEARL */}
+        <div className="bg-hopkins-spirit-blue/5 border-2 border-hopkins-spirit-blue/30 rounded-xl p-4 hover:shadow-lg hover:border-hopkins-spirit-blue/50 transition-all duration-300">
+          <div className="flex items-center gap-3 mb-3">
+            <div className={`w-10 h-10 bg-gradient-to-br ${PROJECT_THEME.pearl.colors.gradient} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
+              <div className="w-4 h-4 bg-white rounded-full"></div>
+            </div>
+            <h3 className="text-base font-black text-gray-900">{PROJECT_THEME.pearl.name}</h3>
+          </div>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            Models aging and multimorbidity burden among persons aging with HIV in the US at a national level.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
