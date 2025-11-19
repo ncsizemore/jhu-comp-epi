@@ -49,13 +49,27 @@ export default function SimpleMapDisplay() {
     { name: "Salt Lake City, UT", coordinates: [-111.8910, 40.7608] as [number, number] }
   ];
 
+  // Major cities to label (highest burden areas)
+  const labeledCities = [
+    'New York, NY', 'Los Angeles, CA', 'Miami, FL', 'Houston, TX',
+    'Atlanta, GA', 'Chicago, IL', 'San Francisco, CA'
+  ];
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Map Section */}
         <div className="lg:col-span-2 relative">
-          <div className="bg-gradient-to-br from-slate-900 via-gray-900 to-black h-[500px] rounded-xl relative overflow-hidden">
+          <div className="bg-gradient-to-br from-slate-800 via-blue-900 to-slate-900 h-[500px] rounded-xl relative overflow-hidden shadow-2xl">
+            {/* Atmospheric lighting effects */}
+            <div className="absolute inset-0 pointer-events-none z-0">
+              {/* Radial gradients for depth - no data implications, just atmosphere */}
+              <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 right-1/3 w-80 h-80 bg-cyan-400/8 rounded-full blur-3xl"></div>
+              <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+            </div>
+
             {hoveredCity && (
-              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-xl rounded-xl p-4 shadow-2xl border border-white/20 z-10">
+              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-xl rounded-xl p-4 shadow-2xl border border-white/20 z-20 pointer-events-none">
                 <p className="font-black text-gray-900 text-lg tracking-tight">{hoveredCity}</p>
                 <p className="text-gray-600 text-sm font-medium">JHEEM/SHIELD Coverage</p>
               </div>
@@ -64,7 +78,7 @@ export default function SimpleMapDisplay() {
           {isMounted && (
             <ComposableMap
               projection="geoAlbersUsa"
-              className="w-full h-full"
+              className="w-full h-full relative z-10"
               style={{ width: "100%", height: "100%" }}
             >
               <Geographies geography={geoUrl}>
@@ -74,8 +88,8 @@ export default function SimpleMapDisplay() {
                       key={geo.rsmKey}
                       geography={geo}
                       fill="#1e293b"
-                      stroke="#374151"
-                      strokeWidth={1}
+                      stroke="#475569"
+                      strokeWidth={0.75}
                       style={{
                         default: { outline: "none" },
                         hover: { outline: "none", fill: "#334155" },
@@ -86,39 +100,112 @@ export default function SimpleMapDisplay() {
                 }
               </Geographies>
 
-              {cities.map((city, index) => (
-                <Marker
-                  key={`${city.name}-${index}`}
-                  coordinates={city.coordinates}
-                  onMouseEnter={() => setHoveredCity(city.name)}
-                  onMouseLeave={() => setHoveredCity(null)}
-                >
-                  <circle
-                    r={hoveredCity === city.name ? 12 : 7}
-                    fill={hoveredCity === city.name ? "#3b82f6" : "#1d4ed8"}
-                    stroke="#ffffff"
-                    strokeWidth={hoveredCity === city.name ? 3 : 2}
-                    opacity={1}
-                    className="cursor-pointer transition-all duration-400"
-                    style={{
-                      filter: hoveredCity === city.name
-                        ? 'drop-shadow(0 0 16px rgba(59, 130, 246, 0.9)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4))'
-                        : 'drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3))'
-                    }}
-                  />
-                  {hoveredCity === city.name && (
+              {cities.map((city, index) => {
+                const isLabeled = labeledCities.includes(city.name);
+                const isHovered = hoveredCity === city.name;
+                const isMajor = isLabeled;
+                // Staggered animation delay for organic feel
+                const animationDelay = `${(index * 0.3) % 8}s`;
+
+                return (
+                  <Marker
+                    key={`${city.name}-${index}`}
+                    coordinates={city.coordinates}
+                  >
+                    {/* Outer glow ring - subtle pulse on all dots */}
                     <circle
-                      r={20}
+                      r={isMajor ? 22 : 16}
+                      fill="none"
+                      stroke="#60a5fa"
+                      strokeWidth={1.5}
+                      className="animate-pulse"
+                      style={{
+                        pointerEvents: 'none',
+                        animationDelay: animationDelay,
+                        opacity: isMajor ? 0.4 : 0.25
+                      }}
+                    />
+
+                    {/* Middle glow ring for extra depth - also pulses */}
+                    <circle
+                      r={isMajor ? 14 : 10}
                       fill="none"
                       stroke="#3b82f6"
-                      strokeWidth={2}
-                      opacity={0.5}
-                      style={{ pointerEvents: 'none' }}
-                      className="animate-ping"
+                      strokeWidth={1}
+                      className="animate-pulse"
+                      style={{
+                        pointerEvents: 'none',
+                        animationDelay: animationDelay,
+                        opacity: isMajor ? 0.5 : 0.35
+                      }}
                     />
-                  )}
-                </Marker>
-              ))}
+
+                    {/* Main dot with BOLD glow - subtle pulse */}
+                    <circle
+                      r={isHovered ? 14 : (isMajor ? 9 : 6)}
+                      fill={isHovered ? "#60a5fa" : "#2563eb"}
+                      stroke="#ffffff"
+                      strokeWidth={isHovered ? 3 : (isMajor ? 2.5 : 2)}
+                      opacity={1}
+                      className={`cursor-pointer transition-all duration-300 ${!isHovered ? 'animate-pulse' : ''}`}
+                      onMouseEnter={() => setHoveredCity(city.name)}
+                      onMouseLeave={() => setHoveredCity(null)}
+                      style={{
+                        filter: isHovered
+                          ? 'drop-shadow(0 0 24px rgba(96, 165, 250, 1)) drop-shadow(0 0 16px rgba(59, 130, 246, 1)) drop-shadow(0 0 8px rgba(37, 99, 235, 0.8)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6))'
+                          : isMajor
+                          ? 'drop-shadow(0 0 16px rgba(59, 130, 246, 1)) drop-shadow(0 0 8px rgba(37, 99, 235, 0.8)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5))'
+                          : 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.9)) drop-shadow(0 0 5px rgba(37, 99, 235, 0.7)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4))',
+                        animationDelay: !isHovered ? animationDelay : undefined
+                      }}
+                    />
+
+                    {/* Ping animation on hover - larger and more dramatic */}
+                    {isHovered && (
+                      <>
+                        <circle
+                          r={25}
+                          fill="none"
+                          stroke="#60a5fa"
+                          strokeWidth={2.5}
+                          opacity={0.7}
+                          style={{ pointerEvents: 'none' }}
+                          className="animate-ping"
+                        />
+                        <circle
+                          r={35}
+                          fill="none"
+                          stroke="#3b82f6"
+                          strokeWidth={1.5}
+                          opacity={0.4}
+                          style={{ pointerEvents: 'none', animationDelay: '0.15s' }}
+                          className="animate-ping"
+                        />
+                      </>
+                    )}
+
+                    {/* City label for major cities - brighter and more visible */}
+                    {isLabeled && !isHovered && (
+                      <text
+                        textAnchor="middle"
+                        y={-14}
+                        style={{
+                          fontFamily: "system-ui, -apple-system, sans-serif",
+                          fontSize: "11px",
+                          fontWeight: "700",
+                          fill: "#dbeafe",
+                          letterSpacing: "0.5px",
+                          pointerEvents: "none",
+                          textShadow: "0 0 8px rgba(59, 130, 246, 0.8), 0 2px 4px rgba(0,0,0,0.9)",
+                          filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.9))"
+                        }}
+                      >
+                        {city.name.split(',')[0]}
+                      </text>
+                    )}
+                  </Marker>
+                );
+              })}
             </ComposableMap>
           )}
         </div>
