@@ -202,36 +202,45 @@ function ResearchSection() {
   );
 }
 
-// In the News Callout
+// In the News Callout - Enhanced with attention-grabbing design
 function InTheNewsCallout() {
   return (
-    <section className="py-8 bg-white">
+    <section className="py-10 bg-gradient-to-br from-white via-gray-50 to-white">
       <div className="max-w-5xl mx-auto px-6">
         <a
           href="https://www.nbcnews.com/health/sexual-health/republicans-seek-deep-cuts-hiv-prevention-treatment-funding-rcna233776"
           target="_blank"
           rel="noopener noreferrer"
-          className="group block bg-gradient-to-br from-hopkins-blue/5 to-hopkins-spirit-blue/10 rounded-xl border border-hopkins-blue/20 p-5 hover:shadow-lg hover:border-hopkins-blue/40 transition-all duration-300"
+          className="group block relative bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 rounded-2xl border-2 border-red-400/40 p-6 hover:shadow-2xl hover:border-red-500/60 transition-all duration-300 hover:-translate-y-1"
         >
-          <div className="flex items-start gap-3">
-            <svg className="w-4 h-4 text-hopkins-blue mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-            </svg>
+          {/* Attention badge */}
+          <div className="absolute -top-3 left-6 bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+            ⚡ Featured in the News
+          </div>
+
+          <div className="flex items-start gap-4 mt-2">
+            {/* Icon */}
+            <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-red-600 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+            </div>
+
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs font-bold text-hopkins-blue uppercase tracking-wider">In the News</span>
-                <span className="text-gray-400">•</span>
-                <span className="text-xs text-gray-500">NBC News</span>
+                <span className="text-xs font-semibold text-gray-600">NBC News</span>
+                <span className="text-gray-300">•</span>
+                <span className="text-xs text-gray-500">September 2025</span>
               </div>
-              <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-hopkins-blue transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-red-700 transition-colors">
                 Experts warn of consequences from proposed HIV funding cuts
               </h3>
-              <p className="text-sm text-gray-600 mb-2 leading-relaxed">
+              <p className="text-sm text-gray-700 mb-3 leading-relaxed">
                 Dr. Anthony Fojo discusses how eliminating the CDC&apos;s HIV-prevention division could disrupt critical functions as models project over 213,000 additional infections through 2030.
               </p>
-              <span className="text-xs text-hopkins-blue font-semibold inline-flex items-center gap-1">
-                Read article
-                <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="text-sm text-red-700 font-bold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                Read full article
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
@@ -247,8 +256,8 @@ export default function HomePage() {
   return (
     <MainLayout>
       <EnhancedHeroSection />
-      <ResearchSection />
       <InTheNewsCallout />
+      <ResearchSection />
     </MainLayout>
   );
 }

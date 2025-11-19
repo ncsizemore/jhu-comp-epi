@@ -31,29 +31,36 @@ export default function Header() {
           
           {/* Enhanced navigation links */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
             >
               <span>Home</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link 
-              href="/projects" 
+            <Link
+              href="/projects"
               className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
             >
               <span>Projects</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link 
-              href="/publications" 
+            <Link
+              href="/publications"
               className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
             >
               <span>Publications</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link 
-              href="/team" 
+            <Link
+              href="/news"
+              className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
+            >
+              <span>News</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+            <Link
+              href="/team"
               className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
             >
               <span>Team</span>
