@@ -20,7 +20,7 @@ export default function PublicationModal({
   onNext,
   onPrevious
 }: PublicationModalProps) {
-  const projectId = publication.projects[0] || 'pearl';
+  const projectId = publication.projects[0] || 'jheem';
   const project = projectsMap[projectId as keyof typeof projectsMap];
   const projectTheme = getProjectTheme(projectId);
 

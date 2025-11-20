@@ -55,7 +55,7 @@ export default function FeaturedPublications({ publications }: FeaturedPublicati
         >
           <div className="relative h-[520px] overflow-hidden rounded-3xl border border-white/10 mx-8 transition-all duration-500 group-hover:border-white/20 group-hover:shadow-2xl group-hover:shadow-black/20">
             {featuredPubs.map((publication, index) => {
-              const projectId = publication.projects[0] || 'pearl';
+              const projectId = publication.projects[0] || 'jheem';
               const project = projectsMap[projectId as keyof typeof projectsMap];
               const projectTheme = getProjectTheme(projectId);
 

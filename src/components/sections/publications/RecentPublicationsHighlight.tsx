@@ -100,15 +100,13 @@ export default function RecentPublicationsHighlight({
                   
                   <div className="flex flex-wrap gap-2">
                     {yearPubs.map((publication) => {
-                      const projectId = publication.projects[0] || 'pearl';
+                      const projectId = publication.projects[0] || 'jheem';
                       const project = projectsMap[projectId as keyof typeof projectsMap];
                       const projectColors = {
-                        pearl: 'from-hopkins-spirit-blue to-blue-600',
                         jheem: 'from-hopkins-blue to-indigo-600',
-
                         shield: 'from-amber-500 to-orange-600'
                       };
-                      const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
+                      const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.jheem;
                       
                       return (
                         <div
@@ -147,15 +145,13 @@ export default function RecentPublicationsHighlight({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-4">
                       {(() => {
-                        const projectId = selectedPub.projects[0] || 'pearl';
+                        const projectId = selectedPub.projects[0] || 'jheem';
                         const project = projectsMap[projectId as keyof typeof projectsMap];
                         const projectColors = {
-                          pearl: 'from-hopkins-spirit-blue to-blue-600',
                           jheem: 'from-hopkins-blue to-indigo-600',
-  
                           shield: 'from-amber-500 to-orange-600'
                         };
-                        const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.pearl;
+                        const colorClass = projectColors[projectId as keyof typeof projectColors] || projectColors.jheem;
                         
                         return (
                           <>

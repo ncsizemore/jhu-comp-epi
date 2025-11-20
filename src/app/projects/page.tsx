@@ -27,14 +27,6 @@ export default function ProjectsPage() {
       scope: '32 US cities, 60% of diagnoses',
       highlights: 'Doxy-PEP innovation • Point-of-care testing • At-home diagnostics • Cost-effectiveness analysis',
       url: 'https://ncsizemore.github.io/shield-project/',
-    },
-    pearl: {
-      title: 'Projecting Age, Multimorbidity, & Polypharmacy',
-      description: 'Simulates multimorbidity and healthcare needs for aging populations living with HIV.',
-      challenge: 'Aging HIV+ population health',
-      scope: 'NA-ACCORD: 200+ sites, 190K+ participants',
-      highlights: 'Demographic modeling • Healthcare costs • 2009-2030 projections',
-      url: 'https://pearlhivmodel.org/',
     }
   };
 
@@ -138,8 +130,8 @@ export default function ProjectsPage() {
                           <span className="font-bold text-gray-900">{key === 'jheem' ? '8' : key === 'shield' ? '0' : '8'}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-gray-600 text-sm">{key === 'pearl' ? 'Scenarios' : 'Coverage'}</span>
-                          <span className="font-bold text-gray-900">{key === 'pearl' ? '10+' : 'National'}</span>
+                          <span className="text-gray-600 text-sm">Coverage</span>
+                          <span className="font-bold text-gray-900">National</span>
                         </div>
                       </div>
                     </div>

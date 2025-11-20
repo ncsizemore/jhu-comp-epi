@@ -143,7 +143,7 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
         case ' ':
           e.preventDefault();
           const pub = yearPubs[pubIndex];
-          handlePaperClick(year, pub.projects[0] || 'pearl');
+          handlePaperClick(year, pub.projects[0] || 'jheem');
           break;
       }
     }
@@ -249,7 +249,6 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
                 const yearPubs = timelineData.pubsByYear[year];
                 const projectColors: Record<string, string> = {
                   'jheem': '#002D72',
-                  'pearl': '#68ACE5',
                   'shield': '#F2C413',
                 };
                 const isYearHovered = yearPubs.some(pub => hoveredPub?.id === pub.id);
@@ -292,11 +291,11 @@ export default function EnhancedPublicationsList({ publications, years }: Enhanc
                     {/* Publication icons */}
                     <div className="absolute" style={{ top: 'calc(3rem + 12px)', left: '-8px' }}>
                       {yearPubs.map((pub, index) => {
-                        const projectId = pub.projects[0] || 'pearl';
+                        const projectId = pub.projects[0] || 'jheem';
                         const projectTheme = getProjectTheme(projectId);
                         const project = projectsMap[projectId as keyof typeof projectsMap];
                         const isHovered = hoveredPub?.id === pub.id;
-                        const iconColor = projectColors[projectId] || projectColors['pearl'];
+                        const iconColor = projectColors[projectId] || projectColors['jheem'];
 
                         return (
                           <div

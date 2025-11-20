@@ -53,14 +53,6 @@ export default function Footer() {
                       SHIELD
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/projects/pearl" className="text-white/90 hover:text-white transition-all">
-                      PEARL
-                    </Link>
-                  </li>
-                  <li>
-
-                  </li>
                 </ul>
               </div>
               <div>

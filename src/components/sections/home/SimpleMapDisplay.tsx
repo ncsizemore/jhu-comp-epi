@@ -238,19 +238,6 @@ export default function SimpleMapDisplay() {
             Modeling HIV-Syphilis co-epidemic across high level jurisdictions.
           </p>
         </div>
-
-        {/* PEARL */}
-        <div className="bg-hopkins-spirit-blue/5 border-2 border-hopkins-spirit-blue/30 rounded-xl p-4 hover:shadow-lg hover:border-hopkins-spirit-blue/50 transition-all duration-300">
-          <div className="flex items-center gap-3 mb-3">
-            <div className={`w-10 h-10 bg-gradient-to-br ${PROJECT_THEME.pearl.colors.gradient} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
-              <div className="w-4 h-4 bg-white rounded-full"></div>
-            </div>
-            <h3 className="text-base font-black text-gray-900">{PROJECT_THEME.pearl.name}</h3>
-          </div>
-          <p className="text-sm text-gray-700 leading-relaxed">
-            Models aging and multimorbidity burden among persons aging with HIV in the US at a national level.
-          </p>
-        </div>
       </div>
     </div>
   );

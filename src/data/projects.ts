@@ -32,13 +32,5 @@ export const projects: Project[] = [
     description: 'Modeling the complex interactions between syphilis and HIV transmission to optimize intervention strategies and resource allocation at the local level.',
     color: 'bg-gradient-to-br from-amber-500 to-orange-600',
     stats: { cities: '32', publications: '0' }
-  },
-  {
-    id: 'pearl',
-    title: 'ProjEcting Age, multimoRbidity, and poLypharmacy',
-    shortName: 'PEARL',
-    description: 'A novel modeling approach to understand and forecast age-related comorbidities and medication interactions in populations living with HIV.',
-    color: 'bg-hopkins-spirit-blue',
-    stats: { scenarios: '10+', publications: '8' }
   }
 ];

@@ -63,17 +63,6 @@ const projectContent: Record<string, {
     ],
     externalUrl: "https://ncsizemore.github.io/shield-project/",
     externalLabel: "Visit SHIELD Site"
-  },
-  pearl: {
-    fullDescription: "PEARL employs agent-based simulation to model aging and multimorbidity in people living with HIV. Leveraging NA-ACCORD data from over 200 clinical sites with 190,000+ participants, PEARL projects health outcomes through 2030, addressing the complexities of polypharmacy and multimorbidity as life expectancy approaches general population levels.",
-    keyFeatures: [
-      "Demographic modeling",
-      "Healthcare costs projection",
-      "2009-2030 projections",
-      "Multimorbidity patterns"
-    ],
-    externalUrl: "https://pearlhivmodel.org/",
-    externalLabel: "Visit PEARL Site"
   }
 };
 

@@ -70,7 +70,7 @@ export default function FeaturedPublicationsGrid({ publications }: FeaturedPubli
           {/* 2-Column Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {featuredPubs.map((publication, index) => {
-              const projectId = publication.projects[0] || 'pearl';
+              const projectId = publication.projects[0] || 'jheem';
               const project = PROJECT_THEME[projectId as keyof typeof PROJECT_THEME];
               const projectTheme = getProjectTheme(projectId);
 

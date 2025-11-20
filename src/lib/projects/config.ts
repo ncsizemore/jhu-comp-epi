@@ -45,32 +45,17 @@ export const PROJECT_THEME = {
       borderFull: 'border-amber-500',
     }
   },
-  pearl: {
-    id: 'pearl',
-    name: 'PEARL',
-    fullName: 'ProjEcting Age, multimoRbidity, and poLypharmacy',
-    description: 'A novel modeling approach to understand and forecast age-related comorbidities and medication interactions in populations living with HIV.',
-    colors: {
-      solid: 'bg-hopkins-spirit-blue',
-      solidHover: 'hover:bg-hopkins-spirit-blue/90',
-      text: 'text-hopkins-spirit-blue',
-      gradient: 'from-hopkins-spirit-blue to-blue-600',
-      gradientDark: 'from-hopkins-spirit-blue/30 to-blue-900/30',
-      border: 'border-l-hopkins-spirit-blue',
-      borderFull: 'border-hopkins-spirit-blue',
-    }
-  },
 } as const;
 
 export type ProjectId = keyof typeof PROJECT_THEME;
 
 /**
  * Get theme configuration for a specific project
- * Falls back to PEARL theme if project not found
+ * Falls back to JHEEM theme if project not found
  */
 export function getProjectTheme(projectId: string) {
   const theme = PROJECT_THEME[projectId as ProjectId];
-  return theme || PROJECT_THEME.pearl;
+  return theme || PROJECT_THEME.jheem;
 }
 
 /**
@@ -80,7 +65,7 @@ export function getProjectTheme(projectId: string) {
  */
 export function getProjectColor(
   projectId: string,
-  variant: keyof typeof PROJECT_THEME.pearl.colors
+  variant: keyof typeof PROJECT_THEME.jheem.colors
 ) {
   const theme = getProjectTheme(projectId);
   return theme.colors[variant];
@@ -114,5 +99,4 @@ export function getAllProjectIds(): ProjectId[] {
 export const projectsMap = {
   jheem: { name: PROJECT_THEME.jheem.name, color: PROJECT_THEME.jheem.colors.solid },
   shield: { name: PROJECT_THEME.shield.name, color: PROJECT_THEME.shield.colors.solid },
-  pearl: { name: PROJECT_THEME.pearl.name, color: PROJECT_THEME.pearl.colors.solid },
 } as const;

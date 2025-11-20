@@ -10,7 +10,7 @@ interface PublicationListItemProps {
 }
 
 function PublicationListItem({ publication, index, onClick }: PublicationListItemProps) {
-  const projectId = publication.projects[0] || 'pearl';
+  const projectId = publication.projects[0] || 'jheem';
   const theme = getProjectTheme(projectId);
 
   const borderClass = theme.colors.border;

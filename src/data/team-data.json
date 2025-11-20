@@ -2,57 +2,9 @@
   "metadata": {
     "lastUpdated": "2025-06-05",
     "version": "1.1",
-    "description": "The Computational Epidemiology Lab Team Data - Including SHIELD and PEARL projects"
+    "description": "The Computational Epidemiology Lab Team Data - Including SHIELD and JHEEM projects"
   },
   "teamMembers": [
-    {
-      "id": "keri-althoff",
-      "name": "Dr. Keri N Althoff",
-      "shortName": "Keri Althoff",
-      "title": "Principal Investigator & Professor",
-      "position": "Professor of Epidemiology",
-      "credentials": [
-        "PhD",
-        "MPH"
-      ],
-      "category": "faculty",
-      "status": "current",
-      "primaryAffiliation": {
-        "institution": "Johns Hopkins Bloomberg School of Public Health",
-        "department": "Department of Epidemiology"
-      },
-      "secondaryAffiliations": [
-        {
-          "institution": "Sidney Kimmel Comprehensive Cancer Center",
-          "department": "Joint Appointment"
-        }
-      ],
-      "bio": "Dr. Keri N Althoff is a Professor of Epidemiology at Johns Hopkins Bloomberg School of Public Health, and she has a joint appointment in the Sidney Kimmel Comprehensive Cancer Center at Johns Hopkins. She is one of two Principal Investigators for the North American AIDS Cohort Collaboration on Research and Design (NA-ACCORD) of the International Epidemiologic Databases to Evaluate AIDS (IeDEA) project. The NA-ACCORD is a collaboration of >20 longitudinal HIV cohorts (both clinical and interval), which rely on electronic medical record data and data collected via research study visits for analyses from most of the cohorts. Dr. Althoff's content areas of expertise are the chronic conditions (hypertension, diabetes, chronic kidney disease, end-stage renal disease, cancer, liver disease, cardiovascular disease, depression, anxiety) and multimorbidity in adults aging with HIV, as well as indicators benchmarking progress toward the goals of the Ending the HIV Epidemic initiative in the United States. She has developed epidemiologic approaches to address challenges in longitudinal study designs nested within large-scale cohort collaborations. Dr. Althoff has >100 peer-reviewed publications and teaches courses onsite and through online-only platforms.",
-      "shortBio": "Professor of Epidemiology specializing in HIV research, chronic conditions, and multimorbidity in adults aging with HIV.",
-      "photo": "images/team/althoff-headshot.jpg",
-      "email": "kalthoff@jhu.edu",
-      "websites": [
-        {
-          "type": "institutional",
-          "url": "https://publichealth.jhu.edu/faculty/2177/keri-n-althoff"
-        }
-      ],
-      "socialMedia": {
-        "googleScholar": "scholar-id",
-        "orcid": "0000-0000-0000-0000"
-      },
-      "projects": [
-        "pearl"
-      ],
-      "expertise": [
-        "HIV epidemiology",
-        "Chronic conditions",
-        "Multimorbidity",
-        "Longitudinal studies"
-      ],
-      "publications": 100,
-      "order": 1
-    },
     {
       "id": "parastu-kasaie",
       "name": "Dr. Parastu Kasaie",
@@ -84,7 +36,6 @@
         "orcid": "0000-0000-0000-0000"
       },
       "projects": [
-        "pearl",
         "shield",
         "jheem"
       ],
@@ -256,35 +207,6 @@
       "order": 1
     },
     {
-      "id": "yao-zhao",
-      "name": "Yao Zhao",
-      "shortName": "Yao Zhao",
-      "title": "PhD Candidate",
-      "position": "PhD Candidate in Applied Mathematics and Statistics",
-      "credentials": [
-        "M.S.E"
-      ],
-      "category": "student",
-      "status": "current",
-      "primaryAffiliation": {
-        "institution": "Johns Hopkins University",
-        "department": "Applied Mathematics and Statistics"
-      },
-      "bio": "Yao Zhao is a Ph.D. Candidate in Applied Mathematics and Statistics, M.S.E in Financial Mathematics at Johns Hopkins University, with research areas on epidemiology, precision medicine care, and medical imaging. Yao has also worked extensively on Artificial Intelligence including Large Language Models and machine learning. He has contributed to research in AI-driven healthcare as well as AI model architecture innovation, focusing on medical diagnosis/prognosis models, precision medicine care in HIV. Beyond academia, Yao is also a CFA Level 2 candidate and Erhu (traditional Chinese instrument) player.",
-      "shortBio": "PhD candidate focusing on AI-driven healthcare, precision medicine, and medical imaging applications.",
-      "photo": "images/team/zhao-headshot.jpg",
-      "projects": [
-        "pearl"
-      ],
-      "expertise": [
-        "Machine Learning",
-        "AI in Healthcare",
-        "Precision Medicine",
-        "Medical Imaging"
-      ],
-      "order": 1
-    },
-    {
       "id": "andrew-zalesak",
       "name": "Andrew Zalesak",
       "shortName": "Andrew Zalesak",
@@ -357,12 +279,9 @@
         "institution": "Johns Hopkins Bloomberg School of Public Health",
         "department": "Department of Epidemiology"
       },
-      "bio": "Kendall Reid is a programmer analyst for the PEARL team in charge of maintaining the PEARL agent based simulation model. Kendall has over 10 years programming experience and has training in mathematics, statistics, computer science, and biology. He has previously been a data scientist, startup cofounder, rare disease researcher, and is now focused on applying data driven methodology to bioinformatics and public health problems.",
+      "bio": "Kendall Reid is a programmer analyst with over 10 years programming experience and training in mathematics, statistics, computer science, and biology. He has previously been a data scientist, startup cofounder, rare disease researcher, and is now focused on applying data driven methodology to bioinformatics and public health problems.",
       "shortBio": "Senior programmer analyst specializing in agent-based simulation models and bioinformatics.",
       "photo": "images/team/reid-headshot.jpeg",
-      "projects": [
-        "pearl"
-      ],
       "expertise": [
         "Agent-based modeling",
         "Simulation development",
@@ -370,57 +289,6 @@
         "Data Science"
       ],
       "order": 3
-    },
-    {
-      "id": "lucas-gerace",
-      "name": "Lucas Gerace",
-      "shortName": "Lucas Gerace",
-      "title": "Project Coordinator",
-      "position": "EBC Project Coordinator",
-      "category": "staff",
-      "status": "current",
-      "primaryAffiliation": {
-        "institution": "Johns Hopkins Bloomberg School of Public Health",
-        "department": "Department of Epidemiology"
-      },
-      "bio": "Lucas Gerace, EBC Project Coordinator: I provide administrative support to the EBC, PASC II, PEARL, and IeDEA Strategic Data Working Group, as well as help manage scheduling logistics for Keri and coordinating events for the General Epi Methods track at BSPH. I also moonlight as a magician, fight choreographer, boardgame designer, community advisor for the Voyages series at the National Aquarium in Baltimore, and am active in the Baltimore theatre arts scene.",
-      "shortBio": "Project coordinator providing administrative support and logistics management for multiple research initiatives.",
-      "photo": "images/team/gerace-headshot.png",
-      "email": "lucas.gerace@jhu.edu",
-      "projects": [
-        "pearl"
-      ],
-      "expertise": [
-        "Project Management",
-        "Event Coordination",
-        "Administrative Support"
-      ],
-      "order": 4
-    },
-    {
-      "id": "liz-humes",
-      "name": "Liz Humes",
-      "shortName": "Liz Humes",
-      "title": "Senior Biostatistician",
-      "position": "Senior Biostatistician",
-      "category": "staff",
-      "status": "current",
-      "primaryAffiliation": {
-        "institution": "Johns Hopkins Bloomberg School of Public Health",
-        "department": "Department of Epidemiology"
-      },
-      "bio": "Liz Humes is a senior biostatistician in the Department of Epidemiology at the Johns Hopkins Bloomberg School of Public Health. She has been a member of the PEARL team since 2018. Her expertise is in data management and longitudinal study design and she provides statistical support for the PEARL project.",
-      "shortBio": "Senior biostatistician specializing in data management and longitudinal study design.",
-      "projects": [
-        "pearl"
-      ],
-      "expertise": [
-        "Biostatistics",
-        "Data Management",
-        "Longitudinal Studies",
-        "Statistical Analysis"
-      ],
-      "order": 5
     },
     {
       "id": "ryan-forster",

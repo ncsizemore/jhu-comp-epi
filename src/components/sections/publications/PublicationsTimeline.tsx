@@ -86,7 +86,6 @@ export default function PublicationsTimeline({ publications }: PublicationsTimel
               // Map project IDs to their hex colors
               const projectColors: Record<string, string> = {
                 'jheem': '#002D72', // hopkins-blue
-                'pearl': '#68ACE5', // hopkins-spirit-blue
                 'shield': '#F2C413', // hopkins-gold
               };
 
@@ -118,11 +117,11 @@ export default function PublicationsTimeline({ publications }: PublicationsTimel
                     style={{ top: 'calc(3rem + 12px)', left: '-8px' }}
                   >
                     {yearPubs.map((pub, index) => {
-                      const projectId = pub.projects[0] || 'pearl';
+                      const projectId = pub.projects[0] || 'jheem';
                       const projectTheme = getProjectTheme(projectId);
                       const project = projectsMap[projectId as keyof typeof projectsMap];
                       const isHovered = hoveredPub?.id === pub.id;
-                      const iconColor = projectColors[projectId] || projectColors['pearl'];
+                      const iconColor = projectColors[projectId] || projectColors['jheem'];
 
                       return (
                         <div

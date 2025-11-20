@@ -13,20 +13,21 @@ export type { Publication };
 
 /**
  * Get all publications
- * @returns Promise resolving to all publications
+ * @returns Promise resolving to all publications (excludes publications with no projects)
  */
 export async function getPublications(): Promise<Publication[]> {
   // Future: This could fetch from an API or database
-  return publicationsData;
+  // Filter out publications with empty project arrays (temporarily removed PEARL publications)
+  return publicationsData.filter(p => p.projects.length > 0);
 }
 
 /**
  * Get featured publications (marked with featured: true)
  * @param limit Optional limit on number of featured publications
- * @returns Promise resolving to featured publications
+ * @returns Promise resolving to featured publications (excludes publications with no projects)
  */
 export async function getFeaturedPublications(limit?: number): Promise<Publication[]> {
-  const featured = publicationsData.filter(p => p.featured);
+  const featured = publicationsData.filter(p => p.featured && p.projects.length > 0);
   return limit ? featured.slice(0, limit) : featured;
 }
 
@@ -80,10 +81,11 @@ export async function getPublicationTags(): Promise<string[]> {
 /**
  * Get recent publications
  * @param limit Number of recent publications to return (default: 5)
- * @returns Promise resolving to recent publications
+ * @returns Promise resolving to recent publications (excludes publications with no projects)
  */
 export async function getRecentPublications(limit: number = 5): Promise<Publication[]> {
   return [...publicationsData]
+    .filter(p => p.projects.length > 0)
     .sort((a, b) => parseInt(b.year) - parseInt(a.year))
     .slice(0, limit);
 }
@@ -91,13 +93,14 @@ export async function getRecentPublications(limit: number = 5): Promise<Publicat
 /**
  * Search publications by title or authors
  * @param query Search query string
- * @returns Promise resolving to matching publications
+ * @returns Promise resolving to matching publications (excludes publications with no projects)
  */
 export async function searchPublications(query: string): Promise<Publication[]> {
   const lowerQuery = query.toLowerCase();
   return publicationsData.filter(pub =>
-    pub.title.toLowerCase().includes(lowerQuery) ||
-    pub.authors.toLowerCase().includes(lowerQuery)
+    pub.projects.length > 0 &&
+    (pub.title.toLowerCase().includes(lowerQuery) ||
+    pub.authors.toLowerCase().includes(lowerQuery))
   );
 }
 

@@ -7,7 +7,7 @@ import { getProjectTheme, PROJECT_THEME } from '@/lib/projects/config';
  * Provides convenient access to project colors, names, and metadata.
  * Memoizes the result to prevent unnecessary recalculations.
  *
- * @param projectId - The project identifier (jheem, shield, pearl)
+ * @param projectId - The project identifier (jheem, shield)
  * @returns Memoized project theme configuration
  *
  * @example
@@ -20,7 +20,7 @@ import { getProjectTheme, PROJECT_THEME } from '@/lib/projects/config';
  */
 export function useProjectTheme(projectId: string | undefined | null) {
   return useMemo(() => {
-    if (!projectId) return PROJECT_THEME.pearl;
+    if (!projectId) return PROJECT_THEME.jheem;
     return getProjectTheme(projectId);
   }, [projectId]);
 }
@@ -40,7 +40,7 @@ export function useProjectTheme(projectId: string | undefined | null) {
  */
 export function useProjectColor(
   projectId: string | undefined | null,
-  variant: keyof typeof PROJECT_THEME.pearl.colors
+  variant: keyof typeof PROJECT_THEME.jheem.colors
 ) {
   const theme = useProjectTheme(projectId);
   return useMemo(() => theme.colors[variant], [theme, variant]);
