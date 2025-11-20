@@ -38,31 +38,9 @@ function EnhancedHeroSection() {
             The Computational Epidemiology Lab develops and applies mathematical, statistical, and computational approaches to study infectious disease dynamics. Our work spans modeling, simulation, and data-driven analyses to inform surveillance, prevention, and public health decision-making in the United States. Our interdisciplinary team leverages these methods to generate actionable insights that guide public health interventions.
           </p>
 
-          <p className="text-base text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p className="text-base text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Johns Hopkins Bloomberg School of Public Health & School of Medicine
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/projects"
-              className="group inline-flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-hopkins-blue/25 transition-all duration-300 transform hover:scale-105"
-            >
-              <span>Explore Our Models</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
-
-            <Link
-              href="/publications"
-              className="group inline-flex items-center gap-3 px-8 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
-            >
-              <span>View Publications</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </div>
     </section>
@@ -72,7 +50,7 @@ function EnhancedHeroSection() {
 // Consolidated Research Section with Map
 function ResearchSection() {
   return (
-    <section className="py-14 bg-gradient-to-br from-white via-gray-50 to-slate-50 relative overflow-hidden">
+    <section className="pt-8 pb-14 bg-gradient-to-br from-white via-gray-50 to-slate-50 relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-0 right-0 w-96 h-96 bg-hopkins-blue/6 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-hopkins-spirit-blue/4 rounded-full blur-3xl"></div>
@@ -80,7 +58,7 @@ function ResearchSection() {
 
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Section Header */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-tight">
             US <span className="text-hopkins-blue">Research Network</span>
           </h2>
@@ -167,7 +145,7 @@ function ResearchSection() {
 // In the News Callout - Enhanced with attention-grabbing design
 function InTheNewsCallout() {
   return (
-    <section className="py-10 bg-gradient-to-br from-white via-gray-50 to-white">
+    <section className="pt-10 pb-6 bg-gradient-to-br from-white via-gray-50 to-white">
       <div className="max-w-5xl mx-auto px-6">
         <a
           href="https://www.nbcnews.com/health/sexual-health/republicans-seek-deep-cuts-hiv-prevention-treatment-funding-rcna233776"
