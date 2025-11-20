@@ -36,36 +36,6 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-// Project-specific content
-const projectContent: Record<string, {
-  fullDescription: string;
-  keyFeatures: string[];
-  externalUrl: string;
-  externalLabel: string;
-}> = {
-  jheem: {
-    fullDescription: "JHEEM employs mathematical modeling to understand and predict HIV transmission and the impact of interventions across local populations. The simulated population is stratified by age, race, sex, sexual behavior, and drug use to capture population diversity. Calibrated to real-world HIV surveillance data from 32 U.S. cities under the Ending the HIV Epidemic Initiative, JHEEM enables precise projections of how interventions may influence future transmission and inform evidence-based public health strategies.",
-    keyFeatures: [
-      "Real-time intervention modeling",
-      "Testing, PrEP & viral suppression",
-      "Demographic targeting"
-    ],
-    externalUrl: "https://jheem-portal.vercel.app",
-    externalLabel: "Access JHEEM Portal"
-  },
-  shield: {
-    fullDescription: "SHIELD employs mathematical modeling to study the transmission and control of HIV and syphilis across local populations. The models cover 32 U.S. cities, encompassing all Ending the HIV Epidemic (EHE) urban jurisdictions, which account for approximately 60% of both HIV and syphilis diagnoses. SHIELD simulates populations stratified by demographic and behavioral factors to capture population diversity and enables projections of disease spread and intervention impact, supporting evidence-based public health planning and policy decisions.",
-    keyFeatures: [
-      "Doxy-PEP innovation",
-      "Point-of-care testing",
-      "At-home diagnostics",
-      "Cost-effectiveness analysis"
-    ],
-    externalUrl: "https://ncsizemore.github.io/shield-project/",
-    externalLabel: "Visit SHIELD Site"
-  }
-};
-
 export default async function ProjectPage({ params }: Props) {
   const { id } = await params;
   const project = await getProjectById(id);
@@ -75,7 +45,6 @@ export default async function ProjectPage({ params }: Props) {
     notFound();
   }
 
-  const content = projectContent[id as keyof typeof projectContent];
   const theme = getProjectTheme(id);
 
   return (
@@ -119,14 +88,14 @@ export default async function ProjectPage({ params }: Props) {
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Overview</h2>
               <div className="prose prose-lg max-w-none text-gray-600">
-                <p className="mb-8 leading-relaxed">{content.fullDescription}</p>
+                <p className="mb-8 leading-relaxed">{project.fullDescription}</p>
               </div>
 
               {/* Key Features */}
               <div className="mt-8">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {content.keyFeatures.map((feature, idx) => (
+                  {project.keyFeatures.map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-hopkins-blue mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -140,12 +109,12 @@ export default async function ProjectPage({ params }: Props) {
               {/* External Tool Link */}
               <div className="mt-8">
                 <a
-                  href={content.externalUrl}
+                  href={project.externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${theme.colors.gradient} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105`}
                 >
-                  <span>{content.externalLabel}</span>
+                  <span>{project.externalLabel}</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>

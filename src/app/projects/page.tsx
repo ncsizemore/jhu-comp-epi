@@ -4,6 +4,7 @@ import ExternalLinkButton from '@/components/ExternalLinkButton';
 import ClickableProjectCard from '@/components/ClickableProjectCard';
 import { HeroBackground } from '@/components/ui/HeroBackground';
 import { getProjectTheme } from '@/lib/projects/config';
+import { getAllProjects } from '@/data/projects';
 
 export const metadata = {
   title: 'Our Projects | JHU Computational Epidemiology',
@@ -11,24 +12,7 @@ export const metadata = {
 };
 
 export default function ProjectsPage() {
-  const projectDetails = {
-    jheem: {
-      title: 'Johns Hopkins Epidemiological & Economic Model',
-      description: 'Projects HIV intervention impact across diverse populations in 32 US cities.',
-      challenge: 'Ending the HIV Epidemic in the US',
-      scope: '32 EtE cities, 945 compartments',
-      highlights: 'Real-time intervention modeling • Testing, PrEP & viral suppression • Demographic targeting',
-      url: 'https://jheem-portal.vercel.app',
-    },
-    shield: {
-      title: 'Syphilis & HIV Integrated Epidemiologic Dynamics',
-      description: 'Models HIV-syphilis co-epidemic strategies across high-burden urban jurisdictions.',
-      challenge: 'Dual STI epidemics at crisis levels',
-      scope: '32 US cities, 60% of diagnoses',
-      highlights: 'Doxy-PEP innovation • Point-of-care testing • At-home diagnostics • Cost-effectiveness analysis',
-      url: 'https://ncsizemore.github.io/shield-project/',
-    }
-  };
+  const projectsList = getAllProjects();
 
   return (
     <MainLayout>
@@ -68,13 +52,13 @@ export default function ProjectsPage() {
       <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative">
           <div className="space-y-8 max-w-6xl mx-auto">
-            {Object.entries(projectDetails).map(([key, project]) => {
-              const theme = getProjectTheme(key);
+            {projectsList.map((project) => {
+              const theme = getProjectTheme(project.id);
 
               return (
               <ClickableProjectCard
-                key={key}
-                href={`/projects/${key}`}
+                key={project.id}
+                href={`/projects/${project.id}`}
               >
                 <div className="flex flex-col lg:flex-row">
                   {/* Left Side - Content */}
@@ -99,9 +83,9 @@ export default function ProjectsPage() {
                     <div className="mb-8">
                       <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">Key Features</h4>
                       <div className="flex flex-wrap gap-2">
-                        {project.highlights.split(' • ').map((highlight, idx) => (
+                        {project.keyFeatures.map((feature, idx) => (
                           <span key={idx} className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg">
-                            {highlight}
+                            {feature}
                           </span>
                         ))}
                       </div>
@@ -109,8 +93,8 @@ export default function ProjectsPage() {
 
                     {/* Action Button */}
                     <ExternalLinkButton
-                      href={project.url}
-                      label={`Explore ${key.toUpperCase()}`}
+                      href={project.externalUrl}
+                      label={`Explore ${project.shortName}`}
                       accentGradient={theme.colors.gradient}
                     />
                   </div>
@@ -121,18 +105,12 @@ export default function ProjectsPage() {
                     <div className="mb-6">
                       <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Project Scope</h4>
                       <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                          <span className="text-gray-600 text-sm">Cities/Sites</span>
-                          <span className="font-bold text-gray-900">{key === 'jheem' ? '32' : key === 'shield' ? '32' : '200+'}</span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-gray-600 text-sm">Publications</span>
-                          <span className="font-bold text-gray-900">{key === 'jheem' ? '8' : key === 'shield' ? '0' : '8'}</span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-gray-600 text-sm">Coverage</span>
-                          <span className="font-bold text-gray-900">National</span>
-                        </div>
+                        {Object.entries(project.stats).map(([key, value]) => (
+                          <div key={key} className="flex justify-between items-center">
+                            <span className="text-gray-600 text-sm capitalize">{key}</span>
+                            <span className="font-bold text-gray-900">{value}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
 
@@ -145,7 +123,7 @@ export default function ProjectsPage() {
                       </div>
                       <div className="absolute bottom-4 right-4">
                         <div className="text-white/80 text-xs font-bold uppercase tracking-wider">
-                          {key.toUpperCase()}
+                          {project.shortName}
                         </div>
                       </div>
                     </div>
