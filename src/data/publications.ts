@@ -338,6 +338,48 @@ export const publications: Publication[] = [
     imageCaption: "Figure 1: Projected new HIV infections, cumulative infections averted, HIV deaths, and cumulative deaths averted in Spain from 2017 to 2037 under early versus delayed ART"
   },
 
+  {
+    id: "perry-2018",
+    title: "What Will It Take to Reduce HIV Incidence in the United States: A Mathematical Modeling Analysis",
+    authors: "Perry A, Kasaie P, Dowdy DW, Shah M",
+    journal: "Open Forum Infectious Diseases",
+    year: "2018",
+    doi: "10.1093/ofid/ofy008",
+    url: "https://doi.org/10.1093/ofid/ofy008",
+    abstract: "This modeling study examines what levels of HIV testing, linkage to care, viral suppression, and PrEP coverage would be required to substantially reduce HIV incidence in the United States.",
+    projects: ["jheem"],
+    tags: ["HIV", "modeling", "prevention", "PrEP", "testing", "United States"],
+    featured: false
+  },
+
+  {
+    id: "shah-2016-lancet",
+    title: "Effect of the US National HIV/AIDS Strategy targets for improved HIV care engagement: a modelling study",
+    authors: "Shah M, Perry A, Risher K, Kapoor S, Grey J, Sharma A, Sterling TR, Fojo AT, Mayer KH, Dowdy DW",
+    journal: "The Lancet HIV",
+    year: "2016",
+    doi: "10.1016/S2352-3018(15)00278-6",
+    url: "https://doi.org/10.1016/S2352-3018(15)00278-6",
+    abstract: "This modeling study evaluates the potential impact of achieving the US National HIV/AIDS Strategy targets for improved HIV care engagement on HIV incidence and mortality.",
+    projects: ["jheem"],
+    tags: ["HIV", "modeling", "care engagement", "policy", "United States", "prevention"],
+    featured: false
+  },
+
+  {
+    id: "shah-2016-cid",
+    title: "The Epidemiologic and Economic Impact of Improving HIV Testing, Linkage, and Retention in Care in the United States",
+    authors: "Shah M, Risher K, Berry SA, Dowdy DW",
+    journal: "Clinical Infectious Diseases",
+    year: "2016",
+    doi: "10.1093/cid/civ804",
+    url: "https://doi.org/10.1093/cid/civ804",
+    abstract: "This study models the epidemiologic and economic impact of improving HIV testing, linkage to care, and retention in care across the United States.",
+    projects: ["jheem"],
+    tags: ["HIV", "modeling", "testing", "care continuum", "cost-effectiveness", "United States"],
+    featured: false
+  },
+
 
 
 
@@ -362,10 +404,13 @@ export const publicationTags: string[] = [
   "PrEP",
   "Spain",
   "Uganda",
+  "United States",
   "active case finding",
   "adherence",
   "aging",
   "antigen testing",
+  "care continuum",
+  "care engagement",
   "children",
   "comorbidities",
   "computer simulation",
@@ -420,7 +465,8 @@ export const publicationYears: string[] = [
   "2020",
   "2019",
   "2018",
-  "2017"
+  "2017",
+  "2016"
 ];
 
 // DEPRECATED: Import from @/lib/projects/config instead
