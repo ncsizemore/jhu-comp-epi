@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import {
   BarChart,
   Bar,
@@ -45,8 +45,15 @@ const AgeDistributionChart = memo(({
   height = 400
 }: AgeDistributionChartProps) => {
   const [visibleBrackets, setVisibleBrackets] = useState<Set<string>>(
-    new Set(ageBrackets)
+    () => new Set(ageBrackets)
   );
+
+  // Reset visibility when the bracket set itself changes (e.g. granularity toggle).
+  // Without this, useState's first-render-only initializer leaves visibleBrackets
+  // stuck on the old bracket names, filtering every Bar to null.
+  useEffect(() => {
+    setVisibleBrackets(new Set(ageBrackets));
+  }, [ageBrackets]);
 
   const toggleBracket = (bracket: string) => {
     setVisibleBrackets(prev => {
