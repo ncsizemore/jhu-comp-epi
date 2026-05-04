@@ -124,8 +124,12 @@ export function useObserved(enabled = true) {
 
 // --- Location helpers (sync, operate on metadata) ---
 
+// Locations present in the data but hidden from the UI. The data files still
+// carry these — filter only at the presentation layer.
+const HIDDEN_LOCATIONS = new Set<string>(['unaids_remainder']);
+
 export function getLocations(): LocationMeta[] {
-  return Object.values(metadata.locations);
+  return Object.values(metadata.locations).filter(loc => !HIDDEN_LOCATIONS.has(loc.code));
 }
 
 export function getLocationsByCategory(category: LocationMeta['category']): LocationMeta[] {
@@ -140,7 +144,7 @@ export function isValidLocationCode(code: string): boolean {
   return code in metadata.locations;
 }
 
-export const LOCATION_CODES = Object.keys(metadata.locations);
+export const LOCATION_CODES = Object.keys(metadata.locations).filter(code => !HIDDEN_LOCATIONS.has(code));
 
 // --- Age bracket colors ---
 
@@ -233,7 +237,20 @@ export function transformProjectionsForChart(
 
 // --- Calibration ---
 
-export const OUTCOME_KEYS = Object.keys(metadata.outcome_labels);
+// Outcomes shown in the calibration dropdown, in display order. The other
+// keys in metadata.outcome_labels (diagnoses, disengagement, etc.) are
+// present in the data but hidden from the UI for now.
+export const VISIBLE_OUTCOME_KEYS = [
+  'population',
+  'prevalence',
+  'incidence',
+  'awareness',
+  'engagement',
+  'suppression',
+  'hiv.mortality',
+  'total.mortality',
+];
+
 export const OUTCOME_LABELS = metadata.outcome_labels;
 
 /**

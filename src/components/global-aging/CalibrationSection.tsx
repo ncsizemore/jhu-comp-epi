@@ -8,7 +8,7 @@ import {
   getLocationLabel,
   useCalibration,
   useObserved,
-  OUTCOME_KEYS,
+  VISIBLE_OUTCOME_KEYS,
   OUTCOME_LABELS,
   LOCATION_CODES,
 } from '@/data/global-aging';
@@ -146,7 +146,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                   }}
                   className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-hopkins-blue focus:border-transparent transition-all"
                 >
-                  {OUTCOME_KEYS.map(key => (
+                  {VISIBLE_OUTCOME_KEYS.map(key => (
                     <option key={key} value={key}>
                       {OUTCOME_LABELS[key]}
                     </option>
