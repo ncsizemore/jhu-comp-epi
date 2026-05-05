@@ -251,7 +251,26 @@ export const VISIBLE_OUTCOME_KEYS = [
   'total.mortality',
 ];
 
+// Cascade outcomes are stored as 0–1 fractions (per-sim ratios then quantiled).
+// The UI must format them as percentages and clamp y-axis to [0, 1].
+export const PROPORTION_OUTCOMES = new Set<string>([
+  'awareness',
+  'engagement',
+  'suppression',
+  'engagement.allPLHIV',
+  'suppression.allPLHIV',
+]);
+
+export function isProportionOutcome(outcome: string): boolean {
+  return PROPORTION_OUTCOMES.has(outcome);
+}
+
 export const OUTCOME_LABELS = metadata.outcome_labels;
+
+// Stratum keys passed via `ageCategory` that live on the by_sex_age axis
+// rather than by_age. Cascade calibration emits these for sex-stratified 15+
+// surveillance points.
+const SEX_AGE_KEYS = new Set<string>(['male.15+', 'female.15+']);
 
 /**
  * Merge model predictions with observed data points for a given location + outcome.
@@ -264,10 +283,14 @@ export function getCalibrationChartData(
   ageCategory: string = 'total',
   sexCategory: string = 'total'
 ): CalibrationChartPoint[] {
+  const isSexAge = SEX_AGE_KEYS.has(ageCategory);
+
   let modelSeries: TimeSeriesPoint[] = [];
   const locCalib = calibration[locationCode]?.[outcome];
   if (locCalib) {
-    if (sexCategory !== 'total' && locCalib.by_sex?.[sexCategory]) {
+    if (isSexAge && locCalib.by_sex_age?.[ageCategory]) {
+      modelSeries = locCalib.by_sex_age[ageCategory];
+    } else if (sexCategory !== 'total' && locCalib.by_sex?.[sexCategory]) {
       modelSeries = locCalib.by_sex[sexCategory];
     } else if (ageCategory !== 'total' && locCalib.by_age?.[ageCategory]) {
       modelSeries = locCalib.by_age[ageCategory];
@@ -279,7 +302,9 @@ export function getCalibrationChartData(
   let obsSeries: ObservedPoint[] = [];
   const locObs = observed[locationCode]?.[outcome];
   if (locObs) {
-    if (ageCategory !== 'total' && locObs.by_age?.[ageCategory]) {
+    if (isSexAge && locObs.by_sex_age?.[ageCategory]) {
+      obsSeries = locObs.by_sex_age[ageCategory];
+    } else if (ageCategory !== 'total' && locObs.by_age?.[ageCategory]) {
       obsSeries = locObs.by_age[ageCategory];
     } else if (ageCategory === 'total') {
       obsSeries = locObs.total ?? [];
@@ -306,14 +331,16 @@ export function getCalibrationChartData(
   });
 }
 
+// Strata available for the "All Age Groups" view of a given outcome. For
+// cascade outcomes, surveillance is sex-stratified at 15+ rather than age-
+// only — the keys live on the by_sex_age axis.
 export function getSurveillanceAgeBrackets(outcome: string): string[] {
   const epiOutcomes = ['incidence', 'prevalence', 'hiv.mortality'];
   if (epiOutcomes.includes(outcome)) {
     return ['0-14', '10-19', '15-24', '15-49', '15+', '50 and over'];
   }
-  const cascadeOutcomes = ['awareness', 'engagement', 'suppression', 'engagement.allPLHIV', 'suppression.allPLHIV'];
-  if (cascadeOutcomes.includes(outcome)) {
-    return ['15+'];
+  if (PROPORTION_OUTCOMES.has(outcome)) {
+    return ['male.15+', 'female.15+'];
   }
   return [];
 }

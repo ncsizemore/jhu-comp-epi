@@ -14,7 +14,21 @@ import {
   ReferenceLine
 } from 'recharts';
 import type { CalibrationChartPoint } from '@/data/global-aging';
-import { OUTCOME_LABELS } from '@/data/global-aging';
+import { OUTCOME_LABELS, isProportionOutcome } from '@/data/global-aging';
+
+// Format model/observed values. Cascade outcomes are stored as 0–1 fractions
+// and render as percentages; everything else is a count.
+function formatValue(value: number, outcome: string): string {
+  if (isProportionOutcome(outcome)) return `${(value * 100).toFixed(1)}%`;
+  return Math.round(value).toLocaleString();
+}
+
+function formatTick(value: number, outcome: string): string {
+  if (isProportionOutcome(outcome)) return `${Math.round(value * 100)}%`;
+  if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
+  if (value >= 1000) return `${(value / 1000).toFixed(0)}k`;
+  return value.toString();
+}
 
 interface CalibrationChartProps {
   data: CalibrationChartPoint[];
@@ -48,7 +62,11 @@ const CustomTooltip = memo(({
   const dataPoint = payload[0]?.payload;
   if (!dataPoint) return null;
 
-  const ageLabel = ageCategory === 'total' ? 'Total' : ageCategory;
+  const ageLabel =
+    ageCategory === 'total' ? 'Total' :
+    ageCategory === 'male.15+' ? 'Male 15+' :
+    ageCategory === 'female.15+' ? 'Female 15+' :
+    ageCategory;
   const outcomeLabel = OUTCOME_LABELS[outcome] || outcome;
 
   return (
@@ -66,7 +84,7 @@ const CustomTooltip = memo(({
             <span className="text-gray-600">Model mean</span>
           </div>
           <span className="font-semibold text-gray-900">
-            {Math.round(dataPoint.mean).toLocaleString()}
+            {formatValue(dataPoint.mean, outcome)}
           </span>
         </div>
         <div className="flex items-center justify-between gap-4">
@@ -75,7 +93,7 @@ const CustomTooltip = memo(({
             <span className="text-gray-600">95% CI</span>
           </div>
           <span className="font-medium text-gray-700">
-            {Math.round(dataPoint.lower).toLocaleString()} – {Math.round(dataPoint.upper).toLocaleString()}
+            {formatValue(dataPoint.lower, outcome)} – {formatValue(dataPoint.upper, outcome)}
           </span>
         </div>
         {dataPoint.observed !== undefined && (
@@ -85,7 +103,7 @@ const CustomTooltip = memo(({
               <span className="text-gray-600">UNAIDS observed</span>
             </div>
             <span className="font-semibold text-emerald-700">
-              {Math.round(dataPoint.observed).toLocaleString()}
+              {formatValue(dataPoint.observed, outcome)}
             </span>
           </div>
         )}
@@ -118,14 +136,20 @@ const CalibrationChart = memo(({
     const allValues = data.flatMap(d => [
       d.lower, d.upper, d.observed ?? 0
     ]).filter(v => v > 0);
-    if (allValues.length === 0) return [0, 100];
+    if (allValues.length === 0) return [0, isProportionOutcome(outcome) ? 1 : 100];
     const min = Math.min(...allValues);
     const max = Math.max(...allValues);
     const padding = (max - min) * 0.1;
-    return [Math.max(0, min - padding), max + padding];
-  }, [data]);
+    const upper = isProportionOutcome(outcome) ? Math.min(1, max + padding) : max + padding;
+    return [Math.max(0, min - padding), upper];
+  }, [data, outcome]);
 
-  const title = ageCategory === 'total' ? 'Total' : ageCategory;
+  const title = useMemo(() => {
+    if (ageCategory === 'total') return 'Total';
+    if (ageCategory === 'male.15+') return 'Male 15+';
+    if (ageCategory === 'female.15+') return 'Female 15+';
+    return ageCategory;
+  }, [ageCategory]);
 
   // Determine x-axis range from data
   const xDomain = useMemo(() => {
@@ -170,11 +194,7 @@ const CalibrationChart = memo(({
             tick={{ fontSize: 11, fill: '#6B7280' }}
             stroke="#D1D5DB"
             domain={yDomain}
-            tickFormatter={(value) => {
-              if (value >= 1000000) return `${(value / 1000000).toFixed(1)}M`;
-              if (value >= 1000) return `${(value / 1000).toFixed(0)}k`;
-              return value.toString();
-            }}
+            tickFormatter={(value) => formatTick(value, outcome)}
             width={50}
           />
 

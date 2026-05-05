@@ -58,6 +58,7 @@ export interface OutcomeData {
   total: TimeSeriesPoint[];
   by_sex: Record<string, TimeSeriesPoint[]>;
   by_age: Record<string, TimeSeriesPoint[]>;
+  by_sex_age?: Record<string, TimeSeriesPoint[]>;
 }
 
 // calibration[locationCode][outcome] = OutcomeData
@@ -74,7 +75,8 @@ export interface ObservedPoint {
 
 export interface ObservedOutcomeData {
   total: ObservedPoint[];
-  by_age: Record<string, ObservedPoint[]>;
+  by_age?: Record<string, ObservedPoint[]>;
+  by_sex_age?: Record<string, ObservedPoint[]>;
 }
 
 // observed[locationCode][outcome] = ObservedOutcomeData

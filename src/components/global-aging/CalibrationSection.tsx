@@ -6,6 +6,7 @@ import {
   getCalibrationChartData,
   getSurveillanceAgeBrackets,
   getLocationLabel,
+  isProportionOutcome,
   useCalibration,
   useObserved,
   VISIBLE_OUTCOME_KEYS,
@@ -62,11 +63,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
     return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
   }, [chartConfigs.length]);
 
-  // Determine last year of observed data based on outcome type
-  const lastObservedYear = useMemo(() => {
-    const cascadeOutcomes = ['awareness', 'engagement', 'suppression', 'engagement.allPLHIV', 'suppression.allPLHIV'];
-    return cascadeOutcomes.includes(selectedOutcome) ? 2023 : 2023;
-  }, [selectedOutcome]);
+  const lastObservedYear = 2023;
 
   return (
     <div>
@@ -179,7 +176,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                           : 'bg-white text-gray-700 hover:bg-gray-50'
                       }`}
                     >
-                      All Age Groups
+                      {isProportionOutcome(selectedOutcome) ? 'By Sex (15+)' : 'All Age Groups'}
                     </button>
                   </div>
                 </div>
