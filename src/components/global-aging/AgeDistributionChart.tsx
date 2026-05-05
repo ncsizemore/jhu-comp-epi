@@ -33,6 +33,12 @@ interface AgeDistributionChartProps {
   ageColors: Record<string, string>;
   normalized?: boolean;
   height?: number;
+  // When set, replaces locationName in the chart title (e.g. "Male"/"Female"
+  // for the mf-split layout where the location name lives on the outer card).
+  titleOverride?: string;
+  // When set, fixes the y-axis upper bound. Used by mf-split to share scale
+  // between male and female charts in the same location card.
+  yMax?: number;
 }
 
 const AgeDistributionChart = memo(({
@@ -42,7 +48,9 @@ const AgeDistributionChart = memo(({
   ageBrackets,
   ageColors,
   normalized = false,
-  height = 400
+  height = 400,
+  titleOverride,
+  yMax
 }: AgeDistributionChartProps) => {
   const [visibleBrackets, setVisibleBrackets] = useState<Set<string>>(
     () => new Set(ageBrackets)
@@ -173,7 +181,7 @@ const AgeDistributionChart = memo(({
   return (
     <div className="w-full">
       <div className="mb-2 text-center">
-        <h3 className="text-base font-semibold text-gray-900">{locationName}</h3>
+        <h3 className="text-base font-semibold text-gray-900">{titleOverride ?? locationName}</h3>
       </div>
 
       <ResponsiveContainer width="100%" height={height}>
@@ -192,7 +200,7 @@ const AgeDistributionChart = memo(({
           <YAxis
             tick={{ fontSize: 12, fill: '#6b7280' }}
             stroke="#d1d5db"
-            domain={normalized ? [0, 100] : [0, 'auto']}
+            domain={normalized ? [0, 100] : (yMax !== undefined ? [0, yMax] : [0, 'auto'])}
             ticks={normalized ? [0, 25, 50, 75, 100] : undefined}
             tickFormatter={(value) => {
               if (normalized) return `${value}%`;

@@ -181,6 +181,10 @@ export const FULL_AGE_COLORS: Record<string, string> = {
 // --- Types / granularity helpers ---
 
 export type SexGroup = 'both' | 'male' | 'female';
+// SexMode is the UI-layer toggle. 'mf-split' is rendered as a side-by-side
+// male+female pair per location; the data layer only knows the three sex
+// groups stored in the JSON.
+export type SexMode = SexGroup | 'mf-split';
 export type AgeGranularity = 'collapsed' | 'full';
 
 export function getAgeBrackets(granularity: AgeGranularity): string[] {

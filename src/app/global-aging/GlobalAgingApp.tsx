@@ -9,7 +9,7 @@ import TimelineControls from '@/components/global-aging/TimelineControls';
 import CalibrationSection from '@/components/global-aging/CalibrationSection';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { isValidLocationCode } from '@/data/global-aging';
-import type { SexGroup, AgeGranularity } from '@/data/global-aging';
+import type { SexMode, AgeGranularity } from '@/data/global-aging';
 
 // Inner component using useSearchParams
 function GlobalAgingAppInner() {
@@ -17,7 +17,7 @@ function GlobalAgingAppInner() {
   const searchParams = useSearchParams();
 
   const [selectedLocations, setSelectedLocations] = useState<string[]>(['south_africa', 'kenya']);
-  const [sexGroup, setSexGroup] = useState<SexGroup>('both');
+  const [sexMode, setSexMode] = useState<SexMode>('both');
   const [granularity, setGranularity] = useState<AgeGranularity>('collapsed');
   const [normalized, setNormalized] = useState(false);
   const [yearRange, setYearRange] = useState<[number, number]>([2025, 2040]);
@@ -36,8 +36,8 @@ function GlobalAgingAppInner() {
     }
 
     const urlSex = searchParams.get('sex');
-    if (urlSex === 'male' || urlSex === 'female' || urlSex === 'both') {
-      setSexGroup(urlSex);
+    if (urlSex === 'male' || urlSex === 'female' || urlSex === 'both' || urlSex === 'mf-split') {
+      setSexMode(urlSex);
     }
 
     const urlGranularity = searchParams.get('age');
@@ -65,7 +65,7 @@ function GlobalAgingAppInner() {
     const params = new URLSearchParams();
     params.set('locations', selectedLocations.join(','));
 
-    if (sexGroup !== 'both') params.set('sex', sexGroup);
+    if (sexMode !== 'both') params.set('sex', sexMode);
     if (granularity !== 'collapsed') params.set('age', granularity);
     if (normalized) params.set('normalized', 'true');
     if (yearRange[0] !== 2025 || yearRange[1] !== 2040) {
@@ -73,7 +73,7 @@ function GlobalAgingAppInner() {
     }
 
     router.replace(`?${params.toString()}`, { scroll: false });
-  }, [selectedLocations, sexGroup, granularity, normalized, yearRange, isInitialized, router]);
+  }, [selectedLocations, sexMode, granularity, normalized, yearRange, isInitialized, router]);
 
   useEffect(() => {
     const handleExportStatus = (event: Event) => {
@@ -118,19 +118,20 @@ function GlobalAgingAppInner() {
               Sex
             </label>
             <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden">
-              {(['both', 'male', 'female'] as SexGroup[]).map(s => (
+              {(['both', 'male', 'female', 'mf-split'] as SexMode[]).map(s => (
                 <button
                   key={s}
-                  onClick={() => setSexGroup(s)}
+                  onClick={() => setSexMode(s)}
                   className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                     s !== 'both' ? 'border-l border-gray-300' : ''
                   } ${
-                    sexGroup === s
+                    sexMode === s
                       ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
                       : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
+                  title={s === 'mf-split' ? 'Male and female charts side-by-side per location' : undefined}
                 >
-                  {s === 'both' ? 'Both' : s === 'male' ? 'Male' : 'Female'}
+                  {s === 'both' ? 'Both' : s === 'male' ? 'Male' : s === 'female' ? 'Female' : 'M + F'}
                 </button>
               ))}
             </div>
@@ -248,7 +249,7 @@ function GlobalAgingAppInner() {
       <ErrorBoundary>
         <MultiLocationChartGrid
           locationCodes={selectedLocations}
-          sexGroup={sexGroup}
+          sexMode={sexMode}
           granularity={granularity}
           normalized={normalized}
           yearRange={yearRange}

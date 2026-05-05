@@ -10,14 +10,31 @@ import {
   getLocationLabel,
   useProjections,
 } from '@/data/global-aging';
-import type { SexGroup, AgeGranularity, ChartDataPoint } from '@/data/global-aging';
+import type { SexMode, AgeGranularity, ChartDataPoint } from '@/data/global-aging';
 
 interface MultiLocationChartGridProps {
   locationCodes: string[];
-  sexGroup: SexGroup;
+  sexMode: SexMode;
   granularity: AgeGranularity;
   normalized?: boolean;
   yearRange?: [number, number];
+}
+
+// Largest single-year stacked total across the bracket set, for one location.
+function maxStackedTotal(
+  data: ChartDataPoint[],
+  locationCode: string,
+  brackets: string[]
+): number {
+  let max = 0;
+  for (const point of data) {
+    let total = 0;
+    for (const b of brackets) {
+      total += Number(point[`${locationCode}_${b}`]) || 0;
+    }
+    if (total > max) max = total;
+  }
+  return max;
 }
 
 function getGridLayout(count: number) {
@@ -31,7 +48,7 @@ function getGridLayout(count: number) {
 
 const MultiLocationChartGrid = memo(({
   locationCodes,
-  sexGroup,
+  sexMode,
   granularity,
   normalized = false,
   yearRange = [2025, 2040]
@@ -40,12 +57,14 @@ const MultiLocationChartGrid = memo(({
   const BATCH_SIZE = 6;
   const BATCH_DELAY = 100;
 
+  const isSplit = sexMode === 'mf-split';
+
   const [renderedCount, setRenderedCount] = useState(INITIAL_RENDER_COUNT);
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setRenderedCount(Math.min(INITIAL_RENDER_COUNT, locationCodes.length));
-  }, [locationCodes.length, normalized, yearRange, sexGroup, granularity]);
+  }, [locationCodes.length, normalized, yearRange, sexMode, granularity]);
 
   useEffect(() => {
     if (renderedCount < locationCodes.length) {
@@ -58,14 +77,47 @@ const MultiLocationChartGrid = memo(({
 
   const { data: projections, loading: projectionsLoading, error: projectionsError } = useProjections();
 
-  const gridLayout = useMemo(() => getGridLayout(locationCodes.length), [locationCodes.length]);
+  // In mf-split mode each location card hosts two charts side-by-side, so
+  // pick a layout that gives each card the room it needs. One column for
+  // any count keeps the M/F pair readable; users can scroll if they've
+  // selected many locations.
+  const gridLayout = useMemo(
+    () => isSplit ? { chartHeight: 360, gridClass: 'grid-cols-1', gap: 'gap-6' } : getGridLayout(locationCodes.length),
+    [locationCodes.length, isSplit]
+  );
   const ageBrackets = useMemo(() => getAgeBrackets(granularity), [granularity]);
   const ageColors = useMemo(() => getAgeColors(granularity), [granularity]);
 
+  // Single-mode data (used when not splitting). For mf-split we compute
+  // male and female series separately below.
   const chartData: ChartDataPoint[] = useMemo(() => {
-    if (locationCodes.length === 0 || !projections) return [];
-    return transformProjectionsForChart(projections, locationCodes, yearRange, sexGroup, granularity, normalized);
-  }, [projections, locationCodes, yearRange, sexGroup, granularity, normalized]);
+    if (locationCodes.length === 0 || !projections || isSplit) return [];
+    return transformProjectionsForChart(projections, locationCodes, yearRange, sexMode, granularity, normalized);
+  }, [projections, locationCodes, yearRange, sexMode, granularity, normalized, isSplit]);
+
+  const maleData: ChartDataPoint[] = useMemo(() => {
+    if (locationCodes.length === 0 || !projections || !isSplit) return [];
+    return transformProjectionsForChart(projections, locationCodes, yearRange, 'male', granularity, normalized);
+  }, [projections, locationCodes, yearRange, granularity, normalized, isSplit]);
+
+  const femaleData: ChartDataPoint[] = useMemo(() => {
+    if (locationCodes.length === 0 || !projections || !isSplit) return [];
+    return transformProjectionsForChart(projections, locationCodes, yearRange, 'female', granularity, normalized);
+  }, [projections, locationCodes, yearRange, granularity, normalized, isSplit]);
+
+  // Per-location y-axis cap, shared between the male and female charts so
+  // visual size comparison is meaningful. Only relevant for counts mode;
+  // normalized mode is already on a fixed [0, 100] scale.
+  const sharedYMaxByLocation = useMemo<Record<string, number>>(() => {
+    if (!isSplit || normalized) return {};
+    const out: Record<string, number> = {};
+    for (const code of locationCodes) {
+      const m = maxStackedTotal(maleData, code, ageBrackets);
+      const f = maxStackedTotal(femaleData, code, ageBrackets);
+      out[code] = Math.max(m, f) * 1.05;
+    }
+    return out;
+  }, [isSplit, normalized, locationCodes, maleData, femaleData, ageBrackets]);
 
   // Export all charts as PNG. Uses html-to-image rather than html2canvas
   // because the latter (v1.x) cannot parse oklch() colors emitted by Tailwind v4.
@@ -85,7 +137,8 @@ const MultiLocationChartGrid = memo(({
       const names = locationCodes.length <= 3
         ? locationCodes.join('_')
         : `${locationCodes.length}_locations`;
-      link.download = `global_aging_projections_${names}_${timestamp}.png`;
+      const suffix = isSplit ? '_mf' : '';
+      link.download = `global_aging_projections_${names}${suffix}_${timestamp}.png`;
       link.href = dataUrl;
       link.click();
       window.dispatchEvent(new CustomEvent('exportStatus', { detail: { status: 'success' } }));
@@ -93,7 +146,7 @@ const MultiLocationChartGrid = memo(({
       console.error('PNG export failed:', err);
       window.dispatchEvent(new CustomEvent('exportStatus', { detail: { status: 'error' } }));
     }
-  }, [locationCodes]);
+  }, [locationCodes, isSplit]);
 
   useEffect(() => {
     const handleExport = () => handleExportCharts();
@@ -159,6 +212,8 @@ const MultiLocationChartGrid = memo(({
           const animationDelay = locationCodes.length > 6
             ? Math.min(index * 0.03, 0.3)
             : index * 0.1;
+          const locationName = getLocationLabel(code);
+          const yMax = sharedYMaxByLocation[code];
 
           return (
             <motion.div
@@ -170,15 +225,47 @@ const MultiLocationChartGrid = memo(({
               className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300 p-3"
             >
               {isRendered ? (
-                <AgeDistributionChart
-                  data={chartData}
-                  locationPrefix={code}
-                  locationName={getLocationLabel(code)}
-                  ageBrackets={ageBrackets}
-                  ageColors={ageColors}
-                  normalized={normalized}
-                  height={gridLayout.chartHeight}
-                />
+                isSplit ? (
+                  <div>
+                    <div className="mb-2 text-center">
+                      <h3 className="text-base font-semibold text-gray-900">{locationName}</h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <AgeDistributionChart
+                        data={maleData}
+                        locationPrefix={code}
+                        locationName={locationName}
+                        titleOverride="Male"
+                        ageBrackets={ageBrackets}
+                        ageColors={ageColors}
+                        normalized={normalized}
+                        height={gridLayout.chartHeight}
+                        yMax={yMax}
+                      />
+                      <AgeDistributionChart
+                        data={femaleData}
+                        locationPrefix={code}
+                        locationName={locationName}
+                        titleOverride="Female"
+                        ageBrackets={ageBrackets}
+                        ageColors={ageColors}
+                        normalized={normalized}
+                        height={gridLayout.chartHeight}
+                        yMax={yMax}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <AgeDistributionChart
+                    data={chartData}
+                    locationPrefix={code}
+                    locationName={locationName}
+                    ageBrackets={ageBrackets}
+                    ageColors={ageColors}
+                    normalized={normalized}
+                    height={gridLayout.chartHeight}
+                  />
+                )
               ) : (
                 <div className="w-full animate-pulse">
                   <div className="mb-4 text-center space-y-2">
