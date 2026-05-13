@@ -131,7 +131,7 @@ function GlobalAgingAppInner() {
                   }`}
                   title={s === 'mf-split' ? 'Male and female charts side-by-side per location' : undefined}
                 >
-                  {s === 'both' ? 'Both' : s === 'male' ? 'Male' : s === 'female' ? 'Female' : 'M + F'}
+                  {s === 'both' ? 'Both' : s === 'male' ? 'Male' : s === 'female' ? 'Female' : 'Split'}
                 </button>
               ))}
             </div>
