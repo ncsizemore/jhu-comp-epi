@@ -7,8 +7,8 @@ import {
 } from './index';
 import type {
   ProjectionData,
-  CalibrationData,
-  ObservedData,
+  LocationCalibration,
+  ObservedOutcomeData,
   ChartDataPoint,
 } from './types';
 
@@ -35,52 +35,49 @@ const tinyProjections: ProjectionData = {
   } as ProjectionData['kenya'],
 };
 
-// Calibration: one outcome with each axis populated so dispatch can be tested.
-const tinyCalibration: CalibrationData = {
-  kenya: {
-    prevalence: {
-      total: [
-        { year: 2020, mean: 1000, median: 1000, lower: 900, upper: 1100 },
-        { year: 2021, mean: 1100, median: 1100, lower: 990, upper: 1210 },
-      ],
-      by_sex: {
-        male:   [{ year: 2020, mean: 500, median: 500, lower: 450, upper: 550 }],
-        female: [{ year: 2020, mean: 500, median: 500, lower: 450, upper: 550 }],
-      },
-      by_age: {
-        '15-49': [{ year: 2020, mean: 800, median: 800, lower: 720, upper: 880 }],
-      },
+// Calibration is per-location after the split; tests target one location at
+// a time. One outcome with each axis populated so dispatch can be tested.
+const tinyCalibration: LocationCalibration = {
+  prevalence: {
+    total: [
+      { year: 2020, mean: 1000, median: 1000, lower: 900, upper: 1100 },
+      { year: 2021, mean: 1100, median: 1100, lower: 990, upper: 1210 },
+    ],
+    by_sex: {
+      male:   [{ year: 2020, mean: 500, median: 500, lower: 450, upper: 550 }],
+      female: [{ year: 2020, mean: 500, median: 500, lower: 450, upper: 550 }],
     },
-    suppression: {
-      total: [
-        { year: 2020, mean: 0.7, median: 0.7, lower: 0.6, upper: 0.8 },
-      ],
-      by_sex: {},
-      by_age: {},
-      by_sex_age: {
-        'male.15+':   [{ year: 2020, mean: 0.65, median: 0.65, lower: 0.55, upper: 0.75 }],
-        'female.15+': [{ year: 2020, mean: 0.75, median: 0.75, lower: 0.65, upper: 0.85 }],
-      },
+    by_age: {
+      '15-49': [{ year: 2020, mean: 800, median: 800, lower: 720, upper: 880 }],
+    },
+  },
+  suppression: {
+    total: [
+      { year: 2020, mean: 0.7, median: 0.7, lower: 0.6, upper: 0.8 },
+    ],
+    by_sex: {},
+    by_age: {},
+    by_sex_age: {
+      'male.15+':   [{ year: 2020, mean: 0.65, median: 0.65, lower: 0.55, upper: 0.75 }],
+      'female.15+': [{ year: 2020, mean: 0.75, median: 0.75, lower: 0.65, upper: 0.85 }],
     },
   },
 };
 
-const tinyObserved: ObservedData = {
-  kenya: {
-    prevalence: {
-      total: [
-        { year: 2020, value: 1050, lower: 950, upper: 1150 },
-      ],
-      by_age: {
-        '15-49': [{ year: 2020, value: 820 }],
-      },
+const tinyObserved: Record<string, ObservedOutcomeData> = {
+  prevalence: {
+    total: [
+      { year: 2020, value: 1050, lower: 950, upper: 1150 },
+    ],
+    by_age: {
+      '15-49': [{ year: 2020, value: 820 }],
     },
-    suppression: {
-      total: [],
-      by_sex_age: {
-        'male.15+':   [{ year: 2020, value: 0.62 }],
-        'female.15+': [{ year: 2020, value: 0.78 }],
-      },
+  },
+  suppression: {
+    total: [],
+    by_sex_age: {
+      'male.15+':   [{ year: 2020, value: 0.62 }],
+      'female.15+': [{ year: 2020, value: 0.78 }],
     },
   },
 };
@@ -140,14 +137,14 @@ describe('transformProjectionsForChart', () => {
 
 describe('getCalibrationChartData', () => {
   it('returns the total series for ageCategory="total"', () => {
-    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'kenya', 'prevalence');
+    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'prevalence');
     expect(out).toHaveLength(2);
     expect(out[0].year).toBe(2020);
     expect(out[0].mean).toBe(1000);
   });
 
   it('merges observed points by year', () => {
-    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'kenya', 'prevalence');
+    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'prevalence');
     expect(out[0].observed).toBe(1050);
     expect(out[0].observed_lower).toBe(950);
     expect(out[0].observed_upper).toBe(1150);
@@ -156,15 +153,15 @@ describe('getCalibrationChartData', () => {
   });
 
   it('dispatches to by_age for a non-total age category', () => {
-    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'kenya', 'prevalence', '15-49');
+    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'prevalence', '15-49');
     expect(out).toHaveLength(1);
     expect(out[0].mean).toBe(800);
     expect(out[0].observed).toBe(820);
   });
 
   it('dispatches to by_sex_age for male.15+ / female.15+ keys (cascade)', () => {
-    const male = getCalibrationChartData(tinyCalibration, tinyObserved, 'kenya', 'suppression', 'male.15+');
-    const female = getCalibrationChartData(tinyCalibration, tinyObserved, 'kenya', 'suppression', 'female.15+');
+    const male = getCalibrationChartData(tinyCalibration, tinyObserved, 'suppression', 'male.15+');
+    const female = getCalibrationChartData(tinyCalibration, tinyObserved, 'suppression', 'female.15+');
     expect(male[0].mean).toBe(0.65);
     expect(female[0].mean).toBe(0.75);
     expect(male[0].observed).toBe(0.62);
@@ -172,18 +169,23 @@ describe('getCalibrationChartData', () => {
   });
 
   it('dispatches to by_sex when sexCategory is set and ageCategory is total', () => {
-    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'kenya', 'prevalence', 'total', 'male');
+    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'prevalence', 'total', 'male');
     expect(out[0].mean).toBe(500);
   });
 
-  it('returns an empty array for a missing location', () => {
-    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'atlantis', 'prevalence');
+  it('returns an empty array when calibration is null (location still loading)', () => {
+    const out = getCalibrationChartData(null, tinyObserved, 'prevalence');
+    expect(out).toEqual([]);
+  });
+
+  it('returns an empty array for an unknown outcome', () => {
+    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'unknown_outcome');
     expect(out).toEqual([]);
   });
 
   it('returns model points without observed when observed series is missing', () => {
-    const obsWithout: ObservedData = { kenya: { prevalence: { total: [] } } };
-    const out = getCalibrationChartData(tinyCalibration, obsWithout, 'kenya', 'prevalence');
+    const obsWithout: Record<string, ObservedOutcomeData> = { prevalence: { total: [] } };
+    const out = getCalibrationChartData(tinyCalibration, obsWithout, 'prevalence');
     expect(out).toHaveLength(2);
     expect(out[0].observed).toBeUndefined();
   });
@@ -228,7 +230,7 @@ describe('maxStackedTotal', () => {
 // rather than silently flipping the rendered plot.
 describe('cascade-as-proportions shape', () => {
   it('keeps cascade outcomes in [0, 1]', () => {
-    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'kenya', 'suppression', 'male.15+');
+    const out = getCalibrationChartData(tinyCalibration, tinyObserved, 'suppression', 'male.15+');
     expect(out[0].mean).toBeGreaterThanOrEqual(0);
     expect(out[0].mean).toBeLessThanOrEqual(1);
     expect(out[0].lower).toBeGreaterThanOrEqual(0);

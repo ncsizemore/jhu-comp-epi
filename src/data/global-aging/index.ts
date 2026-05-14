@@ -6,13 +6,14 @@
 //     are fetched on demand via hooks with module-level promise caching.
 //   - Pure transforms take the data as arguments (no hidden module state).
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type {
   Metadata,
   LocationMeta,
   ProjectionData,
-  CalibrationData,
+  LocationCalibration,
   ObservedData,
+  ObservedOutcomeData,
   SummaryData,
   Quantiles,
   ChartDataPoint,
@@ -26,7 +27,7 @@ import summaryJson from './summary.json';
 import {
   MetadataSchema,
   ProjectionDataSchema,
-  CalibrationDataSchema,
+  LocationCalibrationSchema,
   ObservedDataSchema,
   validateInDev,
 } from './schemas';
@@ -41,7 +42,7 @@ export const summary = summaryJson as unknown as SummaryData;
 const DATA_BASE = '/data/global-aging';
 
 let projectionsPromise: Promise<ProjectionData> | null = null;
-let calibrationPromise: Promise<CalibrationData> | null = null;
+const calibrationPromises = new Map<string, Promise<LocationCalibration>>();
 let observedPromise: Promise<ObservedData> | null = null;
 
 // Fetch-and-cache. On rejection, drop the cached promise so a subsequent
@@ -72,16 +73,17 @@ function loadProjections(): Promise<ProjectionData> {
   return projectionsPromise;
 }
 
-function loadCalibration(): Promise<CalibrationData> {
-  if (!calibrationPromise) {
-    calibrationPromise = cachedFetch<CalibrationData>(
-      `${DATA_BASE}/calibration.json`,
-      CalibrationDataSchema as ZodType<CalibrationData>,
-      'calibration',
-      () => { calibrationPromise = null; },
-    );
-  }
-  return calibrationPromise;
+function loadCalibrationForLocation(locationCode: string): Promise<LocationCalibration> {
+  const existing = calibrationPromises.get(locationCode);
+  if (existing) return existing;
+  const promise = cachedFetch<LocationCalibration>(
+    `${DATA_BASE}/calibration/${locationCode}.json`,
+    LocationCalibrationSchema as ZodType<LocationCalibration>,
+    `calibration:${locationCode}`,
+    () => { calibrationPromises.delete(locationCode); },
+  );
+  calibrationPromises.set(locationCode, promise);
+  return promise;
 }
 
 function loadObserved(): Promise<ObservedData> {
@@ -130,8 +132,14 @@ export function useProjections(enabled = true) {
   return useAsyncData(loadProjections, enabled);
 }
 
-export function useCalibration(enabled = true) {
-  return useAsyncData(loadCalibration, enabled);
+export function useCalibration(locationCode: string, enabled = true) {
+  // useAsyncData identifies the loader by reference, so bind locationCode
+  // into a stable per-(code) function to avoid re-fetching on every render.
+  const loader = useMemo(
+    () => () => loadCalibrationForLocation(locationCode),
+    [locationCode],
+  );
+  return useAsyncData(loader, enabled);
 }
 
 export function useObserved(enabled = true) {
@@ -314,12 +322,13 @@ export const OUTCOME_LABELS = metadata.outcome_labels;
 const SEX_AGE_KEYS = new Set<string>(['male.15+', 'female.15+']);
 
 /**
- * Merge model predictions with observed data points for a given location + outcome.
+ * Merge model predictions with observed data points for one outcome of one
+ * location. Pass per-location slices (already extracted by the caller, e.g.
+ * `useCalibration(code)` and `observed[code]`).
  */
 export function getCalibrationChartData(
-  calibration: CalibrationData,
-  observed: ObservedData,
-  locationCode: string,
+  calibration: LocationCalibration | null | undefined,
+  observed: Record<string, ObservedOutcomeData> | null | undefined,
   outcome: string,
   ageCategory: string = 'total',
   sexCategory: string = 'total'
@@ -327,7 +336,7 @@ export function getCalibrationChartData(
   const isSexAge = SEX_AGE_KEYS.has(ageCategory);
 
   let modelSeries: TimeSeriesPoint[] = [];
-  const locCalib = calibration[locationCode]?.[outcome];
+  const locCalib = calibration?.[outcome];
   if (locCalib) {
     if (isSexAge && locCalib.by_sex_age?.[ageCategory]) {
       modelSeries = locCalib.by_sex_age[ageCategory];
@@ -341,7 +350,7 @@ export function getCalibrationChartData(
   }
 
   let obsSeries: ObservedPoint[] = [];
-  const locObs = observed[locationCode]?.[outcome];
+  const locObs = observed?.[outcome];
   if (locObs) {
     if (isSexAge && locObs.by_sex_age?.[ageCategory]) {
       obsSeries = locObs.by_sex_age[ageCategory];

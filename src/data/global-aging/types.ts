@@ -61,8 +61,11 @@ export interface OutcomeData {
   by_sex_age?: Record<string, TimeSeriesPoint[]>;
 }
 
+// calibration[outcome] = OutcomeData (one location's worth)
+export type LocationCalibration = Record<string, OutcomeData>;
+
 // calibration[locationCode][outcome] = OutcomeData
-export type CalibrationData = Record<string, Record<string, OutcomeData>>;
+export type CalibrationData = Record<string, LocationCalibration>;
 
 // --- Observed/surveillance data ---
 

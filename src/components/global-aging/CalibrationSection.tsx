@@ -26,8 +26,10 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
   const [selectedOutcome, setSelectedOutcome] = useState('prevalence');
   const [ageSelection, setAgeSelection] = useState<AgeSelection>('total');
 
-  // Lazy-load calibration + observed only once the section has been opened
-  const { data: calibration, loading: calibrationLoading, error: calibrationError } = useCalibration(isExpanded);
+  // Lazy-load calibration + observed only once the section has been opened.
+  // Calibration is split per-location on disk, so this only pulls the
+  // ~150 KB (gzipped) slice for the currently-selected location.
+  const { data: calibration, loading: calibrationLoading, error: calibrationError } = useCalibration(selectedLocation, isExpanded);
   const { data: observed, loading: observedLoading, error: observedError } = useObserved(isExpanded);
 
   const dataLoading = calibrationLoading || observedLoading;
@@ -51,7 +53,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
 
     return ages.map(age => ({
       age,
-      data: getCalibrationChartData(calibration, observed, selectedLocation, selectedOutcome, age),
+      data: getCalibrationChartData(calibration, observed[selectedLocation], selectedOutcome, age),
       key: `${selectedOutcome}-${age}`
     }));
   }, [calibration, observed, selectedLocation, selectedOutcome, ageSelection, survAgeBrackets, hasAgeBrackets]);

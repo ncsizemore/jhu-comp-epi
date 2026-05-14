@@ -10,7 +10,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "fetch-publications": "node scripts/fetch-publications.js",
-    "apply-publications": "node scripts/apply-publications.js"
+    "apply-publications": "node scripts/apply-publications.js",
+    "split-calibration": "node scripts/split-calibration.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

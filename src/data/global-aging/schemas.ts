@@ -73,10 +73,15 @@ const OutcomeData = z.object({
   by_sex_age: z.record(z.string(), z.array(TimeSeriesPoint)).optional(),
 });
 
-// calibration[location][outcome] = OutcomeData
+// One location's calibration: outcome → OutcomeData. Files served as
+// /data/global-aging/calibration/<location>.json (per-location split).
+export const LocationCalibrationSchema = z.record(z.string(), OutcomeData);
+
+// Legacy monolithic shape, kept for the in-memory fixtures used in tests.
+// Not loaded from disk anymore.
 export const CalibrationDataSchema = z.record(
   z.string(),
-  z.record(z.string(), OutcomeData),
+  LocationCalibrationSchema,
 );
 
 const ObservedOutcomeData = z.object({
