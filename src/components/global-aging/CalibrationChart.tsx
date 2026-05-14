@@ -151,20 +151,20 @@ const CalibrationChart = memo(({
     return ageCategory;
   }, [ageCategory]);
 
-  // Determine x-axis range from data
-  const xDomain = useMemo(() => {
-    if (data.length === 0) return [2000, 2040];
-    const years = data.map(d => d.year);
-    return [Math.min(...years), Math.max(...years)];
-  }, [data]);
-
+  // 5-year tick marks across the data range. Recharts XAxis defaults to
+  // type="category", which ignores `domain` — `ticks` is the only knob that
+  // matters here, so don't bother computing xDomain.
   const xTicks = useMemo(() => {
+    if (data.length === 0) return [];
+    const years = data.map(d => d.year);
+    const min = Math.min(...years);
+    const max = Math.max(...years);
     const ticks: number[] = [];
-    for (let y = Math.ceil(xDomain[0] / 5) * 5; y <= xDomain[1]; y += 5) {
+    for (let y = Math.ceil(min / 5) * 5; y <= max; y += 5) {
       ticks.push(y);
     }
     return ticks;
-  }, [xDomain]);
+  }, [data]);
 
   return (
     <div className="w-full">
@@ -187,7 +187,6 @@ const CalibrationChart = memo(({
             dataKey="year"
             tick={{ fontSize: 11, fill: '#6B7280' }}
             stroke="#D1D5DB"
-            domain={xDomain}
             ticks={xTicks}
           />
           <YAxis

@@ -92,7 +92,7 @@ const AgeDistributionChart = memo(({
           </div>
 
           <div className="space-y-1.5 max-h-64 overflow-y-auto">
-            {payload.reverse().map((entry: TooltipPayload, index: number) => {
+            {[...payload].reverse().map((entry: TooltipPayload, index: number) => {
               const bracket = entry.dataKey.replace(`${locationPrefix}_`, '');
               const value = entry.value || 0;
               const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : '0.0';
