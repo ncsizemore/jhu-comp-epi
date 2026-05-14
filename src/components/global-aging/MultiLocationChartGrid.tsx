@@ -8,6 +8,7 @@ import {
   getAgeBrackets,
   getAgeColors,
   getLocationLabel,
+  maxStackedTotal,
   useProjections,
 } from '@/data/global-aging';
 import type { SexMode, AgeGranularity, ChartDataPoint } from '@/data/global-aging';
@@ -18,23 +19,6 @@ interface MultiLocationChartGridProps {
   granularity: AgeGranularity;
   normalized?: boolean;
   yearRange?: [number, number];
-}
-
-// Largest single-year stacked total across the bracket set, for one location.
-function maxStackedTotal(
-  data: ChartDataPoint[],
-  locationCode: string,
-  brackets: string[]
-): number {
-  let max = 0;
-  for (const point of data) {
-    let total = 0;
-    for (const b of brackets) {
-      total += Number(point[`${locationCode}_${b}`]) || 0;
-    }
-    if (total > max) max = total;
-  }
-  return max;
 }
 
 function getGridLayout(count: number) {

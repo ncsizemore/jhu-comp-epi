@@ -23,9 +23,18 @@ import type {
 
 import metadataJson from './metadata.json';
 import summaryJson from './summary.json';
+import {
+  MetadataSchema,
+  ProjectionDataSchema,
+  CalibrationDataSchema,
+  ObservedDataSchema,
+  validateInDev,
+} from './schemas';
+import type { ZodType } from 'zod';
 
 // --- Small statically imported data ---
-export const metadata = metadataJson as unknown as Metadata;
+// metadata is validated in dev so R↔TS drift surfaces immediately on load.
+export const metadata = validateInDev<Metadata>(MetadataSchema, metadataJson, 'metadata');
 export const summary = summaryJson as unknown as SummaryData;
 
 // --- Lazy-loaded data (fetched from /public at runtime) ---
@@ -37,13 +46,14 @@ let observedPromise: Promise<ObservedData> | null = null;
 
 // Fetch-and-cache. On rejection, drop the cached promise so a subsequent
 // call can retry — otherwise the first failure would lock the page until
-// a full refresh.
-function cachedFetch<T>(url: string, clear: () => void): Promise<T> {
+// a full refresh. The schema is run via validateInDev (no-op in production).
+function cachedFetch<T>(url: string, schema: ZodType<T>, label: string, clear: () => void): Promise<T> {
   return fetch(url)
     .then(r => {
       if (!r.ok) throw new Error(`Failed to load ${url}: ${r.status}`);
-      return r.json() as Promise<T>;
+      return r.json() as Promise<unknown>;
     })
+    .then(data => validateInDev<T>(schema, data, label))
     .catch(err => {
       clear();
       throw err;
@@ -54,6 +64,8 @@ function loadProjections(): Promise<ProjectionData> {
   if (!projectionsPromise) {
     projectionsPromise = cachedFetch<ProjectionData>(
       `${DATA_BASE}/projections.json`,
+      ProjectionDataSchema as ZodType<ProjectionData>,
+      'projections',
       () => { projectionsPromise = null; },
     );
   }
@@ -64,6 +76,8 @@ function loadCalibration(): Promise<CalibrationData> {
   if (!calibrationPromise) {
     calibrationPromise = cachedFetch<CalibrationData>(
       `${DATA_BASE}/calibration.json`,
+      CalibrationDataSchema as ZodType<CalibrationData>,
+      'calibration',
       () => { calibrationPromise = null; },
     );
   }
@@ -74,6 +88,8 @@ function loadObserved(): Promise<ObservedData> {
   if (!observedPromise) {
     observedPromise = cachedFetch<ObservedData>(
       `${DATA_BASE}/observed.json`,
+      ObservedDataSchema as ZodType<ObservedData>,
+      'observed',
       () => { observedPromise = null; },
     );
   }
@@ -237,6 +253,27 @@ export function transformProjectionsForChart(
 
     return point;
   });
+}
+
+/**
+ * Largest single-year stacked total across the bracket set, for one location.
+ * Used by the mf-split projection layout to share a y-axis between paired
+ * male/female charts so visual comparisons are meaningful.
+ */
+export function maxStackedTotal(
+  data: ChartDataPoint[],
+  locationCode: string,
+  brackets: string[]
+): number {
+  let max = 0;
+  for (const point of data) {
+    let total = 0;
+    for (const b of brackets) {
+      total += Number(point[`${locationCode}_${b}`]) || 0;
+    }
+    if (total > max) max = total;
+  }
+  return max;
 }
 
 // --- Calibration ---
