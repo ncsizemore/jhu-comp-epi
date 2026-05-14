@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, useMemo, useState, useEffect, useRef, useCallback } from 'react';
+import React, { memo, useMemo, useState, useEffect, useRef, useCallback, useImperativeHandle } from 'react';
 import { motion } from 'framer-motion';
 import AgeDistributionChart from './AgeDistributionChart';
 import {
@@ -13,12 +13,17 @@ import {
 } from '@/data/global-aging';
 import type { SexMode, AgeGranularity, ChartDataPoint } from '@/data/global-aging';
 
+export interface ChartGridHandle {
+  exportToPng: () => Promise<void>;
+}
+
 interface MultiLocationChartGridProps {
   locationCodes: string[];
   sexMode: SexMode;
   granularity: AgeGranularity;
   normalized?: boolean;
   yearRange?: [number, number];
+  ref?: React.Ref<ChartGridHandle>;
 }
 
 function getGridLayout(count: number) {
@@ -35,7 +40,8 @@ const MultiLocationChartGrid = memo(({
   sexMode,
   granularity,
   normalized = false,
-  yearRange = [2025, 2040]
+  yearRange = [2025, 2040],
+  ref,
 }: MultiLocationChartGridProps) => {
   const INITIAL_RENDER_COUNT = 6;
   const BATCH_SIZE = 6;
@@ -105,38 +111,29 @@ const MultiLocationChartGrid = memo(({
 
   // Export all charts as PNG. Uses html-to-image rather than html2canvas
   // because the latter (v1.x) cannot parse oklch() colors emitted by Tailwind v4.
-  const handleExportCharts = useCallback(async () => {
-    if (!gridRef.current) return;
-    window.dispatchEvent(new CustomEvent('exportStatus', { detail: { status: 'exporting' } }));
-    try {
-      await new Promise(resolve => setTimeout(resolve, 300));
-      const { toPng } = await import('html-to-image');
-      const dataUrl = await toPng(gridRef.current, {
-        backgroundColor: '#ffffff',
-        pixelRatio: 2,
-        cacheBust: true,
-      });
-      const link = document.createElement('a');
-      const timestamp = new Date().toISOString().split('T')[0];
-      const names = locationCodes.length <= 3
-        ? locationCodes.join('_')
-        : `${locationCodes.length}_locations`;
-      const suffix = isSplit ? '_mf' : '';
-      link.download = `global_aging_projections_${names}${suffix}_${timestamp}.png`;
-      link.href = dataUrl;
-      link.click();
-      window.dispatchEvent(new CustomEvent('exportStatus', { detail: { status: 'success' } }));
-    } catch (err) {
-      console.error('PNG export failed:', err);
-      window.dispatchEvent(new CustomEvent('exportStatus', { detail: { status: 'error' } }));
-    }
+  // Throws on failure so the caller can surface status to the user.
+  const exportToPng = useCallback(async () => {
+    if (!gridRef.current) throw new Error('Chart grid not mounted');
+    // Give framer-motion a beat to settle before capture.
+    await new Promise(resolve => setTimeout(resolve, 300));
+    const { toPng } = await import('html-to-image');
+    const dataUrl = await toPng(gridRef.current, {
+      backgroundColor: '#ffffff',
+      pixelRatio: 2,
+      cacheBust: true,
+    });
+    const link = document.createElement('a');
+    const timestamp = new Date().toISOString().split('T')[0];
+    const names = locationCodes.length <= 3
+      ? locationCodes.join('_')
+      : `${locationCodes.length}_locations`;
+    const suffix = isSplit ? '_mf' : '';
+    link.download = `global_aging_projections_${names}${suffix}_${timestamp}.png`;
+    link.href = dataUrl;
+    link.click();
   }, [locationCodes, isSplit]);
 
-  useEffect(() => {
-    const handleExport = () => handleExportCharts();
-    window.addEventListener('exportCharts', handleExport);
-    return () => window.removeEventListener('exportCharts', handleExport);
-  }, [handleExportCharts]);
+  useImperativeHandle(ref, () => ({ exportToPng }), [exportToPng]);
 
   if (locationCodes.length === 0) {
     return (

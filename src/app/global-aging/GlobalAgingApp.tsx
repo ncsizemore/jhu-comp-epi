@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import LocationSelector from '@/components/global-aging/LocationSelector';
 import MultiLocationChartGrid from '@/components/global-aging/MultiLocationChartGrid';
+import type { ChartGridHandle } from '@/components/global-aging/MultiLocationChartGrid';
 import TimelineControls from '@/components/global-aging/TimelineControls';
 import CalibrationSection from '@/components/global-aging/CalibrationSection';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -25,6 +26,20 @@ function GlobalAgingAppInner() {
 
   type ExportStatus = 'idle' | 'exporting' | 'success' | 'error';
   const [exportStatus, setExportStatus] = useState<ExportStatus>('idle');
+  const chartGridRef = useRef<ChartGridHandle>(null);
+
+  const handleExportClick = async () => {
+    if (!chartGridRef.current) return;
+    setExportStatus('exporting');
+    try {
+      await chartGridRef.current.exportToPng();
+      setExportStatus('success');
+    } catch (err) {
+      console.error('PNG export failed:', err);
+      setExportStatus('error');
+    }
+    setTimeout(() => setExportStatus('idle'), 2000);
+  };
 
   useEffect(() => {
     if (isInitialized) return;
@@ -74,18 +89,6 @@ function GlobalAgingAppInner() {
 
     router.replace(`?${params.toString()}`, { scroll: false });
   }, [selectedLocations, sexMode, granularity, normalized, yearRange, isInitialized, router]);
-
-  useEffect(() => {
-    const handleExportStatus = (event: Event) => {
-      const customEvent = event as CustomEvent<{ status: ExportStatus }>;
-      setExportStatus(customEvent.detail.status);
-      if (customEvent.detail.status === 'success' || customEvent.detail.status === 'error') {
-        setTimeout(() => setExportStatus('idle'), 2000);
-      }
-    };
-    window.addEventListener('exportStatus', handleExportStatus);
-    return () => window.removeEventListener('exportStatus', handleExportStatus);
-  }, []);
 
   return (
     <div className="space-y-8">
@@ -206,9 +209,7 @@ function GlobalAgingAppInner() {
             </label>
             <div className="w-full">
               <button
-                onClick={() => {
-                  window.dispatchEvent(new CustomEvent('exportCharts'));
-                }}
+                onClick={handleExportClick}
                 disabled={exportStatus === 'exporting'}
                 className={`w-full flex items-center justify-center gap-1 px-2 py-2 text-[11px] font-semibold rounded-lg transition-all shadow-sm ${
                   exportStatus === 'exporting'
@@ -248,6 +249,7 @@ function GlobalAgingAppInner() {
       {/* Chart Grid */}
       <ErrorBoundary>
         <MultiLocationChartGrid
+          ref={chartGridRef}
           locationCodes={selectedLocations}
           sexMode={sexMode}
           granularity={granularity}
