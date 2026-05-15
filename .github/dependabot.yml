@@ -1,0 +1,18 @@
+# Weekly npm version-update PRs. Security alerts are on by default; this
+# is the auto-PR layer that keeps deps current with minimal effort.
+#
+# Minor/patch bumps are grouped into one PR per week so the queue stays
+# small. Major bumps still get individual PRs — they tend to need real
+# review (breaking changes, codemods, etc.).
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
