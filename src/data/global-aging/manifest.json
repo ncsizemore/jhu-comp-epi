@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-05-15T14:27:52.478Z",
+  "gmha_source_dir": "/Volumes/WD_Black/wiley/Documents/gmha/web",
+  "staged_files": [
+    {
+      "file": "metadata.json",
+      "dest": "src/data/global-aging/metadata.json",
+      "size": 2311
+    },
+    {
+      "file": "summary.json",
+      "dest": "src/data/global-aging/summary.json",
+      "size": 7941
+    },
+    {
+      "file": "projections.json",
+      "dest": "public/data/global-aging/projections.json",
+      "size": 4012065
+    },
+    {
+      "file": "observed.json",
+      "dest": "public/data/global-aging/observed.json",
+      "size": 695607
+    },
+    {
+      "file": "calibration/all_high.json",
+      "dest": "public/data/global-aging/calibration/all_high.json",
+      "size": 741793
+    },
+    {
+      "file": "calibration/all_low.json",
+      "dest": "public/data/global-aging/calibration/all_low.json",
+      "size": 762935
+    },
+    {
+      "file": "calibration/all_lower_middle.json",
+      "dest": "public/data/global-aging/calibration/all_lower_middle.json",
+      "size": 766729
+    },
+    {
+      "file": "calibration/all_upper_middle.json",
+      "dest": "public/data/global-aging/calibration/all_upper_middle.json",
+      "size": 772311
+    },
+    {
+      "file": "calibration/global.json",
+      "dest": "public/data/global-aging/calibration/global.json",
+      "size": 787462
+    },
+    {
+      "file": "calibration/kenya.json",
+      "dest": "public/data/global-aging/calibration/kenya.json",
+      "size": 731189
+    },
+    {
+      "file": "calibration/malawi.json",
+      "dest": "public/data/global-aging/calibration/malawi.json",
+      "size": 728247
+    },
+    {
+      "file": "calibration/mozambique.json",
+      "dest": "public/data/global-aging/calibration/mozambique.json",
+      "size": 729506
+    },
+    {
+      "file": "calibration/nigeria.json",
+      "dest": "public/data/global-aging/calibration/nigeria.json",
+      "size": 735034
+    },
+    {
+      "file": "calibration/south_africa.json",
+      "dest": "public/data/global-aging/calibration/south_africa.json",
+      "size": 750541
+    },
+    {
+      "file": "calibration/tanzania.json",
+      "dest": "public/data/global-aging/calibration/tanzania.json",
+      "size": 726984
+    },
+    {
+      "file": "calibration/uganda.json",
+      "dest": "public/data/global-aging/calibration/uganda.json",
+      "size": 732520
+    },
+    {
+      "file": "calibration/unaids_remainder.json",
+      "dest": "public/data/global-aging/calibration/unaids_remainder.json",
+      "size": 772343
+    },
+    {
+      "file": "calibration/zambia.json",
+      "dest": "public/data/global-aging/calibration/zambia.json",
+      "size": 720514
+    },
+    {
+      "file": "calibration/zimbabwe.json",
+      "dest": "public/data/global-aging/calibration/zimbabwe.json",
+      "size": 728040
+    }
+  ],
+  "source_bundles": [
+    {
+      "file": "all.results_all.high_2025-08-27.Rdata",
+      "date_from_filename": "2025-08-27",
+      "size": 762102849,
+      "mtime": "2026-03-20T00:23:00.000Z"
+    },
+    {
+      "file": "all.results_all.low_2025-08-27.Rdata",
+      "date_from_filename": "2025-08-27",
+      "size": 763511788,
+      "mtime": "2026-03-20T00:06:00.000Z"
+    },
+    {
+      "file": "all.results_all.lower.middle_2025-08-27.Rdata",
+      "date_from_filename": "2025-08-27",
+      "size": 766848926,
+      "mtime": "2026-03-19T23:56:00.000Z"
+    },
+    {
+      "file": "all.results_all.upper.middle_2025-08-27.Rdata",
+      "date_from_filename": "2025-08-27",
+      "size": 767557245,
+      "mtime": "2026-03-19T23:50:00.000Z"
+    },
+    {
+      "file": "all.results_global_2025-08-27.Rdata",
+      "date_from_filename": "2025-08-27",
+      "size": 764574248,
+      "mtime": "2026-03-19T23:44:00.000Z"
+    },
+    {
+      "file": "all.results_merged_kenya_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 833649921,
+      "mtime": "2026-03-20T00:38:00.000Z"
+    },
+    {
+      "file": "all.results_merged_malawi_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 832217431,
+      "mtime": "2026-03-20T00:41:00.000Z"
+    },
+    {
+      "file": "all.results_merged_mozambique_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 836364276,
+      "mtime": "2026-03-20T00:35:00.000Z"
+    },
+    {
+      "file": "all.results_merged_south_africa_2025-08-27.Rdata",
+      "date_from_filename": "2025-08-27",
+      "size": 834497564,
+      "mtime": "2026-03-20T00:26:00.000Z"
+    },
+    {
+      "file": "all.results_merged_uganda_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 835127871,
+      "mtime": "2026-03-20T00:29:00.000Z"
+    },
+    {
+      "file": "all.results_merged_unaids.remainder_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 830365426,
+      "mtime": "2026-03-20T00:32:00.000Z"
+    },
+    {
+      "file": "all.results_merged_zambia_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 833057806,
+      "mtime": "2026-03-20T00:21:00.000Z"
+    },
+    {
+      "file": "all.results_merged_zimbabwe_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 834222558,
+      "mtime": "2026-03-20T00:17:00.000Z"
+    },
+    {
+      "file": "all.results_nigeria_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 836330952,
+      "mtime": "2026-05-13T22:48:00.000Z"
+    },
+    {
+      "file": "all.results_tanzania_2025-08-25.Rdata",
+      "date_from_filename": "2025-08-25",
+      "size": 833175404,
+      "mtime": "2026-05-13T22:52:00.000Z"
+    },
+    {
+      "file": "data.manager_global_2025-10-03.Rdata",
+      "date_from_filename": "2025-10-03",
+      "size": 14181259,
+      "mtime": "2026-03-19T23:50:00.000Z"
+    }
+  ]
+}

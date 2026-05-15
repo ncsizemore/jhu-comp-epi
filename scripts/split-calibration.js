@@ -5,46 +5,48 @@
 // at a time, so per-location loading drops parse cost and peak heap from
 // "everything" to "what the user is looking at."
 //
-// Run via `npm run split-calibration`. Idempotent: rewrites the output dir
-// from scratch each invocation.
+// Run via `npm run split-calibration`, or import `splitCalibration` from
+// `scripts/extract.js` to call it as part of a larger pipeline.
 
 const fs = require('fs');
 const path = require('path');
 
-const SRC = path.join(__dirname, '../public/data/global-aging/calibration.json');
-const OUT_DIR = path.join(__dirname, '../public/data/global-aging/calibration');
+const DEFAULT_SRC = path.join(__dirname, '../public/data/global-aging/calibration.json');
+const DEFAULT_OUT = path.join(__dirname, '../public/data/global-aging/calibration');
 
-function main() {
-  if (!fs.existsSync(SRC)) {
-    console.error(`split-calibration: source missing at ${SRC}`);
-    process.exit(1);
+function splitCalibration(srcPath = DEFAULT_SRC, outDir = DEFAULT_OUT) {
+  if (!fs.existsSync(srcPath)) {
+    throw new Error(`split-calibration: source missing at ${srcPath}`);
   }
 
-  const raw = fs.readFileSync(SRC, 'utf8');
+  const raw = fs.readFileSync(srcPath, 'utf8');
   const data = JSON.parse(raw);
   const locations = Object.keys(data);
   if (locations.length === 0) {
-    console.error('split-calibration: source has no locations');
-    process.exit(1);
+    throw new Error('split-calibration: source has no locations');
   }
 
-  fs.rmSync(OUT_DIR, { recursive: true, force: true });
-  fs.mkdirSync(OUT_DIR, { recursive: true });
+  fs.rmSync(outDir, { recursive: true, force: true });
+  fs.mkdirSync(outDir, { recursive: true });
 
-  let totalBytes = 0;
+  const written = [];
   for (const code of locations) {
-    const out = path.join(OUT_DIR, `${code}.json`);
+    const out = path.join(outDir, `${code}.json`);
     const json = JSON.stringify(data[code]);
     fs.writeFileSync(out, json);
-    totalBytes += json.length;
+    written.push({ code, size: json.length });
   }
+  return { sourceBytes: raw.length, written };
+}
 
-  const srcMb = (raw.length / 1024 / 1024).toFixed(2);
-  const outMb = (totalBytes / 1024 / 1024).toFixed(2);
+if (require.main === module) {
+  const result = splitCalibration();
+  const srcMb = (result.sourceBytes / 1024 / 1024).toFixed(2);
+  const outMb = (result.written.reduce((s, w) => s + w.size, 0) / 1024 / 1024).toFixed(2);
   console.log(
-    `split-calibration: ${locations.length} files written to ${path.relative(process.cwd(), OUT_DIR)} ` +
+    `split-calibration: ${result.written.length} files written ` +
     `(source=${srcMb} MB, output=${outMb} MB total)`,
   );
 }
 
-main();
+module.exports = { splitCalibration };
