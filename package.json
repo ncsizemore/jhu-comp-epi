@@ -15,16 +15,16 @@
     "extract": "node scripts/extract.js"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.0",
+    "@headlessui/react": "^2.2.10",
     "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.38.0",
     "html-to-image": "^1.11.13",
     "next": "^16.2.0",
     "rc-slider": "^11.1.9",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
     "react-simple-maps": "^1.0.0",
-    "recharts": "^3.4.1",
+    "recharts": "^3.8.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
