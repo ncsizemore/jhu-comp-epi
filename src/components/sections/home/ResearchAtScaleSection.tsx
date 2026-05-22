@@ -1,20 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
+import { useState } from 'react';
+import { USMap, USStates, USMarker } from '@/components/maps/us-map';
 
 // Geographic Impact & Research Scale Section
 export default function ResearchAtScaleSection() {
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Prevent hydration mismatch
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  // US TopoJSON file URL (free from react-simple-maps)
-  const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
   // JHEEM/SHIELD cities with real coordinates
   const cities = [
@@ -153,45 +144,31 @@ export default function ResearchAtScaleSection() {
               </div>
 
               {/* Optimized Map */}
-              {isMounted && (
-                <ComposableMap
-                  projection="geoAlbersUsa"
-                  className="w-full h-full"
-                  style={{ width: "100%", height: "100%" }}
-                >
-                  <Geographies geography={geoUrl}>
-                    {({ geographies }) =>
-                      geographies.map((geo) => (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill="#1e293b"
-                          stroke="#374151"
-                          strokeWidth={1}
-                          style={{
-                            default: { outline: "none" },
-                            hover: { outline: "none", fill: "#334155" },
-                            pressed: { outline: "none" },
-                          }}
-                        />
-                      ))
-                    }
-                  </Geographies>
+              <USMap
+                className="w-full h-full"
+                style={{ width: "100%", height: "100%" }}
+              >
+                <USStates
+                  fill="#1e293b"
+                  stroke="#374151"
+                  strokeWidth={1}
+                  hoverFill="#334155"
+                />
 
-                  {/* Scale-focused city markers */}
-                  {cities.map((city, index) => (
-                    <Marker
-                      key={`${city.name}-${index}`}
-                      coordinates={city.coordinates}
-                      onMouseEnter={() => setHoveredCity(city.name)}
-                      onMouseLeave={() => setHoveredCity(null)}
-                    >
+                {/* Scale-focused city markers */}
+                {cities.map((city, index) => (
+                  <USMarker
+                    key={`${city.name}-${index}`}
+                    coordinates={city.coordinates}
+                  >
                       <circle
                         r={hoveredCity === city.name ? 12 : 7}
                         fill={hoveredCity === city.name ? "#3b82f6" : "#1d4ed8"}
                         stroke="#ffffff"
                         strokeWidth={hoveredCity === city.name ? 3 : 2}
                         opacity={1}
+                        onMouseEnter={() => setHoveredCity(city.name)}
+                        onMouseLeave={() => setHoveredCity(null)}
                         className="cursor-pointer transition-all duration-400"
                         style={{
                           filter: hoveredCity === city.name
@@ -211,10 +188,9 @@ export default function ResearchAtScaleSection() {
                           className="animate-ping"
                         />
                       )}
-                    </Marker>
-                  ))}
-                </ComposableMap>
-              )}
+                  </USMarker>
+                ))}
+              </USMap>
             </div>
           </div>
 

@@ -1,18 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
+import { useState } from 'react';
+import { USMap, USStates, USMarker } from '@/components/maps/us-map';
 import { PROJECT_THEME } from '@/lib/projects/config';
 
 export default function SimpleMapDisplay() {
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
 
   const cities = [
     { name: "Los Angeles, CA", coordinates: [-118.2437, 34.0522] as [number, number] },
@@ -75,32 +68,18 @@ export default function SimpleMapDisplay() {
               </div>
             )}
 
-          {isMounted && (
-            <ComposableMap
-              projection="geoAlbersUsa"
-              className="w-full h-full relative z-10"
-              style={{ width: "100%", height: "100%" }}
-            >
-              <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill="#1e293b"
-                      stroke="#475569"
-                      strokeWidth={0.75}
-                      style={{
-                        default: { outline: "none" },
-                        hover: { outline: "none", fill: "#334155" },
-                        pressed: { outline: "none" },
-                      }}
-                    />
-                  ))
-                }
-              </Geographies>
+          <USMap
+            className="w-full h-full relative z-10"
+            style={{ width: "100%", height: "100%" }}
+          >
+            <USStates
+              fill="#1e293b"
+              stroke="#475569"
+              strokeWidth={0.75}
+              hoverFill="#334155"
+            />
 
-              {cities.map((city, index) => {
+            {cities.map((city, index) => {
                 const isLabeled = labeledCities.includes(city.name);
                 const isHovered = hoveredCity === city.name;
                 const isMajor = isLabeled;
@@ -108,7 +87,7 @@ export default function SimpleMapDisplay() {
                 const animationDelay = `${(index * 0.3) % 8}s`;
 
                 return (
-                  <Marker
+                  <USMarker
                     key={`${city.name}-${index}`}
                     coordinates={city.coordinates}
                   >
@@ -203,11 +182,10 @@ export default function SimpleMapDisplay() {
                         {city.name.split(',')[0]}
                       </text>
                     )}
-                  </Marker>
+                  </USMarker>
                 );
               })}
-            </ComposableMap>
-          )}
+            </USMap>
         </div>
       </div>
 
