@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: 'swap',           // Show fallback font immediately
-  preload: true,             // Preload critical fonts
-  adjustFontFallback: true,  // Match fallback font metrics
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const geistMono = Geist_Mono({
@@ -17,6 +17,13 @@ const geistMono = Geist_Mono({
   display: 'swap',
   preload: true,
   adjustFontFallback: true,
+});
+
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -32,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} antialiased`}
       >
         <ErrorBoundary>
           {children}
