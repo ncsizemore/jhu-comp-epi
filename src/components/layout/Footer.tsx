@@ -25,7 +25,7 @@ export default function Footer() {
               alt="Johns Hopkins University"
               width={200}
               height={50}
-              className="mb-2"
+              className="mb-2 h-auto w-[200px]"
             />
             <p className="text-sm text-white/90">Computational Epidemiology Lab</p>
           </div>

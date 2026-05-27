@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -10,54 +13,73 @@ const NAV = [
 ];
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="bg-hopkins-blue shadow-lg sticky top-0 z-50 border-b border-hopkins-blue/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <Link href="/" className="flex items-center group relative overflow-hidden">
-            <div className="flex-shrink-0 flex items-center">
+    <header className="bg-hopkins-blue border-b border-white/10">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex h-16 items-center justify-between gap-6">
+          <Link href="/" className="flex min-w-0 items-center gap-4">
+            <div className="flex-shrink-0">
               <Image
                 src="/images/JHU.logo_horizontal.white.svg"
                 alt="Johns Hopkins University"
-                width={200}
-                height={50}
-                className="transition-transform duration-300 group-hover:scale-105"
+                width={180}
+                height={45}
+                className="h-auto w-[180px]"
               />
-              <div className="border-l border-white/30 mx-4 h-10 hidden md:block" />
-              <div className="hidden md:block">
-                <div className="text-white font-bold text-lg group-hover:text-hopkins-gold transition-colors duration-300">
-                  Computational Epidemiology Lab
-                </div>
-              </div>
             </div>
-            <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full" />
+            <div className="hidden h-8 border-l border-white/25 md:block" />
+            <div className="hidden truncate text-sm font-semibold text-white md:block">
+              Computational Epidemiology Lab
+            </div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden items-center gap-7 text-sm md:flex">
             {NAV.map(item => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
+                className="text-white/85 transition-colors hover:text-white"
               >
-                <span>{item.label}</span>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full" />
+                {item.label}
               </Link>
             ))}
           </nav>
 
-          <div className="md:hidden flex items-center">
+          <div className="flex items-center md:hidden">
             <button
               type="button"
-              aria-label="Open menu"
-              className="text-white p-2 rounded-md hover:bg-white/10 transition-colors"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen(open => !open)}
+              className="p-2 text-white transition-colors hover:bg-white/10"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 6l12 12M18 6L6 18" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7h16M4 12h16M4 17h16" />
+                )}
               </svg>
             </button>
           </div>
         </div>
+
+        {isOpen && (
+          <nav className="border-t border-white/15 py-3 text-sm md:hidden">
+            {NAV.map(item => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="block py-2 text-white/90 transition-colors hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        )}
       </div>
     </header>
   );

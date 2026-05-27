@@ -36,15 +36,18 @@ interface USMapProps {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
+  ariaLabel?: string;
 }
 
-export function USMap({ children, className, style }: USMapProps) {
+export function USMap({ children, className, style, ariaLabel }: USMapProps) {
   return (
     <svg
       viewBox={`0 0 ${VIEWBOX_WIDTH} ${VIEWBOX_HEIGHT}`}
       preserveAspectRatio="xMidYMid meet"
       className={className}
       style={style}
+      role={ariaLabel ? 'img' : undefined}
+      aria-label={ariaLabel}
     >
       {children}
     </svg>
@@ -56,9 +59,26 @@ interface USStatesProps {
   stroke?: string;
   strokeWidth?: number;
   hoverFill?: string;
+  getFill?: (stateId: string) => string | undefined;
+  onStateEnter?: (stateId: string) => void;
+  onStateLeave?: (stateId: string) => void;
+  highlightedId?: string | null;
+  highlightStroke?: string;
+  highlightStrokeWidth?: number;
 }
 
-export function USStates({ fill, stroke, strokeWidth, hoverFill }: USStatesProps) {
+export function USStates({
+  fill,
+  stroke,
+  strokeWidth,
+  hoverFill,
+  getFill,
+  onStateEnter,
+  onStateLeave,
+  highlightedId,
+  highlightStroke,
+  highlightStrokeWidth,
+}: USStatesProps) {
   // useId() keeps the hover-style scope unique per instance so multiple maps
   // on the same page don't bleed styles into each other.
   const rawId = useId();
@@ -69,17 +89,23 @@ export function USStates({ fill, stroke, strokeWidth, hoverFill }: USStatesProps
       {hoverFill && (
         <style>{`.${cls}{transition:fill 150ms}.${cls}:hover{fill:${hoverFill}}`}</style>
       )}
-      {paths.map(p => (
-        <path
-          key={p.id}
-          d={p.d}
-          fill={fill}
-          stroke={stroke}
-          strokeWidth={strokeWidth}
-          className={cls}
-          style={{ outline: 'none' }}
-        />
-      ))}
+      {paths.map(p => {
+        const isHighlighted = highlightedId === p.id;
+        const resolvedFill = getFill?.(p.id) ?? fill;
+        return (
+          <path
+            key={p.id}
+            d={p.d}
+            fill={resolvedFill}
+            stroke={isHighlighted && highlightStroke ? highlightStroke : stroke}
+            strokeWidth={isHighlighted && highlightStrokeWidth ? highlightStrokeWidth : strokeWidth}
+            className={cls}
+            style={{ outline: 'none', cursor: onStateEnter ? 'pointer' : undefined }}
+            onMouseEnter={onStateEnter ? () => onStateEnter(p.id) : undefined}
+            onMouseLeave={onStateLeave ? () => onStateLeave(p.id) : undefined}
+          />
+        );
+      })}
     </g>
   );
 }
