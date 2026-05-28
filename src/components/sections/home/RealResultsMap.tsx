@@ -358,10 +358,6 @@ export default function RealResultsMap() {
   };
 
   const hoveredRow = ranked.find(r => r.id === hovered);
-  const figureNote =
-    active.geography === 'city'
-      ? 'Marker area scales with projected additional infections.'
-      : `${ranked.length} states modeled · range ${ranked[ranked.length - 1]?.value}–${maxValue}%`;
   const visibleRanked = ranked.length > 12 ? ranked.slice(0, 10) : ranked;
   const hiddenCount = ranked.length - visibleRanked.length;
   const hiddenLocationLabel = active.geography === 'city' ? 'metros' : 'states';
@@ -402,29 +398,29 @@ export default function RealResultsMap() {
         })}
       </div>
 
-      <figure className="m-0 overflow-hidden border border-[#13384a] bg-[#071322] shadow-[0_18px_54px_rgba(2,12,23,0.18)]">
+      <figure className="m-0 overflow-hidden border border-[color:var(--color-rule)] bg-white shadow-[0_12px_38px_rgba(15,23,42,0.08)]">
         <div className="grid lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="p-5 sm:p-6 lg:p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8bdce8]">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
               {active.eyebrow}
             </p>
             <div className="mt-3 grid gap-5 md:grid-cols-[minmax(0,1fr)_13rem]">
               <div>
-                <h3 className="max-w-3xl font-serif text-[1.65rem] leading-tight text-white md:text-3xl">
+                <h3 className="max-w-3xl font-serif text-[1.65rem] leading-tight text-[color:var(--color-ink)] md:text-3xl">
                   {active.headline}
                 </h3>
-                <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#c8d8df]">
+                <p className="mt-3 max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
                   {active.question}
                 </p>
               </div>
-              <div className="border-t border-white/15 bg-white/[0.035] pt-4 md:border-l md:border-t-0 md:pl-5 md:pt-1">
-                <div className="font-serif text-4xl leading-none text-white">
+              <div className="border-t border-[color:var(--color-rule)] bg-[#f6f9fb] p-4 md:border-l md:border-t-0 md:pt-4">
+                <div className="font-serif text-4xl leading-none text-[color:var(--color-ink)]">
                   {active.summary.value}
                 </div>
-                <p className="mt-2 text-sm font-medium leading-snug text-[#eef7fa]">
+                <p className="mt-2 text-sm font-medium leading-snug text-[color:var(--color-ink)]">
                   {active.summary.label}
                 </p>
-                <p className="mt-2 text-xs leading-relaxed text-[#9bb2bc]">
+                <p className="mt-2 text-xs leading-relaxed text-[color:var(--color-muted)]">
                   {active.summary.detail}
                 </p>
               </div>
@@ -577,23 +573,18 @@ export default function RealResultsMap() {
                 )}
               </USMap>
             </div>
-
-            <div className="mt-4 flex flex-col gap-3 text-xs text-[#9bb2bc] sm:flex-row sm:items-center sm:justify-between">
-              <span>{figureNote}</span>
-              <LegendStrip active={active} maxValue={maxValue} />
-            </div>
           </div>
 
-          <aside className="border-t border-white/12 bg-[#0a1826] p-5 lg:border-l lg:border-t-0 lg:p-6">
+          <aside className="border-t border-[color:var(--color-rule)] bg-[#f6f9fb] p-5 lg:border-l lg:border-t-0 lg:p-6">
             <div className="flex items-baseline justify-between gap-4">
-              <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-[#8bdce8]">
+              <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
                 {active.geography === 'city' ? 'Highest totals' : 'Highest increases'}
               </h4>
-              <span className="text-xs text-[#9bb2bc]">
+              <span className="text-xs text-[color:var(--color-muted)]">
                 {active.metric.unit === 'count' ? 'infections' : '% increase'}
               </span>
             </div>
-            <ol className="mt-3 divide-y divide-white/10 border-t border-white/10">
+            <ol className="mt-3 divide-y divide-[#d9e4ea] border-t border-[#d9e4ea]">
               {visibleRanked.map((row, idx) => {
                 const isHovered = hovered === row.id;
                 const barWidth = maxValue > 0 ? `${Math.max(5, (row.value / maxValue) * 100)}%` : '0%';
@@ -607,27 +598,27 @@ export default function RealResultsMap() {
                     onMouseLeave={() => setHovered(null)}
                     className={[
                       'py-2.5 text-sm outline-none transition-colors',
-                      isHovered ? 'bg-white/[0.055]' : '',
+                      isHovered ? 'bg-white' : '',
                     ].join(' ')}
                   >
                     <div className="flex items-baseline gap-3 px-2">
                       <span
-                        className="w-6 text-right text-xs text-[#73cfdc] tabular-nums"
+                        className="w-6 text-right text-xs text-[color:var(--color-muted)] tabular-nums"
                         style={{ fontVariantNumeric: 'tabular-nums' }}
                       >
                         {idx + 1}
                       </span>
-                      <span className="min-w-0 flex-1 truncate text-[#eef7fa]">
+                      <span className="min-w-0 flex-1 truncate text-[color:var(--color-ink)]">
                         {'short' in row ? row.short : row.name}
                       </span>
                       <span
-                        className="font-medium text-white"
+                        className="font-medium text-[color:var(--color-ink)]"
                         style={{ fontVariantNumeric: 'tabular-nums' }}
                       >
                         {formatValue(row.value, active.metric.unit)}
                       </span>
                     </div>
-                    <div className="mt-2 ml-11 mr-2 h-1 bg-white/10">
+                    <div className="mt-2 ml-11 mr-2 h-1 bg-[#d9e4ea]">
                       <div
                         className="h-full"
                         style={{
@@ -644,7 +635,7 @@ export default function RealResultsMap() {
               })}
             </ol>
             {hiddenCount > 0 && (
-              <p className="mt-3 text-xs leading-relaxed text-[#9bb2bc]">
+              <p className="mt-3 text-xs leading-relaxed text-[color:var(--color-muted)]">
                 Showing the top {visibleRanked.length}; {hiddenCount} additional{' '}
                 {hiddenLocationLabel} are included on the map and in the portal.
               </p>
@@ -653,19 +644,23 @@ export default function RealResultsMap() {
         </div>
       </figure>
 
-      <div className="mt-6 pt-4 border-t border-[color:var(--color-rule)] flex flex-col md:flex-row gap-2 md:items-baseline md:justify-between text-sm">
-        <div className="text-[color:var(--color-muted)]">
-          <span className="text-[color:var(--color-ink)]">{active.metric.label}.</span>{' '}
-          {active.metric.description} {active.citation},{' '}
-          <em className="not-italic">{active.journal}</em> ({active.year}).
+      <div className="mt-5 grid gap-3 border-t border-[color:var(--color-rule)] pt-4 text-sm md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+        <div>
+          <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+            Source
+          </span>
+          <span className="mt-1 block leading-relaxed text-[color:var(--color-muted)]">
+            <span className="text-[color:var(--color-ink)]">{active.metric.label}.</span>{' '}
+            {active.citation}, <em className="not-italic">{active.journal}</em> ({active.year}).
+          </span>
         </div>
         <a
           href={active.portalUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="whitespace-nowrap text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+          className="inline-flex w-fit items-center border border-[color:var(--color-rule)] px-3 py-2 text-sm font-medium text-[color:var(--color-link)] transition-colors hover:border-[color:var(--color-link)]"
         >
-          Explore in the JHEEM portal →
+          Open JHEEM portal
         </a>
       </div>
 
@@ -839,62 +834,5 @@ function StateCallout({
         {rank}
       </text>
     </g>
-  );
-}
-
-function LegendStrip({ active, maxValue }: { active: Analysis; maxValue: number }) {
-  if (active.geography === 'state') {
-    return (
-      <div className="data-map-legend flex items-center gap-2.5 text-[#c8d8df]">
-        <span className="tabular-nums">0</span>
-        <svg width="138" height="12" viewBox="0 0 138 12" aria-hidden="true">
-          <defs>
-            <linearGradient id="state-legend-gradient" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="0%" stopColor={choroplethColor(0, maxValue)} />
-              <stop offset="25%" stopColor={choroplethColor(maxValue * 0.25, maxValue)} />
-              <stop offset="50%" stopColor={choroplethColor(maxValue * 0.5, maxValue)} />
-              <stop offset="75%" stopColor={choroplethColor(maxValue * 0.75, maxValue)} />
-              <stop offset="100%" stopColor={choroplethColor(maxValue, maxValue)} />
-            </linearGradient>
-          </defs>
-          <rect x="0.5" y="1" width="137" height="10" rx="5" fill="url(#state-legend-gradient)" stroke="#163a46" />
-        </svg>
-        <span className="tabular-nums">+{maxValue}%</span>
-      </div>
-    );
-  }
-  // Proportional-symbol legend: two reference circles, small and large.
-  const small = Math.round(maxValue / 8);
-  const smallRadius = radiusFor(small, maxValue, CITY_MAX_RADIUS, CITY_MIN_RADIUS);
-  const largeRadius = radiusFor(maxValue, maxValue, CITY_MAX_RADIUS, CITY_MIN_RADIUS);
-  const height = Math.ceil(largeRadius * 2 + 14);
-  const cy = Math.ceil(largeRadius + 7);
-  const width = 118;
-  return (
-    <div className="data-map-legend flex items-center gap-3 text-[#c8d8df]">
-      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} aria-hidden="true">
-        <circle
-          cx={smallRadius + 4}
-          cy={cy}
-          r={smallRadius}
-          fill={ELECTRIC_CYAN}
-          fillOpacity={0.68}
-          stroke="#c4f5fb"
-          strokeWidth={1}
-        />
-        <circle
-          cx={width - largeRadius - 3}
-          cy={cy}
-          r={largeRadius}
-          fill={ELECTRIC_CYAN}
-          fillOpacity={0.86}
-          stroke={HOPKINS_GOLD}
-          strokeWidth={1.4}
-        />
-      </svg>
-      <span className="leading-tight tabular-nums">
-        {small.toLocaleString('en-US')} to {maxValue.toLocaleString('en-US')}
-      </span>
-    </div>
   );
 }
