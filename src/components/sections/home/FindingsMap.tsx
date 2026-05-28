@@ -127,7 +127,7 @@ function choroplethColor(value: number, max: number): string {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-export default function RealResultsMap({ analyses }: FindingsMapProps) {
+export default function FindingsMap({ analyses }: FindingsMapProps) {
   const [activeId, setActiveId] = useState<string>(analyses[0].id);
   const [hovered, setHovered] = useState<string | null>(null);
   const active = analyses.find(a => a.id === activeId) ?? analyses[0];

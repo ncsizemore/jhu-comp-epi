@@ -5,7 +5,7 @@ import type {
   FindingsStateRow,
 } from '@/components/sections/home/findings-map-types';
 
-const REVALIDATE_SECONDS = 60 * 60 * 24;
+export const HOMEPAGE_FINDINGS_REVALIDATE_SECONDS = 60 * 60 * 24;
 
 const JHEEM_DATA = {
   ryanWhiteCities:
@@ -103,11 +103,24 @@ const stateSummariesSchema = z
   .passthrough();
 
 type PortalLocationSummary = z.infer<typeof locationSummarySchema>;
+type CitySummaries = z.infer<typeof citySummariesSchema>;
+type StateSummaries = z.infer<typeof stateSummariesSchema>;
+
+export type HomepageFindingsSummaries = {
+  ryanWhiteCities: CitySummaries;
+  ryanWhiteStates: StateSummaries;
+  cdcTestingStates: StateSummaries;
+};
+
+export type HomepageFindingsData = {
+  analyses: FindingsAnalysis[];
+  unavailableAnalyses: string[];
+};
 
 async function fetchSummary<T>(url: string, schema: z.ZodType<T>): Promise<T> {
   const response = await fetch(url, {
     headers: { Accept: 'application/json' },
-    next: { revalidate: REVALIDATE_SECONDS },
+    next: { revalidate: HOMEPAGE_FINDINGS_REVALIDATE_SECONDS },
   });
 
   if (!response.ok) {
@@ -164,11 +177,11 @@ function totalAbsolute(rows: PortalLocationSummary[]): number {
 }
 
 function maxPercent(rows: FindingsStateRow[]): number {
-  return Math.max(...rows.map(row => row.value));
+  return rows.reduce((max, row) => Math.max(max, row.value), 0);
 }
 
 function buildRyanWhiteCityAnalysis(
-  citySummaries: z.infer<typeof citySummariesSchema>,
+  citySummaries: CitySummaries,
 ): FindingsAnalysis {
   const rawRows = Object.values(citySummaries.cities);
   const cityData = toCityRows(citySummaries.cities);
@@ -204,7 +217,7 @@ function buildRyanWhiteCityAnalysis(
 }
 
 function buildRyanWhiteStateAnalysis(
-  stateSummaries: z.infer<typeof stateSummariesSchema>,
+  stateSummaries: StateSummaries,
 ): FindingsAnalysis {
   const rawRows = Object.values(stateSummaries.states);
   const stateData = toStateRows(stateSummaries.states);
@@ -240,7 +253,7 @@ function buildRyanWhiteStateAnalysis(
 }
 
 function buildCdcTestingAnalysis(
-  stateSummaries: z.infer<typeof stateSummariesSchema>,
+  stateSummaries: StateSummaries,
 ): FindingsAnalysis {
   const rawRows = Object.values(stateSummaries.states);
   const stateData = toStateRows(stateSummaries.states);
@@ -275,16 +288,60 @@ function buildCdcTestingAnalysis(
   };
 }
 
-export async function getHomepageFindingsData(): Promise<FindingsAnalysis[]> {
-  const [ryanWhiteCities, ryanWhiteStates, cdcTestingStates] = await Promise.all([
-    fetchSummary(JHEEM_DATA.ryanWhiteCities, citySummariesSchema),
-    fetchSummary(JHEEM_DATA.ryanWhiteStates, stateSummariesSchema),
-    fetchSummary(JHEEM_DATA.cdcTestingStates, stateSummariesSchema),
-  ]);
-
+export function buildHomepageFindingsAnalyses({
+  ryanWhiteCities,
+  ryanWhiteStates,
+  cdcTestingStates,
+}: HomepageFindingsSummaries): FindingsAnalysis[] {
   return [
     buildRyanWhiteCityAnalysis(ryanWhiteCities),
     buildRyanWhiteStateAnalysis(ryanWhiteStates),
     buildCdcTestingAnalysis(cdcTestingStates),
   ];
+}
+
+const FINDINGS_LOADERS = [
+  {
+    label: 'Ryan White cities',
+    load: async () =>
+      buildRyanWhiteCityAnalysis(
+        await fetchSummary(JHEEM_DATA.ryanWhiteCities, citySummariesSchema),
+      ),
+  },
+  {
+    label: 'Ryan White states',
+    load: async () =>
+      buildRyanWhiteStateAnalysis(
+        await fetchSummary(JHEEM_DATA.ryanWhiteStates, stateSummariesSchema),
+      ),
+  },
+  {
+    label: 'CDC testing',
+    load: async () =>
+      buildCdcTestingAnalysis(
+        await fetchSummary(JHEEM_DATA.cdcTestingStates, stateSummariesSchema),
+      ),
+  },
+] as const;
+
+export async function getHomepageFindingsData(): Promise<HomepageFindingsData> {
+  const settled = await Promise.allSettled(
+    FINDINGS_LOADERS.map(loader => loader.load()),
+  );
+
+  const analyses: FindingsAnalysis[] = [];
+  const unavailableAnalyses: string[] = [];
+
+  settled.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+      analyses.push(result.value);
+      return;
+    }
+
+    const label = FINDINGS_LOADERS[index].label;
+    unavailableAnalyses.push(label);
+    console.error(`Failed to load ${label} summary data:`, result.reason);
+  });
+
+  return { analyses, unavailableAnalyses };
 }

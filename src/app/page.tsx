@@ -3,14 +3,14 @@ import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
-import { getHomepageFindingsData } from '@/lib/jheem-findings-data';
-import type {
-  FindingsAnalysis,
-  FindingsMapProps,
-} from '@/components/sections/home/findings-map-types';
+import {
+  getHomepageFindingsData,
+  type HomepageFindingsData,
+} from '@/lib/jheem-findings-data';
+import type { FindingsMapProps } from '@/components/sections/home/findings-map-types';
 
-const RealResultsMap = dynamic<FindingsMapProps>(
-  () => import('@/components/sections/home/RealResultsMap'),
+const FindingsMap = dynamic<FindingsMapProps>(
+  () => import('@/components/sections/home/FindingsMap'),
   {
     loading: () => (
       <div className="h-[620px] flex items-center justify-center text-sm text-[color:var(--color-muted)]">
@@ -93,7 +93,12 @@ function ResearchScope() {
   );
 }
 
-function Findings({ analyses }: { analyses: FindingsAnalysis[] | null }) {
+function Findings({ data }: { data: HomepageFindingsData | null }) {
+  const analyses = data?.analyses ?? [];
+  const hasAnalyses = analyses.length > 0;
+  const unavailableCount = data?.unavailableAnalyses.length ?? 0;
+  const unavailableLabel = data?.unavailableAnalyses.join(', ') ?? '';
+
   return (
     <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
       <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
@@ -121,7 +126,14 @@ function Findings({ analyses }: { analyses: FindingsAnalysis[] | null }) {
             </span>
           </div>
         </div>
-        {analyses ? (
+        {unavailableCount > 0 && hasAnalyses && (
+          <p className="mb-4 max-w-3xl text-xs leading-relaxed text-[color:var(--color-muted)]">
+            {unavailableLabel} {unavailableCount === 1 ? 'is' : 'are'} temporarily
+            unavailable, so this view is showing only the loaded result
+            {analyses.length === 1 ? '' : 's'}.
+          </p>
+        )}
+        {hasAnalyses ? (
           <ErrorBoundary
             fallback={
               <SectionErrorFallback
@@ -130,7 +142,7 @@ function Findings({ analyses }: { analyses: FindingsAnalysis[] | null }) {
               />
             }
           >
-            <RealResultsMap analyses={analyses} />
+            <FindingsMap analyses={analyses} />
           </ErrorBoundary>
         ) : (
           <SectionErrorFallback
@@ -186,10 +198,10 @@ function InTheNews() {
 }
 
 export default async function HomePage() {
-  let findingsAnalyses: FindingsAnalysis[] | null = null;
+  let findingsData: HomepageFindingsData | null = null;
 
   try {
-    findingsAnalyses = await getHomepageFindingsData();
+    findingsData = await getHomepageFindingsData();
   } catch (error) {
     console.error('Failed to load homepage findings data:', error);
   }
@@ -198,7 +210,7 @@ export default async function HomePage() {
     <MainLayout>
       <Masthead />
       <ResearchScope />
-      <Findings analyses={findingsAnalyses} />
+      <Findings data={findingsData} />
       <InTheNews />
     </MainLayout>
   );
