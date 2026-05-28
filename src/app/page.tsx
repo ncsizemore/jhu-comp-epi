@@ -3,8 +3,13 @@ import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
+import { getHomepageFindingsData } from '@/lib/jheem-findings-data';
+import type {
+  FindingsAnalysis,
+  FindingsMapProps,
+} from '@/components/sections/home/findings-map-types';
 
-const RealResultsMap = dynamic(
+const RealResultsMap = dynamic<FindingsMapProps>(
   () => import('@/components/sections/home/RealResultsMap'),
   {
     loading: () => (
@@ -88,7 +93,7 @@ function ResearchScope() {
   );
 }
 
-function Findings() {
+function Findings({ analyses }: { analyses: FindingsAnalysis[] | null }) {
   return (
     <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
       <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
@@ -116,16 +121,23 @@ function Findings() {
             </span>
           </div>
         </div>
-        <ErrorBoundary
-          fallback={
-            <SectionErrorFallback
-              title="Map temporarily unavailable"
-              message="The interactive figure could not be loaded."
-            />
-          }
-        >
-          <RealResultsMap />
-        </ErrorBoundary>
+        {analyses ? (
+          <ErrorBoundary
+            fallback={
+              <SectionErrorFallback
+                title="Map temporarily unavailable"
+                message="The interactive figure could not be loaded."
+              />
+            }
+          >
+            <RealResultsMap analyses={analyses} />
+          </ErrorBoundary>
+        ) : (
+          <SectionErrorFallback
+            title="Map temporarily unavailable"
+            message="The latest JHEEM summary data could not be loaded."
+          />
+        )}
       </div>
     </section>
   );
@@ -173,12 +185,20 @@ function InTheNews() {
   );
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  let findingsAnalyses: FindingsAnalysis[] | null = null;
+
+  try {
+    findingsAnalyses = await getHomepageFindingsData();
+  } catch (error) {
+    console.error('Failed to load homepage findings data:', error);
+  }
+
   return (
     <MainLayout>
       <Masthead />
       <ResearchScope />
-      <Findings />
+      <Findings analyses={findingsAnalyses} />
       <InTheNews />
     </MainLayout>
   );

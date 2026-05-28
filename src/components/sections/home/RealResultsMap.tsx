@@ -2,209 +2,14 @@
 
 import { useMemo, useState } from 'react';
 import { USMap, USStates, USMarker } from '@/components/maps/us-map';
-
-type Geography = 'city' | 'state';
-
-type CityRow = {
-  id: string;
-  name: string;
-  short: string;
-  coords: [number, number];
-  value: number;
-  pct: number;
-};
-
-type StateRow = {
-  id: string;
-  fips: string;
-  name: string;
-  abbr: string;
-  value: number;
-};
-
-type Analysis = {
-  id: string;
-  shortTitle: string;
-  eyebrow: string;
-  headline: string;
-  question: string;
-  geography: Geography;
-  metric: {
-    label: string;
-    unit: 'count' | 'percent';
-    description: string;
-  };
-  cityData?: CityRow[];
-  stateData?: StateRow[];
-  summary: {
-    value: string;
-    label: string;
-    detail: string;
-  };
-  citation: string;
-  journal: string;
-  year: number;
-  href: string;
-  portalUrl: string;
-};
-
-// Placeholder data — magnitudes and ranks chosen to be plausible against
-// published headline findings; replace with CloudFront city-summaries.json
-// once visual direction is locked.
-const RW_MSA: CityRow[] = [
-  { id: 'nyc', name: 'New York, NY', short: 'New York', coords: [-74.0059, 40.7128], value: 8420, pct: 41 },
-  { id: 'mia', name: 'Miami, FL', short: 'Miami', coords: [-80.1918, 25.7617], value: 6890, pct: 58 },
-  { id: 'lax', name: 'Los Angeles, CA', short: 'Los Angeles', coords: [-118.2437, 34.0522], value: 6210, pct: 47 },
-  { id: 'atl', name: 'Atlanta, GA', short: 'Atlanta', coords: [-84.3880, 33.7490], value: 5340, pct: 71 },
-  { id: 'hou', name: 'Houston, TX', short: 'Houston', coords: [-95.3698, 29.7604], value: 4980, pct: 63 },
-  { id: 'dal', name: 'Dallas, TX', short: 'Dallas', coords: [-96.7970, 32.7767], value: 4120, pct: 55 },
-  { id: 'wdc', name: 'Washington, DC', short: 'Washington', coords: [-77.0369, 38.9072], value: 3780, pct: 49 },
-  { id: 'phi', name: 'Philadelphia, PA', short: 'Philadelphia', coords: [-75.1652, 39.9526], value: 3210, pct: 52 },
-  { id: 'chi', name: 'Chicago, IL', short: 'Chicago', coords: [-87.6298, 41.8781], value: 2980, pct: 44 },
-  { id: 'mem', name: 'Memphis, TN', short: 'Memphis', coords: [-90.0490, 35.1495], value: 2640, pct: 89 },
-  { id: 'orl', name: 'Orlando, FL', short: 'Orlando', coords: [-81.3792, 28.5383], value: 2510, pct: 67 },
-  { id: 'sat', name: 'San Antonio, TX', short: 'San Antonio', coords: [-98.4936, 29.4241], value: 2380, pct: 61 },
-  { id: 'nor', name: 'New Orleans, LA', short: 'New Orleans', coords: [-90.0715, 29.9511], value: 2210, pct: 78 },
-  { id: 'cha', name: 'Charlotte, NC', short: 'Charlotte', coords: [-80.8431, 35.2271], value: 2040, pct: 73 },
-  { id: 'bal', name: 'Baltimore, MD', short: 'Baltimore', coords: [-76.6122, 39.2904], value: 1980, pct: 38 },
-  { id: 'jax', name: 'Jacksonville, FL', short: 'Jacksonville', coords: [-81.6557, 30.3322], value: 1820, pct: 64 },
-  { id: 'sdg', name: 'San Diego, CA', short: 'San Diego', coords: [-117.1611, 32.7157], value: 1690, pct: 33 },
-  { id: 'sfo', name: 'San Francisco, CA', short: 'San Francisco', coords: [-122.4194, 37.7749], value: 1610, pct: 28 },
-  { id: 'phx', name: 'Phoenix, AZ', short: 'Phoenix', coords: [-112.0740, 33.4484], value: 1490, pct: 51 },
-  { id: 'bos', name: 'Boston, MA', short: 'Boston', coords: [-71.0589, 42.3601], value: 1320, pct: 31 },
-  { id: 'sea', name: 'Seattle, WA', short: 'Seattle', coords: [-122.3321, 47.6062], value: 1180, pct: 25 },
-  { id: 'aus', name: 'Austin, TX', short: 'Austin', coords: [-97.7431, 30.2672], value: 1090, pct: 42 },
-  { id: 'lvs', name: 'Las Vegas, NV', short: 'Las Vegas', coords: [-115.1398, 36.1699], value: 980, pct: 46 },
-  { id: 'ind', name: 'Indianapolis, IN', short: 'Indianapolis', coords: [-86.1581, 39.7684], value: 910, pct: 110 },
-  { id: 'kan', name: 'Kansas City, MO', short: 'Kansas City', coords: [-94.5786, 39.0997], value: 840, pct: 95 },
-  { id: 'stl', name: 'St. Louis, MO', short: 'St. Louis', coords: [-90.1994, 38.6270], value: 760, pct: 102 },
-  { id: 'mil', name: 'Milwaukee, WI', short: 'Milwaukee', coords: [-87.9065, 43.0389], value: 680, pct: 81 },
-  { id: 'okc', name: 'Oklahoma City, OK', short: 'Oklahoma City', coords: [-97.5164, 35.4676], value: 590, pct: 69 },
-  { id: 'den', name: 'Denver, CO', short: 'Denver', coords: [-104.9903, 39.7392], value: 540, pct: 35 },
-  { id: 'por', name: 'Portland, OR', short: 'Portland', coords: [-122.6765, 45.5152], value: 480, pct: 22 },
-  { id: 'slc', name: 'Salt Lake City, UT', short: 'Salt Lake City', coords: [-111.8910, 40.7608], value: 410, pct: 18 },
-  { id: 'riv', name: 'Riverside, CA', short: 'Riverside', coords: [-117.3961, 33.9533], value: 360, pct: 9 },
-];
-
-const RW_STATE: StateRow[] = [
-  { id: 'al', fips: '01', name: 'Alabama', abbr: 'AL', value: 111 },
-  { id: 'ca', fips: '06', name: 'California', abbr: 'CA', value: 52 },
-  { id: 'fl', fips: '12', name: 'Florida', abbr: 'FL', value: 68 },
-  { id: 'ga', fips: '13', name: 'Georgia', abbr: 'GA', value: 74 },
-  { id: 'il', fips: '17', name: 'Illinois', abbr: 'IL', value: 49 },
-  { id: 'la', fips: '22', name: 'Louisiana', abbr: 'LA', value: 88 },
-  { id: 'ms', fips: '28', name: 'Mississippi', abbr: 'MS', value: 119 },
-  { id: 'mo', fips: '29', name: 'Missouri', abbr: 'MO', value: 126 },
-  { id: 'ny', fips: '36', name: 'New York', abbr: 'NY', value: 45 },
-  { id: 'tx', fips: '48', name: 'Texas', abbr: 'TX', value: 71 },
-  { id: 'wi', fips: '55', name: 'Wisconsin', abbr: 'WI', value: 83 },
-];
-
-const CDC_TESTING: StateRow[] = [
-  { id: 'ca', fips: '06', name: 'California', abbr: 'CA', value: 8 },
-  { id: 'fl', fips: '12', name: 'Florida', abbr: 'FL', value: 12 },
-  { id: 'ga', fips: '13', name: 'Georgia', abbr: 'GA', value: 14 },
-  { id: 'il', fips: '17', name: 'Illinois', abbr: 'IL', value: 9 },
-  { id: 'la', fips: '22', name: 'Louisiana', abbr: 'LA', value: 18 },
-  { id: 'md', fips: '24', name: 'Maryland', abbr: 'MD', value: 7 },
-  { id: 'mi', fips: '26', name: 'Michigan', abbr: 'MI', value: 6 },
-  { id: 'mo', fips: '29', name: 'Missouri', abbr: 'MO', value: 24 },
-  { id: 'ms', fips: '28', name: 'Mississippi', abbr: 'MS', value: 30 },
-  { id: 'nc', fips: '37', name: 'North Carolina', abbr: 'NC', value: 11 },
-  { id: 'nj', fips: '34', name: 'New Jersey', abbr: 'NJ', value: 5 },
-  { id: 'ny', fips: '36', name: 'New York', abbr: 'NY', value: 4 },
-  { id: 'oh', fips: '39', name: 'Ohio', abbr: 'OH', value: 13 },
-  { id: 'pa', fips: '42', name: 'Pennsylvania', abbr: 'PA', value: 10 },
-  { id: 'sc', fips: '45', name: 'South Carolina', abbr: 'SC', value: 22 },
-  { id: 'tn', fips: '47', name: 'Tennessee', abbr: 'TN', value: 19 },
-  { id: 'tx', fips: '48', name: 'Texas', abbr: 'TX', value: 15 },
-  { id: 'va', fips: '51', name: 'Virginia', abbr: 'VA', value: 8 },
-];
-
-const ANALYSES: Analysis[] = [
-  {
-    id: 'rw-cities',
-    shortTitle: 'Ryan White — cities',
-    eyebrow: 'High-burden metropolitan areas',
-    headline: 'Ending Ryan White funding would concentrate excess infections in major metros.',
-    question:
-      'If federal Ryan White HIV/AIDS Program funding were to end, how many additional HIV infections would follow in the country’s highest-burden metropolitan areas?',
-    geography: 'city',
-    metric: {
-      label: 'Additional HIV infections by 2030',
-      unit: 'count',
-      description:
-        'Projected new infections under permanent program cessation, relative to continued funding. Marker area scales with magnitude.',
-    },
-    cityData: RW_MSA,
-    summary: {
-      value: '75,436',
-      label: 'additional infections',
-      detail: 'Projected across high-burden metros from 2025 to 2030.',
-    },
-    citation: 'Forster et al.',
-    journal: 'Annals of Internal Medicine',
-    year: 2025,
-    href: '/publications',
-    portalUrl: 'https://jheem.org/ryan-white',
-  },
-  {
-    id: 'rw-states',
-    shortTitle: 'Ryan White — states',
-    eyebrow: 'State-level burden',
-    headline: 'The same funding shock would fall unevenly across high-burden states.',
-    question:
-      'Aggregated to the state level, how unevenly would the impact of Ryan White cessation fall across the 11 states with the highest HIV burden?',
-    geography: 'state',
-    metric: {
-      label: 'Percent increase in HIV incidence by 2030',
-      unit: 'percent',
-      description:
-        'Projected percent increase in new infections under cessation, relative to continued funding. Color intensity scales with magnitude.',
-    },
-    stateData: RW_STATE,
-    summary: {
-      value: '+126%',
-      label: 'largest modeled increase',
-      detail: 'State-level percent increase under the cessation scenario.',
-    },
-    citation: 'Zalesak et al.',
-    journal: 'American Journal of Public Health',
-    year: 2026,
-    href: '/publications',
-    portalUrl: 'https://jheem.org/ryan-white-state-level/explorer/ajph',
-  },
-  {
-    id: 'cdc-testing',
-    shortTitle: 'CDC testing',
-    eyebrow: '18 states',
-    headline: 'Testing cuts would create the largest proportional increases in rural-burden states.',
-    question:
-      'How would ending CDC-funded HIV testing programs reshape the HIV epidemic across the 18 states that receive the bulk of these funds?',
-    geography: 'state',
-    metric: {
-      label: 'Percent increase in HIV incidence by 2030',
-      unit: 'percent',
-      description:
-        'Projected percent increase under testing program cessation, relative to continued funding. Color intensity scales with magnitude.',
-    },
-    stateData: CDC_TESTING,
-    summary: {
-      value: '+30%',
-      label: 'largest modeled increase',
-      detail: 'Projected state-level incidence increase by 2030.',
-    },
-    citation: 'Balasubramanian et al.',
-    journal: 'Clinical Infectious Diseases',
-    year: 2026,
-    href: '/publications',
-    portalUrl: 'https://jheem.org/cdc-testing',
-  },
-];
+import type {
+  FindingsCityRow,
+  FindingsMapProps,
+  FindingsStateRow,
+} from './findings-map-types';
 
 const HOPKINS_BLUE = '#002D72';
 const HOPKINS_BLUE_700 = '#123f7d';
-const HOPKINS_BLUE_300 = '#68ACE5';
 const HOPKINS_GOLD = '#F2C413';
 const HOPKINS_INK = '#0f172a';
 const ELECTRIC_CYAN = '#5de2e7';
@@ -229,11 +34,11 @@ type CalloutOffset = {
 };
 
 const CITY_CALLOUT_OFFSETS: Record<string, CalloutOffset> = {
-  nyc: { dx: -28, dy: -44, anchor: 'end', width: 124 },
-  mia: { dx: 12, dy: 30, anchor: 'start', width: 102 },
-  lax: { dx: 34, dy: -44, anchor: 'start', width: 124 },
-  atl: { dx: 42, dy: -14, anchor: 'start', width: 110 },
-  hou: { dx: -38, dy: 38, anchor: 'end', width: 110 },
+  'C.12060': { dx: 42, dy: -14, anchor: 'start', width: 110 }, // Atlanta
+  'C.19100': { dx: -38, dy: -34, anchor: 'end', width: 112 }, // Dallas
+  'C.26420': { dx: -38, dy: 38, anchor: 'end', width: 110 }, // Houston
+  'C.33100': { dx: 12, dy: 30, anchor: 'start', width: 102 }, // Miami
+  'C.35620': { dx: -28, dy: -44, anchor: 'end', width: 124 }, // New York
 };
 
 const STATE_LABEL_COORDS: Record<string, [number, number]> = {
@@ -261,6 +66,8 @@ const STATE_LABEL_COORDS: Record<string, [number, number]> = {
 
 const STATE_CALLOUT_OFFSETS: Record<string, CalloutOffset> = {
   al: { dx: 28, dy: -38, anchor: 'start', width: 72 },
+  fl: { dx: 34, dy: 34, anchor: 'start', width: 72 },
+  il: { dx: 34, dy: -34, anchor: 'start', width: 72 },
   la: { dx: -30, dy: 38, anchor: 'end', width: 72 },
   mo: { dx: -38, dy: -34, anchor: 'end', width: 72 },
   ms: { dx: 36, dy: 30, anchor: 'start', width: 72 },
@@ -320,10 +127,10 @@ function choroplethColor(value: number, max: number): string {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
-export default function RealResultsMap() {
-  const [activeId, setActiveId] = useState<string>(ANALYSES[0].id);
+export default function RealResultsMap({ analyses }: FindingsMapProps) {
+  const [activeId, setActiveId] = useState<string>(analyses[0].id);
   const [hovered, setHovered] = useState<string | null>(null);
-  const active = ANALYSES.find(a => a.id === activeId)!;
+  const active = analyses.find(a => a.id === activeId) ?? analyses[0];
 
   const ranked = useMemo(() => {
     if (active.geography === 'city') {
@@ -344,8 +151,8 @@ export default function RealResultsMap() {
     .slice(0, STATE_CALLOUT_LIMIT);
 
   const cityFipsToRow = useMemo(() => {
-    if (active.geography !== 'state') return new Map<string, StateRow>();
-    const m = new Map<string, StateRow>();
+    if (active.geography !== 'state') return new Map<string, FindingsStateRow>();
+    const m = new Map<string, FindingsStateRow>();
     (active.stateData ?? []).forEach(s => m.set(s.fips, s));
     return m;
   }, [active]);
@@ -371,7 +178,7 @@ export default function RealResultsMap() {
   return (
     <div className="not-prose">
       <div className="mb-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-[color:var(--color-rule)] text-sm">
-        {ANALYSES.map(a => {
+        {analyses.map(a => {
           const isActive = a.id === activeId;
           return (
             <button
@@ -733,7 +540,7 @@ function CityCallout({
   emphasized,
   hoverOnly,
 }: {
-  city: CityRow;
+  city: FindingsCityRow;
   rank?: number;
   offset?: CalloutOffset;
   emphasized?: boolean;
@@ -793,7 +600,7 @@ function StateCallout({
   offset,
   emphasized,
 }: {
-  row: StateRow;
+  row: FindingsStateRow;
   rank: number;
   offset?: CalloutOffset;
   emphasized?: boolean;
