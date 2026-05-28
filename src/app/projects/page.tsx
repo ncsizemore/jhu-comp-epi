@@ -1,113 +1,135 @@
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
-import PageIntro from '@/components/ui/PageIntro';
 import { getAllProjects, type Project, type ProjectStats } from '@/data/projects';
 
 export const metadata = {
   title: 'Projects | JHU Computational Epidemiology',
   description:
-    'Computational modeling platforms for HIV, STI, and population health policy questions.',
+    'Decision-support modeling projects for HIV, STI, and population health policy questions.',
 };
 
 const STAT_LABELS: Record<keyof ProjectStats, string> = {
-  cities: 'Cities',
-  states: 'States',
-  publications: 'Publications',
-  scenarios: 'Scenarios',
-  countries: 'Countries',
+  cities: 'cities',
+  states: 'states',
+  publications: 'publications',
+  scenarios: 'scenarios',
+  countries: 'countries',
 };
 
-const WORKFLOW_STEPS = [
+const APPROACH_STEPS = [
   {
-    label: 'Local epidemic',
-    text: 'Start with surveillance, program, and population data for specific places.',
+    label: 'Ground the question locally',
+    text: 'Start with surveillance, care, demographic, and program data from the places where decisions are made.',
   },
   {
-    label: 'Mechanistic model',
-    text: 'Represent transmission, diagnosis, prevention, treatment, and behavioral strata.',
+    label: 'Represent transmission and care',
+    text: 'Use mechanistic models to connect population structure, intervention pathways, and epidemic dynamics.',
   },
   {
-    label: 'Policy scenario',
-    text: 'Stress-test funding changes, service expansions, new tools, and implementation gaps.',
+    label: 'Compare realistic choices',
+    text: 'Test prevention, treatment, testing, funding, and implementation scenarios against a common baseline.',
   },
   {
-    label: 'Decision evidence',
-    text: 'Report outcomes in terms policymakers can compare: infections, incidence, cost, and equity.',
+    label: 'Return decision-ready evidence',
+    text: 'Summarize projected infections, incidence, costs, reach, and tradeoffs in forms teams can discuss.',
   },
 ];
 
 const PROJECT_DETAILS: Record<
   string,
   {
-    question: string;
+    role: string;
+    decision: string;
+    audience: string;
     geography: string;
-    outputs: string[];
-    evidence: string;
+    products: string;
+    compare: string[];
   }
 > = {
   jheem: {
-    question:
-      'How would HIV incidence change if prevention, testing, treatment, or federal program funding shifted across U.S. cities and states?',
-    geography: 'U.S. cities, states, and priority jurisdictions',
-    outputs: ['Projected infections', 'Incidence change', 'Program impact', 'Scenario comparisons'],
-    evidence: 'Published analyses, public portal summaries, and policy-facing scenario tools.',
+    role: 'HIV intervention and funding policy',
+    decision:
+      'How could HIV outcomes change if prevention, testing, treatment, or federal program funding shifted across U.S. jurisdictions?',
+    audience: 'Health departments, policy teams, and implementation researchers',
+    geography: 'U.S. cities, states, and Ending the HIV Epidemic priority jurisdictions',
+    products: 'Published analyses, public summaries, and a scenario portal for policy discussion',
+    compare: ['Projected infections', 'Incidence change', 'Program impact', 'Scenario comparisons'],
   },
   shield: {
-    question:
-      'How should jurisdictions respond to overlapping HIV and syphilis epidemics as new testing and prevention strategies become available?',
+    role: 'HIV/STI co-epidemic strategy',
+    decision:
+      'Which strategies could help jurisdictions respond to overlapping HIV and syphilis epidemics as new prevention and testing options become available?',
+    audience: 'Researchers, urban health departments, clinical teams, and community partners',
     geography: 'High-burden U.S. urban jurisdictions',
-    outputs: ['Co-epidemic trajectories', 'Intervention impact', 'Cost-effectiveness', 'Implementation tradeoffs'],
-    evidence: 'Model development and intervention evaluation for HIV/STI co-epidemic planning.',
+    products: 'Model development and intervention evaluation for co-epidemic planning',
+    compare: ['Epidemic trajectories', 'Intervention impact', 'Cost-effectiveness', 'Implementation tradeoffs'],
   },
 };
 
-function ProjectScope({ stats }: { stats: ProjectStats }) {
+function formatScope(stats: ProjectStats) {
+  return Object.entries(stats)
+    .filter(([, value]) => value && value !== '0')
+    .map(([key, value]) => `${value} ${STAT_LABELS[key as keyof ProjectStats] ?? key}`)
+    .join(' / ');
+}
+
+function ProjectsIntro() {
   return (
-    <dl className="grid grid-cols-3 gap-x-5 gap-y-4 border-t border-[color:var(--color-rule)] pt-5">
-      {Object.entries(stats).map(([key, value]) => (
-        <div key={key}>
-          <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-            {STAT_LABELS[key as keyof ProjectStats] ?? key}
-          </dt>
-          <dd className="mt-1 font-serif text-3xl leading-none text-[color:var(--color-ink)]">
-            {value}
-          </dd>
+    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              Decision support
+            </p>
+            <h1 className="mt-3 font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
+              Projects
+            </h1>
+          </div>
+          <div>
+            <p className="max-w-4xl text-xl leading-relaxed text-[color:var(--color-ink)]">
+              We build modeling projects that help researchers, clinicians,
+              public-health teams, and policymakers compare possible futures
+              before decisions are made.
+            </p>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
+              Each project is organized around a concrete decision problem: what
+              evidence is available, what choices are being compared, who will use
+              the results, and where the findings apply.
+            </p>
+          </div>
         </div>
-      ))}
-    </dl>
+      </div>
+    </section>
   );
 }
 
-function ModelingWorkflow() {
+function SharedApproach() {
   return (
     <section className="border-b border-[color:var(--color-rule)]">
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              How the platforms work
+              Shared approach
             </p>
-            <h2 className="mt-3 font-serif text-2xl text-[color:var(--color-ink)]">
-              From local data to policy evidence
+            <h2 className="mt-3 font-serif text-2xl leading-tight text-[color:var(--color-ink)]">
+              From local evidence to practical comparisons.
             </h2>
           </div>
-          <div className="grid border-t border-l border-[color:var(--color-rule)] sm:grid-cols-2 lg:grid-cols-4">
-            {WORKFLOW_STEPS.map((step, index) => (
-              <div
-                key={step.label}
-                className="min-h-48 border-r border-b border-[color:var(--color-rule)] p-5"
-              >
-                <p className="font-mono text-xs text-[color:var(--color-muted)]">
-                  {String(index + 1).padStart(2, '0')}
-                </p>
-                <h3 className="mt-5 font-serif text-xl leading-tight text-[color:var(--color-ink)]">
-                  {step.label}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                  {step.text}
-                </p>
-              </div>
-            ))}
+          <div className="border-t border-[color:var(--color-rule)]">
+            <div className="grid gap-px bg-[color:var(--color-rule)] md:grid-cols-2 xl:grid-cols-4">
+              {APPROACH_STEPS.map(step => (
+                <article key={step.label} className="bg-white px-5 py-6">
+                  <h3 className="font-serif text-xl leading-tight text-[color:var(--color-ink)]">
+                    {step.label}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                    {step.text}
+                  </p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -119,76 +141,82 @@ function ProjectDossier({ project }: { project: Project }) {
   const details = PROJECT_DETAILS[project.id];
 
   return (
-    <article className="border-t border-[color:var(--color-rule)] py-10 first:border-t-0 first:pt-0">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+    <article className="border-t border-[color:var(--color-rule)] py-10 first:border-t-0 first:pt-0 md:py-12">
+      <div className="grid gap-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
         <div>
-          <div className="flex items-baseline gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              {project.shortName}
-            </p>
-            <span className="h-px flex-1 bg-[color:var(--color-rule)]" />
-          </div>
-          <h2 className="mt-4 max-w-xl font-serif text-4xl leading-[1.02] text-[color:var(--color-ink)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+            {project.shortName}
+          </p>
+          <h3 className="mt-4 max-w-xl font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
             <Link href={`/projects/${project.id}`} className="hover:text-[color:var(--color-link)]">
-              {project.title}
+              {project.shortName}
             </Link>
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[color:var(--color-ink)]">
+          </h3>
+          <p className="mt-2 max-w-xl font-serif text-xl leading-snug text-[color:var(--color-ink)]">
+            {project.title}
+          </p>
+          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--color-muted)]">
+            {details.role}
+          </p>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--color-ink)]">
             {project.description}
           </p>
-          <div className="mt-7">
-            <ProjectScope stats={project.stats} />
-          </div>
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[color:var(--color-muted)]">
+            {details.products}.
+          </p>
+          <p className="mt-6 text-sm text-[color:var(--color-muted)]">
+            <span className="font-semibold text-[color:var(--color-ink)]">Scope:</span>{' '}
+            {formatScope(project.stats)}
+          </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2">
-          <div className="border-t border-[color:var(--color-rule)] pt-5 md:col-span-2">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Policy question
-            </h3>
-            <p className="mt-3 text-base leading-relaxed text-[color:var(--color-ink)]">
-              {details.question}
-            </p>
+        <div className="border-t border-[color:var(--color-rule)] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+            Decision it informs
+          </p>
+          <p className="mt-3 font-serif text-2xl leading-snug text-[color:var(--color-ink)]">
+            {details.decision}
+          </p>
+
+          <div className="mt-7 grid gap-6 border-t border-[color:var(--color-rule)] pt-6 sm:grid-cols-2">
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Who it serves
+              </h4>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                {details.audience}
+              </p>
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Where it applies
+              </h4>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                {details.geography}
+              </p>
+            </div>
           </div>
 
-          <div className="border-t border-[color:var(--color-rule)] pt-5">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Geography
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              {details.geography}
-            </p>
-          </div>
-
-          <div className="border-t border-[color:var(--color-rule)] pt-5">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Evidence product
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              {details.evidence}
-            </p>
-          </div>
-
-          <div className="border-t border-[color:var(--color-rule)] pt-5 md:col-span-2">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Model outputs
-            </h3>
-            <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-[color:var(--color-ink)] sm:grid-cols-2">
-              {details.outputs.map(output => (
-                <li key={output} className="flex gap-3">
+          <div className="mt-7 border-t border-[color:var(--color-rule)] pt-6">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+              What teams can compare
+            </h4>
+            <ul className="mt-4 grid gap-x-6 gap-y-3 text-sm leading-relaxed text-[color:var(--color-ink)] sm:grid-cols-2">
+              {details.compare.map(item => (
+                <li key={item} className="flex gap-3">
                   <span className="mt-[0.55rem] h-px w-5 flex-none bg-[color:var(--color-accent)]" />
-                  <span>{output}</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="flex flex-wrap gap-x-5 gap-y-3 border-t border-[color:var(--color-rule)] pt-5 text-sm md:col-span-2">
+          <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 border-t border-[color:var(--color-rule)] pt-6 text-sm">
             <Link
               href={`/projects/${project.id}`}
               className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
             >
-              Read project overview →
+              Read project overview
             </Link>
             <a
               href={project.externalUrl}
@@ -196,7 +224,7 @@ function ProjectDossier({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
             >
-              {project.externalLabel} →
+              {project.externalLabel}
             </a>
           </div>
         </div>
@@ -205,60 +233,56 @@ function ProjectDossier({ project }: { project: Project }) {
   );
 }
 
-function PlatformComparison({ projects }: { projects: Project[] }) {
+function ProjectList({ projects }: { projects: Project[] }) {
   return (
     <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+        <div className="mb-10 grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              Current projects
+            </p>
+            <h2 className="mt-3 font-serif text-2xl text-[color:var(--color-ink)]">
+              Active decision-support models
+            </h2>
+          </div>
+          <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
+            The projects below are intentionally framed around use: the decision
+            being tested, the audiences involved, the geographic scale, and the
+            comparison outputs.
+          </p>
+        </div>
+
+        {projects.map(project => (
+          <ProjectDossier key={project.id} project={project} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Collaboration() {
+  return (
+    <section>
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
           <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
-            Platform comparison
+            Collaboration
           </h2>
-          <div className="overflow-x-auto border-t border-l border-[color:var(--color-rule)]">
-            <table className="min-w-[680px] w-full border-collapse text-left text-sm">
-              <thead>
-                <tr className="text-xs uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
-                    Platform
-                  </th>
-                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
-                    Primary focus
-                  </th>
-                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
-                    Geography
-                  </th>
-                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
-                    Public interface
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {projects.map(project => (
-                  <tr key={project.id} className="align-top">
-                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4">
-                      <span className="font-semibold text-[color:var(--color-ink)]">
-                        {project.shortName}
-                      </span>
-                    </td>
-                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4 text-[color:var(--color-ink)]">
-                      {project.challenge}
-                    </td>
-                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4 text-[color:var(--color-muted)]">
-                      {PROJECT_DETAILS[project.id].geography}
-                    </td>
-                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4">
-                      <a
-                        href={project.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
-                      >
-                        {project.externalLabel}
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="border-t border-[color:var(--color-rule)] pt-5 lg:border-t-0 lg:pt-0">
+            <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
+              The lab works with researchers, health departments, clinicians, and
+              community partners on model calibration, scenario design, and
+              policy-facing analysis.
+            </p>
+            <p className="mt-5 text-sm">
+              <a
+                href="mailto:compepi@jhu.edu"
+                className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+              >
+                Contact the lab
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -271,64 +295,10 @@ export default function ProjectsPage() {
 
   return (
     <MainLayout>
-      <PageIntro
-        eyebrow="Modeling infrastructure"
-        title="Platforms for policy-facing simulation"
-      >
-        <p>
-          The lab builds modeling systems that connect local epidemic data to
-          policy questions about prevention, treatment, testing, funding, and
-          implementation.
-        </p>
-      </PageIntro>
-
-      <ModelingWorkflow />
-
-      <section className="border-b border-[color:var(--color-rule)]">
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
-          <div className="mb-10 grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-            <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
-              Active platforms
-            </h2>
-            <p className="max-w-3xl text-lg leading-relaxed text-[color:var(--color-ink)]">
-              Each platform is built around a different public health decision
-              problem, but they share a common design principle: make modeled
-              futures legible at the geographic scale where programs operate.
-            </p>
-          </div>
-
-          {projectsList.map(project => (
-            <ProjectDossier key={project.id} project={project} />
-          ))}
-        </div>
-      </section>
-
-      <PlatformComparison projects={projectsList} />
-
-      <section>
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
-          <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-            <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
-              Collaboration
-            </h2>
-            <div className="border-t border-[color:var(--color-rule)] pt-5 md:border-t-0 md:pt-0">
-              <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
-                The lab works with researchers, health departments, clinicians,
-                and community partners on model calibration, scenario design,
-                and policy-facing analysis.
-              </p>
-              <p className="mt-5 text-sm">
-                <a
-                  href="mailto:compepi@jhu.edu"
-                  className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
-                >
-                  Contact the lab →
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProjectsIntro />
+      <SharedApproach />
+      <ProjectList projects={projectsList} />
+      <Collaboration />
     </MainLayout>
   );
 }
