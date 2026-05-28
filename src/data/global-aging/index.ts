@@ -112,8 +112,12 @@ function useAsyncData<T>(loader: () => Promise<T>, enabled = true): AsyncState<T
   useEffect(() => {
     if (!enabled) return;
     let cancelled = false;
-    setState(s => ({ ...s, loading: true }));
-    loader()
+
+    void Promise.resolve()
+      .then(() => {
+        if (!cancelled) setState(s => ({ ...s, loading: true }));
+        return loader();
+      })
       .then(data => {
         if (!cancelled) setState({ data, loading: false, error: null });
       })

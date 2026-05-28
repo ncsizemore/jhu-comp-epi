@@ -11,7 +11,6 @@ import type {
 const HOPKINS_BLUE = '#002D72';
 const HOPKINS_BLUE_700 = '#123f7d';
 const HOPKINS_GOLD = '#F2C413';
-const HOPKINS_INK = '#0f172a';
 const ELECTRIC_CYAN = '#5de2e7';
 const MAP_CANVAS_TOP = '#06111f';
 const MAP_CANVAS_BOTTOM = '#0b2630';

@@ -12,17 +12,71 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { isValidLocationCode } from '@/data/global-aging';
 import type { SexMode, AgeGranularity } from '@/data/global-aging';
 
+type SearchParamReader = {
+  get(name: string): string | null;
+};
+
+const DEFAULT_LOCATIONS = ['south_africa', 'kenya'];
+const DEFAULT_YEAR_RANGE: [number, number] = [2025, 2040];
+
+function initialLocations(searchParams: SearchParamReader): string[] {
+  const urlLocations = searchParams.get('locations');
+  if (!urlLocations) return DEFAULT_LOCATIONS;
+
+  const codes = urlLocations.split(',').filter(isValidLocationCode);
+  return codes.length > 0 ? codes : DEFAULT_LOCATIONS;
+}
+
+function initialSexMode(searchParams: SearchParamReader): SexMode {
+  const urlSex = searchParams.get('sex');
+  if (urlSex === 'male' || urlSex === 'female' || urlSex === 'both' || urlSex === 'mf-split') {
+    return urlSex;
+  }
+
+  return 'both';
+}
+
+function initialGranularity(searchParams: SearchParamReader): AgeGranularity {
+  const urlGranularity = searchParams.get('age');
+  if (urlGranularity === 'collapsed' || urlGranularity === 'full') {
+    return urlGranularity;
+  }
+
+  return 'collapsed';
+}
+
+function initialNormalized(searchParams: SearchParamReader): boolean {
+  return searchParams.get('normalized') === 'true';
+}
+
+function initialYearRange(searchParams: SearchParamReader): [number, number] {
+  const urlYears = searchParams.get('years');
+  if (!urlYears) return DEFAULT_YEAR_RANGE;
+
+  const [start, end] = urlYears.split('-').map(Number);
+  if (!isNaN(start) && !isNaN(end) && start >= 2025 && end <= 2040 && start <= end) {
+    return [start, end];
+  }
+
+  return DEFAULT_YEAR_RANGE;
+}
+
 // Inner component using useSearchParams
 function GlobalAgingAppInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [selectedLocations, setSelectedLocations] = useState<string[]>(['south_africa', 'kenya']);
-  const [sexMode, setSexMode] = useState<SexMode>('both');
-  const [granularity, setGranularity] = useState<AgeGranularity>('collapsed');
-  const [normalized, setNormalized] = useState(false);
-  const [yearRange, setYearRange] = useState<[number, number]>([2025, 2040]);
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [selectedLocations, setSelectedLocations] = useState<string[]>(() =>
+    initialLocations(searchParams),
+  );
+  const [sexMode, setSexMode] = useState<SexMode>(() => initialSexMode(searchParams));
+  const [granularity, setGranularity] = useState<AgeGranularity>(() =>
+    initialGranularity(searchParams),
+  );
+  const [normalized, setNormalized] = useState(() => initialNormalized(searchParams));
+  const [yearRange, setYearRange] = useState<[number, number]>(() =>
+    initialYearRange(searchParams),
+  );
 
   type ExportStatus = 'idle' | 'exporting' | 'success' | 'error';
   const [exportStatus, setExportStatus] = useState<ExportStatus>('idle');
@@ -42,41 +96,6 @@ function GlobalAgingAppInner() {
   };
 
   useEffect(() => {
-    if (isInitialized) return;
-
-    const urlLocations = searchParams.get('locations');
-    if (urlLocations) {
-      const codes = urlLocations.split(',').filter(isValidLocationCode);
-      if (codes.length > 0) setSelectedLocations(codes);
-    }
-
-    const urlSex = searchParams.get('sex');
-    if (urlSex === 'male' || urlSex === 'female' || urlSex === 'both' || urlSex === 'mf-split') {
-      setSexMode(urlSex);
-    }
-
-    const urlGranularity = searchParams.get('age');
-    if (urlGranularity === 'collapsed' || urlGranularity === 'full') {
-      setGranularity(urlGranularity);
-    }
-
-    const urlNormalized = searchParams.get('normalized');
-    if (urlNormalized === 'true') setNormalized(true);
-
-    const urlYears = searchParams.get('years');
-    if (urlYears) {
-      const [start, end] = urlYears.split('-').map(Number);
-      if (!isNaN(start) && !isNaN(end) && start >= 2025 && end <= 2040 && start <= end) {
-        setYearRange([start, end]);
-      }
-    }
-
-    setIsInitialized(true);
-  }, [searchParams, isInitialized]);
-
-  useEffect(() => {
-    if (!isInitialized) return;
-
     const params = new URLSearchParams();
     params.set('locations', selectedLocations.join(','));
 
@@ -88,7 +107,7 @@ function GlobalAgingAppInner() {
     }
 
     router.replace(`?${params.toString()}`, { scroll: false });
-  }, [selectedLocations, sexMode, granularity, normalized, yearRange, isInitialized, router]);
+  }, [selectedLocations, sexMode, granularity, normalized, yearRange, router]);
 
   return (
     <div className="space-y-8">
