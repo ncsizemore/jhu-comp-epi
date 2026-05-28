@@ -37,7 +37,7 @@ export const projects: Project[] = [
       "Testing, PrEP & viral suppression",
       "Demographic targeting"
     ],
-    externalUrl: "https://jheem-portal.vercel.app",
+    externalUrl: "https://jheem.org",
     externalLabel: "Access JHEEM Portal"
   },
   {

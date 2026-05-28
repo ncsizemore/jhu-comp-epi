@@ -1,172 +1,330 @@
-import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
-import ExternalLinkButton from '@/components/ExternalLinkButton';
-import ClickableProjectCard from '@/components/ClickableProjectCard';
-import { HeroBackground } from '@/components/ui/HeroBackground';
-import { getProjectTheme } from '@/lib/projects/config';
-import { getAllProjects } from '@/data/projects';
+import MainLayout from '@/components/layout/MainLayout';
+import PageIntro from '@/components/ui/PageIntro';
+import { getAllProjects, type Project, type ProjectStats } from '@/data/projects';
 
 export const metadata = {
-  title: 'Our Projects | JHU Computational Epidemiology',
-  description: 'Three specialized computational frameworks addressing HIV/STI co-infections, aging population health, and epidemic modeling through dynamic mathematical models and agent-based simulations.',
+  title: 'Projects | JHU Computational Epidemiology',
+  description:
+    'Computational modeling platforms for HIV, STI, and population health policy questions.',
 };
+
+const STAT_LABELS: Record<keyof ProjectStats, string> = {
+  cities: 'Cities',
+  states: 'States',
+  publications: 'Publications',
+  scenarios: 'Scenarios',
+  countries: 'Countries',
+};
+
+const WORKFLOW_STEPS = [
+  {
+    label: 'Local epidemic',
+    text: 'Start with surveillance, program, and population data for specific places.',
+  },
+  {
+    label: 'Mechanistic model',
+    text: 'Represent transmission, diagnosis, prevention, treatment, and behavioral strata.',
+  },
+  {
+    label: 'Policy scenario',
+    text: 'Stress-test funding changes, service expansions, new tools, and implementation gaps.',
+  },
+  {
+    label: 'Decision evidence',
+    text: 'Report outcomes in terms policymakers can compare: infections, incidence, cost, and equity.',
+  },
+];
+
+const PROJECT_DETAILS: Record<
+  string,
+  {
+    question: string;
+    geography: string;
+    outputs: string[];
+    evidence: string;
+  }
+> = {
+  jheem: {
+    question:
+      'How would HIV incidence change if prevention, testing, treatment, or federal program funding shifted across U.S. cities and states?',
+    geography: 'U.S. cities, states, and priority jurisdictions',
+    outputs: ['Projected infections', 'Incidence change', 'Program impact', 'Scenario comparisons'],
+    evidence: 'Published analyses, public portal summaries, and policy-facing scenario tools.',
+  },
+  shield: {
+    question:
+      'How should jurisdictions respond to overlapping HIV and syphilis epidemics as new testing and prevention strategies become available?',
+    geography: 'High-burden U.S. urban jurisdictions',
+    outputs: ['Co-epidemic trajectories', 'Intervention impact', 'Cost-effectiveness', 'Implementation tradeoffs'],
+    evidence: 'Model development and intervention evaluation for HIV/STI co-epidemic planning.',
+  },
+};
+
+function ProjectScope({ stats }: { stats: ProjectStats }) {
+  return (
+    <dl className="grid grid-cols-3 gap-x-5 gap-y-4 border-t border-[color:var(--color-rule)] pt-5">
+      {Object.entries(stats).map(([key, value]) => (
+        <div key={key}>
+          <dt className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+            {STAT_LABELS[key as keyof ProjectStats] ?? key}
+          </dt>
+          <dd className="mt-1 font-serif text-3xl leading-none text-[color:var(--color-ink)]">
+            {value}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+function ModelingWorkflow() {
+  return (
+    <section className="border-b border-[color:var(--color-rule)]">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
+        <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              How the platforms work
+            </p>
+            <h2 className="mt-3 font-serif text-2xl text-[color:var(--color-ink)]">
+              From local data to policy evidence
+            </h2>
+          </div>
+          <div className="grid border-t border-l border-[color:var(--color-rule)] sm:grid-cols-2 lg:grid-cols-4">
+            {WORKFLOW_STEPS.map((step, index) => (
+              <div
+                key={step.label}
+                className="min-h-48 border-r border-b border-[color:var(--color-rule)] p-5"
+              >
+                <p className="font-mono text-xs text-[color:var(--color-muted)]">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <h3 className="mt-5 font-serif text-xl leading-tight text-[color:var(--color-ink)]">
+                  {step.label}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                  {step.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectDossier({ project }: { project: Project }) {
+  const details = PROJECT_DETAILS[project.id];
+
+  return (
+    <article className="border-t border-[color:var(--color-rule)] py-10 first:border-t-0 first:pt-0">
+      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div>
+          <div className="flex items-baseline gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              {project.shortName}
+            </p>
+            <span className="h-px flex-1 bg-[color:var(--color-rule)]" />
+          </div>
+          <h2 className="mt-4 max-w-xl font-serif text-4xl leading-[1.02] text-[color:var(--color-ink)]">
+            <Link href={`/projects/${project.id}`} className="hover:text-[color:var(--color-link)]">
+              {project.title}
+            </Link>
+          </h2>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[color:var(--color-ink)]">
+            {project.description}
+          </p>
+          <div className="mt-7">
+            <ProjectScope stats={project.stats} />
+          </div>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2">
+          <div className="border-t border-[color:var(--color-rule)] pt-5 md:col-span-2">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+              Policy question
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-[color:var(--color-ink)]">
+              {details.question}
+            </p>
+          </div>
+
+          <div className="border-t border-[color:var(--color-rule)] pt-5">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+              Geography
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+              {details.geography}
+            </p>
+          </div>
+
+          <div className="border-t border-[color:var(--color-rule)] pt-5">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+              Evidence product
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+              {details.evidence}
+            </p>
+          </div>
+
+          <div className="border-t border-[color:var(--color-rule)] pt-5 md:col-span-2">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+              Model outputs
+            </h3>
+            <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-[color:var(--color-ink)] sm:grid-cols-2">
+              {details.outputs.map(output => (
+                <li key={output} className="flex gap-3">
+                  <span className="mt-[0.55rem] h-px w-5 flex-none bg-[color:var(--color-accent)]" />
+                  <span>{output}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-wrap gap-x-5 gap-y-3 border-t border-[color:var(--color-rule)] pt-5 text-sm md:col-span-2">
+            <Link
+              href={`/projects/${project.id}`}
+              className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+            >
+              Read project overview →
+            </Link>
+            <a
+              href={project.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+            >
+              {project.externalLabel} →
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function PlatformComparison({ projects }: { projects: Project[] }) {
+  return (
+    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
+        <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+          <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
+            Platform comparison
+          </h2>
+          <div className="overflow-x-auto border-t border-l border-[color:var(--color-rule)]">
+            <table className="min-w-[680px] w-full border-collapse text-left text-sm">
+              <thead>
+                <tr className="text-xs uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
+                    Platform
+                  </th>
+                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
+                    Primary focus
+                  </th>
+                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
+                    Geography
+                  </th>
+                  <th className="border-r border-b border-[color:var(--color-rule)] px-4 py-3 font-semibold">
+                    Public interface
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {projects.map(project => (
+                  <tr key={project.id} className="align-top">
+                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4">
+                      <span className="font-semibold text-[color:var(--color-ink)]">
+                        {project.shortName}
+                      </span>
+                    </td>
+                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4 text-[color:var(--color-ink)]">
+                      {project.challenge}
+                    </td>
+                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4 text-[color:var(--color-muted)]">
+                      {PROJECT_DETAILS[project.id].geography}
+                    </td>
+                    <td className="border-r border-b border-[color:var(--color-rule)] px-4 py-4">
+                      <a
+                        href={project.externalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+                      >
+                        {project.externalLabel}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function ProjectsPage() {
   const projectsList = getAllProjects();
 
   return (
     <MainLayout>
-      {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
-        <HeroBackground />
+      <PageIntro
+        eyebrow="Modeling infrastructure"
+        title="Platforms for policy-facing simulation"
+      >
+        <p>
+          The lab builds modeling systems that connect local epidemic data to
+          policy questions about prevention, treatment, testing, funding, and
+          implementation.
+        </p>
+      </PageIntro>
 
-        <div className="max-w-6xl mx-auto px-6 relative">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-              Our Projects
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Three computational platforms reshaping how we understand and combat health crises—from dual HIV/STI epidemics to aging population challenges
-            </p>
-          </div>
+      <ModelingWorkflow />
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
-            <div className="text-center">
-              <div className="text-4xl font-black text-white mb-2">3</div>
-              <div className="text-gray-300 text-sm font-medium">Frameworks</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-black text-white mb-2">200+</div>
-              <div className="text-gray-300 text-sm font-medium">Sites Nationwide</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-black text-white mb-2">16</div>
-              <div className="text-gray-300 text-sm font-medium">Publications</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <div className="space-y-8 max-w-6xl mx-auto">
-            {projectsList.map((project) => {
-              const theme = getProjectTheme(project.id);
-
-              return (
-              <ClickableProjectCard
-                key={project.id}
-                href={`/projects/${project.id}`}
-              >
-                <div className="flex flex-col lg:flex-row">
-                  {/* Left Side - Content */}
-                  <div className="flex-1 p-8 lg:p-12">
-                    {/* Project Badge */}
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${theme.colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-                        <div className="w-6 h-6 bg-white rounded-md"></div>
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-black text-gray-900 tracking-tight">{project.title}</h3>
-                        <p className="text-sm text-gray-600 font-medium">{project.challenge}</p>
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-lg text-gray-700 font-medium leading-relaxed mb-8">
-                      {project.description}
-                    </p>
-
-                    {/* Highlights */}
-                    <div className="mb-8">
-                      <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">Key Features</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.keyFeatures.map((feature, idx) => (
-                          <span key={idx} className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action Button */}
-                    <ExternalLinkButton
-                      href={project.externalUrl}
-                      label={`Explore ${project.shortName}`}
-                      accentGradient={theme.colors.gradient}
-                    />
-                  </div>
-
-                  {/* Right Side - Stats & Visual */}
-                  <div className="lg:w-80 bg-gradient-to-br from-gray-50 to-gray-100/50 p-8 border-l border-gray-200/50">
-                    {/* Stats */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Project Scope</h4>
-                      <div className="space-y-3">
-                        {Object.entries(project.stats).map(([key, value]) => (
-                          <div key={key} className="flex justify-between items-center">
-                            <span className="text-gray-600 text-sm capitalize">{key}</span>
-                            <span className="font-bold text-gray-900">{value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Visual Element */}
-                    <div className={`h-32 bg-gradient-to-br ${theme.colors.gradient} rounded-xl relative overflow-hidden`}>
-                      <div className="absolute inset-0 opacity-20">
-                        <div className="absolute top-4 right-4 w-8 h-8 border-2 border-white/60 rounded-full"></div>
-                        <div className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/60 rounded-lg rotate-45"></div>
-                        <div className="absolute top-1/2 left-1/3 w-2 h-12 bg-white/60 rounded-full"></div>
-                      </div>
-                      <div className="absolute bottom-4 right-4">
-                        <div className="text-white/80 text-xs font-bold uppercase tracking-wider">
-                          {project.shortName}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ClickableProjectCard>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-8 shadow-xl shadow-gray-900/10">
-            <h2 className="text-3xl font-black text-gray-900 mb-6 tracking-tight">
-              Ready to Collaborate?
+      <section className="border-b border-[color:var(--color-rule)]">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
+          <div className="mb-10 grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+            <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
+              Active platforms
             </h2>
-            <p className="text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-              From real-time HIV intervention modeling to aging population health challenges, these three platforms work in concert to provide the computational backbone for evidence-based public health policy nationwide.
+            <p className="max-w-3xl text-lg leading-relaxed text-[color:var(--color-ink)]">
+              Each platform is built around a different public health decision
+              problem, but they share a common design principle: make modeled
+              futures legible at the geographic scale where programs operate.
             </p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/publications"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-hopkins-blue/25 transition-all duration-500 transform hover:scale-105 relative overflow-hidden"
-              >
-                <span className="relative">View Publications</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </Link>
-              
-              <Link
-                href="mailto:compepi@jhu.edu"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-              >
-                <span>Start a Collaboration</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </Link>
+          {projectsList.map(project => (
+            <ProjectDossier key={project.id} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <PlatformComparison projects={projectsList} />
+
+      <section>
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
+          <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
+            <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
+              Collaboration
+            </h2>
+            <div className="border-t border-[color:var(--color-rule)] pt-5 md:border-t-0 md:pt-0">
+              <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
+                The lab works with researchers, health departments, clinicians,
+                and community partners on model calibration, scenario design,
+                and policy-facing analysis.
+              </p>
+              <p className="mt-5 text-sm">
+                <a
+                  href="mailto:compepi@jhu.edu"
+                  className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+                >
+                  Contact the lab →
+                </a>
+              </p>
             </div>
           </div>
         </div>
