@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const NAV = [
   { href: '/', label: 'Home' },
@@ -14,6 +15,7 @@ const NAV = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="bg-hopkins-blue border-b border-white/10">
@@ -36,15 +38,28 @@ export default function Header() {
           </Link>
 
           <nav className="hidden items-center gap-7 text-sm md:flex">
-            {NAV.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-white/85 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map(item => {
+              const isActive =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  className="group relative py-2 text-white/85 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-hopkins-gold"
+                >
+                  {item.label}
+                  <span
+                    className={[
+                      'absolute inset-x-0 bottom-0 h-px origin-left bg-hopkins-gold transition-transform duration-200',
+                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100',
+                    ].join(' ')}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center md:hidden">
@@ -68,16 +83,26 @@ export default function Header() {
 
         {isOpen && (
           <nav className="border-t border-white/15 py-3 text-sm md:hidden">
-            {NAV.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-2 text-white/90 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map(item => {
+              const isActive =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={() => setIsOpen(false)}
+                  className={[
+                    'block border-l py-2 pl-3 text-white/90 transition-colors hover:text-white',
+                    isActive ? 'border-hopkins-gold' : 'border-transparent',
+                  ].join(' ')}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         )}
       </div>

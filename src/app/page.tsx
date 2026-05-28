@@ -18,14 +18,17 @@ const RealResultsMap = dynamic(
 function Masthead() {
   return (
     <section className="border-b border-[color:var(--color-rule)]">
-      <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+      <div className="max-w-6xl mx-auto px-6 py-14 md:py-[4.5rem]">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
           Johns Hopkins Bloomberg School of Public Health · School of Medicine
         </p>
-        <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[0.98] tracking-tight text-[color:var(--color-ink)] md:text-7xl">
-          Computational Epidemiology Lab
+        <h1 className="mt-5 max-w-5xl font-serif text-5xl leading-[0.96] text-[color:var(--color-ink)] md:text-7xl">
+          <span className="block">Computational</span>
+          <span className="block text-[color:var(--color-hopkins-blue)]">
+            Epidemiology Lab
+          </span>
         </h1>
-        <p className="mt-7 max-w-3xl text-xl leading-relaxed text-[color:var(--color-ink)]">
+        <p className="mt-6 max-w-3xl text-xl leading-relaxed text-[color:var(--color-ink)]">
           We build policy-facing models of infectious disease dynamics, combining
           local data, simulation, and epidemiologic inference to support public
           health decisions in the United States.
@@ -38,7 +41,7 @@ function Masthead() {
 function ResearchScope() {
   return (
     <section className="border-b border-[color:var(--color-rule)]">
-      <div className="max-w-6xl mx-auto px-6 py-14">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
         <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
           <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
             What the lab studies
@@ -57,8 +60,8 @@ function ResearchScope() {
               Local calibration
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              Models are fit to city, state, and population-specific data rather than
-              treating the epidemic as one national average.
+              City, state, and population-specific data rather than one national
+              average.
             </p>
           </div>
           <div>
@@ -66,8 +69,8 @@ function ResearchScope() {
               Policy scenarios
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              Analyses compare plausible futures: program continuation, interruptions,
-              funding changes, and targeted intervention strategies.
+              Plausible futures for continuation, interruption, funding, and targeted
+              intervention.
             </p>
           </div>
           <div>
@@ -75,8 +78,8 @@ function ResearchScope() {
               Decision support
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              Results are translated into published evidence and public tools for
-              researchers, policymakers, clinicians, and health departments.
+              Published evidence and public tools for researchers, policymakers,
+              clinicians, and health departments.
             </p>
           </div>
         </div>
@@ -88,19 +91,19 @@ function ResearchScope() {
 function Findings() {
   return (
     <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="mb-9 grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
-          <div>
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
+        <div className="mb-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
+          <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
               Recent model results
             </p>
             <h2 className="mt-3 font-serif text-3xl leading-tight text-[color:var(--color-ink)] md:text-4xl">
               Published findings, mapped
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
+            <p className="mt-4 text-base leading-relaxed text-[color:var(--color-ink)]">
               Recent JHEEM analyses estimate how federal HIV program disruptions could
-              alter incidence across U.S. cities and states. The figure below is a
-              curated view of headline geographic findings from those papers.
+              alter incidence by place. The figure below curates headline geographic
+              findings from those papers.
             </p>
           </div>
           <div className="border-t border-[color:var(--color-rule)] pt-5 text-sm leading-relaxed text-[color:var(--color-muted)] lg:border-l lg:border-t-0 lg:pl-6 lg:pt-1">
@@ -108,8 +111,8 @@ function Findings() {
               Why geography matters
             </span>
             <span className="mt-3 block">
-              The same national policy can produce sharply different local outcomes
-              because epidemics, care access, and program dependence vary by place.
+              Epidemics, care access, and program dependence vary by place, so the
+              same national policy can produce sharply different local outcomes.
             </span>
           </div>
         </div>
