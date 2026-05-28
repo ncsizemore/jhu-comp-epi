@@ -187,7 +187,7 @@ function InTheNews() {
                 href="/news"
                 className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
               >
-                More news →
+                Read coverage note →
               </Link>
             </p>
           </article>
