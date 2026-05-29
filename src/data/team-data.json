@@ -52,8 +52,8 @@
       "id": "todd-fojo",
       "name": "Dr. Todd Fojo",
       "shortName": "Todd Fojo",
-      "title": "Assistant Professor",
-      "position": "Assistant Professor of Medicine",
+      "title": "Principal Investigator & Associate Professor",
+      "position": "Associate Professor of Medicine",
       "credentials": [
         "MD",
         "MHS"
@@ -64,8 +64,8 @@
         "institution": "Johns Hopkins School of Medicine",
         "department": "Department of Medicine"
       },
-      "bio": "Dr. Todd Fojo is an Assistant Professor of Medicine in the Department of Medicine at the Johns Hopkins School of Medicine. He earned a B.S. in Computer Science from Stanford University and an M.D. from Washington University School of Medicine in St. Louis. Dr. Fojo completed his residency in internal medicine at Barnes-Jewish Hospital, followed by a General Internal Medicine Fellowship and a Master of Health Science (MHS) in Biostatistics at the Johns Hopkins School of Public Health. Dr. Fojo's research is centered on developing dynamic transmission models for HIV, with a particular focus on innovative calibration techniques for high-dimensional parameter spaces. He is a principal investigator on the Johns Hopkins Epidemiological and Economic Model (JHEEM), which forecasts future HIV incidence across 15 key subgroups under various scenarios aimed at achieving the goals of Ending the HIV Epidemic (EHE). Supported by NIH grant R01MD018539 (NIMDH), Dr. Fojo's work also contributes to the JHEEM2 framework, which serves as the summation engine for the SHIELD simulation model.",
-      "shortBio": "Assistant Professor developing dynamic transmission models for HIV with focus on calibration techniques.",
+      "bio": "Dr. Todd Fojo is an Associate Professor of Medicine in the Department of Medicine at the Johns Hopkins School of Medicine. He earned a B.S. in Computer Science from Stanford University and an M.D. from Washington University School of Medicine in St. Louis. Dr. Fojo completed his residency in internal medicine at Barnes-Jewish Hospital, followed by a General Internal Medicine Fellowship and a Master of Health Science (MHS) in Biostatistics at the Johns Hopkins School of Public Health. Dr. Fojo's research is centered on developing dynamic transmission models for HIV, with a particular focus on innovative calibration techniques for high-dimensional parameter spaces. He is a principal investigator on the Johns Hopkins Epidemiological and Economic Model (JHEEM), which forecasts future HIV incidence across 15 key subgroups under various scenarios aimed at achieving the goals of Ending the HIV Epidemic (EHE). Supported by NIH grant R01MD018539 (NIMDH), Dr. Fojo's work also contributes to the JHEEM2 framework, which serves as the summation engine for the SHIELD simulation model.",
+      "shortBio": "Associate Professor and principal investigator developing dynamic transmission models for HIV with focus on calibration techniques.",
       "photo": "images/team/fojo-headshot.jpg",
       "projects": [
         "shield",

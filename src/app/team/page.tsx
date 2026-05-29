@@ -1,6 +1,5 @@
 import MainLayout from '@/components/layout/MainLayout';
 import TeamSection from '@/components/sections/team/TeamSection';
-import { HeroBackground } from '@/components/ui/HeroBackground';
 import {
   getTeamCategories,
   getTeamMembersByCategory
@@ -15,7 +14,6 @@ export const metadata = {
 export const revalidate = 3600;
 
 export default async function TeamPage() {
-  // Fetch all data in parallel for better performance
   const [teamCategories, faculty, postdocs, students, staff] = await Promise.all([
     getTeamCategories(),
     getTeamMembersByCategory('faculty'),
@@ -24,49 +22,53 @@ export default async function TeamPage() {
     getTeamMembersByCategory('staff'),
   ]);
 
+  const membersByCategory = {
+    faculty,
+    postdoc: postdocs,
+    student: students,
+    staff,
+  };
+  const populatedCategories = teamCategories
+    .sort((a, b) => a.order - b.order)
+    .map(category => ({
+      category,
+      members: membersByCategory[category.id as keyof typeof membersByCategory] || [],
+    }))
+    .filter(group => group.members.length > 0);
+
   return (
     <MainLayout>
-      {/* Simplified hero section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-gray-900 to-black overflow-hidden">
-        {/* Decorative background */}
-        <HeroBackground />
+      <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+        <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
+          <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+                People
+              </p>
+              <h1 className="mt-3 font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
+                Team
+              </h1>
+            </div>
 
-        <div className="max-w-7xl mx-auto px-6 py-16 relative">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-black text-white mb-4 tracking-tight">
-              Our Team
-            </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-hopkins-gold via-amber-400 to-orange-400 mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
-              Experts in epidemiology, biostatistics, computer science, and clinical medicine
-            </p>
+            <div>
+              <p className="max-w-3xl text-xl leading-relaxed text-[color:var(--color-ink)]">
+                Researchers and staff building computational models for HIV,
+                STI, and population-health decision support.
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      
-      {/* Team Sections */}
-      <section className="py-20 pb-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          {teamCategories
-            .sort((a, b) => a.order - b.order)
-            .map((category) => {
-              // Use already-fetched data instead of re-fetching
-              const membersByCategory = {
-                faculty,
-                postdoc: postdocs,
-                student: students,
-                staff,
-              };
-              const members = membersByCategory[category.id as keyof typeof membersByCategory] || [];
 
-              return (
-                <TeamSection
-                  key={category.id}
-                  category={category}
-                  members={members}
-                />
-              );
-            })}
+      <section className="border-b border-[color:var(--color-rule)] bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+          {populatedCategories.map(({ category, members }) => (
+            <TeamSection
+              key={category.id}
+              category={category}
+              members={members}
+            />
+          ))}
         </div>
       </section>
     </MainLayout>

@@ -1,90 +1,86 @@
-import { memo } from 'react';
 import { Publication } from '@/lib/data/publications';
-import { getProjectTheme } from '@/lib/projects/config';
+import { projectsMap } from '@/lib/projects/config';
 import { formatAuthors } from '@/lib/utils/authors';
 
 interface PublicationListItemProps {
   publication: Publication;
-  index: number;
-  onClick?: () => void;
 }
 
-function PublicationListItem({ publication, index, onClick }: PublicationListItemProps) {
-  const projectId = publication.projects[0] || 'jheem';
-  const theme = getProjectTheme(projectId);
+function publicationHref(publication: Publication) {
+  return publication.url || (publication.doi ? `https://doi.org/${publication.doi}` : undefined);
+}
 
-  const borderClass = theme.colors.border;
-  const dotClass = theme.colors.solid;
+function projectLabel(publication: Publication) {
+  const projectId = publication.projects[0] as keyof typeof projectsMap | undefined;
+  return projectId ? projectsMap[projectId]?.name : undefined;
+}
+
+export default function PublicationListItem({ publication }: PublicationListItemProps) {
+  const href = publicationHref(publication);
+  const project = projectLabel(publication);
+  const summary = publication.abstract || publication.keyFindings;
 
   return (
-    <div
-      onClick={onClick}
-      className={`border-l-4 ${borderClass} bg-white/90 backdrop-blur-sm hover:bg-white border border-gray-200/50 hover:border-gray-300/70 rounded-r-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group ${onClick ? 'cursor-pointer' : ''}`}
-      style={{
-        animationName: 'fadeIn',
-        animationDuration: '0.5s',
-        animationTimingFunction: 'ease-out',
-        animationFillMode: 'forwards',
-        animationDelay: `${index * 50}ms`
-      }}
-    >
-      <div className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-3">
-              <div className={`w-2 h-2 rounded-full ${dotClass}`}></div>
-              <span className="text-xs font-bold text-gray-700 uppercase tracking-wide">{theme.name}</span>
-              <span className="text-gray-400">•</span>
-              <span className="text-xs font-bold text-gray-700">{publication.year}</span>
-            </div>
+    <article className="group grid gap-5 border-b border-[color:var(--color-rule)] py-7 transition-colors hover:border-[color:var(--color-hopkins-blue)] lg:grid-cols-[10rem_minmax(0,1fr)]">
+      <div>
+        <p className="font-mono text-xs text-[color:var(--color-muted)]">
+          {publication.year}
+        </p>
+        {project && (
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+            {project}
+          </p>
+        )}
+      </div>
 
-            <h3 className="text-base font-bold text-gray-900 leading-snug mb-3 group-hover:text-hopkins-blue transition-colors duration-300 line-clamp-2">
-              {publication.title}
-            </h3>
-
-            <div className="text-sm text-gray-600 mb-3 line-clamp-1">
-              <span className="font-medium">
-                {formatAuthors(publication.authors)}
-              </span>
-              <span className="text-gray-400 mx-1">•</span>
-              <span className="italic">{publication.journal}</span>
-            </div>
-
-            {/* Enhanced Tags */}
-            <div className="flex flex-wrap gap-1.5">
-              {publication.tags.slice(0, 3).map((tag: string) => (
-                <span key={tag} className="text-xs px-2.5 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-md font-medium transition-colors duration-200">
-                  {tag}
-                </span>
-              ))}
-              {publication.tags.length > 3 && (
-                <span className="text-xs px-2.5 py-1 bg-gray-100 text-gray-500 rounded-md font-medium">
-                  +{publication.tags.length - 3}
-                </span>
-              )}
-            </div>
-          </div>
-
-          {/* Enhanced Actions */}
-          <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-105">
+      <div className="max-w-4xl">
+        <h3 className="font-serif text-2xl leading-snug text-[color:var(--color-ink)] md:text-[1.7rem]">
+          {href ? (
             <a
-              href={publication.url || `https://doi.org/${publication.doi}`}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="p-2 text-gray-500 hover:text-white hover:bg-gray-700 rounded-lg border border-gray-300 hover:border-gray-700 transition-all duration-300 hover:shadow-md"
-              title="View Publication"
+              className="hover:text-[color:var(--color-link)]"
             >
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              {publication.title}
             </a>
-          </div>
+          ) : (
+            publication.title
+          )}
+        </h3>
+
+        <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
+          {formatAuthors(publication.authors)}
+          <span className="px-1.5">/</span>
+          <span className="italic">{publication.journal}</span>
+        </p>
+
+        {summary && (
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-[color:var(--color-ink)] line-clamp-3">
+            {summary}
+          </p>
+        )}
+
+        <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+          {publication.tags.length > 0 && (
+            <ul className="flex flex-wrap gap-x-3 gap-y-2 text-xs leading-relaxed text-[color:var(--color-muted)]">
+              {publication.tags.slice(0, 4).map(tag => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
+          )}
+          {href && (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--color-link)] opacity-80 underline decoration-[color:var(--color-rule)] underline-offset-4 transition-opacity hover:opacity-100 hover:decoration-[color:var(--color-link)]"
+            >
+              Read paper
+            </a>
+          )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
-
-// Memoize to prevent unnecessary re-renders when parent state changes
-export default memo(PublicationListItem);
