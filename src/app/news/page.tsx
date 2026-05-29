@@ -39,11 +39,6 @@ function NewsIntro() {
               Selected public-facing coverage of the lab&apos;s modeling work and
               related policy commentary.
             </p>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
-              This page is maintained as a small archive rather than a full news
-              feed. Additional items will be added when there is substantive
-              coverage or commentary to preserve.
-            </p>
           </div>
         </div>
       </div>
@@ -65,9 +60,8 @@ function CoverageArchive() {
             </h2>
           </div>
           <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
-            Coverage is included when it helps document how model projections are
-            being used in public discussion about prevention, treatment, funding,
-            and implementation.
+            Coverage that places model projections in public discussion about
+            prevention, treatment, funding, and implementation.
           </p>
         </div>
 
