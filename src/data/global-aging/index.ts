@@ -381,13 +381,24 @@ export function getCalibrationChartData(
   });
 }
 
-// Strata available for the "All Age Groups" view of a given outcome. For
-// cascade outcomes, surveillance is sex-stratified at 15+ rather than age-
-// only — the keys live on the by_sex_age axis.
+// Strata available for the "All Age Groups" view of a given outcome.
+//   - HIV epi outcomes use UNAIDS surveillance brackets.
+//   - Population and total mortality use the 17 WPP brackets the model is
+//     calibrated on; the data manager carries the observed series at these
+//     same brackets, so no further mapping is needed.
+//   - Cascade outcomes are sex-stratified at 15+ rather than age-only —
+//     the keys live on the by_sex_age axis.
 export function getSurveillanceAgeBrackets(outcome: string): string[] {
   const epiOutcomes = ['incidence', 'prevalence', 'hiv.mortality'];
   if (epiOutcomes.includes(outcome)) {
     return ['0-14', '10-19', '15-24', '15-49', '15+', '50 and over'];
+  }
+  if (outcome === 'population' || outcome === 'total.mortality') {
+    return [
+      '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39',
+      '40-44', '45-49', '50-54', '55-59', '60-64', '65-69', '70-74', '75-79',
+      '80 and over',
+    ];
   }
   if (PROPORTION_OUTCOMES.has(outcome)) {
     return ['male.15+', 'female.15+'];
