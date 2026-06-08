@@ -22,6 +22,7 @@ type AgeSelection = 'total' | 'all';
 
 const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionProps) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+  const [showDetails, setShowDetails] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState('south_africa');
   const [selectedOutcome, setSelectedOutcome] = useState('prevalence');
   const [ageSelection, setAgeSelection] = useState<AgeSelection>('total');
@@ -109,6 +110,25 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
               last year of available surveillance data.
             </p>
 
+            <button
+              type="button"
+              onClick={() => setShowDetails(!showDetails)}
+              className="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-md bg-amber-100/60 hover:bg-amber-100 text-xs font-semibold uppercase tracking-wider text-amber-800 transition-colors w-fit"
+              aria-expanded={showDetails}
+            >
+              {showDetails ? 'Hide details' : 'Data sources and details'}
+              <svg
+                className={`w-3 h-3 transition-transform ${showDetails ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {showDetails && (<>
             <div className="text-sm text-amber-900">
               <p className="font-semibold mb-1.5">Calibration target (surveillance data) sources:</p>
               <ul className="list-disc pl-5 space-y-1">
@@ -171,6 +191,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                 </li>
               </ul>
             </div>
+            </>)}
           </div>
 
           {/* Controls */}

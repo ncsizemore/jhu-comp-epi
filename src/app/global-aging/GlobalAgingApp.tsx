@@ -278,6 +278,7 @@ function GlobalAgingAppWithSuspense() {
 
 function ProjectionsSection() {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [showDetails, setShowDetails] = useState(false);
 
   return (
     <div>
@@ -320,6 +321,25 @@ function ProjectionsSection() {
                 age) of people living with HIV in each location over time.
               </p>
 
+              <button
+                type="button"
+                onClick={() => setShowDetails(!showDetails)}
+                className="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-md bg-amber-100/60 hover:bg-amber-100 text-xs font-semibold uppercase tracking-wider text-amber-800 transition-colors w-fit"
+                aria-expanded={showDetails}
+              >
+                {showDetails ? 'Hide details' : 'Methodology and details'}
+                <svg
+                  className={`w-3 h-3 transition-transform ${showDetails ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {showDetails && (<>
               <div className="text-sm text-amber-900">
                 <p className="mb-1.5">
                   <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
@@ -415,6 +435,7 @@ function ProjectionsSection() {
                   to group models by income.
                 </p>
               </div>
+              </>)}
             </div>
 
             <div className="p-8">
