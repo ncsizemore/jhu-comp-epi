@@ -1,10 +1,9 @@
 import MainLayout from '@/components/layout/MainLayout';
-import FeaturedPublicationsGrid from '@/components/sections/publications/FeaturedPublicationsGrid';
-import EnhancedPublicationsList from '@/components/sections/publications/EnhancedPublicationsList';
+import PublicationsLead from '@/components/sections/publications/PublicationsLead';
+import PublicationIndex from '@/components/sections/publications/PublicationIndex';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
 import { getPublications, getPublicationYears } from '@/lib/data/publications';
-import './publications.css';
 
 export const metadata = {
   title: 'Publications | JHU Computational Epidemiology',
@@ -15,19 +14,23 @@ export const metadata = {
 export const revalidate = 3600;
 
 export default async function PublicationsPage() {
-  // Fetch data using the data access layer
   const publications = await getPublications();
   const publicationYears = await getPublicationYears();
 
   return (
     <MainLayout>
-      {/* Featured Publications */}
-      <ErrorBoundary fallback={<SectionErrorFallback title="Featured publications unavailable" message="Unable to load featured publications. Please try refreshing the page." />}>
-        <FeaturedPublicationsGrid publications={publications} />
+      <ErrorBoundary
+        fallback={
+          <SectionErrorFallback
+            title="Publications unavailable"
+            message="Unable to load featured publications. Please try refreshing the page."
+          />
+        }
+      >
+        <PublicationsLead publications={publications} />
       </ErrorBoundary>
 
-      {/* All Publications with Integrated Timeline */}
-      <EnhancedPublicationsList
+      <PublicationIndex
         publications={publications}
         years={publicationYears}
       />

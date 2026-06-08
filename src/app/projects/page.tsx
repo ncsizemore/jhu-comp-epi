@@ -1,176 +1,304 @@
-import MainLayout from '@/components/layout/MainLayout';
 import Link from 'next/link';
-import ExternalLinkButton from '@/components/ExternalLinkButton';
-import ClickableProjectCard from '@/components/ClickableProjectCard';
-import { HeroBackground } from '@/components/ui/HeroBackground';
-import { getProjectTheme } from '@/lib/projects/config';
-import { getAllProjects } from '@/data/projects';
+import MainLayout from '@/components/layout/MainLayout';
+import { getAllProjects, type Project, type ProjectStats } from '@/data/projects';
 
 export const metadata = {
-  title: 'Our Projects | JHU Computational Epidemiology',
-  description: 'Three specialized computational frameworks addressing HIV/STI co-infections, aging population health, and epidemic modeling through dynamic mathematical models and agent-based simulations.',
+  title: 'Projects | JHU Computational Epidemiology',
+  description:
+    'Decision-support modeling projects for HIV, STI, and population health policy questions.',
 };
+
+const STAT_LABELS: Record<keyof ProjectStats, string> = {
+  cities: 'cities',
+  states: 'states',
+  publications: 'publications',
+  scenarios: 'scenarios',
+  countries: 'countries',
+};
+
+const APPROACH_STEPS = [
+  {
+    label: 'Ground the question locally',
+    text: 'Start with surveillance, care, demographic, and program data from the places where decisions are made.',
+  },
+  {
+    label: 'Represent transmission and care',
+    text: 'Use mechanistic models to connect population structure, intervention pathways, and epidemic dynamics.',
+  },
+  {
+    label: 'Compare realistic choices',
+    text: 'Test prevention, treatment, testing, funding, and implementation scenarios against a common baseline.',
+  },
+  {
+    label: 'Return decision-ready evidence',
+    text: 'Summarize projected infections, incidence, costs, reach, and tradeoffs in forms teams can discuss.',
+  },
+];
+
+const PROJECT_DETAILS: Record<
+  string,
+  {
+    role: string;
+    decision: string;
+    audience: string;
+    geography: string;
+    products: string;
+    compare: string[];
+  }
+> = {
+  jheem: {
+    role: 'HIV intervention and funding policy',
+    decision:
+      'How could HIV outcomes change if prevention, testing, treatment, or federal program funding shifted across U.S. jurisdictions?',
+    audience: 'Health departments, policy teams, and implementation researchers',
+    geography: 'U.S. cities, states, and Ending the HIV Epidemic priority jurisdictions',
+    products: 'Published analyses, public summaries, and a scenario portal for policy discussion',
+    compare: ['Projected infections', 'Incidence change', 'Program impact', 'Scenario comparisons'],
+  },
+  shield: {
+    role: 'HIV/STI co-epidemic strategy',
+    decision:
+      'Which strategies could help jurisdictions respond to overlapping HIV and syphilis epidemics as new prevention and testing options become available?',
+    audience: 'Researchers, urban health departments, clinical teams, and community partners',
+    geography: 'High-burden U.S. urban jurisdictions',
+    products: 'Model development and intervention evaluation for co-epidemic planning',
+    compare: ['Epidemic trajectories', 'Intervention impact', 'Cost-effectiveness', 'Implementation tradeoffs'],
+  },
+};
+
+function formatScope(stats: ProjectStats) {
+  return Object.entries(stats)
+    .filter(([, value]) => value && value !== '0')
+    .map(([key, value]) => `${value} ${STAT_LABELS[key as keyof ProjectStats] ?? key}`)
+    .join(' / ');
+}
+
+function ProjectsIntro() {
+  return (
+    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              Decision support
+            </p>
+            <h1 className="mt-3 font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
+              Projects
+            </h1>
+          </div>
+          <div>
+            <p className="max-w-4xl text-xl leading-relaxed text-[color:var(--color-ink)]">
+              We build modeling projects that help researchers, clinicians,
+              public-health teams, and policymakers compare possible futures
+              before decisions are made.
+            </p>
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
+              Each project is organized around a concrete decision problem: what
+              evidence is available, what choices are being compared, who will use
+              the results, and where the findings apply.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SharedApproach() {
+  return (
+    <section className="border-b border-[color:var(--color-rule)]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              Shared approach
+            </p>
+            <h2 className="mt-3 font-serif text-2xl leading-tight text-[color:var(--color-ink)]">
+              From local evidence to practical comparisons.
+            </h2>
+          </div>
+          <div className="border-t border-[color:var(--color-rule)]">
+            <div className="grid gap-px bg-[color:var(--color-rule)] md:grid-cols-2 xl:grid-cols-4">
+              {APPROACH_STEPS.map(step => (
+                <article key={step.label} className="bg-white px-5 py-6">
+                  <h3 className="font-serif text-xl leading-tight text-[color:var(--color-ink)]">
+                    {step.label}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                    {step.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectDossier({ project }: { project: Project }) {
+  const details = PROJECT_DETAILS[project.id];
+
+  return (
+    <article className="border-t border-[color:var(--color-rule)] py-10 first:border-t-0 first:pt-0 md:py-12">
+      <div className="grid gap-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+            {project.shortName}
+          </p>
+          <h3 className="mt-4 max-w-xl font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
+            <Link href={`/projects/${project.id}`} className="hover:text-[color:var(--color-link)]">
+              {project.shortName}
+            </Link>
+          </h3>
+          <p className="mt-2 max-w-xl font-serif text-xl leading-snug text-[color:var(--color-ink)]">
+            {project.title}
+          </p>
+          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--color-muted)]">
+            {details.role}
+          </p>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--color-ink)]">
+            {project.description}
+          </p>
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[color:var(--color-muted)]">
+            {details.products}.
+          </p>
+          <p className="mt-6 text-sm text-[color:var(--color-muted)]">
+            <span className="font-semibold text-[color:var(--color-ink)]">Scope:</span>{' '}
+            {formatScope(project.stats)}
+          </p>
+        </div>
+
+        <div className="border-t border-[color:var(--color-rule)] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+            Decision it informs
+          </p>
+          <p className="mt-3 font-serif text-2xl leading-snug text-[color:var(--color-ink)]">
+            {details.decision}
+          </p>
+
+          <div className="mt-7 grid gap-6 border-t border-[color:var(--color-rule)] pt-6 sm:grid-cols-2">
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Who it serves
+              </h4>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                {details.audience}
+              </p>
+            </div>
+            <div>
+              <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Where it applies
+              </h4>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                {details.geography}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-7 border-t border-[color:var(--color-rule)] pt-6">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+              What teams can compare
+            </h4>
+            <ul className="mt-4 grid gap-x-6 gap-y-3 text-sm leading-relaxed text-[color:var(--color-ink)] sm:grid-cols-2">
+              {details.compare.map(item => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-[0.55rem] h-px w-5 flex-none bg-[color:var(--color-accent)]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 border-t border-[color:var(--color-rule)] pt-6 text-sm">
+            <Link
+              href={`/projects/${project.id}`}
+              className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+            >
+              Read project overview
+            </Link>
+            <a
+              href={project.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+            >
+              {project.externalLabel}
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ProjectList({ projects }: { projects: Project[] }) {
+  return (
+    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+        <div className="mb-10 grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              Current projects
+            </p>
+            <h2 className="mt-3 font-serif text-2xl text-[color:var(--color-ink)]">
+              Active decision-support models
+            </h2>
+          </div>
+          <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
+            The projects below are intentionally framed around use: the decision
+            being tested, the audiences involved, the geographic scale, and the
+            comparison outputs.
+          </p>
+        </div>
+
+        {projects.map(project => (
+          <ProjectDossier key={project.id} project={project} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Collaboration() {
+  return (
+    <section>
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
+            Collaboration
+          </h2>
+          <div className="border-t border-[color:var(--color-rule)] pt-5 lg:border-t-0 lg:pt-0">
+            <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
+              The lab works with researchers, health departments, clinicians, and
+              community partners on model calibration, scenario design, and
+              policy-facing analysis.
+            </p>
+            <p className="mt-5 text-sm">
+              <a
+                href="mailto:compepi@jhu.edu"
+                className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+              >
+                Contact the lab
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function ProjectsPage() {
   const projectsList = getAllProjects();
 
   return (
     <MainLayout>
-      {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
-        <HeroBackground />
-
-        <div className="max-w-6xl mx-auto px-6 relative">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-              Our Projects
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Three computational platforms reshaping how we understand and combat health crises—from dual HIV/STI epidemics to aging population challenges
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
-            <div className="text-center">
-              <div className="text-4xl font-black text-white mb-2">3</div>
-              <div className="text-gray-300 text-sm font-medium">Frameworks</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-black text-white mb-2">200+</div>
-              <div className="text-gray-300 text-sm font-medium">Sites Nationwide</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-black text-white mb-2">16</div>
-              <div className="text-gray-300 text-sm font-medium">Publications</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <div className="space-y-8 max-w-6xl mx-auto">
-            {projectsList.map((project) => {
-              const theme = getProjectTheme(project.id);
-
-              return (
-              <ClickableProjectCard
-                key={project.id}
-                href={`/projects/${project.id}`}
-              >
-                <div className="flex flex-col lg:flex-row">
-                  {/* Left Side - Content */}
-                  <div className="flex-1 p-8 lg:p-12">
-                    {/* Project Badge */}
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${theme.colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-                        <div className="w-6 h-6 bg-white rounded-md"></div>
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-black text-gray-900 tracking-tight">{project.title}</h3>
-                        <p className="text-sm text-gray-600 font-medium">{project.challenge}</p>
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-lg text-gray-700 font-medium leading-relaxed mb-8">
-                      {project.description}
-                    </p>
-
-                    {/* Highlights */}
-                    <div className="mb-8">
-                      <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">Key Features</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {project.keyFeatures.map((feature, idx) => (
-                          <span key={idx} className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm font-medium rounded-lg">
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action Button */}
-                    <ExternalLinkButton
-                      href={project.externalUrl}
-                      label={`Explore ${project.shortName}`}
-                      accentGradient={theme.colors.gradient}
-                    />
-                  </div>
-
-                  {/* Right Side - Stats & Visual */}
-                  <div className="lg:w-80 bg-gradient-to-br from-gray-50 to-gray-100/50 p-8 border-l border-gray-200/50">
-                    {/* Stats */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Project Scope</h4>
-                      <div className="space-y-3">
-                        {Object.entries(project.stats).map(([key, value]) => (
-                          <div key={key} className="flex justify-between items-center">
-                            <span className="text-gray-600 text-sm capitalize">{key}</span>
-                            <span className="font-bold text-gray-900">{value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Visual Element */}
-                    <div className={`h-32 bg-gradient-to-br ${theme.colors.gradient} rounded-xl relative overflow-hidden`}>
-                      <div className="absolute inset-0 opacity-20">
-                        <div className="absolute top-4 right-4 w-8 h-8 border-2 border-white/60 rounded-full"></div>
-                        <div className="absolute bottom-4 left-4 w-6 h-6 border-2 border-white/60 rounded-lg rotate-45"></div>
-                        <div className="absolute top-1/2 left-1/3 w-2 h-12 bg-white/60 rounded-full"></div>
-                      </div>
-                      <div className="absolute bottom-4 right-4">
-                        <div className="text-white/80 text-xs font-bold uppercase tracking-wider">
-                          {project.shortName}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </ClickableProjectCard>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-slate-50 to-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="bg-white/90 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-8 shadow-xl shadow-gray-900/10">
-            <h2 className="text-3xl font-black text-gray-900 mb-6 tracking-tight">
-              Ready to Collaborate?
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto">
-              From real-time HIV intervention modeling to aging population health challenges, these three platforms work in concert to provide the computational backbone for evidence-based public health policy nationwide.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/publications"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-hopkins-blue/25 transition-all duration-500 transform hover:scale-105 relative overflow-hidden"
-              >
-                <span className="relative">View Publications</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </Link>
-              
-              <Link
-                href="mailto:compepi@jhu.edu"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-              >
-                <span>Start a Collaboration</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProjectsIntro />
+      <SharedApproach />
+      <ProjectList projects={projectsList} />
+      <Collaboration />
     </MainLayout>
   );
 }

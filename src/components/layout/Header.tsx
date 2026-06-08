@@ -1,82 +1,109 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+
+const NAV = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/team', label: 'Team' },
+];
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
   return (
-    <header className="bg-hopkins-blue shadow-lg sticky top-0 z-50 border-b border-hopkins-blue/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          {/* Logo and Branding - now linked to homepage */}
-          <Link href="/" className="flex items-center group relative overflow-hidden">
-            <div className="flex-shrink-0 flex items-center">
-              <div className="flex items-center">
-                <Image
-                  src="/images/JHU.logo_horizontal.white.svg"
-                  alt="Johns Hopkins University" 
-                  width={200} 
-                  height={50} 
-                  className="transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              
-              <div className="border-l border-white/30 mx-4 h-10 hidden md:block"></div>
-              
-              <div className="hidden md:block">
-                <div className="text-white font-bold text-lg group-hover:text-hopkins-gold transition-colors duration-300">Computational Epidemiology Lab</div>
-              </div>
+    <header className="bg-hopkins-blue border-b border-white/10">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex h-16 items-center justify-between gap-6">
+          <Link href="/" className="flex min-w-0 items-center gap-4">
+            <div className="flex-shrink-0">
+              <Image
+                src="/images/JHU.logo_horizontal.white.svg"
+                alt="Johns Hopkins University"
+                width={180}
+                height={45}
+                className="h-auto w-[180px]"
+              />
             </div>
-            {/* Subtle hover effect - animated underline */}
-            <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></div>
+            <div className="hidden h-8 border-l border-white/25 md:block" />
+            <div className="hidden truncate text-sm font-semibold text-white md:block">
+              Computational Epidemiology Lab
+            </div>
           </Link>
-          
-          {/* Enhanced navigation links */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/"
-              className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
-            >
-              <span>Home</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/projects"
-              className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
-            >
-              <span>Projects</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/publications"
-              className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
-            >
-              <span>Publications</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/news"
-              className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
-            >
-              <span>News</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/team"
-              className="text-white hover:text-hopkins-gold font-medium transition-all relative group py-2"
-            >
-              <span>Team</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-hopkins-gold transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+
+          <nav className="hidden items-center gap-7 text-sm md:flex">
+            {NAV.map(item => {
+              const isActive =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  className="group relative py-2 text-white/85 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-hopkins-gold"
+                >
+                  {item.label}
+                  <span
+                    className={[
+                      'absolute inset-x-0 bottom-0 h-px origin-left bg-hopkins-gold transition-transform duration-200',
+                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100',
+                    ].join(' ')}
+                  />
+                </Link>
+              );
+            })}
           </nav>
-          
-          {/* Mobile menu button with enhanced styling */}
-          <div className="md:hidden flex items-center">
-            <button className="text-white p-2 rounded-md hover:bg-white/10 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+
+          <div className="flex items-center md:hidden">
+            <button
+              type="button"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen(open => !open)}
+              className="p-2 text-white transition-colors hover:bg-white/10"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 6l12 12M18 6L6 18" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7h16M4 12h16M4 17h16" />
+                )}
               </svg>
             </button>
           </div>
         </div>
+
+        {isOpen && (
+          <nav className="border-t border-white/15 py-3 text-sm md:hidden">
+            {NAV.map(item => {
+              const isActive =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={() => setIsOpen(false)}
+                  className={[
+                    'block border-l py-2 pl-3 text-white/90 transition-colors hover:text-white',
+                    isActive ? 'border-hopkins-gold' : 'border-transparent',
+                  ].join(' ')}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        )}
       </div>
     </header>
   );

@@ -1,25 +1,60 @@
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import MainLayout from '@/components/layout/MainLayout';
-import Link from 'next/link';
-import { getProjects, getProjectById } from '@/lib/data/projects';
-import { getProjectTheme } from '@/lib/projects/config';
+import { getProjectById, getProjects, type Project, type ProjectStats } from '@/lib/data/projects';
 
-// Define the page parameters (Next.js 15 - params is a promise)
 type Props = {
   params: Promise<{
     id: string;
   }>;
 };
 
-// Generate static params for all projects
+const STAT_LABELS: Record<keyof ProjectStats, string> = {
+  cities: 'cities',
+  states: 'states',
+  publications: 'publications',
+  scenarios: 'scenarios',
+  countries: 'countries',
+};
+
+const PROJECT_DETAILS: Record<
+  string,
+  {
+    role: string;
+    decision: string;
+    audience: string;
+    geography: string;
+    products: string;
+    compare: string[];
+  }
+> = {
+  jheem: {
+    role: 'HIV intervention and funding policy',
+    decision:
+      'How could HIV outcomes change if prevention, testing, treatment, or federal program funding shifted across U.S. jurisdictions?',
+    audience: 'Health departments, policy teams, and implementation researchers',
+    geography: 'U.S. cities, states, and Ending the HIV Epidemic priority jurisdictions',
+    products: 'Published analyses, public summaries, and a scenario portal for policy discussion',
+    compare: ['Projected infections', 'Incidence change', 'Program impact', 'Scenario comparisons'],
+  },
+  shield: {
+    role: 'HIV/STI co-epidemic strategy',
+    decision:
+      'Which strategies could help jurisdictions respond to overlapping HIV and syphilis epidemics as new prevention and testing options become available?',
+    audience: 'Researchers, urban health departments, clinical teams, and community partners',
+    geography: 'High-burden U.S. urban jurisdictions',
+    products: 'Model development and intervention evaluation for co-epidemic planning',
+    compare: ['Epidemic trajectories', 'Intervention impact', 'Cost-effectiveness', 'Implementation tradeoffs'],
+  },
+};
+
 export async function generateStaticParams() {
   const projects = await getProjects();
-  return projects.map((project) => ({
+  return projects.map(project => ({
     id: project.id,
   }));
 }
 
-// Generate metadata for each project page
 export async function generateMetadata({ params }: Props) {
   const { id } = await params;
   const project = await getProjectById(id);
@@ -36,156 +71,226 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default async function ProjectPage({ params }: Props) {
-  const { id } = await params;
-  const project = await getProjectById(id);
+function formatScope(stats: ProjectStats) {
+  return Object.entries(stats)
+    .filter(([, value]) => value && value !== '0')
+    .map(([key, value]) => `${value} ${STAT_LABELS[key as keyof ProjectStats] ?? key}`)
+    .join(' / ');
+}
 
-  // If project doesn't exist, return 404
-  if (!project) {
-    notFound();
-  }
-
-  const theme = getProjectTheme(id);
+function ProjectHeader({ project }: { project: Project }) {
+  const details = PROJECT_DETAILS[project.id];
 
   return (
-    <MainLayout>
-      {/* Hero section with project title and overview */}
-      <section className={`${project.color} text-white py-16 relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-[url('/graph-pattern.svg')] bg-[length:20px_20px] opacity-[0.05] z-0"></div>
-        <div className="absolute -right-24 -top-24 w-64 h-64 bg-white/[0.1] rounded-full blur-sm"></div>
-        <div className="absolute -left-24 bottom-0 w-64 h-64 bg-white/[0.05] rounded-full blur-sm"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-5 gap-10 items-center">
-            <div className="md:col-span-3">
-              <Link href="/projects" className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Back to Projects
-              </Link>
-              
-              <h1 className="text-4xl font-bold mb-4">{project.shortName}</h1>
-              <h2 className="text-2xl font-light mb-6">{project.title}</h2>
-              <p className="text-xl text-white/90 mb-4 leading-relaxed">
-                {project.description}
-              </p>
-            </div>
-            
-            <div className="md:col-span-2 flex justify-center">
-              <div className="w-64 h-64 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                <span className="text-7xl font-bold">{project.shortName}</span>
+    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div>
+            <Link
+              href="/projects"
+              className="text-sm text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+            >
+              Projects
+            </Link>
+            <p className="mt-8 text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              {project.shortName}
+            </p>
+          </div>
+          <div>
+            <h1 className="font-serif text-5xl leading-tight text-[color:var(--color-ink)]">
+              {project.shortName}
+            </h1>
+            <p className="mt-3 max-w-3xl font-serif text-2xl leading-snug text-[color:var(--color-ink)]">
+              {project.title}
+            </p>
+            <p className="mt-5 text-sm font-semibold uppercase tracking-[0.12em] text-[color:var(--color-muted)]">
+              {details.role}
+            </p>
+            <p className="mt-6 max-w-3xl text-xl leading-relaxed text-[color:var(--color-ink)]">
+              {project.description}
+            </p>
+            <p className="mt-6 text-sm text-[color:var(--color-muted)]">
+              <span className="font-semibold text-[color:var(--color-ink)]">Scope:</span>{' '}
+              {formatScope(project.stats)}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function DecisionContext({ project }: { project: Project }) {
+  const details = PROJECT_DETAILS[project.id];
+
+  return (
+    <section className="border-b border-[color:var(--color-rule)]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              Decision context
+            </p>
+            <h2 className="mt-3 font-serif text-2xl leading-tight text-[color:var(--color-ink)]">
+              What the model helps evaluate.
+            </h2>
+          </div>
+          <div>
+            <p className="max-w-4xl font-serif text-2xl leading-snug text-[color:var(--color-ink)] md:text-3xl">
+              {details.decision}
+            </p>
+            <div className="mt-8 grid gap-6 border-t border-[color:var(--color-rule)] pt-6 md:grid-cols-2">
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                  Who it serves
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                  {details.audience}
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                  Where it applies
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                  {details.geography}
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      
-      {/* Project details section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="md:col-span-2">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Overview</h2>
-              <div className="prose prose-lg max-w-none text-gray-600">
-                <p className="mb-8 leading-relaxed">{project.fullDescription}</p>
-              </div>
+      </div>
+    </section>
+  );
+}
 
-              {/* Key Features */}
-              <div className="mt-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Key Features</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {project.keyFeatures.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-hopkins-blue mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+function ProjectEvidence({ project }: { project: Project }) {
+  const details = PROJECT_DETAILS[project.id];
 
-              {/* External Tool Link */}
-              <div className="mt-8">
+  return (
+    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
+        <div className="grid gap-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
+              Model overview
+            </p>
+            <h2 className="mt-3 font-serif text-2xl text-[color:var(--color-ink)]">
+              How the project is used
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--color-ink)]">
+              {project.fullDescription}
+            </p>
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[color:var(--color-muted)]">
+              {details.products}.
+            </p>
+          </div>
+
+          <div className="border-t border-[color:var(--color-rule)] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                What teams can compare
+              </h3>
+              <ul className="mt-4 grid gap-x-6 gap-y-3 text-sm leading-relaxed text-[color:var(--color-ink)] sm:grid-cols-2">
+                {details.compare.map(item => (
+                  <li key={item} className="flex gap-3">
+                    <span className="mt-[0.55rem] h-px w-5 flex-none bg-[color:var(--color-accent)]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 border-t border-[color:var(--color-rule)] pt-6">
+              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Model features
+              </h3>
+              <ul className="mt-4 grid gap-3 text-sm leading-relaxed text-[color:var(--color-ink)] sm:grid-cols-2">
+                {project.keyFeatures.map(feature => (
+                  <li key={feature} className="border-t border-[color:var(--color-rule)] pt-3">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectActions({ project }: { project: Project }) {
+  return (
+    <section>
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
+            Related work
+          </h2>
+          <div className="grid gap-6 border-t border-[color:var(--color-rule)] pt-6 md:grid-cols-3 lg:border-t-0 lg:pt-0">
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Project tool
+              </h3>
+              <p className="mt-3 text-sm">
                 <a
                   href={project.externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r ${theme.colors.gradient} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:scale-105`}
+                  className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
                 >
-                  <span>{project.externalLabel}</span>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
+                  {project.externalLabel}
                 </a>
-              </div>
+              </p>
             </div>
-
-            <div className="md:col-span-1">
-              {/* Project Scope */}
-              <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Project Scope</h3>
-                <div className="space-y-4">
-                  {Object.entries(project.stats).map(([key, value]) => (
-                    <div key={key} className="flex items-center justify-between">
-                      <span className="text-gray-600">{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-                      <span className="font-semibold text-gray-900">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Figure Placeholder */}
-              <div className="bg-gray-100 p-6 rounded-lg border border-gray-200 mb-6">
-                <div className="aspect-square bg-white rounded flex items-center justify-center text-gray-400 text-sm">
-                  <div className="text-center">
-                    <svg className="w-12 h-12 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p>Figure Coming Soon</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Publications Link */}
-              <div className="bg-hopkins-blue/10 p-6 rounded-lg border border-hopkins-blue/20">
-                <h3 className="text-lg font-bold text-gray-900 mb-3">Publications</h3>
-                <p className="text-sm text-gray-600 mb-4">View research publications related to {project.shortName}</p>
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Publications
+              </h3>
+              <p className="mt-3 text-sm">
                 <Link
                   href="/publications"
-                  className="inline-flex items-center gap-2 text-hopkins-blue hover:text-hopkins-blue/80 font-medium text-sm"
+                  className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
                 >
-                  <span>Browse Publications</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  Browse publications
                 </Link>
-              </div>
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+                Collaboration
+              </h3>
+              <p className="mt-3 text-sm">
+                <a
+                  href="mailto:compepi@jhu.edu"
+                  className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+                >
+                  Contact the lab
+                </a>
+              </p>
             </div>
           </div>
         </div>
-      </section>
-      
-      {/* Call to action section */}
-      <section className="py-12 bg-hopkins-blue/10">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Interested in Collaboration?</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Our team welcomes collaborations with health departments, community organizations, 
-            and researchers interested in applying our models to address public health challenges.
-          </p>
-          <Link 
-            href="mailto:compepi@jhu.edu" 
-            className="inline-flex items-center justify-center px-6 py-3 bg-hopkins-blue text-white font-medium rounded-md hover:bg-hopkins-blue/90 transition-colors shadow-md"
-          >
-            Contact Our Team
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </Link>
-        </div>
-      </section>
+      </div>
+    </section>
+  );
+}
+
+export default async function ProjectPage({ params }: Props) {
+  const { id } = await params;
+  const project = await getProjectById(id);
+
+  if (!project) {
+    notFound();
+  }
+
+  return (
+    <MainLayout>
+      <ProjectHeader project={project} />
+      <DecisionContext project={project} />
+      <ProjectEvidence project={project} />
+      <ProjectActions project={project} />
     </MainLayout>
   );
 }

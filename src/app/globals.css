@@ -2,52 +2,43 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-hopkins-blue: #002D72; /* Heritage Blue (PMS 288) */
-  --color-hopkins-spirit-blue: #68ACE5; /* Spirit Blue (PMS 284) */
-  --color-hopkins-gold: #F2C413; /* Gold (PMS 7406 approximate) */
+
+  /* Hopkins brand */
+  --color-hopkins-blue: #002D72;       /* PMS 288 */
+  --color-hopkins-spirit-blue: #68ACE5; /* PMS 284 */
+  --color-hopkins-gold: #F2C413;       /* PMS 7406 approx */
+
+  /* Semantic tokens — use these in components, not raw slate-* */
+  --color-ink: #0f172a;     /* body text, near-black */
+  --color-paper: #ffffff;   /* page background */
+  --color-muted: #475569;   /* secondary text, captions */
+  --color-rule: #e2e8f0;    /* thin separator lines */
+  --color-link: #002D72;    /* links — Hopkins blue */
+  --color-accent: #F2C413;  /* sparing accents — Hopkins gold */
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-serif: var(--font-source-serif);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
+/* Default link styling — quiet, Hopkins blue, underlined on hover */
 a {
-  transition: all 0.2s ease-in-out;
+  transition: color 0.15s ease-in-out;
 }
 
-.section-alt {
-  background-color: #f8fafc;
-  border-top: 1px solid #f1f5f9;
-  border-bottom: 1px solid #f1f5f9;
-}
-
-/* Clip path utilities */
-.clip-path-polygon-tr {
-  clip-path: polygon(100% 0, 100% 100%, 0 0);
-}
-
-.clip-path-polygon-bl {
-  clip-path: polygon(0 100%, 100% 100%, 0 0);
-}
-
-/* Pulse animation for map markers - more dramatic */
+/* Pulse animation for map markers */
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -56,5 +47,78 @@ a {
   50% {
     transform: scale(1.15);
     opacity: 0.4;
+  }
+}
+
+@keyframes map-marker-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  74% {
+    opacity: 0;
+    transform: scale(1.78);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.78);
+  }
+}
+
+.map-marker-pulse {
+  animation: map-marker-pulse 3.6s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.map-marker-core {
+  transition:
+    fill-opacity 140ms ease,
+    stroke-width 140ms ease;
+}
+
+.map-leader-line {
+  vector-effect: non-scaling-stroke;
+}
+
+.map-callout-title,
+.map-callout-value,
+.map-callout-rank {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  pointer-events: none;
+}
+
+.map-callout-title {
+  fill: #f8fcff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.map-callout-value {
+  fill: #9eeaf0;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.map-callout-rank {
+  fill: #f2c413;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.map-grid-label {
+  fill: #7bdbe6;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.46;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-marker-pulse {
+    animation: none;
+    opacity: 0;
   }
 }
