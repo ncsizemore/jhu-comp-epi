@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T14:15:43.029Z",
+  "generated_at": "2026-06-08T14:58:50.003Z",
   "gmha_source_dir": "/Volumes/WD_Black/wiley/Documents/gmha/web",
   "staged_files": [
     {
@@ -20,7 +20,7 @@
     {
       "file": "observed.json",
       "dest": "public/data/global-aging/observed.json",
-      "size": 2290448
+      "size": 2466092
     },
     {
       "file": "calibration/all_high.json",
