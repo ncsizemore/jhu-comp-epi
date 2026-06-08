@@ -22,6 +22,7 @@ type AgeSelection = 'total' | 'all';
 
 const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionProps) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+  const [showDetails, setShowDetails] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState('south_africa');
   const [selectedOutcome, setSelectedOutcome] = useState('prevalence');
   const [ageSelection, setAgeSelection] = useState<AgeSelection>('total');
@@ -100,12 +101,97 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
       {isExpanded && (
         <div className="mt-4 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
           {/* Description */}
-          <div className="px-6 py-4 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-100">
-            <p className="text-sm text-amber-800">
-              <span className="font-semibold">About these plots:</span> Black lines show the mean across 1,000 model simulations.
-              Orange shaded regions represent 95% credible intervals. Green dots indicate UNAIDS surveillance estimates.
-              The dashed vertical line marks the last year of available surveillance data.
+          <div className="px-6 py-5 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-100 space-y-4">
+            <p className="text-sm text-amber-900 leading-relaxed">
+              <span className="font-semibold">About these plots:</span> These plots display results of the
+              model calibration process for each location. The black lines show the mean across 1,000 model
+              simulations, while the orange shaded regions represent 95% credible intervals. The green points
+              indicate calibration targets from surveillance data, with the dashed vertical line marking the
+              last year of available surveillance data.
             </p>
+
+            <button
+              type="button"
+              onClick={() => setShowDetails(!showDetails)}
+              className="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-md bg-amber-100/60 hover:bg-amber-100 text-xs font-semibold uppercase tracking-wider text-amber-800 transition-colors w-fit"
+              aria-expanded={showDetails}
+            >
+              {showDetails ? 'Hide details' : 'Data sources and details'}
+              <svg
+                className={`w-3 h-3 transition-transform ${showDetails ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {showDetails && (<>
+            <div className="text-sm text-amber-900">
+              <p className="font-semibold mb-1.5">Calibration target (surveillance data) sources:</p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>
+                  New infections, People Living with HIV, HIV mortality, Aware of Status, On ART, Virally
+                  Suppressed:{' '}
+                  <a
+                    href="https://aidsinfo.unaids.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-amber-700"
+                  >
+                    UNAIDS AIDSinfo surveillance estimates
+                  </a>
+                </li>
+                <li>
+                  Population, Total Mortality:{' '}
+                  <a
+                    href="https://population.un.org/wpp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-amber-700"
+                  >
+                    UN World Population Prospects
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="text-sm text-amber-900">
+              <p className="mb-1.5">
+                <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
+                <a
+                  href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-amber-700"
+                >
+                  World Bank&apos;s income classifications
+                </a>{' '}
+                and include the following countries:
+              </p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>
+                  <span className="font-medium">Low income:</span> Malawi, Mozambique, Uganda, and all other
+                  low-income countries reporting to UNAIDS, modeled as an aggregate
+                </li>
+                <li>
+                  <span className="font-medium">Lower middle income:</span> Kenya, Nigeria, Tanzania, Zambia,
+                  Zimbabwe, and all other lower-middle-income countries reporting to UNAIDS, modeled as an
+                  aggregate
+                </li>
+                <li>
+                  <span className="font-medium">Upper middle income:</span> South Africa and all other
+                  upper-middle-income countries reporting to UNAIDS, modeled as an aggregate
+                </li>
+                <li>
+                  <span className="font-medium">High income:</span> All high-income countries reporting to
+                  UNAIDS, modeled as an aggregate
+                </li>
+              </ul>
+            </div>
+            </>)}
           </div>
 
           {/* Controls */}

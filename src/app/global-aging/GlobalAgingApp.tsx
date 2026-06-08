@@ -297,6 +297,7 @@ function GlobalAgingAppWithSuspense() {
 
 function ProjectionsSection() {
   const [isExpanded, setIsExpanded] = useState(true);
+  const [showDetails, setShowDetails] = useState(false);
 
   return (
     <div>
@@ -330,8 +331,135 @@ function ProjectionsSection() {
 
       {isExpanded && (
         <div className="mt-4">
-          <div className="bg-white rounded-xl p-8 shadow-lg">
-            <GlobalAgingAppWithSuspense />
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            {/* Description */}
+            <div className="px-6 py-5 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-100 space-y-4">
+              <p className="text-sm text-amber-900 leading-relaxed">
+                <span className="font-semibold">About these plots:</span> These plots display the
+                model-projected age distributions (both as total counts and relative percentages by
+                age) of people living with HIV in each location over time.
+              </p>
+
+              <button
+                type="button"
+                onClick={() => setShowDetails(!showDetails)}
+                className="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-md bg-amber-100/60 hover:bg-amber-100 text-xs font-semibold uppercase tracking-wider text-amber-800 transition-colors w-fit"
+                aria-expanded={showDetails}
+              >
+                {showDetails ? 'Hide details' : 'Methodology and details'}
+                <svg
+                  className={`w-3 h-3 transition-transform ${showDetails ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {showDetails && (<>
+              <div className="text-sm text-amber-900">
+                <p className="mb-1.5">
+                  <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
+                  <a
+                    href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-amber-700"
+                  >
+                    World Bank&apos;s income classifications
+                  </a>{' '}
+                  and include the following countries:
+                </p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>
+                    <span className="font-medium">Low income:</span> Malawi, Mozambique, Uganda, and
+                    all other low-income countries reporting to UNAIDS, modeled as an aggregate
+                  </li>
+                  <li>
+                    <span className="font-medium">Lower middle income:</span> Kenya, Nigeria, Tanzania,
+                    Zambia, Zimbabwe, and all other lower-middle-income countries reporting to UNAIDS,
+                    modeled as an aggregate
+                  </li>
+                  <li>
+                    <span className="font-medium">Upper middle income:</span> South Africa and all
+                    other upper-middle-income countries reporting to UNAIDS, modeled as an aggregate
+                  </li>
+                  <li>
+                    <span className="font-medium">High income:</span> All high-income countries
+                    reporting to UNAIDS, modeled as an aggregate
+                  </li>
+                </ul>
+              </div>
+
+              <div className="text-sm text-amber-900 space-y-3 pt-4 border-t border-amber-200">
+                <p className="font-semibold text-amber-950">Modeling Methodology</p>
+                <p className="leading-relaxed">
+                  The modeling methodology builds on previous work in Kenya, published as{' '}
+                  <a
+                    href="https://pubmed.ncbi.nlm.nih.gov/38537051/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-amber-700"
+                  >
+                    &ldquo;Forecasting the Effect of HIV-Targeted Interventions on the Age
+                    Distribution of People with HIV in Kenya&rdquo; (
+                    <em className="not-italic">AIDS</em>, 2024)
+                  </a>
+                  , and has been expanded to represent multiple countries, income groups, and
+                  global populations.
+                </p>
+                <p className="leading-relaxed">
+                  The GMHA is a compartmental model characterized by transitions along the HIV
+                  continuum of care (HIV incidence, diagnosis, engagement in care, and viral
+                  suppression) and stratified by age and sex. The model parameters are calibrated
+                  using Bayesian methods, combining prior distributions of key model parameters
+                  from available literature and survey data with calibration targets from routine
+                  HIV and demographic surveillance data.
+                </p>
+                <p className="leading-relaxed">
+                  In order to capture local heterogeneities in HIV epidemics, the global estimates
+                  were generated by calibrating nine individual country models (South Africa,
+                  Mozambique, Nigeria, Tanzania, Uganda, Kenya, Zambia, Zimbabwe, and Malawi) —
+                  representing ~50% of the global population living with HIV — and modeling the
+                  remaining countries as two aggregate models: one capturing all other countries
+                  included in{' '}
+                  <a
+                    href="https://aidsinfo.unaids.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-amber-700"
+                  >
+                    UNAIDS&apos; disaggregated data reporting
+                  </a>
+                  , and one capturing the remaining countries that are not included in the UNAIDS
+                  data. All models were calibrated to target data through 2023, and the calibration
+                  process was run across multiple chains and thinned to a final set of 1,000
+                  simulations. The global model was constructed by aggregating outputs across all
+                  individually-fitted country-level models, and outcomes were validated against
+                  UNAIDS global data on HIV incidence and prevalence. For each outcome, we report
+                  the median value and 95% credible interval.
+                </p>
+                <p className="leading-relaxed">
+                  <span className="font-semibold">Income models:</span> We used the{' '}
+                  <a
+                    href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-amber-700"
+                  >
+                    World Bank&apos;s income classification
+                  </a>{' '}
+                  to group models by income.
+                </p>
+              </div>
+              </>)}
+            </div>
+
+            <div className="p-8">
+              <GlobalAgingAppWithSuspense />
+            </div>
           </div>
         </div>
       )}
@@ -365,16 +493,30 @@ export default function GlobalAgingApp() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <p className="text-lg text-gray-700 leading-relaxed mb-6 max-w-2xl">
-                As antiretroviral therapy (ART) extends life expectancy, the global population
-                of people living with HIV is aging rapidly. This shift has profound implications
-                for healthcare systems, particularly in sub-Saharan Africa where the burden
-                of HIV is greatest.
+              <p className="text-lg text-gray-700 leading-relaxed mb-5 max-w-2xl">
+                As antiretroviral therapy (ART) continues to extend life expectancy, the
+                global population of people living with HIV (PWH) is aging rapidly. This
+                demographic shift has important implications for healthcare systems
+                worldwide, particularly in sub-Saharan Africa, where the burden of HIV
+                remains highest.
+              </p>
+              <p className="text-base text-gray-700 leading-relaxed mb-5 max-w-2xl">
+                The Global Model of HIV &amp; Aging (GMHA) is a compartmental model of HIV
+                transmission, treatment, and population aging that provides a robust
+                framework for studying demographic trends among PWH. Originally developed
+                to characterize HIV and aging dynamics at a broad scale, the model has been
+                adapted and expanded to represent nine individual countries that
+                collectively account for approximately 50% of the global population living
+                with HIV, as well as four income-group aggregates and a global model. These
+                extensions enable comparative analyses of aging trends across diverse
+                epidemiological and socioeconomic settings.
               </p>
               <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
-                This interactive tool explores projected age distributions of PLHIV across
-                13 locations — 7 countries, 4 income groups, and global aggregates — from
-                2025 to 2040, based on 1,000 model simulations.
+                This interactive tool explores projected age distributions of PWH from 2025
+                to 2040 across multiple locations. Projections can be viewed as either
+                counts or proportions for the overall population and stratified by age
+                groups. The lower panels provide a brief description of modeling
+                methodology and a summary review of model calibration for each location.
               </p>
             </motion.div>
 
@@ -382,25 +524,56 @@ export default function GlobalAgingApp() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gradient-to-br from-hopkins-blue/5 to-hopkins-spirit-blue/10 p-6 rounded-xl space-y-5"
+              className="bg-gradient-to-br from-hopkins-gold/15 via-amber-50 to-hopkins-gold/10 p-6 rounded-xl border border-hopkins-gold/40 space-y-4"
             >
-              <div className="space-y-4">
-                <div>
-                  <div className="text-3xl font-light text-hopkins-blue mb-1">13 Locations</div>
-                  <p className="text-xs text-gray-600">Countries, income groups, and global aggregates</p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 pt-4 border-t border-hopkins-blue/20">
-                  <div>
-                    <div className="text-2xl font-semibold text-hopkins-blue mb-1">14</div>
-                    <p className="text-xs text-gray-600">HIV outcomes modeled</p>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-semibold text-hopkins-blue mb-1">1,000</div>
-                    <p className="text-xs text-gray-600">Simulations per location</p>
-                  </div>
-                </div>
+              <div>
+                <p className="text-amber-700 text-[11px] font-semibold tracking-widest uppercase mb-1.5">
+                  Upcoming
+                </p>
+                <h3 className="text-lg font-semibold text-gray-900 leading-tight">
+                  GMHA at AIDS 2026
+                </h3>
+                <p className="text-xs text-gray-600 mt-1.5">
+                  Rio de Janeiro · 26th International AIDS Conference
+                </p>
               </div>
+
+              <ul className="space-y-3 text-xs">
+                <li>
+                  <div className="font-semibold text-gray-800">Satellite session</div>
+                  <div className="text-gray-500">Tue, Jul 28 · 6:00–7:30 pm</div>
+                  <div className="text-gray-700 mt-0.5">
+                    Report from The Lancet HIV commission on HIV and ageing
+                  </div>
+                </li>
+                <li>
+                  <div className="font-semibold text-gray-800">Poster presentation</div>
+                  <div className="text-gray-500">Tue, Jul 28 · 12:00–1:00 pm</div>
+                  <div className="text-gray-700 mt-0.5">
+                    Forecasting the Global Age Distribution of People with HIV from 2025–2040
+                  </div>
+                </li>
+                <li>
+                  <div className="font-semibold text-gray-800">Poster presentation</div>
+                  <div className="text-gray-500">Wed, Jul 29 · 12:00–1:00 pm</div>
+                  <div className="text-gray-700 mt-0.5">
+                    The potential impact of long-acting injectable ART to reduce HIV incidence among
+                    youth in South Africa
+                  </div>
+                </li>
+              </ul>
+
+              <a
+                href="https://www.iasociety.org/conferences/aids2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-hopkins-blue hover:underline pt-3 border-t border-hopkins-gold/30 w-full"
+              >
+                Conference details
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </motion.div>
           </div>
         </div>

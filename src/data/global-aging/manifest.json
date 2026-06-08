@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-15T14:27:52.478Z",
+  "generated_at": "2026-06-08T14:58:50.003Z",
   "gmha_source_dir": "/Volumes/WD_Black/wiley/Documents/gmha/web",
   "staged_files": [
     {
       "file": "metadata.json",
       "dest": "src/data/global-aging/metadata.json",
-      "size": 2311
+      "size": 2312
     },
     {
       "file": "summary.json",
@@ -20,82 +20,82 @@
     {
       "file": "observed.json",
       "dest": "public/data/global-aging/observed.json",
-      "size": 695607
+      "size": 2466092
     },
     {
       "file": "calibration/all_high.json",
       "dest": "public/data/global-aging/calibration/all_high.json",
-      "size": 741793
+      "size": 858574
     },
     {
       "file": "calibration/all_low.json",
       "dest": "public/data/global-aging/calibration/all_low.json",
-      "size": 762935
+      "size": 880068
     },
     {
       "file": "calibration/all_lower_middle.json",
       "dest": "public/data/global-aging/calibration/all_lower_middle.json",
-      "size": 766729
+      "size": 885359
     },
     {
       "file": "calibration/all_upper_middle.json",
       "dest": "public/data/global-aging/calibration/all_upper_middle.json",
-      "size": 772311
+      "size": 893116
     },
     {
       "file": "calibration/global.json",
       "dest": "public/data/global-aging/calibration/global.json",
-      "size": 787462
+      "size": 910298
     },
     {
       "file": "calibration/kenya.json",
       "dest": "public/data/global-aging/calibration/kenya.json",
-      "size": 731189
+      "size": 840670
     },
     {
       "file": "calibration/malawi.json",
       "dest": "public/data/global-aging/calibration/malawi.json",
-      "size": 728247
+      "size": 835291
     },
     {
       "file": "calibration/mozambique.json",
       "dest": "public/data/global-aging/calibration/mozambique.json",
-      "size": 729506
+      "size": 838473
     },
     {
       "file": "calibration/nigeria.json",
       "dest": "public/data/global-aging/calibration/nigeria.json",
-      "size": 735034
+      "size": 848447
     },
     {
       "file": "calibration/south_africa.json",
       "dest": "public/data/global-aging/calibration/south_africa.json",
-      "size": 750541
+      "size": 861645
     },
     {
       "file": "calibration/tanzania.json",
       "dest": "public/data/global-aging/calibration/tanzania.json",
-      "size": 726984
+      "size": 837369
     },
     {
       "file": "calibration/uganda.json",
       "dest": "public/data/global-aging/calibration/uganda.json",
-      "size": 732520
+      "size": 841805
     },
     {
       "file": "calibration/unaids_remainder.json",
       "dest": "public/data/global-aging/calibration/unaids_remainder.json",
-      "size": 772343
+      "size": 894519
     },
     {
       "file": "calibration/zambia.json",
       "dest": "public/data/global-aging/calibration/zambia.json",
-      "size": 720514
+      "size": 827750
     },
     {
       "file": "calibration/zimbabwe.json",
       "dest": "public/data/global-aging/calibration/zimbabwe.json",
-      "size": 728040
+      "size": 836089
     }
   ],
   "source_bundles": [
@@ -194,6 +194,12 @@
       "date_from_filename": "2025-10-03",
       "size": 14181259,
       "mtime": "2026-03-19T23:50:00.000Z"
+    },
+    {
+      "file": "data.manager_global_2026-06-02.Rdata",
+      "date_from_filename": "2026-06-02",
+      "size": 14575644,
+      "mtime": "2026-06-03T13:45:01.038Z"
     }
   ]
 }
