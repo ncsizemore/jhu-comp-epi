@@ -81,13 +81,13 @@ const AgeDistributionChart = memo(({
       const total = payload.reduce((sum: number, entry: TooltipPayload) => sum + (entry.value || 0), 0);
 
       return (
-        <div className="relative z-50 bg-white/98 backdrop-blur-xl p-4 border-2 border-gray-200/60 rounded-2xl shadow-2xl ring-1 ring-black/5">
-          <div className="mb-3 pb-2 border-b border-gray-200/70">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+        <div className="relative z-50 border border-[color:var(--color-rule)] bg-white p-4 shadow-lg">
+          <div className="mb-3 border-b border-[color:var(--color-rule)] pb-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
               {locationName}
             </p>
-            <p className="text-xl font-bold text-hopkins-blue">{label}</p>
-            <p className="text-[9px] text-gray-500 mt-1 italic">
+            <p className="text-xl font-bold text-[color:var(--color-hopkins-blue)]">{label}</p>
+            <p className="mt-1 text-[9px] italic text-[color:var(--color-muted)]">
               Median counts (1,000 simulations)
             </p>
           </div>
@@ -167,14 +167,14 @@ const AgeDistributionChart = memo(({
             aria-label={`${isVisible ? 'Hide' : 'Show'} ${bracket}`}
             className={`group flex items-center ${isCompact ? 'gap-1 px-1.5 py-0.5' : 'gap-1.5 px-2 py-1'} rounded-lg border transition-all duration-200 ${
               isVisible
-                ? 'bg-white/90 hover:bg-white border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md'
-                : 'bg-transparent border-transparent hover:bg-gray-50'
+                ? 'border-[color:var(--color-rule)] bg-white hover:bg-[#f8fafc]'
+                : 'border-transparent bg-transparent hover:bg-[#f8fafc]'
             }`}
             title={isVisible ? 'Click to hide' : 'Click to show'}
           >
             <div
               className={`${isCompact ? 'w-2 h-2' : 'w-2.5 h-2.5'} rounded transition-all duration-200 ${
-                isVisible ? 'shadow-sm' : 'opacity-30 grayscale'
+                isVisible ? '' : 'opacity-30 grayscale'
               }`}
               style={{ backgroundColor: color }}
             />

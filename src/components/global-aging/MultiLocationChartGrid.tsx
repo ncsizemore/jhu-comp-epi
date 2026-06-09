@@ -149,7 +149,7 @@ const MultiLocationChartGrid = memo(({
 
   if (locationCodes.length === 0) {
     return (
-      <div className="flex items-center justify-center h-64 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300">
+      <div className="flex h-64 items-center justify-center border border-dashed border-[color:var(--color-rule)] bg-[#f8fafc]">
         <div className="text-center">
           <svg className="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -163,7 +163,7 @@ const MultiLocationChartGrid = memo(({
 
   if (projectionsError) {
     return (
-      <div className="flex items-center justify-center h-64 bg-red-50 rounded-xl border border-red-200">
+      <div className="flex h-64 items-center justify-center border border-red-200 bg-red-50">
         <div className="text-center px-4">
           <h3 className="text-lg font-medium text-red-700 mb-2">Failed to load projections</h3>
           <p className="text-sm text-red-600">{projectionsError.message}</p>
@@ -176,7 +176,7 @@ const MultiLocationChartGrid = memo(({
     return (
       <div className={`grid ${gridLayout.gap} ${gridLayout.gridClass}`}>
         {locationCodes.slice(0, Math.min(6, locationCodes.length)).map(code => (
-          <div key={code} className="bg-white rounded-xl border border-gray-200 shadow-sm p-3 animate-pulse">
+          <div key={code} className="animate-pulse border border-[color:var(--color-rule)] bg-white p-3">
             <div className="mb-4 text-center space-y-2">
               <div className="h-5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-md w-3/4 mx-auto" />
             </div>
@@ -215,7 +215,7 @@ const MultiLocationChartGrid = memo(({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: animationDelay, duration: 0.4 }}
-              className="group bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300 p-3"
+              className="group border border-[color:var(--color-rule)] bg-white p-3 transition-colors duration-200 hover:border-[color:var(--color-hopkins-blue)]/35"
             >
               {isRendered ? (
                 isSplit ? (

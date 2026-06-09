@@ -42,10 +42,10 @@ const TimelineControls = memo(({
   return (
     <div className="space-y-2 w-full">
       <div className="flex items-center justify-between">
-        <label className="block text-xs font-semibold text-gray-700">
+        <label className="block text-xs font-semibold text-[color:var(--color-ink)]">
           Timeline Range
         </label>
-        <div className="text-base font-bold text-hopkins-blue">
+        <div className="text-base font-bold text-[color:var(--color-hopkins-blue)]">
           {startYear}–{endYear}
         </div>
       </div>
@@ -62,7 +62,7 @@ const TimelineControls = memo(({
           styles={{
             track: { backgroundColor: '#002D72', height: 10 },
             tracks: { backgroundColor: '#002D72', height: 10 },
-            rail: { backgroundColor: '#e5e7eb', height: 10 },
+            rail: { backgroundColor: '#e2e8f0', height: 10 },
             handle: {
               backgroundColor: '#fff',
               borderColor: '#002D72',
@@ -87,10 +87,10 @@ const TimelineControls = memo(({
               key={preset.label}
               onClick={() => onYearRangeChange(preset.range)}
               aria-pressed={isActive}
-              className={`px-3 py-2 text-xs font-semibold rounded-lg transition-all shadow-sm ${
+              className={`border px-3 py-2 text-xs font-semibold transition-colors ${
                 isActive
-                  ? 'bg-gradient-to-br from-hopkins-blue to-hopkins-spirit-blue text-white shadow-md hover:shadow-lg'
-                  : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-hopkins-blue hover:bg-gray-50'
+                  ? 'border-[color:var(--color-hopkins-blue)] bg-[color:var(--color-hopkins-blue)] text-white'
+                  : 'border-[color:var(--color-rule)] bg-white text-[color:var(--color-muted)] hover:border-[color:var(--color-hopkins-blue)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
               }`}
             >
               {preset.label}

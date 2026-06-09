@@ -70,12 +70,12 @@ const CustomTooltip = memo(({
   const outcomeLabel = OUTCOME_LABELS[outcome] || outcome;
 
   return (
-    <div className="bg-white/98 backdrop-blur-xl p-4 border-2 border-gray-200/60 rounded-2xl shadow-2xl ring-1 ring-black/5 max-w-xs">
-      <div className="mb-3 pb-2 border-b border-gray-200/70">
-        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+    <div className="max-w-xs border border-[color:var(--color-rule)] bg-white p-4 shadow-lg">
+      <div className="mb-3 border-b border-[color:var(--color-rule)] pb-2">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
           {locationName} · {ageLabel}
         </p>
-        <p className="text-xl font-bold text-hopkins-blue">{label}</p>
+        <p className="text-xl font-bold text-[color:var(--color-hopkins-blue)]">{label}</p>
       </div>
       <div className="space-y-2 text-sm">
         <div className="flex items-center justify-between gap-4">
@@ -108,8 +108,8 @@ const CustomTooltip = memo(({
           </div>
         )}
       </div>
-      <div className="mt-3 pt-2 border-t border-gray-200">
-        <p className="text-xs text-gray-500 italic">{outcomeLabel}</p>
+      <div className="mt-3 border-t border-[color:var(--color-rule)] pt-2">
+        <p className="text-xs italic text-[color:var(--color-muted)]">{outcomeLabel}</p>
       </div>
     </div>
   );

@@ -75,37 +75,37 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls="global-aging-calibration-panel"
-        className="w-full flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-hopkins-blue/30 hover:shadow-md transition-all duration-200 group"
+        className="group flex w-full items-center justify-between border border-[color:var(--color-rule)] bg-white p-4 text-left transition-colors hover:border-[color:var(--color-hopkins-blue)]/35"
       >
         <div className="flex items-center gap-3">
           <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
-            isExpanded ? 'bg-hopkins-blue text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-hopkins-blue/10'
+            isExpanded ? 'bg-[color:var(--color-hopkins-blue)] text-white' : 'bg-[#f1f5f9] text-[color:var(--color-muted)] group-hover:bg-[#e8f1fb]'
           }`}>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
           </div>
           <div className="text-left">
-            <h3 className="text-lg font-semibold text-gray-900">Model Calibration</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="text-lg font-semibold text-[color:var(--color-ink)]">Model Calibration</h3>
+            <p className="text-sm text-[color:var(--color-muted)]">
               Compare model simulations with UNAIDS surveillance data
             </p>
           </div>
         </div>
         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-          isExpanded ? 'bg-hopkins-blue/10 rotate-180' : 'bg-gray-100'
+          isExpanded ? 'bg-[#e8f1fb] rotate-180' : 'bg-[#f1f5f9]'
         }`} aria-hidden="true">
-          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-[color:var(--color-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
       </button>
 
       {isExpanded && (
-        <div id="global-aging-calibration-panel" className="mt-4 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+        <div id="global-aging-calibration-panel" className="mt-4 overflow-hidden border border-[color:var(--color-rule)] bg-white">
           {/* Description */}
-          <div className="px-6 py-5 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-100 space-y-4">
-            <p className="text-sm text-amber-900 leading-relaxed">
+          <div className="space-y-4 border-b border-amber-200 bg-[#fffaf0] px-6 py-5">
+            <p className="text-sm leading-relaxed text-[#733b00]">
               <span className="font-semibold">About these plots:</span> These plots display results of the
               model calibration process for each location. The black lines show the mean across 1,000 model
               simulations, while the orange shaded regions represent 95% credible intervals. The green points
@@ -116,7 +116,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
             <button
               type="button"
               onClick={() => setShowDetails(!showDetails)}
-              className="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-md bg-amber-100/60 hover:bg-amber-100 text-xs font-semibold uppercase tracking-wider text-amber-800 transition-colors w-fit"
+              className="inline-flex w-fit items-center gap-1.5 border border-amber-200 bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#7a4200] transition-colors hover:bg-white"
               aria-expanded={showDetails}
               aria-controls="global-aging-calibration-details"
             >
@@ -134,7 +134,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
 
             {showDetails && (
               <div id="global-aging-calibration-details" className="space-y-4">
-                <div className="text-sm text-amber-900">
+                <div className="text-sm text-[#733b00]">
                   <p className="font-semibold mb-1.5">Calibration target (surveillance data) sources:</p>
                   <ul className="list-disc pl-5 space-y-1">
                     <li>
@@ -144,7 +144,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                         href="https://aidsinfo.unaids.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-amber-700"
+                        className="underline hover:text-[#4f2a00]"
                       >
                         UNAIDS AIDSinfo surveillance estimates
                       </a>
@@ -155,7 +155,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                         href="https://population.un.org/wpp/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-amber-700"
+                        className="underline hover:text-[#4f2a00]"
                       >
                         UN World Population Prospects
                       </a>
@@ -163,14 +163,14 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                   </ul>
                 </div>
 
-                <div className="text-sm text-amber-900">
+                <div className="text-sm text-[#733b00]">
                   <p className="mb-1.5">
                     <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
                     <a
                       href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline hover:text-amber-700"
+                      className="underline hover:text-[#4f2a00]"
                     >
                       World Bank&apos;s income classifications
                     </a>{' '}
@@ -201,17 +201,17 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
           </div>
 
           {/* Controls */}
-          <div className="px-6 py-4 border-b border-gray-100">
+          <div className="border-b border-[color:var(--color-rule)] px-6 py-4">
             <div className="flex flex-wrap gap-6">
               {/* Location Selector */}
               <div className="flex-1 min-w-[200px]">
-                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
                   Location
                 </label>
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-hopkins-blue focus:border-transparent transition-all"
+                  className="w-full border border-[color:var(--color-rule)] bg-white px-3 py-2 text-sm font-medium text-[color:var(--color-ink)] transition-colors focus:border-transparent focus:outline-none focus:ring-2 focus:ring-hopkins-blue"
                 >
                   {LOCATION_CODES.map(code => (
                     <option key={code} value={code}>
@@ -223,7 +223,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
 
               {/* Outcome Selector */}
               <div className="flex-1 min-w-[200px]">
-                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
                   Outcome
                 </label>
                 <select
@@ -235,7 +235,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                       setAgeSelection('total');
                     }
                   }}
-                  className="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-hopkins-blue focus:border-transparent transition-all"
+                  className="w-full border border-[color:var(--color-rule)] bg-white px-3 py-2 text-sm font-medium text-[color:var(--color-ink)] transition-colors focus:border-transparent focus:outline-none focus:ring-2 focus:ring-hopkins-blue"
                 >
                   {VISIBLE_OUTCOME_KEYS.map(key => (
                     <option key={key} value={key}>
@@ -248,18 +248,18 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
               {/* Age Group Selector - only show if outcome supports it */}
               {hasAgeBrackets && (
                 <div>
-                  <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                  <label className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
                     Age Groups
                   </label>
-                  <div className="flex rounded-lg border border-gray-300 overflow-hidden" role="group" aria-label="Calibration age group display">
+                  <div className="flex overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Calibration age group display">
                     <button
                       type="button"
                       onClick={() => setAgeSelection('total')}
                       aria-pressed={ageSelection === 'total'}
-                      className={`px-4 py-2 text-sm font-medium transition-all ${
+                      className={`px-4 py-2 text-sm font-medium transition-colors ${
                         ageSelection === 'total'
-                          ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
-                          : 'bg-white text-gray-700 hover:bg-gray-50'
+                          ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                          : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                       }`}
                     >
                       Total Only
@@ -268,10 +268,10 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                       type="button"
                       onClick={() => setAgeSelection('all')}
                       aria-pressed={ageSelection === 'all'}
-                      className={`px-4 py-2 text-sm font-medium transition-all border-l border-gray-300 ${
+                      className={`border-l border-[color:var(--color-rule)] px-4 py-2 text-sm font-medium transition-colors ${
                         ageSelection === 'all'
-                          ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
-                          : 'bg-white text-gray-700 hover:bg-gray-50'
+                          ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                          : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                       }`}
                     >
                       {isProportionOutcome(selectedOutcome) ? 'By Sex (15+)' : 'All Age Groups'}
@@ -284,7 +284,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
 
           {/* Chart Grid */}
           <div className="p-6">
-            <h4 className="text-base font-semibold text-gray-800 mb-4 pb-2 border-b border-gray-200">
+            <h4 className="mb-4 border-b border-[color:var(--color-rule)] pb-2 text-base font-semibold text-[color:var(--color-ink)]">
               {OUTCOME_LABELS[selectedOutcome] || selectedOutcome}
             </h4>
             {dataError ? (
@@ -297,7 +297,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
             ) : dataLoading || !dataReady ? (
               <div className={`grid ${gridCols} gap-4`}>
                 {Array.from({ length: ageSelection === 'all' && hasAgeBrackets ? survAgeBrackets.length + 1 : 1 }).map((_, i) => (
-                  <div key={i} className="bg-gray-50 rounded-xl border border-gray-200 p-4 animate-pulse" style={{ height: ageSelection === 'all' ? 220 : 300 }}>
+                  <div key={i} className="animate-pulse border border-[color:var(--color-rule)] bg-[#f8fafc] p-4" style={{ height: ageSelection === 'all' ? 220 : 300 }}>
                     <div className="h-4 bg-gray-200 rounded w-1/3 mb-4" />
                     <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded" />
                   </div>
@@ -321,7 +321,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
           </div>
 
           {/* Legend */}
-          <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
+          <div className="border-t border-[color:var(--color-rule)] bg-[#f8fafc] px-6 py-4">
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-0.5 bg-gray-800 rounded" />

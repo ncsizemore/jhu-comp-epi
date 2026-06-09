@@ -48,11 +48,11 @@ const LocationSelector = memo(({
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <label className="block text-xs font-semibold text-gray-700">
+        <label className="block text-xs font-semibold text-[color:var(--color-ink)]">
           Select Locations
         </label>
         <div className="flex items-center gap-2">
-          <div className="text-xs font-medium text-gray-600">
+          <div className="text-xs font-medium text-[color:var(--color-muted)]">
             {selectedLocations.length === 0 ? (
               <span className="text-gray-400">None selected</span>
             ) : (
@@ -63,12 +63,12 @@ const LocationSelector = memo(({
             </div>
             <div className="flex gap-2">
             {selectedLocations.length < maxSelectable && (
-              <button type="button" onClick={handleSelectAll} className="text-xs text-gray-600 hover:text-gray-900 underline transition-colors">
+              <button type="button" onClick={handleSelectAll} className="text-xs text-[color:var(--color-muted)] underline transition-colors hover:text-[color:var(--color-ink)]">
                 {selectAllLabel}
               </button>
             )}
             {selectedLocations.length > 0 && (
-              <button type="button" onClick={handleClearAll} className="text-xs text-gray-600 hover:text-gray-900 underline transition-colors">
+              <button type="button" onClick={handleClearAll} className="text-xs text-[color:var(--color-muted)] underline transition-colors hover:text-[color:var(--color-ink)]">
                 Clear
               </button>
             )}
@@ -84,7 +84,7 @@ const LocationSelector = memo(({
 
           return (
             <div key={category}>
-              <div className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+              <div className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
                 {label}
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -102,14 +102,14 @@ const LocationSelector = memo(({
                       aria-pressed={isSelected}
                       aria-label={`${isSelected ? 'Deselect' : 'Select'} ${loc.label}`}
                       title={isDisabled ? `Maximum locations reached (${maxSelectable} max)` : loc.label}
-                      className={`group relative px-2.5 py-1.5 text-xs font-semibold rounded-lg border-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:grayscale ${
+                      className={`group relative border px-2.5 py-1.5 text-xs font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-40 disabled:grayscale ${
                         isGlobal
                           ? isSelected
-                            ? 'bg-gradient-to-br from-hopkins-gold to-amber-400 text-gray-900 border-hopkins-gold shadow-md hover:shadow-lg scale-105'
-                            : 'bg-gradient-to-br from-gray-100 to-gray-200 text-gray-700 border-gray-400 hover:border-hopkins-gold hover:bg-gradient-to-br hover:from-amber-50 hover:to-amber-100 hover:scale-105 hover:shadow-sm'
+                            ? 'border-[color:var(--color-accent)] bg-[color:var(--color-accent)] text-[color:var(--color-ink)]'
+                            : 'border-[color:var(--color-rule)] bg-[#f8fafc] text-[color:var(--color-muted)] hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-ink)]'
                           : isSelected
-                            ? 'bg-gradient-to-br from-hopkins-blue to-hopkins-spirit-blue text-white border-hopkins-blue shadow-md hover:shadow-lg scale-105'
-                            : 'bg-white text-gray-700 border-gray-300 hover:border-hopkins-blue hover:bg-gray-50 hover:scale-105 hover:shadow-sm'
+                            ? 'border-[color:var(--color-hopkins-blue)] bg-[color:var(--color-hopkins-blue)] text-white'
+                            : 'border-[color:var(--color-rule)] bg-white text-[color:var(--color-muted)] hover:border-[color:var(--color-hopkins-blue)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                       }`}
                     >
                       {loc.label}

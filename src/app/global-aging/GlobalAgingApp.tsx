@@ -119,9 +119,9 @@ function GlobalAgingAppInner() {
   return (
     <div className="space-y-8">
       {/* Controls Section */}
-      <div className="flex flex-col lg:flex-row gap-4">
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.8fr)_minmax(16rem,0.55fr)]">
         {/* Location Selector */}
-        <div className="lg:w-[40%] bg-gray-50 rounded-lg p-3 border border-gray-200">
+        <div className="border border-[color:var(--color-rule)] bg-white p-4">
           <LocationSelector
             selectedLocations={selectedLocations}
             onLocationChange={setSelectedLocations}
@@ -129,7 +129,7 @@ function GlobalAgingAppInner() {
         </div>
 
         {/* Timeline Controls */}
-        <div className="lg:w-[36%] bg-gray-50 rounded-lg p-3 border border-gray-200">
+        <div className="border border-[color:var(--color-rule)] bg-white p-4">
           <TimelineControls
             yearRange={yearRange}
             onYearRangeChange={setYearRange}
@@ -139,13 +139,13 @@ function GlobalAgingAppInner() {
         </div>
 
         {/* Options Panel */}
-        <div className="lg:w-[24%] flex flex-col gap-2">
+        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
           {/* Sex Group */}
-          <div className="bg-gray-50 rounded-lg p-2.5 border border-gray-200 flex flex-col items-center justify-center">
-            <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+          <div className="border border-[color:var(--color-rule)] bg-white p-3">
+            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
               Sex
             </label>
-            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden" role="group" aria-label="Sex">
+            <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Sex">
               {(['both', 'male', 'female', 'mf-split'] as SexMode[]).map(s => (
                 <button
                   type="button"
@@ -153,11 +153,11 @@ function GlobalAgingAppInner() {
                   onClick={() => setSexMode(s)}
                   aria-pressed={sexMode === s}
                   className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
-                    s !== 'both' ? 'border-l border-gray-300' : ''
+                    s !== 'both' ? 'border-l border-[color:var(--color-rule)]' : ''
                   } ${
                     sexMode === s
-                      ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-50'
+                      ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                      : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                   }`}
                   title={s === 'mf-split' ? 'Male and female charts side-by-side per location' : undefined}
                 >
@@ -168,19 +168,19 @@ function GlobalAgingAppInner() {
           </div>
 
           {/* Age Granularity */}
-          <div className="bg-gray-50 rounded-lg p-2.5 border border-gray-200 flex flex-col items-center justify-center">
-            <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+          <div className="border border-[color:var(--color-rule)] bg-white p-3">
+            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
               Age Groups
             </label>
-            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden" role="group" aria-label="Age groups">
+            <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Age groups">
               <button
                 type="button"
                 onClick={() => setGranularity('collapsed')}
                 aria-pressed={granularity === 'collapsed'}
                 className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   granularity === 'collapsed'
-                    ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                 }`}
                 title="7 collapsed age groups (0-14, 15-24, ... 65+)"
               >
@@ -190,10 +190,10 @@ function GlobalAgingAppInner() {
                 type="button"
                 onClick={() => setGranularity('full')}
                 aria-pressed={granularity === 'full'}
-                className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 border-l border-gray-300 ${
+                className={`flex-1 border-l border-[color:var(--color-rule)] px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   granularity === 'full'
-                    ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                 }`}
                 title="Full 17 five-year age brackets (0-4, 5-9, ... 80+)"
               >
@@ -203,19 +203,19 @@ function GlobalAgingAppInner() {
           </div>
 
           {/* Display Mode */}
-          <div className="bg-gray-50 rounded-lg p-2.5 border border-gray-200 flex flex-col items-center justify-center">
-            <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+          <div className="border border-[color:var(--color-rule)] bg-white p-3">
+            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
               Display Mode
             </label>
-            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden" role="group" aria-label="Display mode">
+            <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Display mode">
               <button
                 type="button"
                 onClick={() => setNormalized(false)}
                 aria-pressed={!normalized}
                 className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   !normalized
-                    ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                 }`}
                 title="Show absolute counts"
               >
@@ -225,10 +225,10 @@ function GlobalAgingAppInner() {
                 type="button"
                 onClick={() => setNormalized(true)}
                 aria-pressed={normalized}
-                className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 border-l border-gray-300 ${
+                className={`flex-1 border-l border-[color:var(--color-rule)] px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   normalized
-                    ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                 }`}
                 title="Show proportional percentages"
               >
@@ -238,8 +238,8 @@ function GlobalAgingAppInner() {
           </div>
 
           {/* Export */}
-          <div className="bg-gray-50 rounded-lg p-2.5 border border-gray-200 flex flex-col items-center justify-center">
-            <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
+          <div className="border border-[color:var(--color-rule)] bg-white p-3">
+            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
               Export
             </label>
             <div className="w-full">
@@ -247,14 +247,14 @@ function GlobalAgingAppInner() {
                 type="button"
                 onClick={handleExportClick}
                 disabled={exportDisabled}
-                className={`w-full flex items-center justify-center gap-1 px-2 py-2 text-[11px] font-semibold rounded-lg transition-all shadow-sm ${
+                className={`flex w-full items-center justify-center gap-1 border px-2 py-2 text-[11px] font-semibold transition-all ${
                   exportDisabled
-                    ? `bg-gray-100 border border-gray-300 text-gray-400 ${exportStatus === 'exporting' ? 'cursor-wait' : 'cursor-not-allowed'}`
+                    ? `border-[color:var(--color-rule)] bg-[#f8fafc] text-gray-400 ${exportStatus === 'exporting' ? 'cursor-wait' : 'cursor-not-allowed'}`
                     : exportStatus === 'success'
-                    ? 'bg-green-50 border border-green-300 text-green-700'
+                    ? 'border-green-300 bg-green-50 text-green-700'
                     : exportStatus === 'error'
-                    ? 'bg-red-50 border border-red-300 text-red-700'
-                    : 'bg-white border border-gray-300 text-gray-700 hover:border-hopkins-blue hover:bg-gray-50 hover:shadow-md'
+                    ? 'border-red-300 bg-red-50 text-red-700'
+                    : 'border-[color:var(--color-rule)] bg-white text-[color:var(--color-muted)] hover:border-[color:var(--color-hopkins-blue)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                 }`}
                 title="Export charts as PNG image"
               >
@@ -300,7 +300,7 @@ function GlobalAgingAppInner() {
 function GlobalAgingAppWithSuspense() {
   return (
     <Suspense fallback={
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="border border-[color:var(--color-rule)] bg-white p-8">
         <div className="animate-pulse space-y-4">
           <div className="h-10 bg-gray-200 rounded w-1/3" />
           <div className="h-64 bg-gray-200 rounded" />
@@ -323,27 +323,27 @@ function ProjectionsSection() {
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls="global-aging-projections-panel"
-        className="w-full flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-hopkins-blue/30 hover:shadow-md transition-all duration-200 group"
+        className="group flex w-full items-center justify-between border border-[color:var(--color-rule)] bg-white p-4 text-left transition-colors hover:border-[color:var(--color-hopkins-blue)]/35"
       >
         <div className="flex items-center gap-3">
           <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
-            isExpanded ? 'bg-hopkins-blue text-white' : 'bg-gray-100 text-gray-600 group-hover:bg-hopkins-blue/10'
+            isExpanded ? 'bg-[color:var(--color-hopkins-blue)] text-white' : 'bg-[#f1f5f9] text-[color:var(--color-muted)] group-hover:bg-[#e8f1fb]'
           }`}>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
           </div>
           <div className="text-left">
-            <h3 className="text-lg font-semibold text-gray-900">Age Distribution Projections</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="text-lg font-semibold text-[color:var(--color-ink)]">Age Distribution Projections</h3>
+            <p className="text-sm text-[color:var(--color-muted)]">
               Projected age cohort trends by location and sex (2025–2040)
             </p>
           </div>
         </div>
         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-          isExpanded ? 'bg-hopkins-blue/10 rotate-180' : 'bg-gray-100'
+          isExpanded ? 'bg-[#e8f1fb] rotate-180' : 'bg-[#f1f5f9]'
         }`} aria-hidden="true">
-          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-[color:var(--color-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -351,10 +351,10 @@ function ProjectionsSection() {
 
       {isExpanded && (
         <div className="mt-4">
-          <div id="global-aging-projections-panel" className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div id="global-aging-projections-panel" className="overflow-hidden border border-[color:var(--color-rule)] bg-white">
             {/* Description */}
-            <div className="px-6 py-5 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-100 space-y-4">
-              <p className="text-sm text-amber-900 leading-relaxed">
+            <div className="space-y-4 border-b border-amber-200 bg-[#fffaf0] px-6 py-5">
+              <p className="text-sm leading-relaxed text-[#733b00]">
                 <span className="font-semibold">About these plots:</span> These plots display the
                 model-projected age distributions (both as total counts and relative percentages by
                 age) of people living with HIV in each location over time.
@@ -363,7 +363,7 @@ function ProjectionsSection() {
               <button
                 type="button"
                 onClick={() => setShowDetails(!showDetails)}
-                className="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-md bg-amber-100/60 hover:bg-amber-100 text-xs font-semibold uppercase tracking-wider text-amber-800 transition-colors w-fit"
+                className="inline-flex w-fit items-center gap-1.5 border border-amber-200 bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#7a4200] transition-colors hover:bg-white"
                 aria-expanded={showDetails}
                 aria-controls="global-aging-projections-details"
               >
@@ -381,14 +381,14 @@ function ProjectionsSection() {
 
               {showDetails && (
                 <div id="global-aging-projections-details" className="space-y-4">
-                  <div className="text-sm text-amber-900">
+                  <div className="text-sm text-[#733b00]">
                     <p className="mb-1.5">
                       <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
                       <a
                         href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-amber-700"
+                        className="underline hover:text-[#4f2a00]"
                       >
                         World Bank&apos;s income classifications
                       </a>{' '}
@@ -415,15 +415,15 @@ function ProjectionsSection() {
                     </ul>
                   </div>
 
-                  <div className="text-sm text-amber-900 space-y-3 pt-4 border-t border-amber-200">
-                    <p className="font-semibold text-amber-950">Modeling Methodology</p>
+                  <div className="space-y-3 border-t border-amber-200 pt-4 text-sm text-[#733b00]">
+                    <p className="font-semibold text-[#4f2a00]">Modeling Methodology</p>
                     <p className="leading-relaxed">
                       The modeling methodology builds on previous work in Kenya, published as{' '}
                       <a
                         href="https://pubmed.ncbi.nlm.nih.gov/38537051/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-amber-700"
+                        className="underline hover:text-[#4f2a00]"
                       >
                         &ldquo;Forecasting the Effect of HIV-Targeted Interventions on the Age
                         Distribution of People with HIV in Kenya&rdquo; (
@@ -451,7 +451,7 @@ function ProjectionsSection() {
                         href="https://aidsinfo.unaids.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-amber-700"
+                        className="underline hover:text-[#4f2a00]"
                       >
                         UNAIDS&apos; disaggregated data reporting
                       </a>
@@ -469,7 +469,7 @@ function ProjectionsSection() {
                         href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-amber-700"
+                        className="underline hover:text-[#4f2a00]"
                       >
                         World Bank&apos;s income classification
                       </a>{' '}
@@ -480,7 +480,7 @@ function ProjectionsSection() {
               )}
             </div>
 
-            <div className="p-8">
+            <div className="p-4 md:p-6">
               <GlobalAgingAppWithSuspense />
             </div>
           </div>
@@ -494,36 +494,36 @@ export default function GlobalAgingApp() {
   return (
     <>
       {/* Hero Section */}
-      <section className="border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 py-16">
+      <section className="border-b border-[color:var(--color-rule)]">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-hopkins-blue text-sm font-semibold tracking-widest uppercase mb-4">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--color-hopkins-blue)]">
               GMHA Modeling Analysis
             </p>
-            <h1 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-8">
+            <h1 className="mb-8 font-serif text-[2.1rem] leading-[1.08] text-[color:var(--color-ink)] sm:text-4xl md:text-5xl">
               Global Aging Among<br />
-              <span className="font-semibold">People Living with HIV</span>
+              <span className="text-[color:var(--color-hopkins-blue)]">People Living with HIV</span>
             </h1>
           </motion.div>
 
-          <div className="grid lg:grid-cols-[2fr_1fr] gap-12 items-start">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.4fr)_20rem]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <p className="text-lg text-gray-700 leading-relaxed mb-5 max-w-2xl">
+              <p className="mb-5 max-w-3xl text-lg leading-relaxed text-[color:var(--color-ink)]">
                 As antiretroviral therapy (ART) continues to extend life expectancy, the
                 global population of people living with HIV (PWH) is aging rapidly. This
                 demographic shift has important implications for healthcare systems
                 worldwide, particularly in sub-Saharan Africa, where the burden of HIV
                 remains highest.
               </p>
-              <p className="text-base text-gray-700 leading-relaxed mb-5 max-w-2xl">
+              <p className="mb-5 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
                 The Global Model of HIV &amp; Aging (GMHA) is a compartmental model of HIV
                 transmission, treatment, and population aging that provides a robust
                 framework for studying demographic trends among PWH. Originally developed
@@ -534,7 +534,7 @@ export default function GlobalAgingApp() {
                 extensions enable comparative analyses of aging trends across diverse
                 epidemiological and socioeconomic settings.
               </p>
-              <p className="text-base text-gray-600 leading-relaxed max-w-2xl">
+              <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
                 This interactive tool explores projected age distributions of PWH from 2025
                 to 2040 across multiple locations. Projections can be viewed as either
                 counts or proportions for the overall population and stratified by age
@@ -547,39 +547,39 @@ export default function GlobalAgingApp() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-gradient-to-br from-hopkins-gold/15 via-amber-50 to-hopkins-gold/10 p-6 rounded-xl border border-hopkins-gold/40 space-y-4"
+              className="border-t border-[color:var(--color-rule)] pt-5 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-1"
             >
               <div>
-                <p className="text-amber-700 text-[11px] font-semibold tracking-widest uppercase mb-1.5">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
                   Upcoming
                 </p>
-                <h3 className="text-lg font-semibold text-gray-900 leading-tight">
+                <h3 className="font-serif text-2xl leading-tight text-[color:var(--color-ink)]">
                   GMHA at AIDS 2026
                 </h3>
-                <p className="text-xs text-gray-600 mt-1.5">
+                <p className="mt-2 text-xs text-[color:var(--color-muted)]">
                   Rio de Janeiro · 26th International AIDS Conference
                 </p>
               </div>
 
-              <ul className="space-y-3 text-xs">
-                <li>
-                  <div className="font-semibold text-gray-800">Satellite session</div>
-                  <div className="text-gray-500">Tue, Jul 28 · 6:00–7:30 pm</div>
-                  <div className="text-gray-700 mt-0.5">
+              <ul className="mt-5 space-y-4 text-xs">
+                <li className="border-t border-[color:var(--color-rule)] pt-3">
+                  <div className="font-semibold text-[color:var(--color-ink)]">Satellite session</div>
+                  <div className="text-[color:var(--color-muted)]">Tue, Jul 28 · 6:00–7:30 pm</div>
+                  <div className="mt-1 text-[color:var(--color-muted)]">
                     Report from The Lancet HIV commission on HIV and ageing
                   </div>
                 </li>
-                <li>
-                  <div className="font-semibold text-gray-800">Poster presentation</div>
-                  <div className="text-gray-500">Tue, Jul 28 · 12:00–1:00 pm</div>
-                  <div className="text-gray-700 mt-0.5">
+                <li className="border-t border-[color:var(--color-rule)] pt-3">
+                  <div className="font-semibold text-[color:var(--color-ink)]">Poster presentation</div>
+                  <div className="text-[color:var(--color-muted)]">Tue, Jul 28 · 12:00–1:00 pm</div>
+                  <div className="mt-1 text-[color:var(--color-muted)]">
                     Forecasting the Global Age Distribution of People with HIV from 2025–2040
                   </div>
                 </li>
-                <li>
-                  <div className="font-semibold text-gray-800">Poster presentation</div>
-                  <div className="text-gray-500">Wed, Jul 29 · 12:00–1:00 pm</div>
-                  <div className="text-gray-700 mt-0.5">
+                <li className="border-t border-[color:var(--color-rule)] pt-3">
+                  <div className="font-semibold text-[color:var(--color-ink)]">Poster presentation</div>
+                  <div className="text-[color:var(--color-muted)]">Wed, Jul 29 · 12:00–1:00 pm</div>
+                  <div className="mt-1 text-[color:var(--color-muted)]">
                     The potential impact of long-acting injectable ART to reduce HIV incidence among
                     youth in South Africa
                   </div>
@@ -590,7 +590,7 @@ export default function GlobalAgingApp() {
                 href="https://www.iasociety.org/conferences/aids2026"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-hopkins-blue hover:underline pt-3 border-t border-hopkins-gold/30 w-full"
+                className="mt-5 inline-flex w-full items-center gap-1.5 border-t border-[color:var(--color-rule)] pt-4 text-xs font-medium text-[color:var(--color-link)] hover:underline"
               >
                 Conference details
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -603,14 +603,14 @@ export default function GlobalAgingApp() {
       </section>
 
       {/* Main App Area */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe] py-10 md:py-12">
+        <div className="mx-auto max-w-6xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="bg-gradient-to-br from-hopkins-blue/5 to-hopkins-spirit-blue/10 rounded-2xl p-8 space-y-8">
+            <div className="space-y-8">
               {/* Age Distribution Projections */}
               <ErrorBoundary>
                 <ProjectionsSection />
