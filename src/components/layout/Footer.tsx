@@ -13,8 +13,8 @@ export default function Footer() {
             <address className="not-italic text-sm text-white/90 leading-relaxed">
               615 N. Wolfe Street<br />
               Baltimore, MD 21205<br />
-              <a href="mailto:compepi@jhu.edu" className="hover:underline">
-                compepi@jhu.edu
+              <a href="mailto:pkasaie1@jhu.edu" className="hover:underline">
+                pkasaie1@jhu.edu
               </a>
             </address>
           </div>

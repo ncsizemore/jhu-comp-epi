@@ -263,7 +263,7 @@ function ProjectActions({ project }: { project: Project }) {
               </h3>
               <p className="mt-3 text-sm">
                 <a
-                  href="mailto:compepi@jhu.edu"
+                  href="mailto:pkasaie1@jhu.edu"
                   className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
                 >
                   Contact the lab
