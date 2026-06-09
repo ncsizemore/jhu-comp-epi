@@ -81,6 +81,13 @@ function GlobalAgingAppInner() {
   type ExportStatus = 'idle' | 'exporting' | 'success' | 'error';
   const [exportStatus, setExportStatus] = useState<ExportStatus>('idle');
   const chartGridRef = useRef<ChartGridHandle>(null);
+  const exportDisabled = exportStatus === 'exporting' || selectedLocations.length === 0;
+  const exportButtonLabel =
+    exportStatus === 'exporting' ? 'Exporting' :
+    exportStatus === 'success' ? 'Exported' :
+    exportStatus === 'error' ? 'Export failed' :
+    selectedLocations.length === 0 ? 'Select locations' :
+    'Export PNG';
 
   const handleExportClick = async () => {
     if (!chartGridRef.current) return;
@@ -118,7 +125,6 @@ function GlobalAgingAppInner() {
           <LocationSelector
             selectedLocations={selectedLocations}
             onLocationChange={setSelectedLocations}
-            maxLocations={13}
           />
         </div>
 
@@ -139,11 +145,13 @@ function GlobalAgingAppInner() {
             <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
               Sex
             </label>
-            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden">
+            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden" role="group" aria-label="Sex">
               {(['both', 'male', 'female', 'mf-split'] as SexMode[]).map(s => (
                 <button
+                  type="button"
                   key={s}
                   onClick={() => setSexMode(s)}
+                  aria-pressed={sexMode === s}
                   className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                     s !== 'both' ? 'border-l border-gray-300' : ''
                   } ${
@@ -164,9 +172,11 @@ function GlobalAgingAppInner() {
             <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
               Age Groups
             </label>
-            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden">
+            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden" role="group" aria-label="Age groups">
               <button
+                type="button"
                 onClick={() => setGranularity('collapsed')}
+                aria-pressed={granularity === 'collapsed'}
                 className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   granularity === 'collapsed'
                     ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
@@ -177,7 +187,9 @@ function GlobalAgingAppInner() {
                 7 Groups
               </button>
               <button
+                type="button"
                 onClick={() => setGranularity('full')}
+                aria-pressed={granularity === 'full'}
                 className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 border-l border-gray-300 ${
                   granularity === 'full'
                     ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
@@ -195,9 +207,11 @@ function GlobalAgingAppInner() {
             <label className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-2">
               Display Mode
             </label>
-            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden">
+            <div className="w-full flex rounded-lg border border-gray-300 overflow-hidden" role="group" aria-label="Display mode">
               <button
+                type="button"
                 onClick={() => setNormalized(false)}
+                aria-pressed={!normalized}
                 className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   !normalized
                     ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
@@ -208,7 +222,9 @@ function GlobalAgingAppInner() {
                 Counts
               </button>
               <button
+                type="button"
                 onClick={() => setNormalized(true)}
+                aria-pressed={normalized}
                 className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 border-l border-gray-300 ${
                   normalized
                     ? 'bg-gradient-to-r from-hopkins-blue to-hopkins-spirit-blue text-white'
@@ -228,11 +244,12 @@ function GlobalAgingAppInner() {
             </label>
             <div className="w-full">
               <button
+                type="button"
                 onClick={handleExportClick}
-                disabled={exportStatus === 'exporting'}
+                disabled={exportDisabled}
                 className={`w-full flex items-center justify-center gap-1 px-2 py-2 text-[11px] font-semibold rounded-lg transition-all shadow-sm ${
-                  exportStatus === 'exporting'
-                    ? 'bg-gray-100 border border-gray-300 text-gray-400 cursor-wait'
+                  exportDisabled
+                    ? `bg-gray-100 border border-gray-300 text-gray-400 ${exportStatus === 'exporting' ? 'cursor-wait' : 'cursor-not-allowed'}`
                     : exportStatus === 'success'
                     ? 'bg-green-50 border border-green-300 text-green-700'
                     : exportStatus === 'error'
@@ -258,7 +275,7 @@ function GlobalAgingAppInner() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 )}
-                <span>Export PNG</span>
+                <span aria-live="polite">{exportButtonLabel}</span>
               </button>
             </div>
           </div>
@@ -302,7 +319,10 @@ function ProjectionsSection() {
   return (
     <div>
       <button
+        type="button"
         onClick={() => setIsExpanded(!isExpanded)}
+        aria-expanded={isExpanded}
+        aria-controls="global-aging-projections-panel"
         className="w-full flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-gray-200 hover:border-hopkins-blue/30 hover:shadow-md transition-all duration-200 group"
       >
         <div className="flex items-center gap-3">
@@ -322,7 +342,7 @@ function ProjectionsSection() {
         </div>
         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
           isExpanded ? 'bg-hopkins-blue/10 rotate-180' : 'bg-gray-100'
-        }`}>
+        }`} aria-hidden="true">
           <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
@@ -331,7 +351,7 @@ function ProjectionsSection() {
 
       {isExpanded && (
         <div className="mt-4">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div id="global-aging-projections-panel" className="bg-white rounded-xl shadow-lg overflow-hidden">
             {/* Description */}
             <div className="px-6 py-5 bg-gradient-to-r from-amber-50 to-orange-50 border-b border-amber-100 space-y-4">
               <p className="text-sm text-amber-900 leading-relaxed">
@@ -345,6 +365,7 @@ function ProjectionsSection() {
                 onClick={() => setShowDetails(!showDetails)}
                 className="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-md bg-amber-100/60 hover:bg-amber-100 text-xs font-semibold uppercase tracking-wider text-amber-800 transition-colors w-fit"
                 aria-expanded={showDetails}
+                aria-controls="global-aging-projections-details"
               >
                 {showDetails ? 'Hide details' : 'Methodology and details'}
                 <svg
@@ -358,103 +379,105 @@ function ProjectionsSection() {
                 </svg>
               </button>
 
-              {showDetails && (<>
-              <div className="text-sm text-amber-900">
-                <p className="mb-1.5">
-                  <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
-                  <a
-                    href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-amber-700"
-                  >
-                    World Bank&apos;s income classifications
-                  </a>{' '}
-                  and include the following countries:
-                </p>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>
-                    <span className="font-medium">Low income:</span> Malawi, Mozambique, Uganda, and
-                    all other low-income countries reporting to UNAIDS, modeled as an aggregate
-                  </li>
-                  <li>
-                    <span className="font-medium">Lower middle income:</span> Kenya, Nigeria, Tanzania,
-                    Zambia, Zimbabwe, and all other lower-middle-income countries reporting to UNAIDS,
-                    modeled as an aggregate
-                  </li>
-                  <li>
-                    <span className="font-medium">Upper middle income:</span> South Africa and all
-                    other upper-middle-income countries reporting to UNAIDS, modeled as an aggregate
-                  </li>
-                  <li>
-                    <span className="font-medium">High income:</span> All high-income countries
-                    reporting to UNAIDS, modeled as an aggregate
-                  </li>
-                </ul>
-              </div>
+              {showDetails && (
+                <div id="global-aging-projections-details" className="space-y-4">
+                  <div className="text-sm text-amber-900">
+                    <p className="mb-1.5">
+                      <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
+                      <a
+                        href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-amber-700"
+                      >
+                        World Bank&apos;s income classifications
+                      </a>{' '}
+                      and include the following countries:
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li>
+                        <span className="font-medium">Low income:</span> Malawi, Mozambique, Uganda, and
+                        all other low-income countries reporting to UNAIDS, modeled as an aggregate
+                      </li>
+                      <li>
+                        <span className="font-medium">Lower middle income:</span> Kenya, Nigeria, Tanzania,
+                        Zambia, Zimbabwe, and all other lower-middle-income countries reporting to UNAIDS,
+                        modeled as an aggregate
+                      </li>
+                      <li>
+                        <span className="font-medium">Upper middle income:</span> South Africa and all
+                        other upper-middle-income countries reporting to UNAIDS, modeled as an aggregate
+                      </li>
+                      <li>
+                        <span className="font-medium">High income:</span> All high-income countries
+                        reporting to UNAIDS, modeled as an aggregate
+                      </li>
+                    </ul>
+                  </div>
 
-              <div className="text-sm text-amber-900 space-y-3 pt-4 border-t border-amber-200">
-                <p className="font-semibold text-amber-950">Modeling Methodology</p>
-                <p className="leading-relaxed">
-                  The modeling methodology builds on previous work in Kenya, published as{' '}
-                  <a
-                    href="https://pubmed.ncbi.nlm.nih.gov/38537051/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-amber-700"
-                  >
-                    &ldquo;Forecasting the Effect of HIV-Targeted Interventions on the Age
-                    Distribution of People with HIV in Kenya&rdquo; (
-                    <em className="not-italic">AIDS</em>, 2024)
-                  </a>
-                  , and has been expanded to represent multiple countries, income groups, and
-                  global populations.
-                </p>
-                <p className="leading-relaxed">
-                  The GMHA is a compartmental model characterized by transitions along the HIV
-                  continuum of care (HIV incidence, diagnosis, engagement in care, and viral
-                  suppression) and stratified by age and sex. The model parameters are calibrated
-                  using Bayesian methods, combining prior distributions of key model parameters
-                  from available literature and survey data with calibration targets from routine
-                  HIV and demographic surveillance data.
-                </p>
-                <p className="leading-relaxed">
-                  In order to capture local heterogeneities in HIV epidemics, the global estimates
-                  were generated by calibrating nine individual country models (South Africa,
-                  Mozambique, Nigeria, Tanzania, Uganda, Kenya, Zambia, Zimbabwe, and Malawi) —
-                  representing ~50% of the global population living with HIV — and modeling the
-                  remaining countries as two aggregate models: one capturing all other countries
-                  included in{' '}
-                  <a
-                    href="https://aidsinfo.unaids.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-amber-700"
-                  >
-                    UNAIDS&apos; disaggregated data reporting
-                  </a>
-                  , and one capturing the remaining countries that are not included in the UNAIDS
-                  data. All models were calibrated to target data through 2023, and the calibration
-                  process was run across multiple chains and thinned to a final set of 1,000
-                  simulations. The global model was constructed by aggregating outputs across all
-                  individually-fitted country-level models, and outcomes were validated against
-                  UNAIDS global data on HIV incidence and prevalence. For each outcome, we report
-                  the median value and 95% credible interval.
-                </p>
-                <p className="leading-relaxed">
-                  <span className="font-semibold">Income models:</span> We used the{' '}
-                  <a
-                    href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-amber-700"
-                  >
-                    World Bank&apos;s income classification
-                  </a>{' '}
-                  to group models by income.
-                </p>
-              </div>
-              </>)}
+                  <div className="text-sm text-amber-900 space-y-3 pt-4 border-t border-amber-200">
+                    <p className="font-semibold text-amber-950">Modeling Methodology</p>
+                    <p className="leading-relaxed">
+                      The modeling methodology builds on previous work in Kenya, published as{' '}
+                      <a
+                        href="https://pubmed.ncbi.nlm.nih.gov/38537051/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-amber-700"
+                      >
+                        &ldquo;Forecasting the Effect of HIV-Targeted Interventions on the Age
+                        Distribution of People with HIV in Kenya&rdquo; (
+                        <em className="not-italic">AIDS</em>, 2024)
+                      </a>
+                      , and has been expanded to represent multiple countries, income groups, and
+                      global populations.
+                    </p>
+                    <p className="leading-relaxed">
+                      The GMHA is a compartmental model characterized by transitions along the HIV
+                      continuum of care (HIV incidence, diagnosis, engagement in care, and viral
+                      suppression) and stratified by age and sex. The model parameters are calibrated
+                      using Bayesian methods, combining prior distributions of key model parameters
+                      from available literature and survey data with calibration targets from routine
+                      HIV and demographic surveillance data.
+                    </p>
+                    <p className="leading-relaxed">
+                      In order to capture local heterogeneities in HIV epidemics, the global estimates
+                      were generated by calibrating nine individual country models (South Africa,
+                      Mozambique, Nigeria, Tanzania, Uganda, Kenya, Zambia, Zimbabwe, and Malawi) —
+                      representing ~50% of the global population living with HIV — and modeling the
+                      remaining countries as two aggregate models: one capturing all other countries
+                      included in{' '}
+                      <a
+                        href="https://aidsinfo.unaids.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-amber-700"
+                      >
+                        UNAIDS&apos; disaggregated data reporting
+                      </a>
+                      , and one capturing the remaining countries that are not included in the UNAIDS
+                      data. All models were calibrated to target data through 2023, and the calibration
+                      process was run across multiple chains and thinned to a final set of 1,000
+                      simulations. The global model was constructed by aggregating outputs across all
+                      individually-fitted country-level models, and outcomes were validated against
+                      UNAIDS global data on HIV incidence and prevalence. For each outcome, we report
+                      the median value and 95% credible interval.
+                    </p>
+                    <p className="leading-relaxed">
+                      <span className="font-semibold">Income models:</span> We used the{' '}
+                      <a
+                        href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-amber-700"
+                      >
+                        World Bank&apos;s income classification
+                      </a>{' '}
+                      to group models by income.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="p-8">

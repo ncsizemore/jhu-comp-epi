@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { getLocations, getLocationsByCategory } from '@/data/global-aging';
 import type { LocationMeta } from '@/data/global-aging';
 
@@ -19,13 +19,22 @@ const CATEGORY_CONFIG: { category: LocationMeta['category']; label: string }[] =
 const LocationSelector = memo(({
   selectedLocations,
   onLocationChange,
-  maxLocations = 13
+  maxLocations = Number.POSITIVE_INFINITY
 }: LocationSelectorProps) => {
+  const allLocations = useMemo(() => getLocations(), []);
+  const locationsByCategory = useMemo(
+    () => Object.fromEntries(
+      CATEGORY_CONFIG.map(({ category }) => [category, getLocationsByCategory(category)])
+    ) as Record<LocationMeta['category'], LocationMeta[]>,
+    [],
+  );
+  const maxSelectable = Math.min(maxLocations, allLocations.length);
+  const selectAllLabel = maxSelectable < allLocations.length ? 'Max' : 'All';
 
   const handleToggle = (code: string) => {
     if (selectedLocations.includes(code)) {
       onLocationChange(selectedLocations.filter(c => c !== code));
-    } else if (selectedLocations.length < maxLocations) {
+    } else if (selectedLocations.length < maxSelectable) {
       onLocationChange([...selectedLocations, code]);
     }
   };
@@ -33,7 +42,7 @@ const LocationSelector = memo(({
   const handleClearAll = () => onLocationChange([]);
 
   const handleSelectAll = () => {
-    onLocationChange(getLocations().map(l => l.code).slice(0, maxLocations));
+    onLocationChange(allLocations.map(l => l.code).slice(0, maxSelectable));
   };
 
   return (
@@ -47,19 +56,19 @@ const LocationSelector = memo(({
             {selectedLocations.length === 0 ? (
               <span className="text-gray-400">None selected</span>
             ) : (
-              <span>
-                <span className="text-hopkins-blue font-semibold">{selectedLocations.length}</span>/{maxLocations}
-              </span>
-            )}
-          </div>
-          <div className="flex gap-2">
-            {selectedLocations.length < getLocations().length && (
-              <button onClick={handleSelectAll} className="text-xs text-gray-600 hover:text-gray-900 underline transition-colors">
-                All
+                <span>
+                  <span className="text-hopkins-blue font-semibold">{selectedLocations.length}</span>/{maxSelectable}
+                </span>
+              )}
+            </div>
+            <div className="flex gap-2">
+            {selectedLocations.length < maxSelectable && (
+              <button type="button" onClick={handleSelectAll} className="text-xs text-gray-600 hover:text-gray-900 underline transition-colors">
+                {selectAllLabel}
               </button>
             )}
             {selectedLocations.length > 0 && (
-              <button onClick={handleClearAll} className="text-xs text-gray-600 hover:text-gray-900 underline transition-colors">
+              <button type="button" onClick={handleClearAll} className="text-xs text-gray-600 hover:text-gray-900 underline transition-colors">
                 Clear
               </button>
             )}
@@ -70,7 +79,7 @@ const LocationSelector = memo(({
       {/* Grouped location buttons */}
       <div className="space-y-3">
         {CATEGORY_CONFIG.map(({ category, label }) => {
-          const locations = getLocationsByCategory(category);
+          const locations = locationsByCategory[category] ?? [];
           if (locations.length === 0) return null;
 
           return (
@@ -86,10 +95,13 @@ const LocationSelector = memo(({
 
                   return (
                     <button
+                      type="button"
                       key={loc.code}
                       onClick={() => !isDisabled && handleToggle(loc.code)}
                       disabled={isDisabled}
-                      title={isDisabled ? `Maximum locations reached (${maxLocations} max)` : loc.label}
+                      aria-pressed={isSelected}
+                      aria-label={`${isSelected ? 'Deselect' : 'Select'} ${loc.label}`}
+                      title={isDisabled ? `Maximum locations reached (${maxSelectable} max)` : loc.label}
                       className={`group relative px-2.5 py-1.5 text-xs font-semibold rounded-lg border-2 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:grayscale ${
                         isGlobal
                           ? isSelected

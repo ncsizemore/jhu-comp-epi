@@ -20,10 +20,10 @@ const Quantiles = z.object({
 
 const TimeSeriesPoint = z.object({
   year: z.number(),
-  mean: z.number().nullable(),
-  median: z.number().nullable(),
-  lower: z.number().nullable(),
-  upper: z.number().nullable(),
+  mean: z.number(),
+  median: z.number(),
+  lower: z.number(),
+  upper: z.number(),
 });
 
 const ObservedPoint = z.object({

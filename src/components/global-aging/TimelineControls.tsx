@@ -83,8 +83,10 @@ const TimelineControls = memo(({
           const isActive = preset.range[0] === startYear && preset.range[1] === endYear;
           return (
             <button
+              type="button"
               key={preset.label}
               onClick={() => onYearRangeChange(preset.range)}
+              aria-pressed={isActive}
               className={`px-3 py-2 text-xs font-semibold rounded-lg transition-all shadow-sm ${
                 isActive
                   ? 'bg-gradient-to-br from-hopkins-blue to-hopkins-spirit-blue text-white shadow-md hover:shadow-lg'

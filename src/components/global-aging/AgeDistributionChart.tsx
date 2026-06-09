@@ -1,6 +1,6 @@
 'use client';
 
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useId, useState, useEffect } from 'react';
 import {
   BarChart,
   Bar,
@@ -55,6 +55,7 @@ const AgeDistributionChart = memo(({
   const [visibleBrackets, setVisibleBrackets] = useState<Set<string>>(
     () => new Set(ageBrackets)
   );
+  const gradientPrefix = useId().replace(/:/g, '');
 
   // Reset visibility when the bracket set itself changes (e.g. granularity toggle).
   // Without this, useState's first-render-only initializer leaves visibleBrackets
@@ -144,16 +145,26 @@ const AgeDistributionChart = memo(({
 
   const isCompact = height < 380;
 
+  const gradientId = (bracket: string) =>
+    `${gradientPrefix}-gradient-${bracket.replace(/[^a-zA-Z0-9]/g, '_')}`;
+
   const CustomLegend = () => (
-    <div className={`flex flex-wrap justify-center ${isCompact ? 'gap-1 mt-1' : 'gap-1.5 mt-3'}`}>
+    <div
+      className={`flex flex-wrap justify-center ${isCompact ? 'gap-1 mt-1' : 'gap-1.5 mt-3'}`}
+      role="group"
+      aria-label={`${locationName} age bracket visibility`}
+    >
       {ageBrackets.map((bracket) => {
         const isVisible = visibleBrackets.has(bracket);
         const color = ageColors[bracket] || '#888';
 
         return (
           <button
+            type="button"
             key={bracket}
             onClick={() => toggleBracket(bracket)}
+            aria-pressed={isVisible}
+            aria-label={`${isVisible ? 'Hide' : 'Show'} ${bracket}`}
             className={`group flex items-center ${isCompact ? 'gap-1 px-1.5 py-0.5' : 'gap-1.5 px-2 py-1'} rounded-lg border transition-all duration-200 ${
               isVisible
                 ? 'bg-white/90 hover:bg-white border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md'
@@ -188,7 +199,7 @@ const AgeDistributionChart = memo(({
         <BarChart data={data} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
           <defs>
             {ageBrackets.map(bracket => (
-              <linearGradient key={bracket} id={`gradient-${bracket.replace(/[^a-zA-Z0-9]/g, '_')}`} x1="0" y1="0" x2="0" y2="1">
+              <linearGradient key={bracket} id={gradientId(bracket)} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={ageColors[bracket] || '#888'} stopOpacity={0.95} />
                 <stop offset="100%" stopColor={ageColors[bracket] || '#888'} stopOpacity={0.7} />
               </linearGradient>
@@ -224,7 +235,7 @@ const AgeDistributionChart = memo(({
                 key={bracket}
                 dataKey={`${locationPrefix}_${bracket}`}
                 stackId="1"
-                fill={`url(#gradient-${bracket.replace(/[^a-zA-Z0-9]/g, '_')})`}
+                fill={`url(#${gradientId(bracket)})`}
                 radius={isLast ? [4, 4, 0, 0] : [0, 0, 0, 0]}
               />
             );

@@ -113,6 +113,18 @@ const MultiLocationChartGrid = memo(({
   // because the latter (v1.x) cannot parse oklch() colors emitted by Tailwind v4.
   // Throws on failure so the caller can surface status to the user.
   const exportToPng = useCallback(async () => {
+    if (locationCodes.length === 0) throw new Error('No locations selected');
+    if (projectionsLoading || !projections) throw new Error('Charts are still loading');
+
+    if (renderedCount < locationCodes.length) {
+      setRenderedCount(locationCodes.length);
+      await new Promise<void>(resolve => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => resolve());
+        });
+      });
+    }
+
     if (!gridRef.current) throw new Error('Chart grid not mounted');
     // Give framer-motion a beat to settle before capture.
     await new Promise(resolve => setTimeout(resolve, 300));
@@ -131,7 +143,7 @@ const MultiLocationChartGrid = memo(({
     link.download = `global_aging_projections_${names}${suffix}_${timestamp}.png`;
     link.href = dataUrl;
     link.click();
-  }, [locationCodes, isSplit]);
+  }, [locationCodes, isSplit, projectionsLoading, projections, renderedCount]);
 
   useImperativeHandle(ref, () => ({ exportToPng }), [exportToPng]);
 
@@ -258,7 +270,7 @@ const MultiLocationChartGrid = memo(({
                         <div
                           key={i}
                           className="flex-1 bg-gradient-to-t from-gray-300 via-gray-200 to-gray-100 rounded-t-md"
-                          style={{ height: `${Math.random() * 60 + 40}%` }}
+                          style={{ height: `${((i * 13) % 60) + 40}%` }}
                         ></div>
                       ))}
                     </div>

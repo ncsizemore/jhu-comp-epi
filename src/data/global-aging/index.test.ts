@@ -5,6 +5,7 @@ import {
   maxStackedTotal,
   getAgeBrackets,
 } from './index';
+import { LocationCalibrationSchema } from './schemas';
 import type {
   ProjectionData,
   LocationCalibration,
@@ -235,5 +236,23 @@ describe('cascade-as-proportions shape', () => {
     expect(out[0].mean).toBeLessThanOrEqual(1);
     expect(out[0].lower).toBeGreaterThanOrEqual(0);
     expect(out[0].upper).toBeLessThanOrEqual(1);
+  });
+});
+
+// --- JSON schema contract ----------------------------------------------------
+
+describe('global-aging JSON schemas', () => {
+  it('rejects nullable calibration values that charts cannot render safely', () => {
+    const withNullMean = {
+      prevalence: {
+        total: [
+          { year: 2020, mean: null, median: 1000, lower: 900, upper: 1100 },
+        ],
+        by_sex: {},
+        by_age: {},
+      },
+    };
+
+    expect(LocationCalibrationSchema.safeParse(withNullMean).success).toBe(false);
   });
 });
