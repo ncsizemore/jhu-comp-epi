@@ -468,7 +468,3 @@ export const publicationYears: string[] = [
   "2017",
   "2016"
 ];
-
-// DEPRECATED: Import from @/lib/projects/config instead
-// Re-export for backwards compatibility
-export { projectsMap } from '@/lib/projects/config';

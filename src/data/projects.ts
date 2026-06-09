@@ -59,12 +59,3 @@ export const projects: Project[] = [
     externalLabel: "Visit SHIELD Site"
   }
 ];
-
-// Helper functions
-export function getProjectById(id: string): Project | undefined {
-  return projects.find(p => p.id === id);
-}
-
-export function getAllProjects(): Project[] {
-  return projects;
-}

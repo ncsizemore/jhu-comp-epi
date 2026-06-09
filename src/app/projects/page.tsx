@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
-import { getAllProjects, type Project, type ProjectStats } from '@/data/projects';
+import { getProjects, type Project, type ProjectStats } from '@/lib/data/projects';
 
 export const metadata = {
   title: 'Projects | JHU Computational Epidemiology',
@@ -290,8 +290,8 @@ function Collaboration() {
   );
 }
 
-export default function ProjectsPage() {
-  const projectsList = getAllProjects();
+export default async function ProjectsPage() {
+  const projectsList = await getProjects();
 
   return (
     <MainLayout>
