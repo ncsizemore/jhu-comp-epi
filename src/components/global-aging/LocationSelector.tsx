@@ -46,29 +46,32 @@ const LocationSelector = memo(({
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <label className="block text-xs font-semibold text-[color:var(--color-ink)]">
+        <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
           Select Locations
         </label>
         <div className="flex items-center gap-2">
-          <div className="text-xs font-medium text-[color:var(--color-muted)]">
+          <div className="font-mono text-[11px] font-medium text-[color:var(--color-muted)]">
             {selectedLocations.length === 0 ? (
               <span className="text-gray-400">None selected</span>
             ) : (
-                <span>
-                  <span className="text-hopkins-blue font-semibold">{selectedLocations.length}</span>/{maxSelectable}
+              <span>
+                <span className="font-semibold text-[color:var(--color-hopkins-blue)]">
+                  {selectedLocations.length}
                 </span>
-              )}
-            </div>
-            <div className="flex gap-2">
+                /{maxSelectable}
+              </span>
+            )}
+          </div>
+          <div className="flex gap-2">
             {selectedLocations.length < maxSelectable && (
-              <button type="button" onClick={handleSelectAll} className="text-xs text-[color:var(--color-muted)] underline transition-colors hover:text-[color:var(--color-ink)]">
+              <button type="button" onClick={handleSelectAll} className="border border-[color:var(--color-rule)] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-muted)] transition-colors hover:border-[color:var(--color-hopkins-blue)] hover:text-[color:var(--color-ink)]">
                 {selectAllLabel}
               </button>
             )}
             {selectedLocations.length > 0 && (
-              <button type="button" onClick={handleClearAll} className="text-xs text-[color:var(--color-muted)] underline transition-colors hover:text-[color:var(--color-ink)]">
+              <button type="button" onClick={handleClearAll} className="border border-[color:var(--color-rule)] px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[color:var(--color-muted)] transition-colors hover:border-[color:var(--color-hopkins-blue)] hover:text-[color:var(--color-ink)]">
                 Clear
               </button>
             )}
@@ -84,7 +87,7 @@ const LocationSelector = memo(({
 
           return (
             <div key={category}>
-              <div className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+              <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
                 {label}
               </div>
               <div className="flex flex-wrap gap-1.5">

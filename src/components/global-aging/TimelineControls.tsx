@@ -40,12 +40,12 @@ const TimelineControls = memo(({
   };
 
   return (
-    <div className="space-y-2 w-full">
+    <div className="w-full space-y-3">
       <div className="flex items-center justify-between">
-        <label className="block text-xs font-semibold text-[color:var(--color-ink)]">
+        <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
           Timeline Range
         </label>
-        <div className="text-base font-bold text-[color:var(--color-hopkins-blue)]">
+        <div className="font-serif text-xl leading-none text-[color:var(--color-hopkins-blue)]">
           {startYear}–{endYear}
         </div>
       </div>
@@ -71,7 +71,7 @@ const TimelineControls = memo(({
               height: 24,
               marginTop: -7,
               opacity: 1,
-              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+              boxShadow: '0 2px 5px rgb(15 23 42 / 0.14)',
             },
           }}
           className="timeline-slider"
@@ -87,7 +87,7 @@ const TimelineControls = memo(({
               key={preset.label}
               onClick={() => onYearRangeChange(preset.range)}
               aria-pressed={isActive}
-              className={`border px-3 py-2 text-xs font-semibold transition-colors ${
+              className={`border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.08em] transition-colors ${
                 isActive
                   ? 'border-[color:var(--color-hopkins-blue)] bg-[color:var(--color-hopkins-blue)] text-white'
                   : 'border-[color:var(--color-rule)] bg-white text-[color:var(--color-muted)] hover:border-[color:var(--color-hopkins-blue)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'

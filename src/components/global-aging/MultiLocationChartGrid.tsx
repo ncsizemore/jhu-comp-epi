@@ -176,7 +176,7 @@ const MultiLocationChartGrid = memo(({
     return (
       <div className={`grid ${gridLayout.gap} ${gridLayout.gridClass}`}>
         {locationCodes.slice(0, Math.min(6, locationCodes.length)).map(code => (
-          <div key={code} className="animate-pulse border border-[color:var(--color-rule)] bg-white p-3">
+          <div key={code} className="animate-pulse border border-[color:var(--color-rule)] bg-white p-4 shadow-[0_12px_34px_rgba(15,23,42,0.035)] md:p-5">
             <div className="mb-4 text-center space-y-2">
               <div className="h-5 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-md w-3/4 mx-auto" />
             </div>
@@ -215,15 +215,15 @@ const MultiLocationChartGrid = memo(({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: animationDelay, duration: 0.4 }}
-              className="group border border-[color:var(--color-rule)] bg-white p-3 transition-colors duration-200 hover:border-[color:var(--color-hopkins-blue)]/35"
+              className="group border border-[color:var(--color-rule)] border-t-2 border-t-[#c8d8ea] bg-white p-4 shadow-[0_12px_34px_rgba(15,23,42,0.035)] transition-colors duration-200 hover:border-[color:var(--color-hopkins-blue)]/35 md:p-5"
             >
               {isRendered ? (
                 isSplit ? (
                   <div>
-                    <div className="mb-2 text-center">
-                      <h3 className="text-base font-semibold text-gray-900">{locationName}</h3>
+                    <div className="mb-4 border-b border-[color:var(--color-rule)] pb-2">
+                      <h3 className="font-serif text-xl leading-tight text-[color:var(--color-ink)]">{locationName}</h3>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       <AgeDistributionChart
                         data={maleData}
                         locationPrefix={code}

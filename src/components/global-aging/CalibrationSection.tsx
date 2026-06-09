@@ -61,25 +61,37 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
 
   const gridCols = useMemo(() => {
     const n = chartConfigs.length;
+    if (n <= 1) return 'grid-cols-1';
     if (n <= 2) return 'grid-cols-1 md:grid-cols-2';
     if (n <= 4) return 'grid-cols-1 md:grid-cols-2';
     return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
   }, [chartConfigs.length]);
 
+  const visibleChartCount = ageSelection === 'all' && hasAgeBrackets
+    ? survAgeBrackets.length + 1
+    : 1;
+  const chartGridClass = `${gridCols} ${
+    visibleChartCount === 1 ? 'mx-auto w-full max-w-3xl' : ''
+  }`;
+
   const lastObservedYear = 2023;
 
   return (
-    <div>
+    <div className="border border-[color:var(--color-rule)] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.045)]">
       <button
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls="global-aging-calibration-panel"
-        className="group flex w-full items-center justify-between border border-[color:var(--color-rule)] bg-white p-4 text-left transition-colors hover:border-[color:var(--color-hopkins-blue)]/35"
+        className={`group flex w-full items-center justify-between bg-white p-5 text-left transition-colors hover:bg-[#fbfcfe] ${
+          isExpanded ? 'border-b border-[color:var(--color-rule)]' : ''
+        }`}
       >
         <div className="flex items-center gap-3">
-          <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
-            isExpanded ? 'bg-[color:var(--color-hopkins-blue)] text-white' : 'bg-[#f1f5f9] text-[color:var(--color-muted)] group-hover:bg-[#e8f1fb]'
+          <div className={`flex h-9 w-9 items-center justify-center border transition-colors ${
+            isExpanded
+              ? 'border-[color:var(--color-hopkins-blue)] bg-[color:var(--color-hopkins-blue)] text-white'
+              : 'border-[color:var(--color-rule)] bg-[#f8fafc] text-[color:var(--color-muted)] group-hover:border-[color:var(--color-hopkins-blue)]/35'
           }`}>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -92,20 +104,20 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
             </p>
           </div>
         </div>
-        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-          isExpanded ? 'bg-[#e8f1fb] rotate-180' : 'bg-[#f1f5f9]'
+        <div className={`flex h-8 w-8 items-center justify-center transition-all ${
+          isExpanded ? 'rotate-180 text-[color:var(--color-hopkins-blue)]' : 'text-[color:var(--color-muted)]'
         }`} aria-hidden="true">
-          <svg className="w-5 h-5 text-[color:var(--color-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
       </button>
 
       {isExpanded && (
-        <div id="global-aging-calibration-panel" className="mt-4 overflow-hidden border border-[color:var(--color-rule)] bg-white">
+        <div id="global-aging-calibration-panel">
           {/* Description */}
-          <div className="space-y-4 border-b border-amber-200 bg-[#fffaf0] px-6 py-5">
-            <p className="text-sm leading-relaxed text-[#733b00]">
+          <div className="space-y-4 border-b border-[#ece4d4] bg-[#fffdf7] px-5 py-5 md:px-6">
+            <p className="text-sm leading-relaxed text-[#594f3c]">
               <span className="font-semibold">About these plots:</span> These plots display results of the
               model calibration process for each location. The black lines show the mean across 1,000 model
               simulations, while the orange shaded regions represent 95% credible intervals. The green points
@@ -116,7 +128,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
             <button
               type="button"
               onClick={() => setShowDetails(!showDetails)}
-              className="inline-flex w-fit items-center gap-1.5 border border-amber-200 bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#7a4200] transition-colors hover:bg-white"
+              className="inline-flex w-fit items-center gap-1.5 border border-[#d8c9a8] bg-white/75 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#665436] transition-colors hover:bg-white hover:text-[color:var(--color-ink)]"
               aria-expanded={showDetails}
               aria-controls="global-aging-calibration-details"
             >
@@ -134,7 +146,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
 
             {showDetails && (
               <div id="global-aging-calibration-details" className="space-y-4">
-                <div className="text-sm text-[#733b00]">
+                <div className="text-sm text-[#594f3c]">
                   <p className="font-semibold mb-1.5">Calibration target (surveillance data) sources:</p>
                   <ul className="list-disc pl-5 space-y-1">
                     <li>
@@ -144,7 +156,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                         href="https://aidsinfo.unaids.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-[#4f2a00]"
+                        className="underline decoration-[#d8c9a8] underline-offset-4 hover:text-[color:var(--color-link)]"
                       >
                         UNAIDS AIDSinfo surveillance estimates
                       </a>
@@ -155,7 +167,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                         href="https://population.un.org/wpp/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-[#4f2a00]"
+                        className="underline decoration-[#d8c9a8] underline-offset-4 hover:text-[color:var(--color-link)]"
                       >
                         UN World Population Prospects
                       </a>
@@ -163,14 +175,14 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
                   </ul>
                 </div>
 
-                <div className="text-sm text-[#733b00]">
+                <div className="text-sm text-[#594f3c]">
                   <p className="mb-1.5">
                     <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
                     <a
                       href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline hover:text-[#4f2a00]"
+                      className="underline decoration-[#d8c9a8] underline-offset-4 hover:text-[color:var(--color-link)]"
                     >
                       World Bank&apos;s income classifications
                     </a>{' '}
@@ -201,7 +213,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
           </div>
 
           {/* Controls */}
-          <div className="border-b border-[color:var(--color-rule)] px-6 py-4">
+          <div className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe] px-5 py-4 md:px-6">
             <div className="flex flex-wrap gap-6">
               {/* Location Selector */}
               <div className="flex-1 min-w-[200px]">
@@ -283,28 +295,28 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
           </div>
 
           {/* Chart Grid */}
-          <div className="p-6">
-            <h4 className="mb-4 border-b border-[color:var(--color-rule)] pb-2 text-base font-semibold text-[color:var(--color-ink)]">
+          <div className="p-4 md:p-6">
+            <h4 className="mb-4 border-b border-[color:var(--color-rule)] pb-2 font-serif text-2xl leading-tight text-[color:var(--color-ink)]">
               {OUTCOME_LABELS[selectedOutcome] || selectedOutcome}
             </h4>
             {dataError ? (
-              <div className="flex items-center justify-center h-64 bg-red-50 rounded-xl border border-red-200">
+              <div className="flex h-64 items-center justify-center border border-red-200 bg-red-50">
                 <div className="text-center px-4">
                   <h3 className="text-lg font-medium text-red-700 mb-2">Failed to load calibration data</h3>
                   <p className="text-sm text-red-600">{dataError.message}</p>
                 </div>
               </div>
             ) : dataLoading || !dataReady ? (
-              <div className={`grid ${gridCols} gap-4`}>
-                {Array.from({ length: ageSelection === 'all' && hasAgeBrackets ? survAgeBrackets.length + 1 : 1 }).map((_, i) => (
-                  <div key={i} className="animate-pulse border border-[color:var(--color-rule)] bg-[#f8fafc] p-4" style={{ height: ageSelection === 'all' ? 220 : 300 }}>
+              <div className={`grid ${chartGridClass} gap-4`}>
+                {Array.from({ length: visibleChartCount }).map((_, i) => (
+                  <div key={i} className="animate-pulse border border-[color:var(--color-rule)] bg-[#f8fafc] p-4 shadow-[0_10px_28px_rgba(15,23,42,0.03)]" style={{ height: ageSelection === 'all' ? 220 : 300 }}>
                     <div className="h-4 bg-gray-200 rounded w-1/3 mb-4" />
                     <div className="h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded" />
                   </div>
                 ))}
               </div>
             ) : (
-              <div className={`grid ${gridCols} gap-4`}>
+              <div className={`grid ${chartGridClass} gap-4`}>
                 {chartConfigs.map(config => (
                   <CalibrationChart
                     key={config.key}
@@ -321,7 +333,7 @@ const CalibrationSection = memo(({ defaultExpanded = true }: CalibrationSectionP
           </div>
 
           {/* Legend */}
-          <div className="border-t border-[color:var(--color-rule)] bg-[#f8fafc] px-6 py-4">
+          <div className="border-t border-[color:var(--color-rule)] bg-[#fbfcfe] px-5 py-4 md:px-6">
             <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-6 h-0.5 bg-gray-800 rounded" />

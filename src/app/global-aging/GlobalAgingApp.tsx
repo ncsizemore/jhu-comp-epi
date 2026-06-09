@@ -117,166 +117,168 @@ function GlobalAgingAppInner() {
   }, [selectedLocations, sexMode, granularity, normalized, yearRange, router]);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-7">
       {/* Controls Section */}
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,0.8fr)_minmax(16rem,0.55fr)]">
-        {/* Location Selector */}
-        <div className="border border-[color:var(--color-rule)] bg-white p-4">
-          <LocationSelector
-            selectedLocations={selectedLocations}
-            onLocationChange={setSelectedLocations}
-          />
-        </div>
+      <div className="border border-[color:var(--color-rule)] bg-white shadow-[0_14px_45px_rgba(15,23,42,0.04)]">
+        <div className="grid divide-y divide-[color:var(--color-rule)] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,0.9fr)_minmax(18rem,0.7fr)] lg:divide-x lg:divide-y-0">
+          {/* Location Selector */}
+          <div className="p-4 md:p-5">
+            <LocationSelector
+              selectedLocations={selectedLocations}
+              onLocationChange={setSelectedLocations}
+            />
+          </div>
 
-        {/* Timeline Controls */}
-        <div className="border border-[color:var(--color-rule)] bg-white p-4">
-          <TimelineControls
-            yearRange={yearRange}
-            onYearRangeChange={setYearRange}
-            minYear={2025}
-            maxYear={2040}
-          />
-        </div>
+          {/* Timeline Controls */}
+          <div className="p-4 md:p-5">
+            <TimelineControls
+              yearRange={yearRange}
+              onYearRangeChange={setYearRange}
+              minYear={2025}
+              maxYear={2040}
+            />
+          </div>
 
-        {/* Options Panel */}
-        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-          {/* Sex Group */}
-          <div className="border border-[color:var(--color-rule)] bg-white p-3">
-            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Sex
-            </label>
-            <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Sex">
-              {(['both', 'male', 'female', 'mf-split'] as SexMode[]).map(s => (
+          {/* Options Panel */}
+          <div className="grid gap-3 p-4 sm:grid-cols-2 md:p-5 lg:grid-cols-1">
+            {/* Sex Group */}
+            <div>
+              <label className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+                Sex
+              </label>
+              <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Sex">
+                {(['both', 'male', 'female', 'mf-split'] as SexMode[]).map(s => (
+                  <button
+                    type="button"
+                    key={s}
+                    onClick={() => setSexMode(s)}
+                    aria-pressed={sexMode === s}
+                    className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
+                      s !== 'both' ? 'border-l border-[color:var(--color-rule)]' : ''
+                    } ${
+                      sexMode === s
+                        ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                        : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
+                    }`}
+                    title={s === 'mf-split' ? 'Male and female charts side-by-side per location' : undefined}
+                  >
+                    {s === 'both' ? 'Both' : s === 'male' ? 'Male' : s === 'female' ? 'Female' : 'Split'}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Age Granularity */}
+            <div>
+              <label className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+                Age Groups
+              </label>
+              <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Age groups">
                 <button
                   type="button"
-                  key={s}
-                  onClick={() => setSexMode(s)}
-                  aria-pressed={sexMode === s}
+                  onClick={() => setGranularity('collapsed')}
+                  aria-pressed={granularity === 'collapsed'}
                   className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
-                    s !== 'both' ? 'border-l border-[color:var(--color-rule)]' : ''
-                  } ${
-                    sexMode === s
+                    granularity === 'collapsed'
                       ? 'bg-[color:var(--color-hopkins-blue)] text-white'
                       : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
                   }`}
-                  title={s === 'mf-split' ? 'Male and female charts side-by-side per location' : undefined}
+                  title="7 collapsed age groups (0-14, 15-24, ... 65+)"
                 >
-                  {s === 'both' ? 'Both' : s === 'male' ? 'Male' : s === 'female' ? 'Female' : 'Split'}
+                  7 Groups
                 </button>
-              ))}
+                <button
+                  type="button"
+                  onClick={() => setGranularity('full')}
+                  aria-pressed={granularity === 'full'}
+                  className={`flex-1 border-l border-[color:var(--color-rule)] px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
+                    granularity === 'full'
+                      ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                      : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
+                  }`}
+                  title="Full 17 five-year age brackets (0-4, 5-9, ... 80+)"
+                >
+                  17 Brackets
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Age Granularity */}
-          <div className="border border-[color:var(--color-rule)] bg-white p-3">
-            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Age Groups
-            </label>
-            <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Age groups">
-              <button
-                type="button"
-                onClick={() => setGranularity('collapsed')}
-                aria-pressed={granularity === 'collapsed'}
-                className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
-                  granularity === 'collapsed'
-                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
-                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
-                }`}
-                title="7 collapsed age groups (0-14, 15-24, ... 65+)"
-              >
-                7 Groups
-              </button>
-              <button
-                type="button"
-                onClick={() => setGranularity('full')}
-                aria-pressed={granularity === 'full'}
-                className={`flex-1 border-l border-[color:var(--color-rule)] px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
-                  granularity === 'full'
-                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
-                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
-                }`}
-                title="Full 17 five-year age brackets (0-4, 5-9, ... 80+)"
-              >
-                17 Brackets
-              </button>
+            {/* Display Mode */}
+            <div>
+              <label className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+                Display Mode
+              </label>
+              <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Display mode">
+                <button
+                  type="button"
+                  onClick={() => setNormalized(false)}
+                  aria-pressed={!normalized}
+                  className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
+                    !normalized
+                      ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                      : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
+                  }`}
+                  title="Show absolute counts"
+                >
+                  Counts
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setNormalized(true)}
+                  aria-pressed={normalized}
+                  className={`flex-1 border-l border-[color:var(--color-rule)] px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
+                    normalized
+                      ? 'bg-[color:var(--color-hopkins-blue)] text-white'
+                      : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
+                  }`}
+                  title="Show proportional percentages"
+                >
+                  Proportional %
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Display Mode */}
-          <div className="border border-[color:var(--color-rule)] bg-white p-3">
-            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Display Mode
-            </label>
-            <div className="flex w-full overflow-hidden border border-[color:var(--color-rule)]" role="group" aria-label="Display mode">
-              <button
-                type="button"
-                onClick={() => setNormalized(false)}
-                aria-pressed={!normalized}
-                className={`flex-1 px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
-                  !normalized
-                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
-                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
-                }`}
-                title="Show absolute counts"
-              >
-                Counts
-              </button>
-              <button
-                type="button"
-                onClick={() => setNormalized(true)}
-                aria-pressed={normalized}
-                className={`flex-1 border-l border-[color:var(--color-rule)] px-2 py-2 text-[11px] font-semibold transition-all duration-200 ${
-                  normalized
-                    ? 'bg-[color:var(--color-hopkins-blue)] text-white'
-                    : 'bg-white text-[color:var(--color-muted)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
-                }`}
-                title="Show proportional percentages"
-              >
-                Proportional %
-              </button>
-            </div>
-          </div>
-
-          {/* Export */}
-          <div className="border border-[color:var(--color-rule)] bg-white p-3">
-            <label className="mb-2 block text-center text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Export
-            </label>
-            <div className="w-full">
-              <button
-                type="button"
-                onClick={handleExportClick}
-                disabled={exportDisabled}
-                className={`flex w-full items-center justify-center gap-1 border px-2 py-2 text-[11px] font-semibold transition-all ${
-                  exportDisabled
-                    ? `border-[color:var(--color-rule)] bg-[#f8fafc] text-gray-400 ${exportStatus === 'exporting' ? 'cursor-wait' : 'cursor-not-allowed'}`
-                    : exportStatus === 'success'
-                    ? 'border-green-300 bg-green-50 text-green-700'
-                    : exportStatus === 'error'
-                    ? 'border-red-300 bg-red-50 text-red-700'
-                    : 'border-[color:var(--color-rule)] bg-white text-[color:var(--color-muted)] hover:border-[color:var(--color-hopkins-blue)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
-                }`}
-                title="Export charts as PNG image"
-              >
-                {exportStatus === 'exporting' ? (
-                  <svg className="w-3.5 h-3.5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                  </svg>
-                ) : exportStatus === 'success' ? (
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                ) : exportStatus === 'error' ? (
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                )}
-                <span aria-live="polite">{exportButtonLabel}</span>
-              </button>
+            {/* Export */}
+            <div>
+              <label className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+                Export
+              </label>
+              <div className="w-full">
+                <button
+                  type="button"
+                  onClick={handleExportClick}
+                  disabled={exportDisabled}
+                  className={`flex w-full items-center justify-center gap-1 border px-2 py-2 text-[11px] font-semibold transition-all ${
+                    exportDisabled
+                      ? `border-[color:var(--color-rule)] bg-[#f8fafc] text-gray-400 ${exportStatus === 'exporting' ? 'cursor-wait' : 'cursor-not-allowed'}`
+                      : exportStatus === 'success'
+                      ? 'border-green-300 bg-green-50 text-green-700'
+                      : exportStatus === 'error'
+                      ? 'border-red-300 bg-red-50 text-red-700'
+                      : 'border-[color:var(--color-rule)] bg-white text-[color:var(--color-muted)] hover:border-[color:var(--color-hopkins-blue)] hover:bg-[#f8fafc] hover:text-[color:var(--color-ink)]'
+                  }`}
+                  title="Export charts as PNG image"
+                >
+                  {exportStatus === 'exporting' ? (
+                    <svg className="w-3.5 h-3.5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                  ) : exportStatus === 'success' ? (
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : exportStatus === 'error' ? (
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  ) : (
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  )}
+                  <span aria-live="polite">{exportButtonLabel}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -317,17 +319,21 @@ function ProjectionsSection() {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <div>
+    <div className="border border-[color:var(--color-rule)] bg-white shadow-[0_18px_55px_rgba(15,23,42,0.045)]">
       <button
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
         aria-expanded={isExpanded}
         aria-controls="global-aging-projections-panel"
-        className="group flex w-full items-center justify-between border border-[color:var(--color-rule)] bg-white p-4 text-left transition-colors hover:border-[color:var(--color-hopkins-blue)]/35"
+        className={`group flex w-full items-center justify-between bg-white p-5 text-left transition-colors hover:bg-[#fbfcfe] ${
+          isExpanded ? 'border-b border-[color:var(--color-rule)]' : ''
+        }`}
       >
         <div className="flex items-center gap-3">
-          <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
-            isExpanded ? 'bg-[color:var(--color-hopkins-blue)] text-white' : 'bg-[#f1f5f9] text-[color:var(--color-muted)] group-hover:bg-[#e8f1fb]'
+          <div className={`flex h-9 w-9 items-center justify-center border transition-colors ${
+            isExpanded
+              ? 'border-[color:var(--color-hopkins-blue)] bg-[color:var(--color-hopkins-blue)] text-white'
+              : 'border-[color:var(--color-rule)] bg-[#f8fafc] text-[color:var(--color-muted)] group-hover:border-[color:var(--color-hopkins-blue)]/35'
           }`}>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -340,21 +346,20 @@ function ProjectionsSection() {
             </p>
           </div>
         </div>
-        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-          isExpanded ? 'bg-[#e8f1fb] rotate-180' : 'bg-[#f1f5f9]'
+        <div className={`flex h-8 w-8 items-center justify-center transition-all ${
+          isExpanded ? 'rotate-180 text-[color:var(--color-hopkins-blue)]' : 'text-[color:var(--color-muted)]'
         }`} aria-hidden="true">
-          <svg className="w-5 h-5 text-[color:var(--color-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
       </button>
 
       {isExpanded && (
-        <div className="mt-4">
-          <div id="global-aging-projections-panel" className="overflow-hidden border border-[color:var(--color-rule)] bg-white">
+        <div id="global-aging-projections-panel">
             {/* Description */}
-            <div className="space-y-4 border-b border-amber-200 bg-[#fffaf0] px-6 py-5">
-              <p className="text-sm leading-relaxed text-[#733b00]">
+            <div className="space-y-4 border-b border-[#ece4d4] bg-[#fffdf7] px-5 py-5 md:px-6">
+              <p className="text-sm leading-relaxed text-[#594f3c]">
                 <span className="font-semibold">About these plots:</span> These plots display the
                 model-projected age distributions (both as total counts and relative percentages by
                 age) of people living with HIV in each location over time.
@@ -363,7 +368,7 @@ function ProjectionsSection() {
               <button
                 type="button"
                 onClick={() => setShowDetails(!showDetails)}
-                className="inline-flex w-fit items-center gap-1.5 border border-amber-200 bg-white/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#7a4200] transition-colors hover:bg-white"
+                className="inline-flex w-fit items-center gap-1.5 border border-[#d8c9a8] bg-white/75 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#665436] transition-colors hover:bg-white hover:text-[color:var(--color-ink)]"
                 aria-expanded={showDetails}
                 aria-controls="global-aging-projections-details"
               >
@@ -381,14 +386,14 @@ function ProjectionsSection() {
 
               {showDetails && (
                 <div id="global-aging-projections-details" className="space-y-4">
-                  <div className="text-sm text-[#733b00]">
+                  <div className="text-sm text-[#594f3c]">
                     <p className="mb-1.5">
                       <span className="font-semibold">Note:</span> Income groupings reflect the{' '}
                       <a
                         href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-[#4f2a00]"
+                        className="underline decoration-[#d8c9a8] underline-offset-4 hover:text-[color:var(--color-link)]"
                       >
                         World Bank&apos;s income classifications
                       </a>{' '}
@@ -415,15 +420,15 @@ function ProjectionsSection() {
                     </ul>
                   </div>
 
-                  <div className="space-y-3 border-t border-amber-200 pt-4 text-sm text-[#733b00]">
-                    <p className="font-semibold text-[#4f2a00]">Modeling Methodology</p>
+                  <div className="space-y-3 border-t border-[#ece4d4] pt-4 text-sm text-[#594f3c]">
+                    <p className="font-semibold text-[color:var(--color-ink)]">Modeling Methodology</p>
                     <p className="leading-relaxed">
                       The modeling methodology builds on previous work in Kenya, published as{' '}
                       <a
                         href="https://pubmed.ncbi.nlm.nih.gov/38537051/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-[#4f2a00]"
+                        className="underline decoration-[#d8c9a8] underline-offset-4 hover:text-[color:var(--color-link)]"
                       >
                         &ldquo;Forecasting the Effect of HIV-Targeted Interventions on the Age
                         Distribution of People with HIV in Kenya&rdquo; (
@@ -451,7 +456,7 @@ function ProjectionsSection() {
                         href="https://aidsinfo.unaids.org/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-[#4f2a00]"
+                        className="underline decoration-[#d8c9a8] underline-offset-4 hover:text-[color:var(--color-link)]"
                       >
                         UNAIDS&apos; disaggregated data reporting
                       </a>
@@ -469,7 +474,7 @@ function ProjectionsSection() {
                         href="https://datahelpdesk.worldbank.org/knowledgebase/articles/906519-world-bank-country-and-lending-groups"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline hover:text-[#4f2a00]"
+                        className="underline decoration-[#d8c9a8] underline-offset-4 hover:text-[color:var(--color-link)]"
                       >
                         World Bank&apos;s income classification
                       </a>{' '}
@@ -483,7 +488,6 @@ function ProjectionsSection() {
             <div className="p-4 md:p-6">
               <GlobalAgingAppWithSuspense />
             </div>
-          </div>
         </div>
       )}
     </div>

@@ -167,9 +167,9 @@ const CalibrationChart = memo(({
   }, [data]);
 
   return (
-    <div className="w-full">
-      <div className="mb-2 text-center">
-        <h4 className="text-sm font-semibold text-gray-700">{title}</h4>
+    <div className="w-full border border-[color:var(--color-rule)] border-t-2 border-t-[#d8c9a8] bg-white p-4 shadow-[0_10px_28px_rgba(15,23,42,0.03)]">
+      <div className="mb-3 border-b border-[color:var(--color-rule)] pb-2">
+        <h4 className="font-serif text-lg leading-tight text-[color:var(--color-ink)]">{title}</h4>
       </div>
 
       <ResponsiveContainer width="100%" height={height}>

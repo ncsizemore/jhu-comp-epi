@@ -165,7 +165,7 @@ const AgeDistributionChart = memo(({
             onClick={() => toggleBracket(bracket)}
             aria-pressed={isVisible}
             aria-label={`${isVisible ? 'Hide' : 'Show'} ${bracket}`}
-            className={`group flex items-center ${isCompact ? 'gap-1 px-1.5 py-0.5' : 'gap-1.5 px-2 py-1'} rounded-lg border transition-all duration-200 ${
+            className={`group flex items-center ${isCompact ? 'gap-1 px-1.5 py-0.5' : 'gap-1.5 px-2 py-1'} border transition-all duration-200 ${
               isVisible
                 ? 'border-[color:var(--color-rule)] bg-white hover:bg-[#f8fafc]'
                 : 'border-transparent bg-transparent hover:bg-[#f8fafc]'
@@ -191,8 +191,8 @@ const AgeDistributionChart = memo(({
 
   return (
     <div className="w-full">
-      <div className="mb-2 text-center">
-        <h3 className="text-base font-semibold text-gray-900">{titleOverride ?? locationName}</h3>
+      <div className="mb-3 border-b border-[color:var(--color-rule)] pb-2">
+        <h3 className="font-serif text-xl leading-tight text-[color:var(--color-ink)]">{titleOverride ?? locationName}</h3>
       </div>
 
       <ResponsiveContainer width="100%" height={height}>
