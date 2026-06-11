@@ -45,6 +45,21 @@ export const PROJECT_THEME = {
       borderFull: 'border-amber-500',
     }
   },
+  gmha: {
+    id: 'gmha',
+    name: 'GMHA',
+    fullName: 'Global Model of HIV & Aging',
+    description: 'Projecting aging trends among people living with HIV across countries, income groups, and global populations.',
+    colors: {
+      solid: 'bg-sky-600',
+      solidHover: 'hover:bg-sky-700',
+      text: 'text-sky-700',
+      gradient: 'from-sky-600 to-cyan-600',
+      gradientDark: 'from-sky-600/30 to-cyan-900/30',
+      border: 'border-l-sky-600',
+      borderFull: 'border-sky-600',
+    }
+  },
 } as const;
 
 export type ProjectId = keyof typeof PROJECT_THEME;
@@ -99,4 +114,5 @@ export function getAllProjectIds(): ProjectId[] {
 export const projectsMap = {
   jheem: { name: PROJECT_THEME.jheem.name, color: PROJECT_THEME.jheem.colors.solid },
   shield: { name: PROJECT_THEME.shield.name, color: PROJECT_THEME.shield.colors.solid },
+  gmha: { name: PROJECT_THEME.gmha.name, color: PROJECT_THEME.gmha.colors.solid },
 } as const;

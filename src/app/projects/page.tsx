@@ -11,9 +11,11 @@ export const metadata = {
 const STAT_LABELS: Record<keyof ProjectStats, string> = {
   cities: 'cities',
   states: 'states',
+  locations: 'locations',
   publications: 'publications',
   scenarios: 'scenarios',
   countries: 'countries',
+  incomeGroups: 'income groups',
 };
 
 const APPROACH_STEPS = [
@@ -64,6 +66,15 @@ const PROJECT_DETAILS: Record<
     products: 'Model development and intervention evaluation for co-epidemic planning',
     compare: ['Epidemic trajectories', 'Intervention impact', 'Cost-effectiveness', 'Implementation tradeoffs'],
   },
+  gmha: {
+    role: 'Global HIV aging and care planning',
+    decision:
+      'How will the age distribution of people living with HIV change across countries, income groups, and global populations through 2040?',
+    audience: 'HIV modelers, clinicians, policy researchers, and conference collaborators',
+    geography: 'Nine countries, four income-group aggregates, UNAIDS remainder, and global estimates',
+    products: 'Interactive projections, calibration review, and conference-facing summaries for GMHA analyses',
+    compare: ['Age distribution shifts', 'Counts and proportions', 'Sex-stratified projections', 'Calibration against surveillance data'],
+  },
 };
 
 function formatScope(stats: ProjectStats) {
@@ -71,6 +82,29 @@ function formatScope(stats: ProjectStats) {
     .filter(([, value]) => value && value !== '0')
     .map(([key, value]) => `${value} ${STAT_LABELS[key as keyof ProjectStats] ?? key}`)
     .join(' / ');
+}
+
+function ProjectToolLink({ project }: { project: Project }) {
+  const className = 'text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]';
+
+  if (project.externalUrl.startsWith('/')) {
+    return (
+      <Link href={project.externalUrl} className={className}>
+        {project.externalLabel}
+      </Link>
+    );
+  }
+
+  return (
+    <a
+      href={project.externalUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+    >
+      {project.externalLabel}
+    </a>
+  );
 }
 
 function ProjectsIntro() {
@@ -218,14 +252,7 @@ function ProjectDossier({ project }: { project: Project }) {
             >
               Read project overview
             </Link>
-            <a
-              href={project.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
-            >
-              {project.externalLabel}
-            </a>
+            <ProjectToolLink project={project} />
           </div>
         </div>
       </div>

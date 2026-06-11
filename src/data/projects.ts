@@ -2,9 +2,11 @@
 export interface ProjectStats {
   cities?: string;
   states?: string;
+  locations?: string;
   publications: string;
   scenarios?: string;
   countries?: string;
+  incomeGroups?: string;
 }
 
 export interface Project {
@@ -39,6 +41,24 @@ export const projects: Project[] = [
     ],
     externalUrl: "https://jheem.org",
     externalLabel: "Access JHEEM Portal"
+  },
+  {
+    id: 'gmha',
+    title: 'Global Model of HIV & Aging',
+    shortName: 'GMHA',
+    description: 'Interactive projections of aging trends among people living with HIV across countries, income groups, and global populations.',
+    fullDescription: "GMHA is a compartmental model of HIV transmission, treatment, and population aging. The current application presents projected age distributions of people living with HIV from 2025 to 2040 across nine individually modeled countries, four income-group aggregates, UNAIDS remainder, and global estimates, with calibration views against surveillance data.",
+    color: 'bg-sky-600',
+    stats: { locations: '15', countries: '9', incomeGroups: '4', publications: '0' },
+    challenge: 'Global HIV aging and care planning',
+    keyFeatures: [
+      "Age distribution projections",
+      "Country and income-group comparisons",
+      "Calibration against surveillance data",
+      "Counts and proportional views"
+    ],
+    externalUrl: "/global-aging",
+    externalLabel: "Open GMHA Application"
   },
   {
     id: 'shield',
