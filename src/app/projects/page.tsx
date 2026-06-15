@@ -107,6 +107,10 @@ function ProjectToolLink({ project }: { project: Project }) {
   );
 }
 
+function projectPrimaryHref(project: Project) {
+  return project.id === 'gmha' ? project.externalUrl : `/projects/${project.id}`;
+}
+
 function ProjectsIntro() {
   return (
     <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
@@ -182,7 +186,7 @@ function ProjectDossier({ project }: { project: Project }) {
             {project.shortName}
           </p>
           <h3 className="mt-4 max-w-xl font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
-            <Link href={`/projects/${project.id}`} className="hover:text-[color:var(--color-link)]">
+            <Link href={projectPrimaryHref(project)} className="hover:text-[color:var(--color-link)]">
               {project.shortName}
             </Link>
           </h3>
@@ -246,12 +250,14 @@ function ProjectDossier({ project }: { project: Project }) {
           </div>
 
           <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 border-t border-[color:var(--color-rule)] pt-6 text-sm">
-            <Link
-              href={`/projects/${project.id}`}
-              className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
-            >
-              Read project overview
-            </Link>
+            {project.id !== 'gmha' && (
+              <Link
+                href={`/projects/${project.id}`}
+                className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
+              >
+                Read project overview
+              </Link>
+            )}
             <ProjectToolLink project={project} />
           </div>
         </div>

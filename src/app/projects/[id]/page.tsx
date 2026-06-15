@@ -61,9 +61,11 @@ const PROJECT_DETAILS: Record<
 
 export async function generateStaticParams() {
   const projects = await getProjects();
-  return projects.map(project => ({
-    id: project.id,
-  }));
+  return projects
+    .filter(project => project.id !== 'gmha')
+    .map(project => ({
+      id: project.id,
+    }));
 }
 
 export async function generateMetadata({ params }: Props) {

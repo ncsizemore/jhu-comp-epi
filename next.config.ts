@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   // Removed 'output: export' to enable hybrid rendering (SSR + Static)
   // Removed 'unoptimized: true' to enable Next.js Image optimization
 
+  async redirects() {
+    return [
+      {
+        source: '/projects/gmha',
+        destination: '/global-aging',
+        permanent: false,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {
