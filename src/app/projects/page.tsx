@@ -45,39 +45,77 @@ const PROJECT_DETAILS: Record<
   string,
   {
     role: string;
-    decision: string;
-    audience: string;
     geography: string;
-    products: string;
-    compare: string[];
+    stage: string;
+    kicker: string;
+    headline: string;
+    lead: string;
+    body: string;
+    calloutTitle: string;
+    callout: string;
+    focusTitle: string;
+    focusItems: string[];
   }
 > = {
   jheem: {
     role: 'HIV intervention and funding policy',
-    decision:
-      'How could HIV outcomes change if prevention, testing, treatment, or federal program funding shifted across U.S. jurisdictions?',
-    audience: 'Health departments, policy teams, and implementation researchers',
     geography: 'U.S. cities, states, and Ending the HIV Epidemic priority jurisdictions',
-    products: 'Published analyses, public summaries, and a scenario portal for policy discussion',
-    compare: ['Projected infections', 'Incidence change', 'Program impact', 'Scenario comparisons'],
+    stage: 'Public portal and active policy analyses',
+    kicker: 'Policy scenario testing',
+    headline: 'Testing how HIV policy choices land in real places.',
+    lead:
+      'JHEEM asks what changes in testing, treatment, prevention, PrEP, viral suppression, or funding would mean across specific jurisdictions.',
+    body:
+      'It supports continuation, disruption, expansion, and targeting scenarios, using local calibration to show where similar policies may produce very different outcomes.',
+    calloutTitle: 'Before policy changes hit the ground',
+    callout:
+      'Useful before program cuts, expansions, or targeting decisions are made.',
+    focusTitle: 'What JHEEM makes visible',
+    focusItems: [
+      'Uneven local consequences of the same national policy',
+      'Projected infections and incidence under alternative funding scenarios',
+      'Differences in intervention impact across cities, states, and priority jurisdictions',
+    ],
   },
   shield: {
     role: 'HIV/STI co-epidemic strategy',
-    decision:
-      'Which strategies could help jurisdictions respond to overlapping HIV and syphilis epidemics as new prevention and testing options become available?',
-    audience: 'Researchers, urban health departments, clinical teams, and community partners',
-    geography: 'High-burden U.S. urban jurisdictions',
-    products: 'Model development and intervention evaluation for co-epidemic planning',
-    compare: ['Epidemic trajectories', 'Intervention impact', 'Cost-effectiveness', 'Implementation tradeoffs'],
+    geography: '32 U.S. cities containing Ending the HIV Epidemic urban jurisdictions',
+    stage: 'In development: modeling framework and policy-support toolkit',
+    kicker: 'Model development',
+    headline: 'Building local evidence for the syphilis resurgence.',
+    lead:
+      'SHIELD is an in-development program for a syphilis epidemic increasingly tied to HIV, strained STI infrastructure, and widening disparities.',
+    body:
+      'It is being built to test existing control strategies, doxy-PEP, novel testing, and budget constraints across 32 Ending the HIV Epidemic urban jurisdictions.',
+    calloutTitle: 'While the toolkit is being built',
+    callout:
+      'This is not yet a mature public tool; the important signal is the framework under development.',
+    focusTitle: 'What SHIELD is being built to test',
+    focusItems: [
+      'Combinations of testing, partner services, treatment, and prevention strategies',
+      'Doxy-PEP, point-of-care testing, at-home testing, and other emerging approaches',
+      'Cost-effectiveness, budget impact, and racial or ethnic disparities in syphilis incidence',
+    ],
   },
   gmha: {
     role: 'Global HIV aging and care planning',
-    decision:
-      'How will the age distribution of people living with HIV change across countries, income groups, and global populations through 2040?',
-    audience: 'HIV modelers, clinicians, policy researchers, and conference collaborators',
     geography: 'Nine countries, four income-group aggregates, UNAIDS remainder, and global estimates',
-    products: 'Interactive projections, calibration review, and conference-facing summaries for GMHA analyses',
-    compare: ['Age distribution shifts', 'Counts and proportions', 'Sex-stratified projections', 'Calibration against surveillance data'],
+    stage: 'Interactive projections and calibration review',
+    kicker: 'Aging and care planning',
+    headline: 'Planning for a global HIV population that is getting older.',
+    lead:
+      'GMHA makes a demographic shift visible: ART is extending life expectancy, so HIV care systems need to plan for older age structures.',
+    body:
+      'The app shows 2025-2040 age distributions as counts or proportions across country, income-group, UNAIDS remainder, and global views, with calibration context.',
+    calloutTitle: 'When age structure changes care demand',
+    callout:
+      'Compare where older cohorts, multimorbidity, and age-specific care needs are likely to grow.',
+    focusTitle: 'What GMHA makes visible',
+    focusItems: [
+      'Age distribution shifts among people living with HIV through 2040',
+      'Cross-country, income-group, sex-stratified, and global comparisons',
+      'Calibration context for interpreting projected counts and proportions',
+    ],
   },
 };
 
@@ -307,10 +345,10 @@ function ProjectDossier({ project }: { project: Project }) {
             </div>
             <div>
               <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                Model surface
+                Current form
               </dt>
               <dd className="mt-2 text-sm leading-relaxed text-[color:var(--color-ink)]">
-                {visual.surface}
+                {details.stage}
               </dd>
             </div>
           </dl>
@@ -320,48 +358,41 @@ function ProjectDossier({ project }: { project: Project }) {
           <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-                Decision question
+                {details.kicker}
               </p>
               <p className="mt-3 max-w-3xl font-serif text-2xl leading-snug text-[color:var(--color-ink)] md:text-3xl">
-                {details.decision}
+                {details.headline}
+              </p>
+              <p className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
+                {details.lead}
               </p>
             </div>
             <div className="border-t border-[color:var(--color-rule)] pt-5 xl:border-l xl:border-t-0 xl:pl-6 xl:pt-1">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-                Project output
+                {details.calloutTitle}
               </p>
               <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                {details.products}.
+                {details.callout}
               </p>
             </div>
           </div>
 
-          <p className="mt-7 max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
-            {project.description}
+          <p className="mt-7 max-w-4xl text-base leading-relaxed text-[color:var(--color-muted)]">
+            {details.body}
           </p>
 
-          <div className="mt-7 grid gap-6 border-t border-[color:var(--color-rule)] pt-6 md:mt-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                Audience
-              </h4>
-              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-                {details.audience}
-              </p>
-            </div>
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                Compare
-              </h4>
-              <ul className="mt-3 grid gap-x-6 gap-y-2 text-sm leading-relaxed text-[color:var(--color-ink)] sm:grid-cols-2">
-                {details.compare.map(item => (
-                  <li key={item} className="flex gap-3">
-                    <span className="mt-[0.55rem] h-px w-4 flex-none bg-[var(--project-accent)]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-7 border-t border-[color:var(--color-rule)] pt-6 md:mt-8">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+              {details.focusTitle}
+            </h4>
+            <ul className="mt-4 grid gap-x-8 gap-y-3 text-sm leading-relaxed text-[color:var(--color-ink)] md:grid-cols-3">
+              {details.focusItems.map(item => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-[0.55rem] h-px w-4 flex-none bg-[var(--project-accent)]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-7 flex flex-wrap gap-3 border-t border-[color:var(--color-rule)] pt-5 md:mt-8 md:pt-6">
@@ -383,9 +414,9 @@ function ProjectList({ projects }: { projects: Project[] }) {
     <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
       <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
         <p className="max-w-4xl border-t border-[color:var(--color-rule)] pt-5 text-lg leading-relaxed text-[color:var(--color-ink)]">
-          Each program is anchored to a concrete decision environment, with
-          outputs organized around the audiences, geographies, and comparisons
-          each model supports.
+          These projects are at different stages: public scenario portal,
+          conference-facing app, and model-development program. Each one is
+          shaped around a distinct decision pressure.
         </p>
 
         <div className="mt-10 space-y-7">
