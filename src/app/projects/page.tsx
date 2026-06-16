@@ -39,7 +39,7 @@ const WORKFLOW_STEPS = [
 ];
 
 const PROJECT_ACTION_CLASS =
-  'inline-flex w-fit items-center border border-[color:var(--color-rule)] px-3 py-2 text-sm font-semibold text-[color:var(--color-link)] transition-colors hover:border-[color:var(--color-link)] hover:bg-[#f8fafc]';
+  'inline-flex w-fit items-center border border-[color:var(--color-rule)] bg-white px-3 py-2 text-sm font-semibold text-[color:var(--color-link)] transition-colors hover:border-[color:var(--color-link)] hover:bg-[#f8fafc]';
 
 const PROJECT_DETAILS: Record<
   string,
@@ -64,7 +64,7 @@ const PROJECT_DETAILS: Record<
     body:
       'It supports continuation, disruption, expansion, and targeting scenarios, using local calibration to show where similar policies may produce very different outcomes.',
     note:
-      'Best suited for policy choices that need to be examined before program changes reach clinics, health departments, and communities.',
+      'A single funding decision can look national on paper and local in consequence.',
     takeaways: [
       'Uneven local consequences of the same national policy',
       'Funding, testing, treatment, prevention, and PrEP scenarios',
@@ -81,7 +81,7 @@ const PROJECT_DETAILS: Record<
     body:
       'It is being built to test existing control strategies, doxy-PEP, novel testing, and budget constraints across 32 Ending the HIV Epidemic urban jurisdictions.',
     note:
-      'The work is centered on what local jurisdictions can do as traditional STI control tools meet new diagnostics, new prevention options, and limited budgets.',
+      'The central question is practical: what can local teams combine, afford, and sustain?',
     takeaways: [
       'Existing syphilis control strategies and emerging tools',
       'Doxy-PEP, point-of-care testing, and at-home testing',
@@ -98,7 +98,7 @@ const PROJECT_DETAILS: Record<
     body:
       'The app shows 2025-2040 age distributions as counts or proportions across country, income-group, UNAIDS remainder, and global views, with calibration context.',
     note:
-      'Useful for comparing where older cohorts, multimorbidity, and age-specific care needs are likely to become more prominent.',
+      'Age structure changes quietly; care systems feel it later.',
     takeaways: [
       'Age distribution shifts among people living with HIV through 2040',
       'Country, income-group, sex-stratified, and global comparisons',
@@ -301,12 +301,9 @@ function ProjectDossier({ project }: { project: Project }) {
       <div className="h-1 bg-[var(--project-accent)]" />
       <div className="grid lg:grid-cols-[20rem_minmax(0,1fr)]">
         <aside className="border-b border-[color:var(--color-rule)] bg-[var(--project-tint)] p-5 md:p-7 lg:border-b-0 lg:border-r">
-          <div className="flex items-center justify-between gap-4">
-            <p className="font-mono text-xs text-[color:var(--color-muted)]">
-              {visual.index}
-            </p>
-            <span className="h-2 w-12 bg-[var(--project-accent)]" aria-hidden="true" />
-          </div>
+          <p className="font-mono text-xs text-[color:var(--color-muted)]">
+            {visual.index}
+          </p>
           <h3 className="mt-6 font-serif text-3xl leading-tight text-[color:var(--color-ink)] md:mt-7 md:text-4xl">
             <Link href={projectPrimaryHref(project)} className="hover:text-[color:var(--color-link)]">
               {project.shortName}
@@ -328,8 +325,8 @@ function ProjectDossier({ project }: { project: Project }) {
           </ul>
         </aside>
 
-        <div className="p-5 md:p-8">
-          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_17rem]">
+        <div className="p-5 md:p-8 lg:p-10">
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_15rem]">
             <div>
               <p className="max-w-3xl font-serif text-2xl leading-snug text-[color:var(--color-ink)] md:text-3xl">
                 {details.headline}
@@ -337,22 +334,21 @@ function ProjectDossier({ project }: { project: Project }) {
               <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[color:var(--color-ink)]">
                 {details.lead}
               </p>
-            </div>
-            <div className="border-t border-[color:var(--color-rule)] pt-5 xl:border-l xl:border-t-0 xl:pl-6 xl:pt-1">
-              <p className="text-sm leading-relaxed text-[color:var(--color-muted)]">
-                {details.note}
+              <p className="mt-5 max-w-4xl text-base leading-relaxed text-[color:var(--color-muted)]">
+                {details.body}
               </p>
             </div>
+            <aside className="border-t border-[color:var(--color-rule)] pt-5 xl:border-l xl:border-t-0 xl:pl-6 xl:pt-1">
+              <p className="font-serif text-xl leading-snug text-[color:var(--color-ink)]">
+                {details.note}
+              </p>
+            </aside>
           </div>
 
-          <p className="mt-7 max-w-4xl text-base leading-relaxed text-[color:var(--color-muted)]">
-            {details.body}
-          </p>
-
-          <div className="mt-7 border-t border-[color:var(--color-rule)] pt-6 md:mt-8">
-            <ul className="grid gap-px bg-[color:var(--color-rule)] text-sm leading-relaxed text-[color:var(--color-ink)] md:grid-cols-3">
+          <div className="mt-8 border-t border-[color:var(--color-rule)] pt-5">
+            <ul className="grid gap-x-8 gap-y-4 text-sm leading-relaxed text-[color:var(--color-ink)] md:grid-cols-3">
               {details.takeaways.map(item => (
-                <li key={item} className="bg-white px-4 py-4">
+                <li key={item}>
                   <span className="mb-3 block h-px w-8 bg-[var(--project-accent)]" aria-hidden="true" />
                   {item}
                 </li>
@@ -360,7 +356,7 @@ function ProjectDossier({ project }: { project: Project }) {
             </ul>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-3 border-t border-[color:var(--color-rule)] pt-5 md:mt-8 md:pt-6">
+          <div className="mt-8 flex flex-wrap gap-3 border-t border-[color:var(--color-rule)] pt-5">
             {project.id !== 'gmha' && (
               <Link href={`/projects/${project.id}`} className={PROJECT_ACTION_CLASS}>
                 Read project overview
@@ -377,14 +373,8 @@ function ProjectDossier({ project }: { project: Project }) {
 function ProjectList({ projects }: { projects: Project[] }) {
   return (
     <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-        <p className="max-w-4xl border-t border-[color:var(--color-rule)] pt-5 text-lg leading-relaxed text-[color:var(--color-ink)]">
-          These projects are at different stages: public scenario portal,
-          interactive projection app, and model-development program. Each one is
-          shaped around a distinct decision pressure.
-        </p>
-
-        <div className="mt-10 space-y-7">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-14">
+        <div className="space-y-7">
           {projects.map(project => (
             <ProjectDossier key={project.id} project={project} />
           ))}
