@@ -47,74 +47,62 @@ const PROJECT_DETAILS: Record<
     role: string;
     geography: string;
     stage: string;
-    kicker: string;
     headline: string;
     lead: string;
     body: string;
-    calloutTitle: string;
-    callout: string;
-    focusTitle: string;
-    focusItems: string[];
+    note: string;
+    takeaways: string[];
   }
 > = {
   jheem: {
     role: 'HIV intervention and funding policy',
     geography: 'U.S. cities, states, and Ending the HIV Epidemic priority jurisdictions',
     stage: 'Public portal and active policy analyses',
-    kicker: 'Policy scenario testing',
     headline: 'Testing how HIV policy choices land in real places.',
     lead:
       'JHEEM asks what changes in testing, treatment, prevention, PrEP, viral suppression, or funding would mean across specific jurisdictions.',
     body:
       'It supports continuation, disruption, expansion, and targeting scenarios, using local calibration to show where similar policies may produce very different outcomes.',
-    calloutTitle: 'Before policy changes hit the ground',
-    callout:
-      'Useful before program cuts, expansions, or targeting decisions are made.',
-    focusTitle: 'What JHEEM makes visible',
-    focusItems: [
+    note:
+      'Best suited for policy choices that need to be examined before program changes reach clinics, health departments, and communities.',
+    takeaways: [
       'Uneven local consequences of the same national policy',
-      'Projected infections and incidence under alternative funding scenarios',
-      'Differences in intervention impact across cities, states, and priority jurisdictions',
+      'Funding, testing, treatment, prevention, and PrEP scenarios',
+      'Projected infections and incidence across jurisdictions',
     ],
   },
   shield: {
     role: 'HIV/STI co-epidemic strategy',
     geography: '32 U.S. cities containing Ending the HIV Epidemic urban jurisdictions',
     stage: 'In development: modeling framework and policy-support toolkit',
-    kicker: 'Model development',
     headline: 'Building local evidence for the syphilis resurgence.',
     lead:
       'SHIELD is an in-development program for a syphilis epidemic increasingly tied to HIV, strained STI infrastructure, and widening disparities.',
     body:
       'It is being built to test existing control strategies, doxy-PEP, novel testing, and budget constraints across 32 Ending the HIV Epidemic urban jurisdictions.',
-    calloutTitle: 'While the toolkit is being built',
-    callout:
-      'This is not yet a mature public tool; the important signal is the framework under development.',
-    focusTitle: 'What SHIELD is being built to test',
-    focusItems: [
-      'Combinations of testing, partner services, treatment, and prevention strategies',
-      'Doxy-PEP, point-of-care testing, at-home testing, and other emerging approaches',
-      'Cost-effectiveness, budget impact, and racial or ethnic disparities in syphilis incidence',
+    note:
+      'The work is centered on what local jurisdictions can do as traditional STI control tools meet new diagnostics, new prevention options, and limited budgets.',
+    takeaways: [
+      'Existing syphilis control strategies and emerging tools',
+      'Doxy-PEP, point-of-care testing, and at-home testing',
+      'Cost-effectiveness, budget impact, and disparities',
     ],
   },
   gmha: {
     role: 'Global HIV aging and care planning',
     geography: 'Nine countries, four income-group aggregates, UNAIDS remainder, and global estimates',
     stage: 'Interactive projections and calibration review',
-    kicker: 'Aging and care planning',
     headline: 'Planning for a global HIV population that is getting older.',
     lead:
       'GMHA makes a demographic shift visible: ART is extending life expectancy, so HIV care systems need to plan for older age structures.',
     body:
       'The app shows 2025-2040 age distributions as counts or proportions across country, income-group, UNAIDS remainder, and global views, with calibration context.',
-    calloutTitle: 'When age structure changes care demand',
-    callout:
-      'Compare where older cohorts, multimorbidity, and age-specific care needs are likely to grow.',
-    focusTitle: 'What GMHA makes visible',
-    focusItems: [
+    note:
+      'Useful for comparing where older cohorts, multimorbidity, and age-specific care needs are likely to become more prominent.',
+    takeaways: [
       'Age distribution shifts among people living with HIV through 2040',
-      'Cross-country, income-group, sex-stratified, and global comparisons',
-      'Calibration context for interpreting projected counts and proportions',
+      'Country, income-group, sex-stratified, and global comparisons',
+      'Calibration context for projected counts and proportions',
     ],
   },
 };
@@ -299,6 +287,11 @@ function ModelingWorkflow() {
 function ProjectDossier({ project }: { project: Project }) {
   const details = PROJECT_DETAILS[project.id];
   const visual = projectVisual(project);
+  const projectFacts = [
+    formatScope(project.stats),
+    details.geography,
+    details.stage,
+  ];
 
   return (
     <article
@@ -326,53 +319,28 @@ function ProjectDossier({ project }: { project: Project }) {
             {details.role}
           </p>
 
-          <dl className="mt-7 space-y-5 border-t border-[color:var(--color-rule)] pt-5">
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                Scope
-              </dt>
-              <dd className="mt-2 text-sm leading-relaxed text-[color:var(--color-ink)]">
-                {formatScope(project.stats)}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                Geography
-              </dt>
-              <dd className="mt-2 text-sm leading-relaxed text-[color:var(--color-ink)]">
-                {details.geography}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                Current form
-              </dt>
-              <dd className="mt-2 text-sm leading-relaxed text-[color:var(--color-ink)]">
-                {details.stage}
-              </dd>
-            </div>
-          </dl>
+          <ul className="mt-7 space-y-3 border-t border-[color:var(--color-rule)] pt-5 text-sm leading-relaxed text-[color:var(--color-ink)]">
+            {projectFacts.map(fact => (
+              <li key={fact} className="border-b border-[color:var(--color-rule)] pb-3 last:border-b-0 last:pb-0">
+                {fact}
+              </li>
+            ))}
+          </ul>
         </aside>
 
         <div className="p-5 md:p-8">
-          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_18rem]">
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_17rem]">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-                {details.kicker}
-              </p>
-              <p className="mt-3 max-w-3xl font-serif text-2xl leading-snug text-[color:var(--color-ink)] md:text-3xl">
+              <p className="max-w-3xl font-serif text-2xl leading-snug text-[color:var(--color-ink)] md:text-3xl">
                 {details.headline}
               </p>
-              <p className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
+              <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[color:var(--color-ink)]">
                 {details.lead}
               </p>
             </div>
             <div className="border-t border-[color:var(--color-rule)] pt-5 xl:border-l xl:border-t-0 xl:pl-6 xl:pt-1">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-                {details.calloutTitle}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                {details.callout}
+              <p className="text-sm leading-relaxed text-[color:var(--color-muted)]">
+                {details.note}
               </p>
             </div>
           </div>
@@ -382,14 +350,11 @@ function ProjectDossier({ project }: { project: Project }) {
           </p>
 
           <div className="mt-7 border-t border-[color:var(--color-rule)] pt-6 md:mt-8">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-              {details.focusTitle}
-            </h4>
-            <ul className="mt-4 grid gap-x-8 gap-y-3 text-sm leading-relaxed text-[color:var(--color-ink)] md:grid-cols-3">
-              {details.focusItems.map(item => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-[0.55rem] h-px w-4 flex-none bg-[var(--project-accent)]" />
-                  <span>{item}</span>
+            <ul className="grid gap-px bg-[color:var(--color-rule)] text-sm leading-relaxed text-[color:var(--color-ink)] md:grid-cols-3">
+              {details.takeaways.map(item => (
+                <li key={item} className="bg-white px-4 py-4">
+                  <span className="mb-3 block h-px w-8 bg-[var(--project-accent)]" aria-hidden="true" />
+                  {item}
                 </li>
               ))}
             </ul>
@@ -415,7 +380,7 @@ function ProjectList({ projects }: { projects: Project[] }) {
       <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
         <p className="max-w-4xl border-t border-[color:var(--color-rule)] pt-5 text-lg leading-relaxed text-[color:var(--color-ink)]">
           These projects are at different stages: public scenario portal,
-          conference-facing app, and model-development program. Each one is
+          interactive projection app, and model-development program. Each one is
           shaped around a distinct decision pressure.
         </p>
 
