@@ -60,16 +60,8 @@ export default function PublicationsLead({ publications }: PublicationsLeadProps
                 Publications
               </h1>
 
-              <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-[color:var(--color-rule)] pt-5 lg:grid-cols-1">
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                    Papers
-                  </dt>
-                  <dd className="mt-1 font-serif text-3xl text-[color:var(--color-ink)]">
-                    {publications.length}
-                  </dd>
-                </div>
-                {yearSpan && (
+              {yearSpan && (
+                <dl className="mt-8 border-t border-[color:var(--color-rule)] pt-5">
                   <div>
                     <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
                       Years
@@ -78,8 +70,8 @@ export default function PublicationsLead({ publications }: PublicationsLeadProps
                       {yearSpan}
                     </dd>
                   </div>
-                )}
-              </dl>
+                </dl>
+              )}
 
               <ul className="mt-7 space-y-2 border-t border-[color:var(--color-rule)] pt-5 text-sm leading-relaxed text-[color:var(--color-muted)]">
                 <li>HIV policy</li>

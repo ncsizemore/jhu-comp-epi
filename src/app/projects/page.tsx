@@ -2,18 +2,18 @@ import Link from 'next/link';
 import type { CSSProperties } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { getProjects, type Project, type ProjectStats } from '@/lib/data/projects';
+import { SITE } from '@/lib/site';
 
 export const metadata = {
-  title: 'Projects | JHU Computational Epidemiology',
+  title: `Projects | ${SITE.name}`,
   description:
-    'Decision-support modeling projects for HIV, STI, and population health policy questions.',
+    'Decision-support modeling projects from CIPHER Lab for infectious disease and population health policy questions.',
 };
 
 const STAT_LABELS: Record<keyof ProjectStats, string> = {
   cities: 'cities',
   states: 'states',
   locations: 'locations',
-  publications: 'publications',
   scenarios: 'scenarios',
   countries: 'countries',
   incomeGroups: 'income groups',
@@ -198,7 +198,7 @@ function ProjectsIntro({ projects }: { projects: Project[] }) {
               where timing, geography, and implementation choices matter.
             </p>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
-              The lab maintains a focused set of modeling programs that turn
+              CIPHER Lab maintains a focused set of modeling programs that turn
               surveillance data, mechanistic assumptions, and intervention
               scenarios into comparisons that research and policy teams can use.
             </p>
@@ -394,13 +394,13 @@ function Collaboration() {
           </h2>
           <div className="border-t border-[color:var(--color-rule)] pt-5 lg:border-t-0 lg:pt-0">
             <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
-              The lab works with researchers, health departments, clinicians, and
-              community partners on model calibration, scenario design, and
+              CIPHER Lab works with researchers, health departments, clinicians,
+              and community partners on model calibration, scenario design, and
               policy-facing analysis.
             </p>
             <p className="mt-5 text-sm">
               <a
-                href="mailto:pkasaie1@jhu.edu"
+                href={`mailto:${SITE.contactEmail}`}
                 className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
               >
                 Contact the lab

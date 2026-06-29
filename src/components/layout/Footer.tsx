@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import { SITE } from '@/lib/site';
 
 export default function Footer() {
   return (
@@ -13,21 +13,22 @@ export default function Footer() {
             <address className="not-italic text-sm text-white/90 leading-relaxed">
               615 N. Wolfe Street<br />
               Baltimore, MD 21205<br />
-              <a href="mailto:pkasaie1@jhu.edu" className="hover:underline">
-                pkasaie1@jhu.edu
+              <a href={`mailto:${SITE.contactEmail}`} className="hover:underline">
+                {SITE.contactEmail}
               </a>
             </address>
           </div>
 
           <div>
-            <Image
-              src="/images/JHU.logo_horizontal.white.svg"
-              alt="Johns Hopkins University"
-              width={200}
-              height={50}
-              className="mb-2 h-auto w-[200px]"
-            />
-            <p className="text-sm text-white/90">Computational Epidemiology Lab</p>
+            <p className="font-serif text-2xl leading-tight text-white">
+              {SITE.name}
+            </p>
+            <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/80">
+              {SITE.expansion}
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
+              Housed within the {SITE.affiliation}.
+            </p>
           </div>
 
           <div className="grid grid-cols-2 gap-6">
@@ -56,7 +57,7 @@ export default function Footer() {
 
         <div className="mt-10 pt-6 border-t border-white/15 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs text-white/70">
           <div>
-            © {new Date().getFullYear()} The Computational Epidemiology Lab, Johns Hopkins University
+            © {new Date().getFullYear()} {SITE.name}
           </div>
           <div className="flex gap-6">
             <a href="https://www.jhu.edu" target="_blank" rel="noopener noreferrer" className="hover:underline">

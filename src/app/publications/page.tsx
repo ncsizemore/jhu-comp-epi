@@ -4,10 +4,11 @@ import PublicationIndex from '@/components/sections/publications/PublicationInde
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
 import { getPublications, getPublicationYears } from '@/lib/data/publications';
+import { SITE } from '@/lib/site';
 
 export const metadata = {
-  title: 'Publications | JHU Computational Epidemiology',
-  description: 'Research publications from the Johns Hopkins Computational Epidemiology Group, covering HIV modeling, epidemiology, and public health interventions.',
+  title: `Publications | ${SITE.name}`,
+  description: 'Research publications from CIPHER Lab, covering infectious disease modeling, epidemiology, and public health interventions.',
 };
 
 // Enable Incremental Static Regeneration - regenerate every hour

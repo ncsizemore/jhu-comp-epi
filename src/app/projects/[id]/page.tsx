@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import MainLayout from '@/components/layout/MainLayout';
 import { getProjectById, getProjects, type Project, type ProjectStats } from '@/lib/data/projects';
+import { JHEEM, SITE } from '@/lib/site';
 
 type Props = {
   params: Promise<{
@@ -13,7 +14,6 @@ const STAT_LABELS: Record<keyof ProjectStats, string> = {
   cities: 'cities',
   states: 'states',
   locations: 'locations',
-  publications: 'publications',
   scenarios: 'scenarios',
   countries: 'countries',
   incomeGroups: 'income groups',
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return {
-    title: `${project.shortName} | JHU Computational Epidemiology`,
+    title: `${project.shortName} | ${SITE.name}`,
     description: project.description,
   };
 }
@@ -292,7 +292,7 @@ function ProjectActions({ project }: { project: Project }) {
               </h3>
               <p className="mt-3 text-sm">
                 <a
-                  href="mailto:pkasaie1@jhu.edu"
+                  href={`mailto:${SITE.contactEmail}`}
                   className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
                 >
                   Contact the lab
@@ -300,6 +300,27 @@ function ProjectActions({ project }: { project: Project }) {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function JheemContinuityNote({ project }: { project: Project }) {
+  if (project.id !== 'jheem') {
+    return null;
+  }
+
+  return (
+    <section className="border-b border-[color:var(--color-rule)]">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
+        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
+            Name continuity
+          </h2>
+          <p className="max-w-4xl border-t border-[color:var(--color-rule)] pt-5 text-sm leading-relaxed text-[color:var(--color-muted)] lg:border-t-0 lg:pt-0">
+            {JHEEM.transitionNote}
+          </p>
         </div>
       </div>
     </section>
@@ -319,6 +340,7 @@ export default async function ProjectPage({ params }: Props) {
       <ProjectHeader project={project} />
       <DecisionContext project={project} />
       <ProjectEvidence project={project} />
+      <JheemContinuityNote project={project} />
       <ProjectActions project={project} />
     </MainLayout>
   );

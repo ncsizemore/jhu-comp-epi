@@ -1,6 +1,7 @@
-# JHU Computational Epidemiology Lab Website
+# CIPHER Lab Website
 
-Next.js site for the Johns Hopkins Computational Epidemiology Lab.
+Next.js site for CIPHER Lab: Computational and Infectious Disease Public
+Health Epidemiology Research.
 
 ## Requirements
 

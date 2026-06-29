@@ -9,7 +9,7 @@ export const PROJECT_THEME = {
   jheem: {
     id: 'jheem',
     name: 'JHEEM',
-    fullName: 'Johns Hopkins Epidemiological and Economic Model',
+    fullName: 'Joint HIV Epidemiology and Economic Model',
     description: 'A comprehensive framework for simulating HIV transmission dynamics and evaluating the impact of prevention and treatment interventions across diverse populations.',
     colors: {
       // Solid background colors for badges and pills

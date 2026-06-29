@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { SITE } from '@/lib/site';
 
 const NAV = [
   { href: '/', label: 'Home' },
@@ -20,20 +20,11 @@ export default function Header() {
     <header className="bg-hopkins-blue border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex h-16 items-center justify-between gap-6">
-          <Link href="/" className="flex min-w-0 items-center gap-4">
-            <div className="flex-shrink-0">
-              <Image
-                src="/images/JHU.logo_horizontal.white.svg"
-                alt="Johns Hopkins University"
-                width={180}
-                height={45}
-                className="h-auto w-[180px]"
-              />
-            </div>
-            <div className="hidden h-8 border-l border-white/25 md:block" />
-            <div className="hidden truncate text-sm font-semibold text-white md:block">
-              Computational Epidemiology Lab
-            </div>
+          <Link href="/" aria-label={SITE.name} className="flex min-w-0 items-center">
+            <span className="font-serif text-2xl leading-none text-white">
+              <span className="text-hopkins-gold">CIPHER</span>{' '}
+              <span className="text-white/90">Lab</span>
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-7 text-sm md:flex">

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
+import { SITE } from '@/lib/site';
 import {
   getHomepageFindingsData,
   type HomepageFindingsData,
@@ -20,24 +21,53 @@ const FindingsMap = dynamic<FindingsMapProps>(
   },
 );
 
+const DISEASES_OF_FOCUS = [
+  'HIV/AIDS',
+  'Syphilis and other sexually transmitted infections',
+  'Human papillomavirus (HPV)',
+  'Tuberculosis (TB)',
+  'Aging and comorbidities among people living with HIV',
+];
+
+const PUBLIC_HEALTH_QUESTIONS = [
+  'How can prevention and screening programs be optimized?',
+  'What are the long-term impacts of treatment and care strategies?',
+  'How do policy changes affect health outcomes?',
+  'Where should limited public health resources be invested for greatest impact?',
+  'How will demographic and epidemiologic changes shape future health needs?',
+];
+
 function Masthead() {
   return (
     <section className="border-b border-[color:var(--color-rule)]">
       <div className="max-w-6xl mx-auto px-6 py-14 md:py-[4.5rem]">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-          Johns Hopkins Bloomberg School of Public Health · School of Medicine
+          {SITE.affiliation}
         </p>
-        <h1 className="mt-5 max-w-5xl font-serif text-5xl leading-[0.96] text-[color:var(--color-ink)] md:text-7xl">
-          <span className="block">Computational</span>
-          <span className="block text-[color:var(--color-hopkins-blue)]">
-            Epidemiology Lab
-          </span>
+        <h1 className="mt-5 max-w-5xl font-serif text-6xl leading-[0.94] text-[color:var(--color-ink)] md:text-8xl">
+          <span className="text-[color:var(--color-hopkins-blue)]">CIPHER</span>{' '}
+          <span>Lab</span>
         </h1>
-        <p className="mt-6 max-w-3xl text-xl leading-relaxed text-[color:var(--color-ink)]">
-          We build policy-facing models of infectious disease dynamics, combining
-          local data, simulation, and epidemiologic inference to support public
-          health decisions in the United States.
+        <p className="mt-4 max-w-4xl text-lg font-semibold leading-relaxed text-[color:var(--color-ink)] md:text-xl">
+          {SITE.expansion}
         </p>
+        <div className="mt-8 grid gap-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+          <p className="text-xl leading-relaxed text-[color:var(--color-ink)]">
+            CIPHER Lab is a multidisciplinary research team housed within the
+            Johns Hopkins Schools of Public Health and Medicine. Our faculty,
+            researchers, and trainees develop policy-relevant models of
+            infectious disease dynamics to support public health decision-making
+            in the United States and globally.
+          </p>
+          <p className="border-t border-[color:var(--color-rule)] pt-5 text-base leading-relaxed text-[color:var(--color-muted)] md:border-l md:border-t-0 md:pl-7 md:pt-0">
+            By integrating epidemiologic data, mathematical modeling, simulation,
+            and statistical inference, we generate actionable evidence on disease
+            transmission, prevention, treatment, and population health outcomes.
+            Our work bridges research and practice, providing insights that help
+            public health agencies, healthcare systems, and policymakers respond
+            to current and emerging health challenges.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -49,42 +79,83 @@ function ResearchScope() {
       <div className="max-w-6xl mx-auto px-6 py-12 md:py-14">
         <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
           <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
-            What the lab studies
+            Our Research
           </h2>
           <p className="max-w-3xl text-lg leading-relaxed text-[color:var(--color-ink)]">
-            Our work connects mechanistic modeling with surveillance, prevention, and
-            treatment questions. The common thread is practical: estimating how
-            interventions and disruptions change outcomes across real populations and
-            places.
+            CIPHER Lab studies how diseases spread, how interventions affect
+            population health, and how public health resources can be deployed
+            most effectively. We develop and apply computational models to answer
+            questions that matter for prevention, treatment, health equity, and
+            policy.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-8 border-t border-[color:var(--color-rule)] pt-7 md:grid-cols-3">
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Local calibration
-            </h3>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              City, state, and population-specific data rather than one national
-              average.
-            </p>
+        <div className="mt-10 grid gap-8 border-t border-[color:var(--color-rule)] pt-7 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+                Diseases of Focus
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                Our research focuses on infectious diseases and their long-term
+                health consequences, including:
+              </p>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {DISEASES_OF_FOCUS.map(disease => (
+                  <li
+                    key={disease}
+                    className="border border-[color:var(--color-rule)] bg-[#fbfcfe] px-3 py-2 text-sm text-[color:var(--color-ink)]"
+                  >
+                    {disease}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+                Geographic Reach
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                We maintain a suite of locally calibrated models across multiple
+                U.S. cities and more than 30 states, enabling analyses that
+                reflect local epidemiology, healthcare systems, and population
+                needs.
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+                Our work also extends globally through studies of HIV and TB in
+                selected countries, supporting evidence-based decision-making
+                across diverse settings.
+              </p>
+            </div>
           </div>
-          <div>
+
+          <div className="border-t border-[color:var(--color-rule)] pt-7 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
             <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Policy scenarios
+              Public Health Impact
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              Plausible futures for continuation, interruption, funding, and targeted
-              intervention.
+              Our research helps answer critical questions such as:
             </p>
-          </div>
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Decision support
+            <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
+              {PUBLIC_HEALTH_QUESTIONS.map(question => (
+                <li key={question} className="flex gap-3">
+                  <span className="mt-[0.7rem] h-px w-5 flex-none bg-[color:var(--color-accent)]" />
+                  <span>{question}</span>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
+              Decision Support for Policy and Practice
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              Published evidence and public tools for researchers, policymakers,
-              clinicians, and health departments.
+              We collaborate with public health agencies, healthcare
+              organizations, and policymakers to evaluate interventions, project
+              future disease burden, assess program effectiveness, and inform
+              resource allocation. Through peer-reviewed research, public tools,
+              and policy-focused analyses, we provide evidence that supports
+              better health decisions and stronger public health systems.
             </p>
           </div>
         </div>
@@ -111,9 +182,10 @@ function Findings({ data }: { data: HomepageFindingsData | null }) {
               Published findings, mapped
             </h2>
             <p className="mt-4 text-base leading-relaxed text-[color:var(--color-ink)]">
-              Recent JHEEM analyses estimate how federal HIV program disruptions could
-              alter incidence by place. The figure below curates headline geographic
-              findings from those papers.
+              One example of CIPHER&apos;s decision-support work is a set of recent
+              JHEEM analyses estimating how federal HIV program disruptions could
+              alter incidence by place. The figure below curates headline
+              geographic findings from those papers.
             </p>
           </div>
           <div className="border-t border-[color:var(--color-rule)] pt-5 text-sm leading-relaxed text-[color:var(--color-muted)] lg:border-l lg:border-t-0 lg:pl-6 lg:pt-1">

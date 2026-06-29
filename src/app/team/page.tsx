@@ -4,10 +4,11 @@ import {
   getTeamCategories,
   getTeamMembersByCategory
 } from '@/lib/data/team';
+import { SITE } from '@/lib/site';
 
 export const metadata = {
-  title: 'Our Team | The Computational Epidemiology Lab',
-  description: 'Meet the researchers and staff of The Computational Epidemiology Lab at Johns Hopkins University',
+  title: `Our Team | ${SITE.name}`,
+  description: 'Meet the researchers and staff of CIPHER Lab.',
 };
 
 // Enable Incremental Static Regeneration - regenerate every hour
@@ -52,8 +53,8 @@ export default async function TeamPage() {
 
             <div>
               <p className="max-w-3xl text-xl leading-relaxed text-[color:var(--color-ink)]">
-                Researchers and staff building computational models for HIV,
-                STI, and population-health decision support.
+                Researchers and staff building computational models for
+                infectious disease and population-health decision support.
               </p>
             </div>
           </div>

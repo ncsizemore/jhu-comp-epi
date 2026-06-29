@@ -1,9 +1,10 @@
 import MainLayout from '@/components/layout/MainLayout';
+import { SITE } from '@/lib/site';
 
 export const metadata = {
-  title: 'Media Coverage | The Computational Epidemiology Lab',
+  title: `Media Coverage | ${SITE.name}`,
   description:
-    'Selected public-facing media coverage and commentary from the Computational Epidemiology Lab at Johns Hopkins University.',
+    'Selected public-facing media coverage and commentary from CIPHER Lab.',
 };
 
 const coverageItems = [
@@ -36,7 +37,7 @@ function NewsIntro() {
           </div>
           <div>
             <p className="max-w-4xl text-xl leading-relaxed text-[color:var(--color-ink)]">
-              Selected public-facing coverage of the lab&apos;s modeling work and
+              Selected public-facing coverage of CIPHER Lab&apos;s modeling work and
               related policy commentary.
             </p>
           </div>
