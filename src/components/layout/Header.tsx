@@ -18,7 +18,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="bg-hopkins-blue border-b border-white/10">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-hopkins-blue/95 shadow-[0_1px_0_rgba(255,255,255,0.08)] backdrop-blur">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex h-16 items-center justify-between gap-6">
           <Link href="/" aria-label={SITE.name} className="flex min-w-0 items-center">

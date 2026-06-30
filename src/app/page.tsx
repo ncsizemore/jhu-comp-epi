@@ -22,22 +22,16 @@ const FindingsMap = dynamic<FindingsMapProps>(
   },
 );
 
-function EvidenceFieldBackdrop({ compact = false }: { compact?: boolean }) {
+function EvidenceFieldBackdrop() {
   return (
     <div
       aria-hidden="true"
-      className={[
-        'pointer-events-none absolute inset-x-0 top-0 hidden overflow-hidden md:block',
-        compact ? 'h-64' : 'h-full min-h-[34rem]',
-      ].join(' ')}
+      className="pointer-events-none absolute inset-x-0 top-0 hidden h-full min-h-[34rem] overflow-hidden md:block"
     >
       <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,rgba(0,45,114,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,45,114,0.045)_1px,transparent_1px)] [background-size:38px_38px]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(242,196,19,0.12),transparent_23%),radial-gradient(circle_at_82%_18%,rgba(42,168,184,0.14),transparent_26%),linear-gradient(to_bottom,rgba(248,251,253,0.15)_0%,#fbfcfe_86%)]" />
       <svg
-        className={[
-          'absolute left-1/2 w-[min(78rem,calc(100vw-3rem))] -translate-x-1/2',
-          compact ? '-top-2 h-28' : 'top-10 h-72',
-        ].join(' ')}
+        className="absolute left-1/2 top-10 h-72 w-[min(78rem,calc(100vw-3rem))] -translate-x-1/2"
         viewBox="0 0 960 220"
         preserveAspectRatio="none"
       >
@@ -61,19 +55,52 @@ function EvidenceFieldBackdrop({ compact = false }: { compact?: boolean }) {
           strokeWidth="1"
         />
       </svg>
-      {!compact && (
-        <>
-          <span className="absolute right-[15%] top-20 h-2 w-2 rounded-full border border-white bg-[#2aa8b8] shadow-[0_0_0_5px_rgba(42,168,184,0.12)]">
-            <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(42,168,184,0.46)]" />
+      <span className="absolute right-[15%] top-20 h-2 w-2 rounded-full border border-white bg-[#2aa8b8] shadow-[0_0_0_5px_rgba(42,168,184,0.12)]">
+        <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(42,168,184,0.46)]" />
+      </span>
+      <span className="absolute left-[18%] top-32 h-1.5 w-1.5 rounded-full border border-white bg-[#003d79] shadow-[0_0_0_5px_rgba(0,45,114,0.1)]">
+        <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(0,45,114,0.38)] [animation-delay:1.1s]" />
+      </span>
+      <span className="absolute right-[32%] top-48 h-2 w-2 rounded-full border border-white bg-[#f2c413] shadow-[0_0_0_5px_rgba(242,196,19,0.16)]">
+        <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(242,196,19,0.48)] [animation-delay:2.2s]" />
+      </span>
+    </div>
+  );
+}
+
+function ExpansionLockup() {
+  return (
+    <div
+      aria-label={SITE.expansion}
+      className="mt-5 max-w-5xl md:flex md:justify-end"
+    >
+      <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm font-semibold leading-tight text-[color:var(--color-ink)] md:justify-end md:text-right">
+        <span className="inline-flex items-baseline gap-2">
+          <span className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[color:var(--color-hopkins-blue)]">
+            CI
           </span>
-          <span className="absolute left-[18%] top-32 h-1.5 w-1.5 rounded-full border border-white bg-[#003d79] shadow-[0_0_0_5px_rgba(0,45,114,0.1)]">
-            <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(0,45,114,0.38)] [animation-delay:1.1s]" />
+          <span>
+            Computational
+            <span className="mx-1.5 text-[color:var(--color-muted)]">/</span>
+            Infectious Disease
           </span>
-          <span className="absolute right-[32%] top-48 h-2 w-2 rounded-full border border-white bg-[#f2c413] shadow-[0_0_0_5px_rgba(242,196,19,0.16)]">
-            <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(242,196,19,0.48)] [animation-delay:2.2s]" />
+        </span>
+
+        <span className="hidden h-3 w-px bg-[color:var(--color-rule)] md:inline-block" />
+
+        <span className="inline-flex items-baseline gap-2">
+          <span className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[color:var(--color-hopkins-blue)]">
+            PHER
           </span>
-        </>
-      )}
+          <span>
+            Public Health
+            <span className="mx-1.5 text-[color:var(--color-muted)]">/</span>
+            Epidemiology
+            <span className="mx-1.5 text-[color:var(--color-muted)]">/</span>
+            Research
+          </span>
+        </span>
+      </div>
     </div>
   );
 }
@@ -90,29 +117,29 @@ function Opening() {
           <span className="text-[color:var(--color-hopkins-blue)]">CIPHER</span>{' '}
           <span>Lab</span>
         </h1>
-        <p className="mt-4 max-w-4xl text-lg font-semibold leading-relaxed text-[color:var(--color-ink)] md:text-xl">
-          {SITE.expansion}
-        </p>
+        <ExpansionLockup />
 
-        <div className="mt-10 grid gap-7 border-y border-[color:var(--color-rule)] bg-white/45 py-8 backdrop-blur-[1px] md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <p className="text-xl leading-relaxed text-[color:var(--color-ink)]">
-            {HOMEPAGE_INTRO[0]}
-          </p>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            {HOMEPAGE_INTRO[1]}
-          </p>
-        </div>
+        <div className="mt-10 border-y border-[color:var(--color-rule)] bg-white/45 backdrop-blur-[1px]">
+          <div className="grid gap-7 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+            <p className="text-xl leading-relaxed text-[color:var(--color-ink)]">
+              {HOMEPAGE_INTRO[0]}
+            </p>
+            <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
+              {HOMEPAGE_INTRO[1]}
+            </p>
+          </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4">
-          <Link
-            href="/research"
-            className="text-sm font-semibold text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 transition-colors hover:decoration-[color:var(--color-link)]"
-          >
-            Read about our research →
-          </Link>
-          <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-            prevention / treatment / equity / policy
-          </span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[color:var(--color-rule)] py-3 md:justify-end md:text-right">
+            <Link
+              href="/research"
+              className="text-sm font-semibold text-[color:var(--color-link)] transition-colors hover:text-[color:var(--color-hopkins-blue)] hover:underline"
+            >
+              Read about our research →
+            </Link>
+            <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+              prevention / treatment / equity / policy
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -126,9 +153,8 @@ function Findings({ data }: { data: HomepageFindingsData | null }) {
   const unavailableLabel = data?.unavailableAnalyses.join(', ') ?? '';
 
   return (
-    <section className="relative overflow-hidden border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <EvidenceFieldBackdrop compact />
-      <div className="relative max-w-6xl mx-auto px-6 py-12 md:py-16">
+    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
         <div className="mb-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">

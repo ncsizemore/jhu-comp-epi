@@ -1,6 +1,38 @@
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 
+function FooterExpansionLockup() {
+  return (
+    <div
+      aria-label={SITE.expansion}
+      className="mt-3 space-y-1.5 text-sm font-medium leading-tight text-white/85"
+    >
+      <div className="flex items-baseline gap-2.5">
+        <span className="w-11 shrink-0 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-hopkins-gold">
+          CI
+        </span>
+        <span>
+          Computational
+          <span className="mx-1.5 text-white/35">/</span>
+          Infectious Disease
+        </span>
+      </div>
+      <div className="flex items-baseline gap-2.5">
+        <span className="w-11 shrink-0 font-mono text-[0.68rem] font-bold uppercase tracking-[0.18em] text-hopkins-gold">
+          PHER
+        </span>
+        <span>
+          Public Health
+          <span className="mx-1.5 text-white/35">/</span>
+          Epidemiology
+          <span className="mx-1.5 text-white/35">/</span>
+          Research
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-hopkins-blue text-white">
@@ -23,9 +55,7 @@ export default function Footer() {
             <p className="font-serif text-2xl leading-tight text-white">
               {SITE.name}
             </p>
-            <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/80">
-              {SITE.expansion}
-            </p>
+            <FooterExpansionLockup />
             <p className="mt-4 text-sm leading-relaxed text-white/70">
               Housed within the {SITE.affiliation}.
             </p>
