@@ -98,4 +98,35 @@ npm run test:run
 npm run build
 ```
 
-The primary public deployment is currently on the Vercel domain.
+The temporary canonical deployment is:
+
+```text
+https://cipher-epi.vercel.app
+```
+
+`https://cipherpublichealth.vercel.app` is also attached to the Vercel project
+as a non-canonical alternate while the team evaluates a future custom domain.
+
+### Site URL and legacy redirects
+
+The app has a default canonical public URL and host-level redirects. These can
+be overridden through build environment variables when the final custom domain
+is chosen:
+
+- `NEXT_PUBLIC_SITE_URL`: canonical public site URL, for example
+  `https://cipher-epi.vercel.app`.
+- `SITE_LEGACY_HOSTS`: comma-separated legacy hosts that should redirect to the
+  canonical URL, for example
+  `jhu-comp-epi.vercel.app,jhu-comp-epi-pvip.vercel.app`.
+
+The default legacy redirects are temporary rather than permanent because the lab
+is likely to move to a custom domain later.
+
+Recommended domain migration sequence:
+
+1. Add the new Vercel domain/alias to the existing project.
+2. Verify the new alias serves the current site.
+3. Update `NEXT_PUBLIC_SITE_URL` or the default canonical URL.
+4. Update `SITE_LEGACY_HOSTS` or the default legacy host list.
+5. Redeploy from `main`.
+6. Smoke test the new URL and confirm old aliases redirect to it.
