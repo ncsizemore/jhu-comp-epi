@@ -4,6 +4,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { SectionErrorFallback } from '@/components/SectionErrorFallback';
 import { SITE } from '@/lib/site';
+import { HOMEPAGE_INTRO } from '@/lib/research-content';
 import {
   getHomepageFindingsData,
   type HomepageFindingsData,
@@ -21,22 +22,71 @@ const FindingsMap = dynamic<FindingsMapProps>(
   },
 );
 
-const DISEASES_OF_FOCUS = [
-  'HIV/AIDS',
-  'Syphilis and other sexually transmitted infections',
-  'Human papillomavirus (HPV)',
-  'Tuberculosis (TB)',
-  'Aging and comorbidities among people living with HIV',
-];
-
-function Masthead() {
+function EvidenceFieldBackdrop({ compact = false }: { compact?: boolean }) {
   return (
-    <section className="border-b border-[color:var(--color-rule)]">
-      <div className="mx-auto max-w-6xl px-6 py-14 md:py-[4.5rem]">
+    <div
+      aria-hidden="true"
+      className={[
+        'pointer-events-none absolute inset-x-0 top-0 hidden overflow-hidden md:block',
+        compact ? 'h-64' : 'h-full min-h-[34rem]',
+      ].join(' ')}
+    >
+      <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,rgba(0,45,114,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,45,114,0.045)_1px,transparent_1px)] [background-size:38px_38px]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(242,196,19,0.12),transparent_23%),radial-gradient(circle_at_82%_18%,rgba(42,168,184,0.14),transparent_26%),linear-gradient(to_bottom,rgba(248,251,253,0.15)_0%,#fbfcfe_86%)]" />
+      <svg
+        className={[
+          'absolute left-1/2 w-[min(78rem,calc(100vw-3rem))] -translate-x-1/2',
+          compact ? '-top-2 h-28' : 'top-10 h-72',
+        ].join(' ')}
+        viewBox="0 0 960 220"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0 104 C150 18 250 168 396 88 C540 10 680 136 960 42"
+          fill="none"
+          stroke="rgba(0,45,114,0.09)"
+          strokeWidth="1"
+        />
+        <path
+          d="M0 142 C180 80 268 164 420 122 C598 72 720 168 960 112"
+          fill="none"
+          stroke="rgba(242,196,19,0.26)"
+          strokeDasharray="7 10"
+          strokeWidth="1"
+        />
+        <path
+          d="M0 184 C210 152 310 160 476 176 C650 192 780 134 960 154"
+          fill="none"
+          stroke="rgba(42,168,184,0.11)"
+          strokeWidth="1"
+        />
+      </svg>
+      {!compact && (
+        <>
+          <span className="absolute right-[15%] top-20 h-2 w-2 rounded-full border border-white bg-[#2aa8b8] shadow-[0_0_0_5px_rgba(42,168,184,0.12)]">
+            <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(42,168,184,0.46)]" />
+          </span>
+          <span className="absolute left-[18%] top-32 h-1.5 w-1.5 rounded-full border border-white bg-[#003d79] shadow-[0_0_0_5px_rgba(0,45,114,0.1)]">
+            <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(0,45,114,0.38)] [animation-delay:1.1s]" />
+          </span>
+          <span className="absolute right-[32%] top-48 h-2 w-2 rounded-full border border-white bg-[#f2c413] shadow-[0_0_0_5px_rgba(242,196,19,0.16)]">
+            <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(242,196,19,0.48)] [animation-delay:2.2s]" />
+          </span>
+        </>
+      )}
+    </div>
+  );
+}
+
+function Opening() {
+  return (
+    <section className="relative overflow-hidden border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <EvidenceFieldBackdrop />
+      <div className="relative mx-auto max-w-6xl px-6 py-14 md:py-20">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
           {SITE.affiliation}
         </p>
-        <h1 className="mt-5 max-w-5xl font-serif text-6xl leading-[0.94] text-[color:var(--color-ink)] md:text-8xl">
+        <h1 className="mt-5 max-w-5xl font-serif text-6xl leading-[0.92] text-[color:var(--color-ink)] md:text-[6.75rem]">
           <span className="text-[color:var(--color-hopkins-blue)]">CIPHER</span>{' '}
           <span>Lab</span>
         </h1>
@@ -44,94 +94,25 @@ function Masthead() {
           {SITE.expansion}
         </p>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        <div className="mt-10 grid gap-7 border-y border-[color:var(--color-rule)] bg-white/45 py-8 backdrop-blur-[1px] md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <p className="text-xl leading-relaxed text-[color:var(--color-ink)]">
-            CIPHER Lab is a multidisciplinary research team housed within the
-            Johns Hopkins Schools of Public Health and Medicine. Our faculty,
-            researchers, and trainees develop policy-relevant models of
-            infectious disease dynamics to support public health decision-making
-            in the United States and globally.
+            {HOMEPAGE_INTRO[0]}
           </p>
-          <p className="border-t border-[color:var(--color-rule)] pt-5 text-base leading-relaxed text-[color:var(--color-muted)] md:border-l md:border-t-0 md:pl-7 md:pt-0">
-            By integrating epidemiologic data, mathematical modeling, simulation,
-            and statistical inference, we generate actionable evidence on disease
-            transmission, prevention, treatment, and population health outcomes.
-            Our work bridges research and practice, providing insights that help
-            public health agencies, healthcare systems, and policymakers respond
-            to current and emerging health challenges.
+          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
+            {HOMEPAGE_INTRO[1]}
           </p>
         </div>
-      </div>
-    </section>
-  );
-}
 
-function ResearchScope() {
-  return (
-    <section className="border-b border-[color:var(--color-rule)]">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              Our research
-            </p>
-            <h2 className="mt-3 font-serif text-2xl leading-tight text-[color:var(--color-ink)]">
-              Computational models for infectious disease decisions.
-            </h2>
-          </div>
-
-          <div>
-            <p className="max-w-4xl text-xl leading-relaxed text-[color:var(--color-ink)]">
-              CIPHER Lab studies how diseases spread, how interventions affect
-              population health, and how public health resources can be deployed
-              most effectively. We develop and apply computational models to
-              answer questions that matter for prevention, treatment, health
-              equity, and policy.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-8 border-t border-[color:var(--color-rule)] pt-7 md:grid-cols-3">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Diseases of focus
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              {DISEASES_OF_FOCUS.join('; ')}.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Geographic reach
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              We maintain a suite of locally calibrated models across multiple
-              U.S. cities and more than 30 states, enabling analyses that reflect
-              local epidemiology, healthcare systems, and population needs. Our
-              work also extends globally through studies of HIV and TB in
-              selected countries.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              Decision support
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-ink)]">
-              We help teams compare prevention, screening, treatment, policy,
-              and resource-allocation choices, including how demographic and
-              epidemiologic changes may shape future needs.
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
-              We collaborate with public health agencies, healthcare
-              organizations, and policymakers to evaluate interventions, project
-              future disease burden, assess program effectiveness, and inform
-              resource allocation. Through peer-reviewed research, public tools,
-              and policy-focused analyses, we provide evidence that supports
-              better health decisions and stronger public health systems.
-            </p>
-          </div>
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <Link
+            href="/research"
+            className="text-sm font-semibold text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 transition-colors hover:decoration-[color:var(--color-link)]"
+          >
+            Read about our research →
+          </Link>
+          <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
+            prevention / treatment / equity / policy
+          </span>
         </div>
       </div>
     </section>
@@ -145,8 +126,9 @@ function Findings({ data }: { data: HomepageFindingsData | null }) {
   const unavailableLabel = data?.unavailableAnalyses.join(', ') ?? '';
 
   return (
-    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
+    <section className="relative overflow-hidden border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
+      <EvidenceFieldBackdrop compact />
+      <div className="relative max-w-6xl mx-auto px-6 py-12 md:py-16">
         <div className="mb-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
@@ -254,8 +236,7 @@ export default async function HomePage() {
 
   return (
     <MainLayout>
-      <Masthead />
-      <ResearchScope />
+      <Opening />
       <Findings data={findingsData} />
       <InTheNews />
     </MainLayout>

@@ -47,6 +47,7 @@ export default function Footer() {
                 Pages
               </h4>
               <ul className="space-y-2 text-sm">
+                <li><Link href="/research" className="text-white/90 hover:underline">Research</Link></li>
                 <li><Link href="/projects" className="text-white/90 hover:underline">Projects</Link></li>
                 <li><Link href="/publications" className="text-white/90 hover:underline">Publications</Link></li>
                 <li><Link href="/team" className="text-white/90 hover:underline">Team</Link></li>
