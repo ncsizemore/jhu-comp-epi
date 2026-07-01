@@ -33,6 +33,8 @@ The main production branch now contains a coherent CIPHER Lab baseline:
   they were functioning as project stats.
 - The temporary canonical URL is `https://cipher-epi.vercel.app`, with
   `https://cipherpublichealth.vercel.app` attached as an alternate.
+- The GitHub organization `CIPHER-Epi` has been created:
+  `https://github.com/CIPHER-Epi`.
 - The repo has default temporary redirects from old Vercel hosts to
   `cipher-epi.vercel.app`, plus the existing `/projects/gmha` to
   `/global-aging` redirect.
@@ -267,8 +269,9 @@ links.
 
 ## Phase 7: Domain, Redirects, and Infrastructure
 
-Status: partially shipped for temporary Vercel URL and redirects; GitHub
-organization and JHU-managed email are still open administrative tasks.
+Status: partially shipped for temporary Vercel URL, redirects, and GitHub
+organization reservation. Repository transfer, organization administration, and
+JHU-managed email are still open administrative tasks.
 
 ### Domain
 
@@ -292,8 +295,8 @@ own multiple projects over time.
 
 Recommendation:
 
-- Reserve a CIPHER-oriented GitHub organization soon, if an acceptable name is
-  available.
+- Use the reserved `CIPHER-Epi` organization as the future home for lab-owned
+  code and infrastructure.
 - Do not transfer this repo until the organization owners/admins and Vercel
   deployment impact are clear.
 - Keep this repo under the current owner until production deployment is stable
@@ -301,9 +304,15 @@ Recommendation:
 - If the eventual organization is created, transfer repositories deliberately
   and update Vercel/GitHub integrations immediately after transfer.
 
+Current state:
+
+- Organization: `CIPHER-Epi`
+- URL: `https://github.com/CIPHER-Epi`
+- Current owner/admin: Nick's GitHub account
+- Organization contact email: `jheem.jhu@gmail.com`
+
 Decisions to confirm:
 
-- organization name availability
 - owner/admin list
 - whether to transfer this repo or keep it under the current owner
 - Vercel deployment impact of any repo transfer
@@ -312,7 +321,7 @@ Decisions to confirm:
 ### Email
 
 Use a JHU-managed group inbox if possible. Do not create an informal personal
-email account for lab infrastructure.
+email account as the only public lab contact.
 
 Recommendation:
 
@@ -320,6 +329,11 @@ Recommendation:
   as `cipherlab@jhu.edu` or another institutionally approved address.
 - Keep `pkasaie1@jhu.edu` on the site until the group inbox exists and ownership
   is confirmed.
+- Keep `jheem.jhu@gmail.com` as a legacy/admin/recovery account if it remains
+  useful, but avoid making it the primary public CIPHER contact because it is
+  JHEEM-branded and non-institutional.
+- Consider creating a CIPHER-branded non-institutional backup account if the
+  team wants continuity outside JHU affiliation.
 - Once the group inbox is live, update `SITE.contactEmail` and redeploy.
 
 Decisions to confirm:
@@ -356,7 +370,8 @@ After deploy:
 - What exact custom domain should represent CIPHER Lab after the temporary
   Vercel URL period?
 - What email address is available through JHU?
-- What GitHub organization name is available and preferred?
+- Who should be owners/admins of the `CIPHER-Epi` GitHub organization?
+- Should this repo transfer to `CIPHER-Epi`, and if so when?
 - What data should power conference presentations and invited talks?
 - Who will coordinate collaborator outreach and bio collection?
 - Are there remaining page-level design refinements that should block a broader
@@ -378,8 +393,8 @@ After deploy:
 ### Recommended Next Session
 
 - Verify the production deploy on `cipher-epi.vercel.app`.
-- Decide whether to create/reserve a GitHub organization now.
-- Decide the preferred GitHub organization name candidates and owner/admin list.
+- Confirm `CIPHER-Epi` organization owners/admins.
+- Decide whether and when to transfer this repo to `CIPHER-Epi`.
 - Confirm the path for requesting a JHU-managed group inbox.
 - Smoke test key routes after deploy.
 
