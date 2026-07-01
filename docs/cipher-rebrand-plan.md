@@ -1,6 +1,7 @@
 # CIPHER Lab Rebrand Plan
 
 Created: 2026-06-29
+Last updated: 2026-07-01
 
 ## Purpose
 
@@ -14,6 +15,33 @@ The goal is to make the public site feel like a coherent lab identity, not a
 set of search-and-replace edits. The rebrand should broaden the site beyond
 HIV/JHEEM while preserving continuity for existing projects, publications,
 links, and collaborators.
+
+## Current Status
+
+The main production branch now contains a coherent CIPHER Lab baseline:
+
+- Sitewide CIPHER Lab identity, metadata, header, footer, and contact email are
+  updated.
+- The landing page uses the CIPHER Lab name, expansion, stakeholder-provided
+  intro copy, and the homepage findings map as an example of decision-support
+  work.
+- The research overview has moved to a dedicated `/research` page rather than
+  forcing all stakeholder-provided research copy onto the homepage.
+- JHEEM public-facing copy now uses **Joint HIV Epidemiology and Economic Model
+  (JHEEM)**, with the formal continuity note preserved in shared site content.
+- Project publication counts have been removed from project display/data where
+  they were functioning as project stats.
+- The temporary canonical URL is `https://cipher-epi.vercel.app`, with
+  `https://cipherpublichealth.vercel.app` attached as an alternate.
+- The repo has default temporary redirects from old Vercel hosts to
+  `cipher-epi.vercel.app`, plus the existing `/projects/gmha` to
+  `/global-aging` redirect.
+- `README.md` has been updated for the CIPHER site, Node 24 requirement,
+  deployment URL, and domain/redirect environment variables.
+
+This is shippable as a public rebrand baseline. Remaining work is mostly
+infrastructure ownership, content collection, and iterative design/content
+polish.
 
 ## Senior SWE / Design Position
 
@@ -49,15 +77,17 @@ Recommended interpretation:
 
 ## Phase 1: Sitewide Rebrand
 
+Status: shipped.
+
 ### Repo changes
 
-- Update global metadata in `src/app/layout.tsx`.
-- Update shared header/footer branding.
-- Remove the Johns Hopkins logo from the primary landing/header experience.
-- Replace visible "Computational Epidemiology Lab" language with "CIPHER Lab"
+- [x] Update global metadata in `src/app/layout.tsx`.
+- [x] Update shared header/footer branding.
+- [x] Remove the Johns Hopkins logo from the primary landing/header experience.
+- [x] Replace visible "Computational Epidemiology Lab" language with "CIPHER Lab"
   where it refers to the lab brand.
-- Keep institutional affiliation in homepage copy and footer.
-- Update README/project docs after the public-facing site is updated.
+- [x] Keep institutional affiliation in homepage copy and footer.
+- [x] Update README/project docs after the public-facing site is updated.
 
 ### Design direction
 
@@ -74,6 +104,8 @@ Recommended interpretation:
 - Footer still makes affiliation and contact information clear.
 
 ## Phase 2: Homepage Content
+
+Status: shipped as homepage plus dedicated `/research` page.
 
 ### Replace / revise homepage intro
 
@@ -105,6 +137,8 @@ Recommended structure:
   whole identity of the lab.
 
 ## Phase 3: JHEEM Rename and Continuity
+
+Status: shipped for public-facing model copy and shared continuity note.
 
 ### Rename
 
@@ -141,6 +175,9 @@ JHEEM section of the Projects page:
 
 ## Phase 4: Projects Page Cleanup
 
+Status: shipped for project publication-count removal. Projects page design and
+messaging can still receive later refinement.
+
 ### Requested change
 
 - Remove project publication counts from JHEEM and other project cards/metadata
@@ -161,6 +198,8 @@ Avoid using the rebrand as an excuse for another full redesign unless the new
 homepage identity makes the page feel inconsistent.
 
 ## Phase 5: Publications Page Expansion
+
+Status: blocked on source content from Melissa/team.
 
 ### Requested addition
 
@@ -190,6 +229,8 @@ Ask Melissa for structured data:
 - Do not imply talks are peer-reviewed publications.
 
 ## Phase 6: Team and Collaborators
+
+Status: blocked on collaborator outreach, consent, bios, titles, and links.
 
 ### Requested future section
 
@@ -226,6 +267,9 @@ links.
 
 ## Phase 7: Domain, Redirects, and Infrastructure
 
+Status: partially shipped for temporary Vercel URL and redirects; GitHub
+organization and JHU-managed email are still open administrative tasks.
+
 ### Domain
 
 Recommended direction:
@@ -246,6 +290,17 @@ Recommended direction:
 Prefer a GitHub organization over a standalone new repository if the team will
 own multiple projects over time.
 
+Recommendation:
+
+- Reserve a CIPHER-oriented GitHub organization soon, if an acceptable name is
+  available.
+- Do not transfer this repo until the organization owners/admins and Vercel
+  deployment impact are clear.
+- Keep this repo under the current owner until production deployment is stable
+  and the team has confirmed who should administer the organization.
+- If the eventual organization is created, transfer repositories deliberately
+  and update Vercel/GitHub integrations immediately after transfer.
+
 Decisions to confirm:
 
 - organization name availability
@@ -258,6 +313,14 @@ Decisions to confirm:
 
 Use a JHU-managed group inbox if possible. Do not create an informal personal
 email account for lab infrastructure.
+
+Recommendation:
+
+- Ask the relevant JHU IT/admin channel for a managed group inbox or alias, such
+  as `cipherlab@jhu.edu` or another institutionally approved address.
+- Keep `pkasaie1@jhu.edu` on the site until the group inbox exists and ownership
+  is confirmed.
+- Once the group inbox is live, update `SITE.contactEmail` and redeploy.
 
 Decisions to confirm:
 
@@ -290,43 +353,42 @@ After deploy:
 
 ## Open Questions
 
-- What exact public domain should represent CIPHER Lab?
-- Should the primary header remove the JHU logo globally or only on the
-  homepage? Recommendation: remove globally from the primary header, retain JHU
-  affiliation in footer and copy.
+- What exact custom domain should represent CIPHER Lab after the temporary
+  Vercel URL period?
 - What email address is available through JHU?
 - What GitHub organization name is available and preferred?
-- Should `CIPHER Lab` be styled as a subtle wordmark, or remain plain text for
-  now?
-- Should the homepage findings map stay on the homepage after the broadened
-  research overview is added?
 - What data should power conference presentations and invited talks?
 - Who will coordinate collaborator outreach and bio collection?
+- Are there remaining page-level design refinements that should block a broader
+  announcement, or should they be handled as normal post-launch iteration?
 
 ## Suggested Session Plan
 
-### Session 1
+### Completed
 
 - Sitewide brand strings and metadata.
 - Header/footer update.
-- Homepage intro and research overview.
-- JHEEM rename in core project data.
+- Homepage intro and research overview split.
+- JHEEM rename in core project data and public-facing pages.
 - Remove project publication counts.
-- Run full verification and checkpoint.
+- README/domain documentation updates.
+- Temporary canonical URL and redirect plumbing.
+- Full verification before deployable pushes.
 
-### Session 2
+### Recommended Next Session
 
-- JHEEM detail-page continuity note.
-- Audit remaining old-name references.
-- Update README/docs for CIPHER.
-- Review homepage design in browser.
-- Push if stable.
+- Verify the production deploy on `cipher-epi.vercel.app`.
+- Decide whether to create/reserve a GitHub organization now.
+- Decide the preferred GitHub organization name candidates and owner/admin list.
+- Confirm the path for requesting a JHU-managed group inbox.
+- Smoke test key routes after deploy.
 
-### Session 3
+### Later Sessions
 
 - Add presentations/talks once Melissa provides data.
 - Add collaborator section once bios/links/consent are available.
 - Domain/canonical redirect work once URL is confirmed.
+- Continue page-level design refinement, likely starting with Projects.
 
 ## Appendix: Stakeholder-Provided Source Copy
 
