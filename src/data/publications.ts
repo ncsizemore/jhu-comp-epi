@@ -61,16 +61,16 @@ export const publications: Publication[] = [
 
   {
     id: "balasubramanian-2025",
-    title: "Potential Effect of Ending CDC Funding for HIV Testing on HIV Incidence in the United States: A Modeling Study",
-    authors: "Balasubramanian R, Kasaie P, Schnure MC, Dowdy DW, Shah M, Fojo AT",
-    journal: "medRxiv (preprint)",
-    year: "2025",
-    doi: "10.1101/2025.09.19.25336182",
-    url: "https://doi.org/10.1101/2025.09.19.25336182",
-    abstract: "This preprint models the potential impact of ending CDC funding for HIV testing across 18 U.S. states, examining how reduced testing capacity could affect HIV incidence and diagnosis rates.",
-    keyFindings: "Ending CDC funding for HIV testing could result in 12,719 additional HIV infections (9.6% increase) across 18 states from 2025 to 2030. Testing reductions would delay HIV diagnoses by an average of 0.5-1.5 years, increasing onward transmission and worsening health outcomes, with disproportionate impacts in rural and underserved communities.",
+    title: "The Potential Effect of Ending Centers for Disease Control and Prevention Funding for HIV Tests: A Modeling Study in 18 States",
+    authors: "Balasubramanian R, Schnure M, Forster R, Hanage WP, Batey DS, Althoff KN, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT",
+    journal: "Clinical Infectious Diseases",
+    year: "2026",
+    doi: "10.1093/cid/ciag038",
+    url: "https://doi.org/10.1093/cid/ciag038",
+    abstract: "This study models the potential impact of ending CDC funding for HIV testing across 18 U.S. states, examining how reduced testing capacity could affect HIV incidence and diagnosis rates.",
+    keyFindings: "Ending CDC funding for HIV testing could result in 12,719 additional HIV infections (a 10% increase) across 18 states from 2025 to 2030. Testing reductions would delay HIV diagnoses by an average of 0.5-1.5 years, increasing onward transmission and worsening health outcomes, with disproportionate impacts in rural and underserved communities.",
     projects: ["jheem"],
-    tags: ["HIV", "testing", "CDC", "policy", "modeling", "health disparities", "preprint"],
+    tags: ["HIV", "testing", "CDC", "policy", "modeling", "health disparities"],
     featured: false
   },
 
