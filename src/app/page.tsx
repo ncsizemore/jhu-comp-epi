@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -95,9 +96,7 @@ function ExpansionLockup() {
           <span>
             Public Health
             <span className="mx-1.5 text-[color:var(--color-muted)]">/</span>
-            Epidemiology
-            <span className="mx-1.5 text-[color:var(--color-muted)]">/</span>
-            Research
+            Epidemiology Research
           </span>
         </span>
       </div>
@@ -113,10 +112,20 @@ function Opening() {
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
           {SITE.affiliation}
         </p>
-        <h1 className="mt-5 max-w-5xl font-serif text-6xl leading-[0.92] text-[color:var(--color-ink)] md:text-[6.75rem]">
-          <span className="text-[color:var(--color-hopkins-blue)]">CIPHER</span>{' '}
-          <span>Lab</span>
-        </h1>
+        <div className="mt-5 flex items-center gap-5 md:gap-7">
+          <Image
+            src="/cipher-emblem.png"
+            alt=""
+            width={168}
+            height={93}
+            priority
+            className="hidden h-14 w-auto shrink-0 md:block lg:h-[4.5rem]"
+          />
+          <h1 className="max-w-5xl font-serif text-6xl leading-[0.92] text-[color:var(--color-ink)] md:text-[6.75rem]">
+            <span className="text-[color:var(--color-hopkins-blue)]">CIPHER</span>{' '}
+            <span>Lab</span>
+          </h1>
+        </div>
         <ExpansionLockup />
 
         <div className="mt-10 border-y border-[color:var(--color-rule)] bg-white/45 backdrop-blur-[1px]">

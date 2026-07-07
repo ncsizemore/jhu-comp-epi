@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { getProjects, type Project, type ProjectStats } from '@/lib/data/projects';
 import { SITE } from '@/lib/site';
@@ -164,8 +164,46 @@ function ProjectToolLink({ project }: { project: Project }) {
   );
 }
 
+// Projects that send visitors straight to their tool instead of an interstitial
+// overview page (GMHA's internal app, JHEEM's dedicated portal at jheem.org).
+const DIRECT_TOOL_PROJECT_IDS = new Set(['gmha', 'jheem']);
+
+function linksDirectlyToTool(project: Project) {
+  return DIRECT_TOOL_PROJECT_IDS.has(project.id);
+}
+
 function projectPrimaryHref(project: Project) {
-  return project.id === 'gmha' ? project.externalUrl : `/projects/${project.id}`;
+  return linksDirectlyToTool(project) ? project.externalUrl : `/projects/${project.id}`;
+}
+
+// Primary link for a project card/heading. External tool URLs (e.g. jheem.org)
+// open in a new tab; internal routes use client-side navigation.
+function ProjectPrimaryLink({
+  project,
+  className,
+  style,
+  children,
+}: {
+  project: Project;
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}) {
+  const href = projectPrimaryHref(project);
+
+  if (/^https?:\/\//.test(href)) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className} style={style}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className} style={style}>
+      {children}
+    </Link>
+  );
 }
 
 function projectVisual(project: Project) {
@@ -216,9 +254,9 @@ function ProjectsIntro({ projects }: { projects: Project[] }) {
                 const visual = projectVisual(project);
 
                 return (
-                  <Link
+                  <ProjectPrimaryLink
                     key={project.id}
-                    href={projectPrimaryHref(project)}
+                    project={project}
                     style={projectStyle(project)}
                     className="group grid grid-cols-[1rem_minmax(0,1fr)] gap-3 border-b border-[color:var(--color-rule)] py-4"
                   >
@@ -234,7 +272,7 @@ function ProjectsIntro({ projects }: { projects: Project[] }) {
                         {visual.surface}
                       </span>
                     </span>
-                  </Link>
+                  </ProjectPrimaryLink>
                 );
               })}
             </div>
@@ -305,9 +343,9 @@ function ProjectDossier({ project }: { project: Project }) {
             {visual.index}
           </p>
           <h3 className="mt-6 font-serif text-3xl leading-tight text-[color:var(--color-ink)] md:mt-7 md:text-4xl">
-            <Link href={projectPrimaryHref(project)} className="hover:text-[color:var(--color-link)]">
+            <ProjectPrimaryLink project={project} className="hover:text-[color:var(--color-link)]">
               {project.shortName}
-            </Link>
+            </ProjectPrimaryLink>
           </h3>
           <p className="mt-3 font-serif text-xl leading-snug text-[color:var(--color-ink)]">
             {project.title}
@@ -357,7 +395,7 @@ function ProjectDossier({ project }: { project: Project }) {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3 border-t border-[color:var(--color-rule)] pt-5">
-            {project.id !== 'gmha' && (
+            {!linksDirectlyToTool(project) && (
               <Link href={`/projects/${project.id}`} className={PROJECT_ACTION_CLASS}>
                 Read project overview
               </Link>

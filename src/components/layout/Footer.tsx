@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { SITE } from '@/lib/site';
 
@@ -24,9 +25,7 @@ function FooterExpansionLockup() {
         <span>
           Public Health
           <span className="mx-1.5 text-white/35">/</span>
-          Epidemiology
-          <span className="mx-1.5 text-white/35">/</span>
-          Research
+          Epidemiology Research
         </span>
       </div>
     </div>
@@ -52,9 +51,21 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-serif text-2xl leading-tight text-white">
-              {SITE.name}
-            </p>
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center justify-center rounded-md bg-white/95 p-1.5">
+                <Image
+                  src="/cipher-emblem.png"
+                  alt=""
+                  width={72}
+                  height={40}
+                  className="h-8 w-auto"
+                />
+              </span>
+              <p className="font-serif text-2xl leading-tight">
+                <span className="text-hopkins-gold">CIPHER</span>{' '}
+                <span className="text-white/90">Lab</span>
+              </p>
+            </div>
             <FooterExpansionLockup />
             <p className="mt-4 text-sm leading-relaxed text-white/70">
               Housed within the {SITE.affiliation}.
@@ -67,7 +78,7 @@ export default function Footer() {
                 Models
               </h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/projects/jheem" className="text-white/90 hover:underline">JHEEM</Link></li>
+                <li><a href="https://jheem.org" target="_blank" rel="noopener noreferrer" className="text-white/90 hover:underline">JHEEM</a></li>
                 <li><Link href="/global-aging" className="text-white/90 hover:underline">GMHA</Link></li>
                 <li><Link href="/projects/shield" className="text-white/90 hover:underline">SHIELD</Link></li>
               </ul>

@@ -59,10 +59,14 @@ const PROJECT_DETAILS: Record<
   },
 };
 
+// GMHA links straight to its in-site app and JHEEM to its dedicated portal
+// (jheem.org), so neither has a standalone overview page here.
+const PROJECTS_WITHOUT_DETAIL_PAGE = new Set(['gmha', 'jheem']);
+
 export async function generateStaticParams() {
   const projects = await getProjects();
   return projects
-    .filter(project => project.id !== 'gmha')
+    .filter(project => !PROJECTS_WITHOUT_DETAIL_PAGE.has(project.id))
     .map(project => ({
       id: project.id,
     }));

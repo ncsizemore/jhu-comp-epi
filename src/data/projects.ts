@@ -29,7 +29,8 @@ export const projects: Project[] = [
     title: 'Joint HIV Epidemiology and Economic Model',
     shortName: 'JHEEM',
     description: 'Flexible HIV transmission modeling framework for intervention impact and policy evaluation across diverse geographic scales.',
-    fullDescription: "The Joint HIV Epidemiology and Economic Model (JHEEM) employs mathematical modeling to understand and predict HIV transmission and the impact of interventions across local populations. The simulated population is stratified by age, race, sex, sexual behavior, and drug use to capture population diversity. Calibrated to real-world HIV surveillance data from 32 U.S. cities under the Ending the HIV Epidemic Initiative, JHEEM enables precise projections of how interventions may influence future transmission and inform evidence-based public health strategies.",
+    // TODO: confirm city count with Todd — assuming 32 pending confirmation.
+    fullDescription: "The Joint HIV Epidemiology and Economic Model (JHEEM) employs mathematical modeling to understand and predict HIV transmission and the impact of interventions across local populations. The simulated population is stratified by age, race, sex, sexual behavior, and drug use to capture population diversity. Calibrated to real-world HIV surveillance data from 32 U.S. cities and 30 states plus the District of Columbia under the Ending the HIV Epidemic Initiative, JHEEM enables precise projections of how interventions may influence future transmission and inform evidence-based public health strategies.",
     color: 'bg-hopkins-blue',
     stats: { cities: '32', states: '30' },
     challenge: 'HIV epidemic modeling & intervention evaluation',
