@@ -51,6 +51,11 @@ const nextConfig: NextConfig = {
         destination: '/global-aging',
         permanent: false,
       },
+      {
+        source: '/projects/jheem',
+        destination: 'https://jheem.org',
+        permanent: false,
+      },
     ];
   },
 
