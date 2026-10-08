@@ -24,7 +24,7 @@
       "bio": "Dr. Parastu Kasaie is an Associate Scientist in Epidemiology at the Johns Hopkins Bloomberg School of Public Health (JHSPH). With a multidisciplinary background in computer science, epidemiology, and computational disease modeling, she applies her expertise to study the epidemiology of HIV and other sexually transmitted infections (STIs) in both the U.S. and globally. Her research focuses on addressing complex epidemiological challenges, particularly those involving human behavior and the interplay between communicable and non-communicable diseases, using advanced computational simulation techniques. Her work is integral to designing more effective HIV prevention and care strategies, both locally and nationally. Dr. Kasaie currently serves as Principal Investigator (PI) of the Syphilis and HIV Integrated Epidemiologic and Economic Local-level Dynamics (SHIELD) models [NIH/NIAID: R01AI179776], a suite of models analyzing the syphilis and HIV epidemics in high-burden U.S. cities to inform targeted strategies for ending the HIV epidemic.",
       "shortBio": "Associate Scientist and PI of SHIELD project, specializing in computational disease modeling for HIV and STIs.",
       "photo": "images/team/kasaie-headshot.jpg",
-      "email": "pkasaie1@jhu.edu",
+      "email": "pkasaie@jhu.edu",
       "websites": [
         {
           "type": "institutional",
@@ -377,7 +377,7 @@
   "contactInfo": {
     "primaryContact": {
       "name": "Research Team",
-      "email": "pkasaie1@jhu.edu",
+      "email": "pkasaie@jhu.edu",
       "role": "General Inquiries"
     },
     "github": "https://github.com/orgs/PearlHivModelingTeam/dashboard"

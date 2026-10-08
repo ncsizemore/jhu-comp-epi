@@ -327,7 +327,7 @@ Recommendation:
 
 - Ask the relevant JHU IT/admin channel for a managed group inbox or alias, such
   as `cipherlab@jhu.edu` or another institutionally approved address.
-- Keep `pkasaie1@jhu.edu` on the site until the group inbox exists and ownership
+- Keep `pkasaie@jhu.edu` on the site until the group inbox exists and ownership
   is confirmed.
 - Keep `jheem.jhu@gmail.com` as a legacy/admin/recovery account if it remains
   useful, but avoid making it the primary public CIPHER contact because it is

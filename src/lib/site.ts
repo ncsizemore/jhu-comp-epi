@@ -5,7 +5,7 @@ export const SITE = {
   fullName:
     'CIPHER Lab: Computational and Infectious Disease Public Health Epidemiology Research',
   affiliation: 'Johns Hopkins Schools of Public Health and Medicine',
-  contactEmail: 'pkasaie1@jhu.edu',
+  contactEmail: 'pkasaie@jhu.edu',
 } as const;
 
 export const JHEEM = {
