@@ -1,0 +1,348 @@
+{
+  "reviewed": "2026-10-21",
+  "status": "Unresolved source-result difference; arithmetic, statistic, and named metro membership checked.",
+  "publication": {
+    "doi": "10.7326/ANNALS-25-01737",
+    "source": "https://doi.org/10.7326/ANNALS-25-01737",
+    "table": "Figure 3 (PDF pages 6\u20137)",
+    "methods": "Outcomes (PDF page 3)",
+    "pdfSha256": "ffe9637f847d8b08c20bbd57acdd4aa461433c02ccdd91b957a021594f72d8a6",
+    "statistic": "Mean across 1000 simulations",
+    "period": "2025\u20132030",
+    "baselineInfections": 154429,
+    "additionalInfections": 75436,
+    "additionalInfections95CrI": [
+      19251,
+      134175
+    ]
+  },
+  "portal": {
+    "source": "/data/ryan-white-trajectory.json",
+    "releaseGenerated": "2026-03-02",
+    "statistic": "Sum of annual city means",
+    "period": "2025\u20132030",
+    "baselineInfections": 154723.1835,
+    "additionalInfections": 79154.7225
+  },
+  "findings": [
+    "All 31 paper metro labels map to the frozen portal metro list. Boundary definitions have not been independently verified.",
+    "Both sources summarize means; this is not a mean-versus-median comparison.",
+    "Differences occur within individual metros, including baseline projections. A mislabeled total or display rounding cannot explain them.",
+    "The portal study-page prose list is inconsistent with Figure 3 and should be corrected separately.",
+    "The public portal payload does not identify simulation count, model revision, or calibration revision. The manuscript-matching simulation archive was not located in the available local sources.",
+    "No cause is assigned to the difference, and no pooled uncertainty interval is constructed from marginal bounds."
+  ],
+  "roundingNote": "The publication prints rounded city values and separately rounded totals. City rows need not sum exactly to its published total.",
+  "metros": [
+    {
+      "id": "C.12060",
+      "metro": "Atlanta-Sandy Springs-Alpharetta, GA",
+      "short": "Atlanta",
+      "publishedBaseline": 14608,
+      "publishedAdditional": 6056,
+      "portalBaseline": 14676.1429,
+      "portalAdditional": 6269.5647,
+      "additionalDifference": 213.5647
+    },
+    {
+      "id": "C.12420",
+      "metro": "Austin-Round Rock-Georgetown, TX",
+      "short": "Austin",
+      "publishedBaseline": 1878,
+      "publishedAdditional": 1301,
+      "portalBaseline": 1901.9693,
+      "portalAdditional": 1364.0856,
+      "additionalDifference": 63.0856
+    },
+    {
+      "id": "C.12580",
+      "metro": "Baltimore-Columbia-Towson, MD",
+      "short": "Baltimore",
+      "publishedBaseline": 1579,
+      "publishedAdditional": 1720,
+      "portalBaseline": 1563.3082,
+      "portalAdditional": 1815.5422,
+      "additionalDifference": 95.5422
+    },
+    {
+      "id": "C.12940",
+      "metro": "Baton Rouge, LA",
+      "short": "Baton Rouge",
+      "publishedBaseline": 982,
+      "publishedAdditional": 488,
+      "portalBaseline": 994.4575,
+      "portalAdditional": 520.8993,
+      "additionalDifference": 32.8993
+    },
+    {
+      "id": "C.14460",
+      "metro": "Boston-Cambridge-Newton, MA-NH",
+      "short": "Boston",
+      "publishedBaseline": 2961,
+      "publishedAdditional": 2309,
+      "portalBaseline": 3009.549,
+      "portalAdditional": 2449.0412,
+      "additionalDifference": 140.0412
+    },
+    {
+      "id": "C.16740",
+      "metro": "Charlotte-Concord-Gastonia, NC-SC",
+      "short": "Charlotte",
+      "publishedBaseline": 3452,
+      "publishedAdditional": 1565,
+      "portalBaseline": 3436.7848,
+      "portalAdditional": 1654.2472,
+      "additionalDifference": 89.2472
+    },
+    {
+      "id": "C.16980",
+      "metro": "Chicago-Naperville-Elgin, IL-IN-WI",
+      "short": "Chicago",
+      "publishedBaseline": 6139,
+      "publishedAdditional": 4003,
+      "portalBaseline": 6121.8953,
+      "portalAdditional": 4272.7602,
+      "additionalDifference": 269.7602
+    },
+    {
+      "id": "C.17460",
+      "metro": "Cleveland-Elyria, OH",
+      "short": "Cleveland",
+      "publishedBaseline": 1999,
+      "publishedAdditional": 631,
+      "portalBaseline": 1997.596,
+      "portalAdditional": 672.2312,
+      "additionalDifference": 41.2312
+    },
+    {
+      "id": "C.18140",
+      "metro": "Columbus, OH",
+      "short": "Columbus",
+      "publishedBaseline": 2203,
+      "publishedAdditional": 1161,
+      "portalBaseline": 2240.5363,
+      "portalAdditional": 1195.927,
+      "additionalDifference": 34.927
+    },
+    {
+      "id": "C.19100",
+      "metro": "Dallas-Fort Worth-Arlington, TX",
+      "short": "Dallas",
+      "publishedBaseline": 11414,
+      "publishedAdditional": 6727,
+      "portalBaseline": 11430.5369,
+      "portalAdditional": 6994.8735,
+      "additionalDifference": 267.8735
+    },
+    {
+      "id": "C.19820",
+      "metro": "Detroit-Warren-Dearborn, MI",
+      "short": "Detroit",
+      "publishedBaseline": 2334,
+      "publishedAdditional": 899,
+      "portalBaseline": 2312.3289,
+      "portalAdditional": 947.3814,
+      "additionalDifference": 48.3814
+    },
+    {
+      "id": "C.26420",
+      "metro": "Houston-The Woodlands-Sugar Land, TX",
+      "short": "Houston",
+      "publishedBaseline": 9211,
+      "publishedAdditional": 6623,
+      "portalBaseline": 9266.0586,
+      "portalAdditional": 6959.2523,
+      "additionalDifference": 336.2523
+    },
+    {
+      "id": "C.26900",
+      "metro": "Indianapolis-Carmel-Anderson, IN",
+      "short": "Indianapolis",
+      "publishedBaseline": 2106,
+      "publishedAdditional": 1105,
+      "portalBaseline": 2113.5512,
+      "portalAdditional": 1159.0799,
+      "additionalDifference": 54.0799
+    },
+    {
+      "id": "C.27260",
+      "metro": "Jacksonville, FL",
+      "short": "Jacksonville",
+      "publishedBaseline": 3167,
+      "publishedAdditional": 1178,
+      "portalBaseline": 3175.0367,
+      "portalAdditional": 1215.7569,
+      "additionalDifference": 37.7569
+    },
+    {
+      "id": "C.29820",
+      "metro": "Las Vegas-Henderson-Paradise, NV",
+      "short": "Las Vegas",
+      "publishedBaseline": 5239,
+      "publishedAdditional": 774,
+      "portalBaseline": 5265.5854,
+      "portalAdditional": 823.5308,
+      "additionalDifference": 49.5308
+    },
+    {
+      "id": "C.31080",
+      "metro": "Los Angeles-Long Beach-Anaheim, CA",
+      "short": "Los Angeles",
+      "publishedBaseline": 10241,
+      "publishedAdditional": 3372,
+      "portalBaseline": 10272.704,
+      "portalAdditional": 3596.7869,
+      "additionalDifference": 224.7869
+    },
+    {
+      "id": "C.32820",
+      "metro": "Memphis, TN-MS-AR",
+      "short": "Memphis",
+      "publishedBaseline": 1871,
+      "publishedAdditional": 883,
+      "portalBaseline": 1887.5457,
+      "portalAdditional": 901.1784,
+      "additionalDifference": 18.1784
+    },
+    {
+      "id": "C.33100",
+      "metro": "Miami-Fort Lauderdale-Pompano Beach, FL",
+      "short": "Miami",
+      "publishedBaseline": 9171,
+      "publishedAdditional": 6983,
+      "portalBaseline": 9243.5184,
+      "portalAdditional": 7253.0803,
+      "additionalDifference": 270.0803
+    },
+    {
+      "id": "C.35380",
+      "metro": "New Orleans-Metairie, LA",
+      "short": "New Orleans",
+      "publishedBaseline": 1162,
+      "publishedAdditional": 1045,
+      "portalBaseline": 1160.9936,
+      "portalAdditional": 1098.1196,
+      "additionalDifference": 53.1196
+    },
+    {
+      "id": "C.35620",
+      "metro": "New York-Newark-Jersey City, NY-NJ-PA",
+      "short": "New York",
+      "publishedBaseline": 14232,
+      "publishedAdditional": 8380,
+      "portalBaseline": 14054.1038,
+      "portalAdditional": 8735.4695,
+      "additionalDifference": 355.4695
+    },
+    {
+      "id": "C.36740",
+      "metro": "Orlando-Kissimmee-Sanford, FL",
+      "short": "Orlando",
+      "publishedBaseline": 6163,
+      "publishedAdditional": 1693,
+      "portalBaseline": 6231.7403,
+      "portalAdditional": 1788.3555,
+      "additionalDifference": 95.3555
+    },
+    {
+      "id": "C.37980",
+      "metro": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+      "short": "Philadelphia",
+      "publishedBaseline": 5743,
+      "publishedAdditional": 3338,
+      "portalBaseline": 5799.1437,
+      "portalAdditional": 3518.5999,
+      "additionalDifference": 180.5999
+    },
+    {
+      "id": "C.38060",
+      "metro": "Phoenix-Mesa-Chandler, AZ",
+      "short": "Phoenix",
+      "publishedBaseline": 4678,
+      "publishedAdditional": 1771,
+      "portalBaseline": 4640.6406,
+      "portalAdditional": 1863.4379,
+      "additionalDifference": 92.4379
+    },
+    {
+      "id": "C.40140",
+      "metro": "Riverside-San Bernardino-Ontario, CA",
+      "short": "Riverside",
+      "publishedBaseline": 7747,
+      "publishedAdditional": 633,
+      "portalBaseline": 7770.623,
+      "portalAdditional": 676.4805,
+      "additionalDifference": 43.4805
+    },
+    {
+      "id": "C.40900",
+      "metro": "Sacramento-Roseville-Folsom, CA",
+      "short": "Sacramento",
+      "publishedBaseline": 2425,
+      "publishedAdditional": 852,
+      "portalBaseline": 2408.5228,
+      "portalAdditional": 897.3885,
+      "additionalDifference": 45.3885
+    },
+    {
+      "id": "C.41700",
+      "metro": "San Antonio-New Braunfels, TX",
+      "short": "San Antonio",
+      "publishedBaseline": 2781,
+      "publishedAdditional": 1308,
+      "portalBaseline": 2823.9912,
+      "portalAdditional": 1371.1234,
+      "additionalDifference": 63.1234
+    },
+    {
+      "id": "C.41740",
+      "metro": "San Diego-Chula Vista-Carlsbad, CA",
+      "short": "San Diego",
+      "publishedBaseline": 3605,
+      "publishedAdditional": 1294,
+      "portalBaseline": 3589.2592,
+      "portalAdditional": 1387.0495,
+      "additionalDifference": 93.0495
+    },
+    {
+      "id": "C.41860",
+      "metro": "San Francisco-Oakland-Berkeley, CA",
+      "short": "San Francisco",
+      "publishedBaseline": 3107,
+      "publishedAdditional": 1388,
+      "portalBaseline": 3115.3064,
+      "portalAdditional": 1476.2458,
+      "additionalDifference": 88.2458
+    },
+    {
+      "id": "C.42660",
+      "metro": "Seattle-Tacoma-Bellevue, WA",
+      "short": "Seattle",
+      "publishedBaseline": 3014,
+      "publishedAdditional": 2320,
+      "portalBaseline": 3017.1118,
+      "portalAdditional": 2458.2518,
+      "additionalDifference": 138.2518
+    },
+    {
+      "id": "C.45300",
+      "metro": "Tampa-St. Petersburg-Clearwater, FL",
+      "short": "Tampa",
+      "publishedBaseline": 4474,
+      "publishedAdditional": 1940,
+      "portalBaseline": 4472.9694,
+      "portalAdditional": 2035.87,
+      "additionalDifference": 95.87
+    },
+    {
+      "id": "C.47900",
+      "metro": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+      "short": "Washington",
+      "publishedBaseline": 4743,
+      "publishedAdditional": 1696,
+      "portalBaseline": 4729.6726,
+      "portalAdditional": 1783.1116,
+      "additionalDifference": 87.1116
+    }
+  ]
+}

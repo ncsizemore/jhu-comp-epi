@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import MainLayout from "@/components/layout/MainLayout";
 import PublicationArchive from "@/components/publications/PublicationArchive";
 export const metadata: Metadata = {
@@ -8,7 +9,9 @@ export const metadata: Metadata = {
     "Papers and preprints from CIPHER Lab on infectious disease modeling, prevention, care, and population health.",
   alternates: { canonical: "/publications" },
 };
-export default function PublicationsPage() {
+export default async function PublicationsPage() {
+  // Render incoming filters on the server as well as in the interactive archive.
+  await connection();
   return (
     <MainLayout editorial className="publications-page">
       <section className="directory-hero">

@@ -915,6 +915,23 @@ html {
 .cipher-site .futures-figure > figcaption p {
   max-width: 900px;
 }
+.cipher-site .figure-methods {
+  margin-top: 8px;
+}
+.cipher-site .figure-methods summary {
+  width: fit-content;
+  color: var(--navy);
+  cursor: pointer;
+  min-height: 28px;
+  padding-block: 4px;
+}
+.cipher-site .figure-methods summary:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 3px;
+}
+.cipher-site .figure-methods p + p {
+  margin-top: 8px;
+}
 .cipher-site .futures-figure > figcaption > .text-link {
   flex: none;
   align-self: start;
@@ -2429,7 +2446,7 @@ html {
 }
 .cipher-site .archive-controls {
   display: grid;
-  grid-template-columns: minmax(0, 560px) 180px auto;
+  grid-template-columns: minmax(0, 1fr) 180px 140px auto;
   gap: 24px;
   align-items: end;
 }
@@ -2585,7 +2602,7 @@ html {
     gap: 32px;
   }
   .cipher-site .archive-controls {
-    grid-template-columns: minmax(0, 1fr) 150px auto;
+    grid-template-columns: minmax(0, 1fr) 150px 120px auto;
   }
 }
 @media (max-width: 700px) {
@@ -2658,11 +2675,13 @@ html {
   .cipher-site .archive-controls input {
     font-size: 1rem;
   }
-  .cipher-site .publication-year-filter {
+  .cipher-site .publication-year-filter,
+  .cipher-site .publication-program-filter {
     min-width: 0;
   }
   .cipher-site .clear-filters {
     justify-self: end;
+    grid-column: 1 / -1;
   }
   .cipher-site .archive-summary {
     font-size: 0.7rem;
