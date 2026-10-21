@@ -1,31 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: 'swap',
-  preload: true,
-  adjustFontFallback: true,
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: 'swap',
-  preload: true,
-  adjustFontFallback: true,
-});
-
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
-  subsets: ["latin"],
-  display: 'swap',
-  preload: true,
-});
+const geistSans = localFont({ src: '../../public/brand/geist-latin.woff2', variable: '--font-geist-sans', display: 'swap' });
+const sourceSerif = localFont({ src: '../../public/brand/source-serif-4-latin.woff2', variable: '--font-source-serif', display: 'swap' });
 
 const DEFAULT_SITE_URL = "https://cipher-epi.vercel.app";
 
@@ -45,9 +25,6 @@ export const metadata: Metadata = {
   ...(metadataBase
     ? {
         metadataBase,
-        alternates: {
-          canonical: '/',
-        },
       }
     : {}),
   title: SITE.fullName,
@@ -61,9 +38,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable} antialiased`}
+        className={`${geistSans.variable} ${sourceSerif.variable} antialiased`}
       >
         <ErrorBoundary>
           {children}

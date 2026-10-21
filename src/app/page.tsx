@@ -1,279 +1,236 @@
-import dynamic from 'next/dynamic';
-import Image from 'next/image';
-import Link from 'next/link';
-import MainLayout from '@/components/layout/MainLayout';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { SectionErrorFallback } from '@/components/SectionErrorFallback';
-import { SITE } from '@/lib/site';
-import { HOMEPAGE_INTRO } from '@/lib/research-content';
-import {
-  getHomepageFindingsData,
-  type HomepageFindingsData,
-} from '@/lib/jheem-findings-data';
-import type { FindingsMapProps } from '@/components/sections/home/findings-map-types';
+import Link from "next/link";
+import MainLayout from "@/components/layout/MainLayout";
+import TrajectoryFigure from "@/components/sections/home/TrajectoryFigure";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "CIPHER Lab | Infectious disease modeling at Johns Hopkins",
+  description:
+    "Policy-relevant infectious disease models to support public health decisions in the United States and globally.",
+  alternates: { canonical: "/" },
+};
 
-const FindingsMap = dynamic<FindingsMapProps>(
-  () => import('@/components/sections/home/FindingsMap'),
-  {
-    loading: () => (
-      <div className="h-[620px] flex items-center justify-center text-sm text-[color:var(--color-muted)]">
-        Loading findings…
-      </div>
-    ),
-  },
-);
-
-function EvidenceFieldBackdrop() {
+export default function HomePage() {
   return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-x-0 top-0 hidden h-full min-h-[34rem] overflow-hidden md:block"
-    >
-      <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,rgba(0,45,114,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,45,114,0.045)_1px,transparent_1px)] [background-size:38px_38px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(242,196,19,0.12),transparent_23%),radial-gradient(circle_at_82%_18%,rgba(42,168,184,0.14),transparent_26%),linear-gradient(to_bottom,rgba(248,251,253,0.15)_0%,#fbfcfe_86%)]" />
-      <svg
-        className="absolute left-1/2 top-10 h-72 w-[min(78rem,calc(100vw-3rem))] -translate-x-1/2"
-        viewBox="0 0 960 220"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0 104 C150 18 250 168 396 88 C540 10 680 136 960 42"
-          fill="none"
-          stroke="rgba(0,45,114,0.09)"
-          strokeWidth="1"
-        />
-        <path
-          d="M0 142 C180 80 268 164 420 122 C598 72 720 168 960 112"
-          fill="none"
-          stroke="rgba(242,196,19,0.26)"
-          strokeDasharray="7 10"
-          strokeWidth="1"
-        />
-        <path
-          d="M0 184 C210 152 310 160 476 176 C650 192 780 134 960 154"
-          fill="none"
-          stroke="rgba(42,168,184,0.11)"
-          strokeWidth="1"
-        />
-      </svg>
-      <span className="absolute right-[15%] top-20 h-2 w-2 rounded-full border border-white bg-[#2aa8b8] shadow-[0_0_0_5px_rgba(42,168,184,0.12)]">
-        <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(42,168,184,0.46)]" />
-      </span>
-      <span className="absolute left-[18%] top-32 h-1.5 w-1.5 rounded-full border border-white bg-[#003d79] shadow-[0_0_0_5px_rgba(0,45,114,0.1)]">
-        <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(0,45,114,0.38)] [animation-delay:1.1s]" />
-      </span>
-      <span className="absolute right-[32%] top-48 h-2 w-2 rounded-full border border-white bg-[#f2c413] shadow-[0_0_0_5px_rgba(242,196,19,0.16)]">
-        <span className="evidence-field-pulse absolute inset-[-7px] rounded-full border border-[rgba(242,196,19,0.48)] [animation-delay:2.2s]" />
-      </span>
-    </div>
-  );
-}
-
-function ExpansionLockup() {
-  return (
-    <div
-      aria-label={SITE.expansion}
-      className="mt-5 max-w-5xl md:flex md:justify-end"
-    >
-      <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm font-semibold leading-tight text-[color:var(--color-ink)] md:justify-end md:text-right">
-        <span className="inline-flex items-baseline gap-2">
-          <span className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[color:var(--color-hopkins-blue)]">
-            CI
-          </span>
-          <span>
-            Computational
-            <span className="mx-1.5 text-[color:var(--color-muted)]">/</span>
-            Infectious Disease
-          </span>
-        </span>
-
-        <span className="hidden h-3 w-px bg-[color:var(--color-rule)] md:inline-block" />
-
-        <span className="inline-flex items-baseline gap-2">
-          <span className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[color:var(--color-hopkins-blue)]">
-            PHER
-          </span>
-          <span>
-            Public Health
-            <span className="mx-1.5 text-[color:var(--color-muted)]">/</span>
-            Epidemiology Research
-          </span>
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function Opening() {
-  return (
-    <section className="relative overflow-hidden border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <EvidenceFieldBackdrop />
-      <div className="relative mx-auto max-w-6xl px-6 py-14 md:py-20">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-          {SITE.affiliation}
-        </p>
-        <div className="mt-5 flex items-center gap-5 md:gap-7">
-          <Image
-            src="/cipher-emblem.png"
-            alt=""
-            width={168}
-            height={93}
-            priority
-            className="hidden h-14 w-auto shrink-0 md:block lg:h-[4.5rem]"
-          />
-          <h1 className="max-w-5xl font-serif text-6xl leading-[0.92] text-[color:var(--color-ink)] md:text-[6.75rem]">
-            <span className="text-[color:var(--color-hopkins-blue)]">CIPHER</span>{' '}
-            <span>Lab</span>
-          </h1>
-        </div>
-        <ExpansionLockup />
-
-        <div className="mt-10 border-y border-[color:var(--color-rule)] bg-white/45 backdrop-blur-[1px]">
-          <div className="grid gap-7 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <p className="text-xl leading-relaxed text-[color:var(--color-ink)]">
-              {HOMEPAGE_INTRO[0]}
+    <MainLayout editorial className="home-page">
+      <section className="hero">
+        <div className="wrap hero-grid">
+          <div>
+            <p className="kicker">
+              Computational epidemiology &amp; public health
             </p>
-            <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-              {HOMEPAGE_INTRO[1]}
+            <h1>
+              Modeling infectious disease.
+              <br />
+              Informing public health.
+            </h1>
+            <p className="intro">
+              We develop policy-relevant models of infectious disease dynamics
+              to support public health decision-making in the United States and
+              globally.
+            </p>
+            <div className="actions">
+              <Link className="text-link" href="/research">
+                Explore our research <span aria-hidden="true">→</span>
+              </Link>
+              <a className="text-link" href="#people">
+                Meet the team <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <p className="research-note">
+              CIPHER brings together faculty, researchers, and trainees at the
+              Johns Hopkins Schools of Public Health and Medicine.
             </p>
           </div>
-
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-[color:var(--color-rule)] py-3 md:justify-end md:text-right">
-            <Link
-              href="/research"
-              className="text-sm font-semibold text-[color:var(--color-link)] transition-colors hover:text-[color:var(--color-hopkins-blue)] hover:underline"
-            >
-              Read about our research →
+          <aside className="program-index" aria-labelledby="program-heading">
+            <h2 id="program-heading">Research programs</h2>
+            <a href="https://jheem.org/">
+              <div>
+                <strong>JHEEM</strong>
+                <p>
+                  HIV prevention, care, and policy in U.S. cities and states
+                </p>
+              </div>
+              <span className="arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+            <Link href="/projects/shield">
+              <div>
+                <strong>SHIELD</strong>
+                <p>Understanding and responding to HIV and syphilis together</p>
+              </div>
+              <span className="arrow" aria-hidden="true">
+                →
+              </span>
             </Link>
-            <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-              prevention / treatment / equity / policy
-            </span>
-          </div>
+            <Link href="/global-aging">
+              <div>
+                <strong>GMHA</strong>
+                <p>
+                  Planning for an aging population of people with HIV worldwide
+                </p>
+              </div>
+              <span className="arrow" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </aside>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function Findings({ data }: { data: HomepageFindingsData | null }) {
-  const analyses = data?.analyses ?? [];
-  const hasAnalyses = analyses.length > 0;
-  const unavailableCount = data?.unavailableAnalyses.length ?? 0;
-  const unavailableLabel = data?.unavailableAnalyses.join(', ') ?? '';
-
-  return (
-    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
-        <div className="mb-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem]">
-          <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              Decision support in practice
-            </p>
-            <h2 className="mt-3 font-serif text-3xl leading-tight text-[color:var(--color-ink)] md:text-4xl">
-              Model results, mapped to local decisions.
+      </section>
+      <section
+        id="research"
+        className="section evidence futures-section"
+        aria-labelledby="evidence-heading"
+      >
+        <div className="wrap">
+          <div className="section-heading">
+            <p className="kicker">Featured research</p>
+            <p className="kicker">JHEEM · Ryan White program · 2025–2030</p>
+          </div>
+          <div className="research-lead">
+            <h2 id="evidence-heading">
+              What happens when HIV care funding ends?
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-[color:var(--color-ink)]">
-              Recent JHEEM analyses estimate how federal HIV program disruptions
-              could alter incidence by place. The figure below curates headline
-              geographic findings from those papers as one example of how CIPHER
-              turns model output into interpretable public-health evidence.
-            </p>
+            <div>
+              <p>
+                Across U.S. cities and states, we model how different funding
+                scenarios could affect HIV prevention and care. Here, we compare
+                continued Ryan White services with permanent cessation in 31
+                metropolitan areas.
+              </p>
+              <a className="text-link" href="https://jheem.org/ryan-white">
+                Explore the study in JHEEM <span aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
-          <div className="border-t border-[color:var(--color-rule)] pt-5 text-sm leading-relaxed text-[color:var(--color-muted)] lg:border-l lg:border-t-0 lg:pl-6 lg:pt-1">
-            <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-ink)]">
-              Why geography matters
-            </span>
-            <span className="mt-3 block">
-              Epidemics, care access, and program dependence vary by place, so the
-              same national policy can produce sharply different local outcomes.
-            </span>
+          <TrajectoryFigure />
+        </div>
+      </section>
+      <section
+        id="people"
+        className="section team-intro"
+        aria-labelledby="people-heading"
+      >
+        <div className="wrap people-grid">
+          <div className="team-heading">
+            <p className="kicker">The people behind the research</p>
+            <h2 id="people-heading">Epidemiology, medicine, and modeling.</h2>
+          </div>
+          <div className="team-copy">
+            <p>
+              We are a multidisciplinary team of faculty, researchers, and
+              trainees. Our work combines epidemiologic data, mathematical
+              modeling, simulation, and statistical inference.
+            </p>
+            <Link className="text-link" href="/team">
+              Meet the full team <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
-        {unavailableCount > 0 && hasAnalyses && (
-          <p className="mb-4 max-w-3xl text-xs leading-relaxed text-[color:var(--color-muted)]">
-            {unavailableLabel} {unavailableCount === 1 ? 'is' : 'are'} temporarily
-            unavailable, so this view is showing only the loaded result
-            {analyses.length === 1 ? '' : 's'}.
-          </p>
-        )}
-        {hasAnalyses ? (
-          <ErrorBoundary
-            fallback={
-              <SectionErrorFallback
-                title="Map temporarily unavailable"
-                message="The interactive figure could not be loaded."
-              />
-            }
-          >
-            <FindingsMap analyses={analyses} />
-          </ErrorBoundary>
-        ) : (
-          <SectionErrorFallback
-            title="Map temporarily unavailable"
-            message="The latest JHEEM summary data could not be loaded."
-          />
-        )}
-      </div>
-    </section>
-  );
-}
-
-function InTheNews() {
-  return (
-    <section>
-      <div className="max-w-6xl mx-auto px-6 py-14">
-        <div className="grid gap-8 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)]">
-          <h2 className="font-serif text-2xl text-[color:var(--color-ink)]">
-            In the news
-          </h2>
-          <article className="border-t border-[color:var(--color-rule)] pt-5 md:border-t-0 md:pt-0">
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-              NBC News · September 2025
+      </section>
+      <section
+        className="section publications"
+        aria-labelledby="publications-heading"
+      >
+        <div className="wrap">
+          <div className="section-heading">
+            <h2 id="publications-heading">Selected publications</h2>
+            <Link className="text-link" href="/publications">
+              Browse the research record <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <article className="publication">
+            <div className="meta">
+              <span>2026</span>
+              <p>
+                <em>Clinical Infectious Diseases</em>
+              </p>
+            </div>
+            <div>
+              <h3>
+                <a href="https://doi.org/10.1093/cid/ciag038">
+                  The Potential Effect of Ending Centers for Disease Control and
+                  Prevention Funding for HIV Tests: A Modeling Study in 18
+                  States
+                </a>
+              </h3>
+              <p className="authors">Balasubramanian et al.</p>
+            </div>
+            <span className="arrow" aria-hidden="true">
+              ↗
+            </span>
+          </article>
+          <article className="publication">
+            <div className="meta">
+              <span>2025</span>
+              <p>
+                <em>Annals of Internal Medicine</em>
+              </p>
+            </div>
+            <div>
+              <h3>
+                <a href="https://doi.org/10.7326/ANNALS-25-01737">
+                  The Potential Impact of Ending the Ryan White HIV/AIDS Program
+                  on HIV Incidence: A Simulation Study in 31 U.S. Cities
+                </a>
+              </h3>
+              <p className="authors">Forster et al.</p>
+            </div>
+            <span className="arrow" aria-hidden="true">
+              ↗
+            </span>
+          </article>
+        </div>
+      </section>
+      <section className="news-note" aria-labelledby="news-heading">
+        <div className="wrap news-grid">
+          <div className="news-label">
+            <h2 id="news-heading">In the news</h2>
+            <Link className="text-link" href="/news">
+              All coverage <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <article className="news-story">
+            <p className="news-meta">
+              NBC News <span aria-hidden="true">·</span>{" "}
+              <time dateTime="2025-09">September 2025</time>
             </p>
-            <h3 className="mt-3 max-w-2xl font-serif text-2xl leading-snug text-[color:var(--color-ink)]">
-              <a
-                href="https://www.nbcnews.com/health/sexual-health/republicans-seek-deep-cuts-hiv-prevention-treatment-funding-rcna233776"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[color:var(--color-link)]"
-              >
-                Experts warn of consequences from proposed HIV funding cuts
+            <h3>
+              <a href="https://www.nbcnews.com/health/sexual-health/republicans-seek-deep-cuts-hiv-prevention-treatment-funding-rcna233776">
+                Republicans seek deep cuts to HIV prevention and treatment
+                funding <span aria-hidden="true">↗</span>
               </a>
             </h3>
-            <p className="mt-4 max-w-3xl text-base leading-relaxed text-[color:var(--color-ink)]">
-              Dr. Anthony Fojo discusses how eliminating the CDC&apos;s HIV-prevention
-              division could disrupt critical functions, with models projecting over
-              213,000 additional infections through 2030.
-            </p>
-            <p className="mt-8 text-sm">
-              <Link
-                href="/news"
-                className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
-              >
-                Read coverage note →
-              </Link>
+            <p className="news-summary">
+              CIPHER researcher Todd Fojo discusses the public health
+              implications of proposed HIV funding cuts.
             </p>
           </article>
         </div>
-      </div>
-    </section>
-  );
-}
-
-export default async function HomePage() {
-  let findingsData: HomepageFindingsData | null = null;
-
-  try {
-    findingsData = await getHomepageFindingsData();
-  } catch (error) {
-    console.error('Failed to load homepage findings data:', error);
-  }
-
-  return (
-    <MainLayout>
-      <Opening />
-      <Findings data={findingsData} />
-      <InTheNews />
+      </section>
+      <section
+        id="contact"
+        className="contact"
+        aria-labelledby="contact-heading"
+      >
+        <div className="wrap contact-grid">
+          <div>
+            <h2 id="contact-heading">Start a conversation.</h2>
+            <p>
+              Have a research question or an interest in working with the group?
+              Get in touch with the CIPHER team.
+            </p>
+          </div>
+          <div className="contact-links">
+            <a className="text-link" href="mailto:pkasaie@jhu.edu">
+              Contact CIPHER <span aria-hidden="true">↗</span>
+            </a>
+            <a className="text-link" href="https://jheem.org/work-with-us">
+              Explore a JHEEM collaboration <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </MainLayout>
   );
 }

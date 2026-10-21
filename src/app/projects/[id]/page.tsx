@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ShieldPage from '@/components/sections/ShieldPage';
 import { notFound } from 'next/navigation';
 import MainLayout from '@/components/layout/MainLayout';
 import { getProjectById, getProjects, type Project, type ProjectStats } from '@/lib/data/projects';
@@ -84,6 +85,7 @@ export async function generateMetadata({ params }: Props) {
 
   return {
     title: `${project.shortName} | ${SITE.name}`,
+    alternates: { canonical: `/projects/${id}` },
     description: project.description,
   };
 }
@@ -338,6 +340,8 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) {
     notFound();
   }
+
+  if (id === 'shield') return <ShieldPage />;
 
   return (
     <MainLayout>

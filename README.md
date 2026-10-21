@@ -68,24 +68,41 @@ GMHA_DIR=/path/to/gmha npm run extract
 The extractor copies metadata and projection assets, splits calibration data
 into per-location files, and writes `src/data/global-aging/manifest.json`.
 
-### Homepage Findings Map
+### Homepage research figure
 
-The homepage findings map fetches live JHEEM summary data server-side with a
-24-hour revalidation interval. See `docs/homepage-findings-map.md` for the data
-contract and failure behavior.
+The trajectory figure uses frozen JHEEM portal projections from the March 2026
+release, retrieved in October 2026. Annual means and per-metro provenance are
+in `public/data/ryan-white-trajectory.json`; the two responsive SVG views are in
+`src/components/sections/home/TrajectoryFigure.tsx`. Update the data, curves,
+rounded labels, and caption together. Tests reconcile the aggregate to its sources.
+This aggregation differs from the original published study estimate; the caption
+and release note explicitly distinguish them. No pooled uncertainty is inferred.
 
 ### Publications
 
-Publication updates use a review workflow:
+`src/data/publication-records.json` is the curated archive used by the page and
+`/api/publications`. Full author names, source URLs, verification dates, status,
+and sorting dates are retained. Existing API IDs are preserved where applicable.
+TB and PEARL belong to separate groups and are excluded from this archive.
 
 ```bash
 npm run fetch-publications
-# review src/data/publications-review.json
+# Review src/data/publications-review.json against primary sources and group scope.
+# New records need group: "cipher" and verified metadata; coauthorship is insufficient.
 npm run apply-publications
 ```
 
-`apply-publications` creates a backup at `src/data/publications.ts.backup`.
-Backup files are ignored by git.
+The apply command updates JSON without regenerating the TypeScript interface.
+It validates records and duplicate DOIs before writing and creates an ignored
+`src/data/publication-records.json.backup`. Within citation year, journal issue
+or indexed publication dates determine order; preprints use latest version date.
+
+### Design and identity
+
+The production pages implement the accepted v15 design. `src/app/cipher.css`
+scopes editorial styles to `.cipher-site`; the existing global-aging tool retains
+its application styles. See `docs/design-language.md` for the design rules and
+`docs/releases/2026-10-cipher-refresh.md` for release scope and source decisions.
 
 ## Deployment
 

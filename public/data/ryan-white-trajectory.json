@@ -1,0 +1,4605 @@
+{
+  "retrieved": "2026-10-16",
+  "scope": "31 metropolitan areas in the existing portal cohort",
+  "method": "Sum of city-specific annual means, from the same cessation scenario and mean.and.interval unfaceted incidence output. City uncertainty bounds are retained as source evidence but not combined. No pooled uncertainty interval is inferred.",
+  "scenario": "cessation",
+  "outcome": "incidence",
+  "statistic": "sum of means",
+  "series": {
+    "Baseline": [
+      {
+        "year": 2020,
+        "value": 26277.19
+      },
+      {
+        "year": 2021,
+        "value": 26820.3404
+      },
+      {
+        "year": 2022,
+        "value": 26783.231499999998
+      },
+      {
+        "year": 2023,
+        "value": 26349.7478
+      },
+      {
+        "year": 2024,
+        "value": 26061.6774
+      },
+      {
+        "year": 2025,
+        "value": 25871.2913
+      },
+      {
+        "year": 2026,
+        "value": 25748.0529
+      },
+      {
+        "year": 2027,
+        "value": 25687.7622
+      },
+      {
+        "year": 2028,
+        "value": 25692.5987
+      },
+      {
+        "year": 2029,
+        "value": 25775.6676
+      },
+      {
+        "year": 2030,
+        "value": 25947.8108
+      }
+    ],
+    "Cessation": [
+      {
+        "year": 2020,
+        "value": 26277.19
+      },
+      {
+        "year": 2021,
+        "value": 26820.3404
+      },
+      {
+        "year": 2022,
+        "value": 26783.231499999998
+      },
+      {
+        "year": 2023,
+        "value": 26349.7478
+      },
+      {
+        "year": 2024,
+        "value": 26061.6787
+      },
+      {
+        "year": 2025,
+        "value": 29060.8436
+      },
+      {
+        "year": 2026,
+        "value": 38112.5995
+      },
+      {
+        "year": 2027,
+        "value": 40224.6449
+      },
+      {
+        "year": 2028,
+        "value": 41299.8918
+      },
+      {
+        "year": 2029,
+        "value": 42165.1185
+      },
+      {
+        "year": 2030,
+        "value": 43014.8077
+      }
+    ]
+  },
+  "cumulative_additional_2025_2030": 79154.7225,
+  "cities": [
+    {
+      "id": "C.12060",
+      "name": "Atlanta-Sandy Springs-Alpharetta, GA",
+      "short": "Atlanta",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.12060.json",
+      "generation_time": "2026-03-02T18:50:41.126Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 1977.7896,
+            "value.lower": 1820.6575,
+            "value.upper": 2251.1445
+          },
+          {
+            "year": 2021,
+            "value": 2085.6522,
+            "value.lower": 1908.1611,
+            "value.upper": 2354.4269
+          },
+          {
+            "year": 2022,
+            "value": 2208.1715,
+            "value.lower": 2006.5471,
+            "value.upper": 2483.7221
+          },
+          {
+            "year": 2023,
+            "value": 2243.3487,
+            "value.lower": 1995.9579,
+            "value.upper": 2549.4143
+          },
+          {
+            "year": 2024,
+            "value": 2281.2629,
+            "value.lower": 1987.9396,
+            "value.upper": 2626.8782
+          },
+          {
+            "year": 2025,
+            "value": 2322.5884,
+            "value.lower": 1986.3116,
+            "value.upper": 2711.7191
+          },
+          {
+            "year": 2026,
+            "value": 2367.2944,
+            "value.lower": 1986.8608,
+            "value.upper": 2804.7152
+          },
+          {
+            "year": 2027,
+            "value": 2414.9391,
+            "value.lower": 2001.4227,
+            "value.upper": 2908.2126
+          },
+          {
+            "year": 2028,
+            "value": 2465.8186,
+            "value.lower": 2026.7433,
+            "value.upper": 3019.8045
+          },
+          {
+            "year": 2029,
+            "value": 2521.5755,
+            "value.lower": 2015.2578,
+            "value.upper": 3138.4253
+          },
+          {
+            "year": 2030,
+            "value": 2583.9269,
+            "value.lower": 2037.7862,
+            "value.upper": 3268.6706
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 1977.7896,
+            "value.lower": 1820.6575,
+            "value.upper": 2251.1445
+          },
+          {
+            "year": 2021,
+            "value": 2085.6522,
+            "value.lower": 1908.1611,
+            "value.upper": 2354.4269
+          },
+          {
+            "year": 2022,
+            "value": 2208.1715,
+            "value.lower": 2006.5471,
+            "value.upper": 2483.7221
+          },
+          {
+            "year": 2023,
+            "value": 2243.3487,
+            "value.lower": 1995.9579,
+            "value.upper": 2549.4143
+          },
+          {
+            "year": 2024,
+            "value": 2281.2629,
+            "value.lower": 1987.9396,
+            "value.upper": 2626.8782
+          },
+          {
+            "year": 2025,
+            "value": 2575.2729,
+            "value.lower": 2236.3859,
+            "value.upper": 3049.7431
+          },
+          {
+            "year": 2026,
+            "value": 3324.2498,
+            "value.lower": 2587.1053,
+            "value.upper": 4073.0667
+          },
+          {
+            "year": 2027,
+            "value": 3548.742,
+            "value.lower": 2728.3855,
+            "value.upper": 4542.7247
+          },
+          {
+            "year": 2028,
+            "value": 3703.2824,
+            "value.lower": 2840.5965,
+            "value.upper": 4908.4606
+          },
+          {
+            "year": 2029,
+            "value": 3836.1969,
+            "value.lower": 2905.8835,
+            "value.upper": 5232.4044
+          },
+          {
+            "year": 2030,
+            "value": 3957.9636,
+            "value.lower": 2974.6154,
+            "value.upper": 5491.9474
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.12420",
+      "name": "Austin-Round Rock-Georgetown, TX",
+      "short": "Austin",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.12420.json",
+      "generation_time": "2026-03-02T18:52:29.739Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 338.4313,
+            "value.lower": 314.2776,
+            "value.upper": 365.0639
+          },
+          {
+            "year": 2021,
+            "value": 356.55,
+            "value.lower": 328.7892,
+            "value.upper": 390.6745
+          },
+          {
+            "year": 2022,
+            "value": 336.937,
+            "value.lower": 311.4091,
+            "value.upper": 376.2541
+          },
+          {
+            "year": 2023,
+            "value": 328.2008,
+            "value.lower": 300.2474,
+            "value.upper": 371.1141
+          },
+          {
+            "year": 2024,
+            "value": 324.7467,
+            "value.lower": 292.1474,
+            "value.upper": 368.5213
+          },
+          {
+            "year": 2025,
+            "value": 322.5581,
+            "value.lower": 282.4724,
+            "value.upper": 368.2598
+          },
+          {
+            "year": 2026,
+            "value": 320.1779,
+            "value.lower": 273.8225,
+            "value.upper": 366.9126
+          },
+          {
+            "year": 2027,
+            "value": 317.6697,
+            "value.lower": 267.1771,
+            "value.upper": 369.2749
+          },
+          {
+            "year": 2028,
+            "value": 315.4254,
+            "value.lower": 262.1549,
+            "value.upper": 374.6158
+          },
+          {
+            "year": 2029,
+            "value": 313.6981,
+            "value.lower": 257.9922,
+            "value.upper": 381.1876
+          },
+          {
+            "year": 2030,
+            "value": 312.4401,
+            "value.lower": 255.8517,
+            "value.upper": 388.8333
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 338.4313,
+            "value.lower": 314.2776,
+            "value.upper": 365.0639
+          },
+          {
+            "year": 2021,
+            "value": 356.55,
+            "value.lower": 328.7892,
+            "value.upper": 390.6745
+          },
+          {
+            "year": 2022,
+            "value": 336.937,
+            "value.lower": 311.4091,
+            "value.upper": 376.2541
+          },
+          {
+            "year": 2023,
+            "value": 328.2008,
+            "value.lower": 300.2474,
+            "value.upper": 371.1141
+          },
+          {
+            "year": 2024,
+            "value": 324.7467,
+            "value.lower": 292.1474,
+            "value.upper": 368.5213
+          },
+          {
+            "year": 2025,
+            "value": 372.4107,
+            "value.lower": 319.8769,
+            "value.upper": 430.7075
+          },
+          {
+            "year": 2026,
+            "value": 525.3077,
+            "value.lower": 378.0339,
+            "value.upper": 690.8287
+          },
+          {
+            "year": 2027,
+            "value": 563.7478,
+            "value.lower": 384.0389,
+            "value.upper": 760.1758
+          },
+          {
+            "year": 2028,
+            "value": 583.9283,
+            "value.lower": 388.2833,
+            "value.upper": 805.1229
+          },
+          {
+            "year": 2029,
+            "value": 601.64,
+            "value.lower": 393.5288,
+            "value.upper": 843.5047
+          },
+          {
+            "year": 2030,
+            "value": 619.0204,
+            "value.lower": 399.2489,
+            "value.upper": 877.1014
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.12580",
+      "name": "Baltimore-Columbia-Towson, MD",
+      "short": "Baltimore",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.12580.json",
+      "generation_time": "2026-03-02T18:51:43.232Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 353.6566,
+            "value.lower": 321.076,
+            "value.upper": 383.6932
+          },
+          {
+            "year": 2021,
+            "value": 344.6115,
+            "value.lower": 316.4221,
+            "value.upper": 376.57
+          },
+          {
+            "year": 2022,
+            "value": 341.1841,
+            "value.lower": 305.2834,
+            "value.upper": 374.7774
+          },
+          {
+            "year": 2023,
+            "value": 321.0659,
+            "value.lower": 277.8089,
+            "value.upper": 353.0433
+          },
+          {
+            "year": 2024,
+            "value": 302.2897,
+            "value.lower": 258.6243,
+            "value.upper": 331.5115
+          },
+          {
+            "year": 2025,
+            "value": 286.3097,
+            "value.lower": 242.8683,
+            "value.upper": 320.3041
+          },
+          {
+            "year": 2026,
+            "value": 272.6583,
+            "value.lower": 225.4789,
+            "value.upper": 313.7462
+          },
+          {
+            "year": 2027,
+            "value": 261.7009,
+            "value.lower": 209.0303,
+            "value.upper": 309.5477
+          },
+          {
+            "year": 2028,
+            "value": 252.9174,
+            "value.lower": 193.5859,
+            "value.upper": 312.991
+          },
+          {
+            "year": 2029,
+            "value": 246.8552,
+            "value.lower": 178.7326,
+            "value.upper": 325.1335
+          },
+          {
+            "year": 2030,
+            "value": 242.8667,
+            "value.lower": 165.5503,
+            "value.upper": 343.8505
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 353.6566,
+            "value.lower": 321.076,
+            "value.upper": 383.6932
+          },
+          {
+            "year": 2021,
+            "value": 344.6115,
+            "value.lower": 316.4221,
+            "value.upper": 376.57
+          },
+          {
+            "year": 2022,
+            "value": 341.1841,
+            "value.lower": 305.2834,
+            "value.upper": 374.7774
+          },
+          {
+            "year": 2023,
+            "value": 321.0659,
+            "value.lower": 277.8089,
+            "value.upper": 353.0433
+          },
+          {
+            "year": 2024,
+            "value": 302.2897,
+            "value.lower": 258.6243,
+            "value.upper": 331.5115
+          },
+          {
+            "year": 2025,
+            "value": 360.6525,
+            "value.lower": 287.627,
+            "value.upper": 444.8157
+          },
+          {
+            "year": 2026,
+            "value": 563.144,
+            "value.lower": 316.1143,
+            "value.upper": 891.7211
+          },
+          {
+            "year": 2027,
+            "value": 603.4699,
+            "value.lower": 309.8372,
+            "value.upper": 978.3938
+          },
+          {
+            "year": 2028,
+            "value": 614.3612,
+            "value.lower": 300.0794,
+            "value.upper": 992.2569
+          },
+          {
+            "year": 2029,
+            "value": 617.9787,
+            "value.lower": 290.7576,
+            "value.upper": 970.5246
+          },
+          {
+            "year": 2030,
+            "value": 619.2441,
+            "value.lower": 283.0827,
+            "value.upper": 948.2601
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.12940",
+      "name": "Baton Rouge, LA",
+      "short": "Baton Rouge",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.12940.json",
+      "generation_time": "2026-03-02T18:47:42.430Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 199.7195,
+            "value.lower": 182.9957,
+            "value.upper": 222.8557
+          },
+          {
+            "year": 2021,
+            "value": 205.1163,
+            "value.lower": 188.5501,
+            "value.upper": 226.7057
+          },
+          {
+            "year": 2022,
+            "value": 197.808,
+            "value.lower": 177.9875,
+            "value.upper": 224.7899
+          },
+          {
+            "year": 2023,
+            "value": 186.409,
+            "value.lower": 164.9784,
+            "value.upper": 215.9616
+          },
+          {
+            "year": 2024,
+            "value": 180.1052,
+            "value.lower": 157.0107,
+            "value.upper": 210.0272
+          },
+          {
+            "year": 2025,
+            "value": 175.7111,
+            "value.lower": 152.0866,
+            "value.upper": 206.1121
+          },
+          {
+            "year": 2026,
+            "value": 171.6028,
+            "value.lower": 146.3186,
+            "value.upper": 204.7477
+          },
+          {
+            "year": 2027,
+            "value": 167.4741,
+            "value.lower": 138.6547,
+            "value.upper": 204.6347
+          },
+          {
+            "year": 2028,
+            "value": 163.4371,
+            "value.lower": 133.9566,
+            "value.upper": 202.7295
+          },
+          {
+            "year": 2029,
+            "value": 159.7148,
+            "value.lower": 127.2798,
+            "value.upper": 202.1294
+          },
+          {
+            "year": 2030,
+            "value": 156.5176,
+            "value.lower": 120.6656,
+            "value.upper": 203.914
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 199.7195,
+            "value.lower": 182.9957,
+            "value.upper": 222.8557
+          },
+          {
+            "year": 2021,
+            "value": 205.1163,
+            "value.lower": 188.5501,
+            "value.upper": 226.7057
+          },
+          {
+            "year": 2022,
+            "value": 197.808,
+            "value.lower": 177.9875,
+            "value.upper": 224.7899
+          },
+          {
+            "year": 2023,
+            "value": 186.409,
+            "value.lower": 164.9784,
+            "value.upper": 215.9616
+          },
+          {
+            "year": 2024,
+            "value": 180.1052,
+            "value.lower": 157.0107,
+            "value.upper": 210.0272
+          },
+          {
+            "year": 2025,
+            "value": 209.8022,
+            "value.lower": 170.2765,
+            "value.upper": 246.792
+          },
+          {
+            "year": 2026,
+            "value": 282.2172,
+            "value.lower": 189.3371,
+            "value.upper": 377.3307
+          },
+          {
+            "year": 2027,
+            "value": 268.1814,
+            "value.lower": 180.8836,
+            "value.upper": 350.7485
+          },
+          {
+            "year": 2028,
+            "value": 256.6962,
+            "value.lower": 170.6328,
+            "value.upper": 335.8085
+          },
+          {
+            "year": 2029,
+            "value": 250.8872,
+            "value.lower": 162.4043,
+            "value.upper": 332.2646
+          },
+          {
+            "year": 2030,
+            "value": 247.5726,
+            "value.lower": 156.807,
+            "value.upper": 335.5572
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.14460",
+      "name": "Boston-Cambridge-Newton, MA-NH",
+      "short": "Boston",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.14460.json",
+      "generation_time": "2026-03-02T18:51:24.548Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 432.3901,
+            "value.lower": 397.7794,
+            "value.upper": 472.2876
+          },
+          {
+            "year": 2021,
+            "value": 435.7492,
+            "value.lower": 395.5642,
+            "value.upper": 478.757
+          },
+          {
+            "year": 2022,
+            "value": 474.8656,
+            "value.lower": 430.5511,
+            "value.upper": 528.4125
+          },
+          {
+            "year": 2023,
+            "value": 482.4479,
+            "value.lower": 427.4132,
+            "value.upper": 547.0222
+          },
+          {
+            "year": 2024,
+            "value": 484.9888,
+            "value.lower": 422.9749,
+            "value.upper": 562.4071
+          },
+          {
+            "year": 2025,
+            "value": 487.7235,
+            "value.lower": 420.995,
+            "value.upper": 580.0612
+          },
+          {
+            "year": 2026,
+            "value": 491.3556,
+            "value.lower": 421.0901,
+            "value.upper": 599.5766
+          },
+          {
+            "year": 2027,
+            "value": 496.2659,
+            "value.lower": 422.9156,
+            "value.upper": 620.9892
+          },
+          {
+            "year": 2028,
+            "value": 502.6408,
+            "value.lower": 422.4236,
+            "value.upper": 644.4957
+          },
+          {
+            "year": 2029,
+            "value": 510.7265,
+            "value.lower": 423.2945,
+            "value.upper": 670.4148
+          },
+          {
+            "year": 2030,
+            "value": 520.8367,
+            "value.lower": 423.8209,
+            "value.upper": 699.8646
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 432.3901,
+            "value.lower": 397.7794,
+            "value.upper": 472.2876
+          },
+          {
+            "year": 2021,
+            "value": 435.7492,
+            "value.lower": 395.5642,
+            "value.upper": 478.757
+          },
+          {
+            "year": 2022,
+            "value": 474.8656,
+            "value.lower": 430.5511,
+            "value.upper": 528.4125
+          },
+          {
+            "year": 2023,
+            "value": 482.4479,
+            "value.lower": 427.4132,
+            "value.upper": 547.0222
+          },
+          {
+            "year": 2024,
+            "value": 484.9888,
+            "value.lower": 422.9749,
+            "value.upper": 562.4071
+          },
+          {
+            "year": 2025,
+            "value": 578.268,
+            "value.lower": 451.1529,
+            "value.upper": 698.4472
+          },
+          {
+            "year": 2026,
+            "value": 844.7304,
+            "value.lower": 527.2754,
+            "value.upper": 1171.8691
+          },
+          {
+            "year": 2027,
+            "value": 922.8025,
+            "value.lower": 550.3452,
+            "value.upper": 1356.0751
+          },
+          {
+            "year": 2028,
+            "value": 979.6659,
+            "value.lower": 567.6724,
+            "value.upper": 1456.296
+          },
+          {
+            "year": 2029,
+            "value": 1036.3271,
+            "value.lower": 585.1355,
+            "value.upper": 1564.6373
+          },
+          {
+            "year": 2030,
+            "value": 1096.7963,
+            "value.lower": 591.5178,
+            "value.upper": 1665.1992
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.16740",
+      "name": "Charlotte-Concord-Gastonia, NC-SC",
+      "short": "Charlotte",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.16740.json",
+      "generation_time": "2026-03-02T18:52:09.640Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 484.2497,
+            "value.lower": 445.7388,
+            "value.upper": 522.1607
+          },
+          {
+            "year": 2021,
+            "value": 521.9364,
+            "value.lower": 473.6578,
+            "value.upper": 564.1532
+          },
+          {
+            "year": 2022,
+            "value": 543.893,
+            "value.lower": 487.6754,
+            "value.upper": 589.354
+          },
+          {
+            "year": 2023,
+            "value": 547.2015,
+            "value.lower": 484.1166,
+            "value.upper": 598.9426
+          },
+          {
+            "year": 2024,
+            "value": 551.2834,
+            "value.lower": 476.2657,
+            "value.upper": 611.3732
+          },
+          {
+            "year": 2025,
+            "value": 556.7806,
+            "value.lower": 469.5224,
+            "value.upper": 623.5195
+          },
+          {
+            "year": 2026,
+            "value": 562.268,
+            "value.lower": 463.3407,
+            "value.upper": 635.7117
+          },
+          {
+            "year": 2027,
+            "value": 568.1474,
+            "value.lower": 457.785,
+            "value.upper": 650.2124
+          },
+          {
+            "year": 2028,
+            "value": 574.7189,
+            "value.lower": 453.3178,
+            "value.upper": 666.8108
+          },
+          {
+            "year": 2029,
+            "value": 582.5214,
+            "value.lower": 448.771,
+            "value.upper": 683.3358
+          },
+          {
+            "year": 2030,
+            "value": 592.3485,
+            "value.lower": 438.0096,
+            "value.upper": 704.1494
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 484.2497,
+            "value.lower": 445.7388,
+            "value.upper": 522.1607
+          },
+          {
+            "year": 2021,
+            "value": 521.9364,
+            "value.lower": 473.6578,
+            "value.upper": 564.1532
+          },
+          {
+            "year": 2022,
+            "value": 543.893,
+            "value.lower": 487.6754,
+            "value.upper": 589.354
+          },
+          {
+            "year": 2023,
+            "value": 547.2015,
+            "value.lower": 484.1166,
+            "value.upper": 598.9426
+          },
+          {
+            "year": 2024,
+            "value": 551.2838,
+            "value.lower": 476.2657,
+            "value.upper": 611.3732
+          },
+          {
+            "year": 2025,
+            "value": 619.4891,
+            "value.lower": 523.1342,
+            "value.upper": 711.3903
+          },
+          {
+            "year": 2026,
+            "value": 814.7613,
+            "value.lower": 612.8435,
+            "value.upper": 1107.9801
+          },
+          {
+            "year": 2027,
+            "value": 873.5266,
+            "value.lower": 627.9783,
+            "value.upper": 1198.883
+          },
+          {
+            "year": 2028,
+            "value": 905.2889,
+            "value.lower": 637.8209,
+            "value.upper": 1235.2861
+          },
+          {
+            "year": 2029,
+            "value": 928.3486,
+            "value.lower": 642.4812,
+            "value.upper": 1284.8395
+          },
+          {
+            "year": 2030,
+            "value": 949.6175,
+            "value.lower": 648.5964,
+            "value.upper": 1333.3845
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.16980",
+      "name": "Chicago-Naperville-Elgin, IL-IN-WI",
+      "short": "Chicago",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.16980.json",
+      "generation_time": "2026-03-02T18:52:02.361Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 1132.9352,
+            "value.lower": 1068.7135,
+            "value.upper": 1193.723
+          },
+          {
+            "year": 2021,
+            "value": 1157.5097,
+            "value.lower": 1091.6205,
+            "value.upper": 1237.2777
+          },
+          {
+            "year": 2022,
+            "value": 1137.1166,
+            "value.lower": 1063.4158,
+            "value.upper": 1221.4798
+          },
+          {
+            "year": 2023,
+            "value": 1107.0558,
+            "value.lower": 1026.6643,
+            "value.upper": 1196.1294
+          },
+          {
+            "year": 2024,
+            "value": 1083.1778,
+            "value.lower": 993.4832,
+            "value.upper": 1179.3809
+          },
+          {
+            "year": 2025,
+            "value": 1062.0267,
+            "value.lower": 962.9827,
+            "value.upper": 1167.9297
+          },
+          {
+            "year": 2026,
+            "value": 1042.9466,
+            "value.lower": 928.4956,
+            "value.upper": 1154.968
+          },
+          {
+            "year": 2027,
+            "value": 1025.6536,
+            "value.lower": 892.7134,
+            "value.upper": 1155.0827
+          },
+          {
+            "year": 2028,
+            "value": 1010.146,
+            "value.lower": 856.8079,
+            "value.upper": 1164.0089
+          },
+          {
+            "year": 2029,
+            "value": 996.4473,
+            "value.lower": 822.5526,
+            "value.upper": 1168.1641
+          },
+          {
+            "year": 2030,
+            "value": 984.6751,
+            "value.lower": 792.31,
+            "value.upper": 1168.2817
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 1132.9352,
+            "value.lower": 1068.7135,
+            "value.upper": 1193.723
+          },
+          {
+            "year": 2021,
+            "value": 1157.5097,
+            "value.lower": 1091.6205,
+            "value.upper": 1237.2777
+          },
+          {
+            "year": 2022,
+            "value": 1137.1166,
+            "value.lower": 1063.4158,
+            "value.upper": 1221.4798
+          },
+          {
+            "year": 2023,
+            "value": 1107.0558,
+            "value.lower": 1026.6643,
+            "value.upper": 1196.1294
+          },
+          {
+            "year": 2024,
+            "value": 1083.1778,
+            "value.lower": 993.4832,
+            "value.upper": 1179.3809
+          },
+          {
+            "year": 2025,
+            "value": 1250.6453,
+            "value.lower": 1056.5652,
+            "value.upper": 1417.5149
+          },
+          {
+            "year": 2026,
+            "value": 1725.4226,
+            "value.lower": 1192.0157,
+            "value.upper": 2365.836
+          },
+          {
+            "year": 2027,
+            "value": 1810.5821,
+            "value.lower": 1197.1888,
+            "value.upper": 2543.0358
+          },
+          {
+            "year": 2028,
+            "value": 1849.2806,
+            "value.lower": 1189.6844,
+            "value.upper": 2601.5695
+          },
+          {
+            "year": 2029,
+            "value": 1872.2791,
+            "value.lower": 1179.4362,
+            "value.upper": 2626.1369
+          },
+          {
+            "year": 2030,
+            "value": 1886.4458,
+            "value.lower": 1168.4751,
+            "value.upper": 2698.5034
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.17460",
+      "name": "Cleveland-Elyria, OH",
+      "short": "Cleveland",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.17460.json",
+      "generation_time": "2026-03-02T18:49:31.406Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 222.0739,
+            "value.lower": 204.3571,
+            "value.upper": 243.4053
+          },
+          {
+            "year": 2021,
+            "value": 220.8827,
+            "value.lower": 196.0442,
+            "value.upper": 243.6521
+          },
+          {
+            "year": 2022,
+            "value": 238.1489,
+            "value.lower": 197.6703,
+            "value.upper": 281.3953
+          },
+          {
+            "year": 2023,
+            "value": 257.1836,
+            "value.lower": 196.7698,
+            "value.upper": 339.3033
+          },
+          {
+            "year": 2024,
+            "value": 277.9134,
+            "value.lower": 193.065,
+            "value.upper": 403.9606
+          },
+          {
+            "year": 2025,
+            "value": 298.7987,
+            "value.lower": 189.2455,
+            "value.upper": 469.5784
+          },
+          {
+            "year": 2026,
+            "value": 317.2465,
+            "value.lower": 187.0022,
+            "value.upper": 540.9933
+          },
+          {
+            "year": 2027,
+            "value": 331.9088,
+            "value.lower": 185.6205,
+            "value.upper": 573.9702
+          },
+          {
+            "year": 2028,
+            "value": 342.5133,
+            "value.lower": 185.4349,
+            "value.upper": 597.0082
+          },
+          {
+            "year": 2029,
+            "value": 350.5737,
+            "value.lower": 186.0541,
+            "value.upper": 628.5948
+          },
+          {
+            "year": 2030,
+            "value": 356.555,
+            "value.lower": 186.9058,
+            "value.upper": 650.3493
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 222.0739,
+            "value.lower": 204.3571,
+            "value.upper": 243.4053
+          },
+          {
+            "year": 2021,
+            "value": 220.8827,
+            "value.lower": 196.0442,
+            "value.upper": 243.6521
+          },
+          {
+            "year": 2022,
+            "value": 238.1489,
+            "value.lower": 197.6703,
+            "value.upper": 281.3953
+          },
+          {
+            "year": 2023,
+            "value": 257.1836,
+            "value.lower": 196.7698,
+            "value.upper": 339.3033
+          },
+          {
+            "year": 2024,
+            "value": 277.9141,
+            "value.lower": 193.065,
+            "value.upper": 403.9606
+          },
+          {
+            "year": 2025,
+            "value": 322.616,
+            "value.lower": 219.5945,
+            "value.upper": 512.0007
+          },
+          {
+            "year": 2026,
+            "value": 429.4552,
+            "value.lower": 261.6844,
+            "value.upper": 728.2197
+          },
+          {
+            "year": 2027,
+            "value": 473.1323,
+            "value.lower": 272.514,
+            "value.upper": 830.3121
+          },
+          {
+            "year": 2028,
+            "value": 482.9579,
+            "value.lower": 274.113,
+            "value.upper": 834.2495
+          },
+          {
+            "year": 2029,
+            "value": 481.7256,
+            "value.lower": 273.0044,
+            "value.upper": 820.6131
+          },
+          {
+            "year": 2030,
+            "value": 479.9402,
+            "value.lower": 271.882,
+            "value.upper": 806.1907
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.18140",
+      "name": "Columbus, OH",
+      "short": "Columbus",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.18140.json",
+      "generation_time": "2026-03-02T18:49:10.028Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 290.3304,
+            "value.lower": 262.2525,
+            "value.upper": 315.5794
+          },
+          {
+            "year": 2021,
+            "value": 288.7663,
+            "value.lower": 254.4414,
+            "value.upper": 332.3525
+          },
+          {
+            "year": 2022,
+            "value": 312.8786,
+            "value.lower": 275.3169,
+            "value.upper": 353.3862
+          },
+          {
+            "year": 2023,
+            "value": 332.8093,
+            "value.lower": 284.2207,
+            "value.upper": 383.1284
+          },
+          {
+            "year": 2024,
+            "value": 347.981,
+            "value.lower": 290.3904,
+            "value.upper": 411.3409
+          },
+          {
+            "year": 2025,
+            "value": 360.2413,
+            "value.lower": 292.302,
+            "value.upper": 439.9206
+          },
+          {
+            "year": 2026,
+            "value": 369.3359,
+            "value.lower": 290.3289,
+            "value.upper": 449.1852
+          },
+          {
+            "year": 2027,
+            "value": 375.378,
+            "value.lower": 287.9238,
+            "value.upper": 460.6668
+          },
+          {
+            "year": 2028,
+            "value": 378.2724,
+            "value.lower": 284.4695,
+            "value.upper": 465.0054
+          },
+          {
+            "year": 2029,
+            "value": 378.9815,
+            "value.lower": 280.5219,
+            "value.upper": 478.9144
+          },
+          {
+            "year": 2030,
+            "value": 378.3272,
+            "value.lower": 280.075,
+            "value.upper": 505.3189
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 290.3304,
+            "value.lower": 262.2525,
+            "value.upper": 315.5794
+          },
+          {
+            "year": 2021,
+            "value": 288.7663,
+            "value.lower": 254.4414,
+            "value.upper": 332.3525
+          },
+          {
+            "year": 2022,
+            "value": 312.8786,
+            "value.lower": 275.3169,
+            "value.upper": 353.3862
+          },
+          {
+            "year": 2023,
+            "value": 332.8093,
+            "value.lower": 284.2207,
+            "value.upper": 383.1284
+          },
+          {
+            "year": 2024,
+            "value": 347.981,
+            "value.lower": 290.3904,
+            "value.upper": 411.3409
+          },
+          {
+            "year": 2025,
+            "value": 397.4099,
+            "value.lower": 330.031,
+            "value.upper": 498.9281
+          },
+          {
+            "year": 2026,
+            "value": 537.015,
+            "value.lower": 388.4251,
+            "value.upper": 729.2641
+          },
+          {
+            "year": 2027,
+            "value": 592.0786,
+            "value.lower": 407.616,
+            "value.upper": 803.284
+          },
+          {
+            "year": 2028,
+            "value": 620.4376,
+            "value.lower": 418.7765,
+            "value.upper": 845.3387
+          },
+          {
+            "year": 2029,
+            "value": 638.2249,
+            "value.lower": 423.2619,
+            "value.upper": 887.9088
+          },
+          {
+            "year": 2030,
+            "value": 651.2973,
+            "value.lower": 427.0541,
+            "value.upper": 919.0873
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.19100",
+      "name": "Dallas-Fort Worth-Arlington, TX",
+      "short": "Dallas",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.19100.json",
+      "generation_time": "2026-03-02T18:46:43.402Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 1696.3591,
+            "value.lower": 1576.8928,
+            "value.upper": 1829.4172
+          },
+          {
+            "year": 2021,
+            "value": 1781.8804,
+            "value.lower": 1658.3092,
+            "value.upper": 1943.4711
+          },
+          {
+            "year": 2022,
+            "value": 1816.7249,
+            "value.lower": 1664.3168,
+            "value.upper": 2004.1024
+          },
+          {
+            "year": 2023,
+            "value": 1829.8421,
+            "value.lower": 1636.6242,
+            "value.upper": 2044.6321
+          },
+          {
+            "year": 2024,
+            "value": 1847.627,
+            "value.lower": 1617.2624,
+            "value.upper": 2091.7995
+          },
+          {
+            "year": 2025,
+            "value": 1866.2013,
+            "value.lower": 1600.3257,
+            "value.upper": 2134.9355
+          },
+          {
+            "year": 2026,
+            "value": 1883.5771,
+            "value.lower": 1583.5642,
+            "value.upper": 2181.7693
+          },
+          {
+            "year": 2027,
+            "value": 1899.4861,
+            "value.lower": 1566.7022,
+            "value.upper": 2228.4191
+          },
+          {
+            "year": 2028,
+            "value": 1913.418,
+            "value.lower": 1547.3027,
+            "value.upper": 2270.5556
+          },
+          {
+            "year": 2029,
+            "value": 1926.8105,
+            "value.lower": 1530.6715,
+            "value.upper": 2313.2531
+          },
+          {
+            "year": 2030,
+            "value": 1941.0439,
+            "value.lower": 1518.9349,
+            "value.upper": 2350.1254
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 1696.3591,
+            "value.lower": 1576.8928,
+            "value.upper": 1829.4172
+          },
+          {
+            "year": 2021,
+            "value": 1781.8804,
+            "value.lower": 1658.3092,
+            "value.upper": 1943.4711
+          },
+          {
+            "year": 2022,
+            "value": 1816.7249,
+            "value.lower": 1664.3168,
+            "value.upper": 2004.1024
+          },
+          {
+            "year": 2023,
+            "value": 1829.8421,
+            "value.lower": 1636.6242,
+            "value.upper": 2044.6321
+          },
+          {
+            "year": 2024,
+            "value": 1847.627,
+            "value.lower": 1617.2624,
+            "value.upper": 2091.7995
+          },
+          {
+            "year": 2025,
+            "value": 2139.5519,
+            "value.lower": 1819.7922,
+            "value.upper": 2482.2248
+          },
+          {
+            "year": 2026,
+            "value": 2930.2866,
+            "value.lower": 2182.8259,
+            "value.upper": 3561.2044
+          },
+          {
+            "year": 2027,
+            "value": 3146.2629,
+            "value.lower": 2281.4649,
+            "value.upper": 3880.2053
+          },
+          {
+            "year": 2028,
+            "value": 3285.4841,
+            "value.lower": 2330.4256,
+            "value.upper": 4114.4488
+          },
+          {
+            "year": 2029,
+            "value": 3405.3542,
+            "value.lower": 2368.9389,
+            "value.upper": 4329.4707
+          },
+          {
+            "year": 2030,
+            "value": 3518.4707,
+            "value.lower": 2409.3034,
+            "value.upper": 4540.7169
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.19820",
+      "name": "Detroit-Warren-Dearborn, MI",
+      "short": "Detroit",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.19820.json",
+      "generation_time": "2026-03-02T18:50:42.542Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 434.7471,
+            "value.lower": 406.4343,
+            "value.upper": 461.8089
+          },
+          {
+            "year": 2021,
+            "value": 435.8962,
+            "value.lower": 400.7661,
+            "value.upper": 471.1991
+          },
+          {
+            "year": 2022,
+            "value": 430.3655,
+            "value.lower": 389.0628,
+            "value.upper": 483.3034
+          },
+          {
+            "year": 2023,
+            "value": 414.659,
+            "value.lower": 365.4824,
+            "value.upper": 473.4153
+          },
+          {
+            "year": 2024,
+            "value": 401.4781,
+            "value.lower": 345.9206,
+            "value.upper": 464.3893
+          },
+          {
+            "year": 2025,
+            "value": 392.2903,
+            "value.lower": 331.2842,
+            "value.upper": 468.8968
+          },
+          {
+            "year": 2026,
+            "value": 386.0501,
+            "value.lower": 321.2319,
+            "value.upper": 474.0981
+          },
+          {
+            "year": 2027,
+            "value": 382.1453,
+            "value.lower": 310.6955,
+            "value.upper": 479.6171
+          },
+          {
+            "year": 2028,
+            "value": 381.3925,
+            "value.lower": 300.9351,
+            "value.upper": 498.088
+          },
+          {
+            "year": 2029,
+            "value": 383.165,
+            "value.lower": 294.4034,
+            "value.upper": 529.9185
+          },
+          {
+            "year": 2030,
+            "value": 387.2857,
+            "value.lower": 288.3125,
+            "value.upper": 569.0828
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 434.7471,
+            "value.lower": 406.4343,
+            "value.upper": 461.8089
+          },
+          {
+            "year": 2021,
+            "value": 435.8962,
+            "value.lower": 400.7661,
+            "value.upper": 471.1991
+          },
+          {
+            "year": 2022,
+            "value": 430.3655,
+            "value.lower": 389.0628,
+            "value.upper": 483.3034
+          },
+          {
+            "year": 2023,
+            "value": 414.659,
+            "value.lower": 365.4824,
+            "value.upper": 473.4153
+          },
+          {
+            "year": 2024,
+            "value": 401.4781,
+            "value.lower": 345.9206,
+            "value.upper": 464.3893
+          },
+          {
+            "year": 2025,
+            "value": 435.5331,
+            "value.lower": 366.7158,
+            "value.upper": 508.9731
+          },
+          {
+            "year": 2026,
+            "value": 559.6324,
+            "value.lower": 418.1461,
+            "value.upper": 736.9815
+          },
+          {
+            "year": 2027,
+            "value": 576.1997,
+            "value.lower": 419.117,
+            "value.upper": 787.4247
+          },
+          {
+            "year": 2028,
+            "value": 570.5917,
+            "value.lower": 416.7997,
+            "value.upper": 765.4606
+          },
+          {
+            "year": 2029,
+            "value": 561.971,
+            "value.lower": 416.1033,
+            "value.upper": 739.1852
+          },
+          {
+            "year": 2030,
+            "value": 555.7824,
+            "value.lower": 411.0513,
+            "value.upper": 713.8062
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.26420",
+      "name": "Houston-The Woodlands-Sugar Land, TX",
+      "short": "Houston",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.26420.json",
+      "generation_time": "2026-03-02T18:50:02.116Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 1655.88,
+            "value.lower": 1541.3014,
+            "value.upper": 1812.4239
+          },
+          {
+            "year": 2021,
+            "value": 1707.9394,
+            "value.lower": 1553.3538,
+            "value.upper": 1878.6196
+          },
+          {
+            "year": 2022,
+            "value": 1688.9707,
+            "value.lower": 1501.1482,
+            "value.upper": 1874.4401
+          },
+          {
+            "year": 2023,
+            "value": 1653.6218,
+            "value.lower": 1448.0222,
+            "value.upper": 1831.1608
+          },
+          {
+            "year": 2024,
+            "value": 1626.5316,
+            "value.lower": 1395.5306,
+            "value.upper": 1809.8274
+          },
+          {
+            "year": 2025,
+            "value": 1601.0272,
+            "value.lower": 1347.0272,
+            "value.upper": 1814.9795
+          },
+          {
+            "year": 2026,
+            "value": 1576.1642,
+            "value.lower": 1299.7019,
+            "value.upper": 1806.9019
+          },
+          {
+            "year": 2027,
+            "value": 1552.2852,
+            "value.lower": 1261.5055,
+            "value.upper": 1825.3388
+          },
+          {
+            "year": 2028,
+            "value": 1530.3438,
+            "value.lower": 1236.6579,
+            "value.upper": 1831.6855
+          },
+          {
+            "year": 2029,
+            "value": 1511.1165,
+            "value.lower": 1214.2347,
+            "value.upper": 1871.3346
+          },
+          {
+            "year": 2030,
+            "value": 1495.1217,
+            "value.lower": 1195.5462,
+            "value.upper": 1927.0597
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 1655.88,
+            "value.lower": 1541.3014,
+            "value.upper": 1812.4239
+          },
+          {
+            "year": 2021,
+            "value": 1707.9394,
+            "value.lower": 1553.3538,
+            "value.upper": 1878.6196
+          },
+          {
+            "year": 2022,
+            "value": 1688.9707,
+            "value.lower": 1501.1482,
+            "value.upper": 1874.4401
+          },
+          {
+            "year": 2023,
+            "value": 1653.6218,
+            "value.lower": 1448.0222,
+            "value.upper": 1831.1608
+          },
+          {
+            "year": 2024,
+            "value": 1626.5316,
+            "value.lower": 1395.5306,
+            "value.upper": 1809.8274
+          },
+          {
+            "year": 2025,
+            "value": 1911.3824,
+            "value.lower": 1615.4984,
+            "value.upper": 2255.3677
+          },
+          {
+            "year": 2026,
+            "value": 2718.8866,
+            "value.lower": 1979.3737,
+            "value.upper": 3564.1197
+          },
+          {
+            "year": 2027,
+            "value": 2836.5603,
+            "value.lower": 2016.0404,
+            "value.upper": 3750.9304
+          },
+          {
+            "year": 2028,
+            "value": 2882.5877,
+            "value.lower": 1973.8054,
+            "value.upper": 3863.4474
+          },
+          {
+            "year": 2029,
+            "value": 2919.4153,
+            "value.lower": 1931.0768,
+            "value.upper": 3961.3893
+          },
+          {
+            "year": 2030,
+            "value": 2956.4786,
+            "value.lower": 1891.6578,
+            "value.upper": 4012.8373
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.26900",
+      "name": "Indianapolis-Carmel-Anderson, IN",
+      "short": "Indianapolis",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.26900.json",
+      "generation_time": "2026-03-02T18:48:26.130Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 323.108,
+            "value.lower": 299.1364,
+            "value.upper": 349.9566
+          },
+          {
+            "year": 2021,
+            "value": 347.9827,
+            "value.lower": 320.7609,
+            "value.upper": 389.5445
+          },
+          {
+            "year": 2022,
+            "value": 355.0356,
+            "value.lower": 320.9596,
+            "value.upper": 394.67
+          },
+          {
+            "year": 2023,
+            "value": 352.5065,
+            "value.lower": 314.0571,
+            "value.upper": 397.7954
+          },
+          {
+            "year": 2024,
+            "value": 351.4003,
+            "value.lower": 309.1762,
+            "value.upper": 402.2567
+          },
+          {
+            "year": 2025,
+            "value": 351.3118,
+            "value.lower": 307.0846,
+            "value.upper": 406.8068
+          },
+          {
+            "year": 2026,
+            "value": 351.5239,
+            "value.lower": 309.062,
+            "value.upper": 415.6213
+          },
+          {
+            "year": 2027,
+            "value": 351.8435,
+            "value.lower": 305.9601,
+            "value.upper": 425.4225
+          },
+          {
+            "year": 2028,
+            "value": 352.1957,
+            "value.lower": 301.4849,
+            "value.upper": 440.6986
+          },
+          {
+            "year": 2029,
+            "value": 352.835,
+            "value.lower": 296.4413,
+            "value.upper": 459.8569
+          },
+          {
+            "year": 2030,
+            "value": 353.8413,
+            "value.lower": 291.3525,
+            "value.upper": 472.574
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 323.108,
+            "value.lower": 299.1364,
+            "value.upper": 349.9566
+          },
+          {
+            "year": 2021,
+            "value": 347.9827,
+            "value.lower": 320.7609,
+            "value.upper": 389.5445
+          },
+          {
+            "year": 2022,
+            "value": 355.0356,
+            "value.lower": 320.9596,
+            "value.upper": 394.67
+          },
+          {
+            "year": 2023,
+            "value": 352.5065,
+            "value.lower": 314.0571,
+            "value.upper": 397.7954
+          },
+          {
+            "year": 2024,
+            "value": 351.4003,
+            "value.lower": 309.1762,
+            "value.upper": 402.2567
+          },
+          {
+            "year": 2025,
+            "value": 394.2024,
+            "value.lower": 335.5269,
+            "value.upper": 461.3463
+          },
+          {
+            "year": 2026,
+            "value": 528.9937,
+            "value.lower": 371.9668,
+            "value.upper": 714.9199
+          },
+          {
+            "year": 2027,
+            "value": 567.1052,
+            "value.lower": 385.1647,
+            "value.upper": 785.5498
+          },
+          {
+            "year": 2028,
+            "value": 583.7395,
+            "value.lower": 391.1914,
+            "value.upper": 804.5351
+          },
+          {
+            "year": 2029,
+            "value": 594.4134,
+            "value.lower": 394.9961,
+            "value.upper": 809.7758
+          },
+          {
+            "year": 2030,
+            "value": 604.1769,
+            "value.lower": 398.8712,
+            "value.upper": 829.0364
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.27260",
+      "name": "Jacksonville, FL",
+      "short": "Jacksonville",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.27260.json",
+      "generation_time": "2026-03-02T18:53:34.369Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 384.4906,
+            "value.lower": 357.6781,
+            "value.upper": 412.4841
+          },
+          {
+            "year": 2021,
+            "value": 408.2838,
+            "value.lower": 368.9555,
+            "value.upper": 434.2467
+          },
+          {
+            "year": 2022,
+            "value": 437.7052,
+            "value.lower": 388.519,
+            "value.upper": 464.5089
+          },
+          {
+            "year": 2023,
+            "value": 450.7799,
+            "value.lower": 395.8899,
+            "value.upper": 489.8021
+          },
+          {
+            "year": 2024,
+            "value": 464.0984,
+            "value.lower": 408.2943,
+            "value.upper": 508.7743
+          },
+          {
+            "year": 2025,
+            "value": 479.684,
+            "value.lower": 421.9915,
+            "value.upper": 526.4454
+          },
+          {
+            "year": 2026,
+            "value": 497.4755,
+            "value.lower": 435.7378,
+            "value.upper": 547.3267
+          },
+          {
+            "year": 2027,
+            "value": 516.8785,
+            "value.lower": 441.2455,
+            "value.upper": 568.6104
+          },
+          {
+            "year": 2028,
+            "value": 537.7862,
+            "value.lower": 454.1912,
+            "value.upper": 595.5737
+          },
+          {
+            "year": 2029,
+            "value": 559.7656,
+            "value.lower": 469.0339,
+            "value.upper": 626.7837
+          },
+          {
+            "year": 2030,
+            "value": 583.4469,
+            "value.lower": 475.0113,
+            "value.upper": 670.4941
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 384.4906,
+            "value.lower": 357.6781,
+            "value.upper": 412.4841
+          },
+          {
+            "year": 2021,
+            "value": 408.2838,
+            "value.lower": 368.9555,
+            "value.upper": 434.2467
+          },
+          {
+            "year": 2022,
+            "value": 437.7052,
+            "value.lower": 388.519,
+            "value.upper": 464.5089
+          },
+          {
+            "year": 2023,
+            "value": 450.7799,
+            "value.lower": 395.8899,
+            "value.upper": 489.8021
+          },
+          {
+            "year": 2024,
+            "value": 464.0984,
+            "value.lower": 408.2943,
+            "value.upper": 508.7743
+          },
+          {
+            "year": 2025,
+            "value": 530.2225,
+            "value.lower": 469.0833,
+            "value.upper": 590.6079
+          },
+          {
+            "year": 2026,
+            "value": 715.9655,
+            "value.lower": 574.7008,
+            "value.upper": 841.6421
+          },
+          {
+            "year": 2027,
+            "value": 766.7509,
+            "value.lower": 608.2453,
+            "value.upper": 927.1358
+          },
+          {
+            "year": 2028,
+            "value": 779.3553,
+            "value.lower": 610.4993,
+            "value.upper": 947.2657
+          },
+          {
+            "year": 2029,
+            "value": 790.0178,
+            "value.lower": 610.7949,
+            "value.upper": 946.1486
+          },
+          {
+            "year": 2030,
+            "value": 808.4816,
+            "value.lower": 617.2197,
+            "value.upper": 975.6817
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.29820",
+      "name": "Las Vegas-Henderson-Paradise, NV",
+      "short": "Las Vegas",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.29820.json",
+      "generation_time": "2026-03-02T18:53:40.874Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 687.1049,
+            "value.lower": 628.1841,
+            "value.upper": 739.3226
+          },
+          {
+            "year": 2021,
+            "value": 724.1096,
+            "value.lower": 651.177,
+            "value.upper": 782.0193
+          },
+          {
+            "year": 2022,
+            "value": 760.6481,
+            "value.lower": 677.7669,
+            "value.upper": 834.6391
+          },
+          {
+            "year": 2023,
+            "value": 778.19,
+            "value.lower": 683.6016,
+            "value.upper": 861.8608
+          },
+          {
+            "year": 2024,
+            "value": 795.4078,
+            "value.lower": 692.4786,
+            "value.upper": 889.4437
+          },
+          {
+            "year": 2025,
+            "value": 814.9653,
+            "value.lower": 704.3212,
+            "value.upper": 921.6715
+          },
+          {
+            "year": 2026,
+            "value": 836.8358,
+            "value.lower": 717.6547,
+            "value.upper": 955.9682
+          },
+          {
+            "year": 2027,
+            "value": 860.9069,
+            "value.lower": 731.2896,
+            "value.upper": 999.7302
+          },
+          {
+            "year": 2028,
+            "value": 887.4889,
+            "value.lower": 745.298,
+            "value.upper": 1045.5146
+          },
+          {
+            "year": 2029,
+            "value": 916.7257,
+            "value.lower": 762.0541,
+            "value.upper": 1089.6309
+          },
+          {
+            "year": 2030,
+            "value": 948.6628,
+            "value.lower": 777.4247,
+            "value.upper": 1140.5648
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 687.1049,
+            "value.lower": 628.1841,
+            "value.upper": 739.3226
+          },
+          {
+            "year": 2021,
+            "value": 724.1096,
+            "value.lower": 651.177,
+            "value.upper": 782.0193
+          },
+          {
+            "year": 2022,
+            "value": 760.6481,
+            "value.lower": 677.7669,
+            "value.upper": 834.6391
+          },
+          {
+            "year": 2023,
+            "value": 778.19,
+            "value.lower": 683.6016,
+            "value.upper": 861.8608
+          },
+          {
+            "year": 2024,
+            "value": 795.4078,
+            "value.lower": 692.4786,
+            "value.upper": 889.4437
+          },
+          {
+            "year": 2025,
+            "value": 843.6936,
+            "value.lower": 731.2436,
+            "value.upper": 948.9488
+          },
+          {
+            "year": 2026,
+            "value": 953.3953,
+            "value.lower": 803.3565,
+            "value.upper": 1106.7769
+          },
+          {
+            "year": 2027,
+            "value": 1005.9682,
+            "value.lower": 835.6803,
+            "value.upper": 1193.9728
+          },
+          {
+            "year": 2028,
+            "value": 1050.8103,
+            "value.lower": 863.7399,
+            "value.upper": 1265.58
+          },
+          {
+            "year": 2029,
+            "value": 1095.1917,
+            "value.lower": 893.7354,
+            "value.upper": 1335.8978
+          },
+          {
+            "year": 2030,
+            "value": 1140.0571,
+            "value.lower": 926.0941,
+            "value.upper": 1406.6326
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.31080",
+      "name": "Los Angeles-Long Beach-Anaheim, CA",
+      "short": "Los Angeles",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.31080.json",
+      "generation_time": "2026-03-02T18:52:23.776Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 2083.794,
+            "value.lower": 1884.876,
+            "value.upper": 2248.7298
+          },
+          {
+            "year": 2021,
+            "value": 2007.712,
+            "value.lower": 1739.0159,
+            "value.upper": 2225.7955
+          },
+          {
+            "year": 2022,
+            "value": 1924.7527,
+            "value.lower": 1620.1125,
+            "value.upper": 2162.2024
+          },
+          {
+            "year": 2023,
+            "value": 1867.4529,
+            "value.lower": 1588.0528,
+            "value.upper": 2136.5843
+          },
+          {
+            "year": 2024,
+            "value": 1820.0173,
+            "value.lower": 1556.9287,
+            "value.upper": 2109.5169
+          },
+          {
+            "year": 2025,
+            "value": 1780.1682,
+            "value.lower": 1553.1237,
+            "value.upper": 2095.6553
+          },
+          {
+            "year": 2026,
+            "value": 1746.1558,
+            "value.lower": 1528.2291,
+            "value.upper": 2086.539
+          },
+          {
+            "year": 2027,
+            "value": 1717.8371,
+            "value.lower": 1501.3163,
+            "value.upper": 2071.6203
+          },
+          {
+            "year": 2028,
+            "value": 1693.5055,
+            "value.lower": 1479.4063,
+            "value.upper": 2047.6785
+          },
+          {
+            "year": 2029,
+            "value": 1674.7375,
+            "value.lower": 1455.5601,
+            "value.upper": 2047.7314
+          },
+          {
+            "year": 2030,
+            "value": 1660.2999,
+            "value.lower": 1407.1226,
+            "value.upper": 2059.1409
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 2083.794,
+            "value.lower": 1884.876,
+            "value.upper": 2248.7298
+          },
+          {
+            "year": 2021,
+            "value": 2007.712,
+            "value.lower": 1739.0159,
+            "value.upper": 2225.7955
+          },
+          {
+            "year": 2022,
+            "value": 1924.7527,
+            "value.lower": 1620.1125,
+            "value.upper": 2162.2024
+          },
+          {
+            "year": 2023,
+            "value": 1867.4529,
+            "value.lower": 1588.0528,
+            "value.upper": 2136.5843
+          },
+          {
+            "year": 2024,
+            "value": 1820.0173,
+            "value.lower": 1556.9287,
+            "value.upper": 2109.5169
+          },
+          {
+            "year": 2025,
+            "value": 1926.7528,
+            "value.lower": 1648.3771,
+            "value.upper": 2289.1457
+          },
+          {
+            "year": 2026,
+            "value": 2318.1594,
+            "value.lower": 1779.8822,
+            "value.upper": 2903.489
+          },
+          {
+            "year": 2027,
+            "value": 2389.9002,
+            "value.lower": 1761.6549,
+            "value.upper": 3069.3226
+          },
+          {
+            "year": 2028,
+            "value": 2407.5109,
+            "value.lower": 1726.3717,
+            "value.upper": 3121.8181
+          },
+          {
+            "year": 2029,
+            "value": 2413.0877,
+            "value.lower": 1724.8051,
+            "value.upper": 3144.4689
+          },
+          {
+            "year": 2030,
+            "value": 2414.0799,
+            "value.lower": 1686.7539,
+            "value.upper": 3151.2785
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.32820",
+      "name": "Memphis, TN-MS-AR",
+      "short": "Memphis",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.32820.json",
+      "generation_time": "2026-03-02T18:50:37.258Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 376.0577,
+            "value.lower": 348.29,
+            "value.upper": 400.5321
+          },
+          {
+            "year": 2021,
+            "value": 386.5602,
+            "value.lower": 354.4386,
+            "value.upper": 411.7921
+          },
+          {
+            "year": 2022,
+            "value": 378.7163,
+            "value.lower": 346.0128,
+            "value.upper": 415.1874
+          },
+          {
+            "year": 2023,
+            "value": 362.7219,
+            "value.lower": 328.2128,
+            "value.upper": 406.7839
+          },
+          {
+            "year": 2024,
+            "value": 348.2106,
+            "value.lower": 310.8404,
+            "value.upper": 393.9816
+          },
+          {
+            "year": 2025,
+            "value": 335.5776,
+            "value.lower": 296.6189,
+            "value.upper": 381.7603
+          },
+          {
+            "year": 2026,
+            "value": 324.7341,
+            "value.lower": 279.8904,
+            "value.upper": 370.1903
+          },
+          {
+            "year": 2027,
+            "value": 315.841,
+            "value.lower": 266.2477,
+            "value.upper": 362.6095
+          },
+          {
+            "year": 2028,
+            "value": 308.6284,
+            "value.lower": 253.1204,
+            "value.upper": 357.3839
+          },
+          {
+            "year": 2029,
+            "value": 303.18,
+            "value.lower": 241.7901,
+            "value.upper": 363.2415
+          },
+          {
+            "year": 2030,
+            "value": 299.5846,
+            "value.lower": 231.6529,
+            "value.upper": 376.8042
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 376.0577,
+            "value.lower": 348.29,
+            "value.upper": 400.5321
+          },
+          {
+            "year": 2021,
+            "value": 386.5602,
+            "value.lower": 354.4386,
+            "value.upper": 411.7921
+          },
+          {
+            "year": 2022,
+            "value": 378.7163,
+            "value.lower": 346.0128,
+            "value.upper": 415.1874
+          },
+          {
+            "year": 2023,
+            "value": 362.7219,
+            "value.lower": 328.2128,
+            "value.upper": 406.7839
+          },
+          {
+            "year": 2024,
+            "value": 348.2106,
+            "value.lower": 310.8404,
+            "value.upper": 393.9816
+          },
+          {
+            "year": 2025,
+            "value": 382.7289,
+            "value.lower": 334.0012,
+            "value.upper": 431.0933
+          },
+          {
+            "year": 2026,
+            "value": 497.9188,
+            "value.lower": 377.1895,
+            "value.upper": 599.9941
+          },
+          {
+            "year": 2027,
+            "value": 499.4508,
+            "value.lower": 380.2928,
+            "value.upper": 609.1695
+          },
+          {
+            "year": 2028,
+            "value": 484.0574,
+            "value.lower": 369.7838,
+            "value.upper": 591.3204
+          },
+          {
+            "year": 2029,
+            "value": 468.4646,
+            "value.lower": 358.9249,
+            "value.upper": 570.5404
+          },
+          {
+            "year": 2030,
+            "value": 456.1036,
+            "value.lower": 348.5246,
+            "value.upper": 560.6895
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.33100",
+      "name": "Miami-Fort Lauderdale-Pompano Beach, FL",
+      "short": "Miami",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.33100.json",
+      "generation_time": "2026-03-02T18:54:05.294Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 2275.7785,
+            "value.lower": 2092.232,
+            "value.upper": 2466.7299
+          },
+          {
+            "year": 2021,
+            "value": 2277.4442,
+            "value.lower": 2083.7745,
+            "value.upper": 2471.7151
+          },
+          {
+            "year": 2022,
+            "value": 2190.4546,
+            "value.lower": 1958.114,
+            "value.upper": 2409.8833
+          },
+          {
+            "year": 2023,
+            "value": 2032.9673,
+            "value.lower": 1771.5525,
+            "value.upper": 2283.0604
+          },
+          {
+            "year": 2024,
+            "value": 1899.3013,
+            "value.lower": 1632.4383,
+            "value.upper": 2150.3103
+          },
+          {
+            "year": 2025,
+            "value": 1781.1242,
+            "value.lower": 1511.2468,
+            "value.upper": 2050.8813
+          },
+          {
+            "year": 2026,
+            "value": 1673.0644,
+            "value.lower": 1396.0483,
+            "value.upper": 1959.8461
+          },
+          {
+            "year": 2027,
+            "value": 1573.8884,
+            "value.lower": 1286.7169,
+            "value.upper": 1875.9299
+          },
+          {
+            "year": 2028,
+            "value": 1483.2485,
+            "value.lower": 1190.464,
+            "value.upper": 1799.9038
+          },
+          {
+            "year": 2029,
+            "value": 1401.7985,
+            "value.lower": 1111.1116,
+            "value.upper": 1726.5772
+          },
+          {
+            "year": 2030,
+            "value": 1330.3944,
+            "value.lower": 1036.5087,
+            "value.upper": 1667.0906
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 2275.7785,
+            "value.lower": 2092.232,
+            "value.upper": 2466.7299
+          },
+          {
+            "year": 2021,
+            "value": 2277.4442,
+            "value.lower": 2083.7745,
+            "value.upper": 2471.7151
+          },
+          {
+            "year": 2022,
+            "value": 2190.4546,
+            "value.lower": 1958.114,
+            "value.upper": 2409.8833
+          },
+          {
+            "year": 2023,
+            "value": 2032.9673,
+            "value.lower": 1771.5525,
+            "value.upper": 2283.0604
+          },
+          {
+            "year": 2024,
+            "value": 1899.3013,
+            "value.lower": 1632.4383,
+            "value.upper": 2150.3103
+          },
+          {
+            "year": 2025,
+            "value": 2066.1871,
+            "value.lower": 1693.3253,
+            "value.upper": 2461.6503
+          },
+          {
+            "year": 2026,
+            "value": 2833.1867,
+            "value.lower": 2078.6791,
+            "value.upper": 3645.0805
+          },
+          {
+            "year": 2027,
+            "value": 2940.9233,
+            "value.lower": 2025.2242,
+            "value.upper": 3915.5201
+          },
+          {
+            "year": 2028,
+            "value": 2927.4443,
+            "value.lower": 1933.7768,
+            "value.upper": 4014.5807
+          },
+          {
+            "year": 2029,
+            "value": 2886.0723,
+            "value.lower": 1845.921,
+            "value.upper": 4057.2719
+          },
+          {
+            "year": 2030,
+            "value": 2842.785,
+            "value.lower": 1773.4077,
+            "value.upper": 4074.2975
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.35380",
+      "name": "New Orleans-Metairie, LA",
+      "short": "New Orleans",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.35380.json",
+      "generation_time": "2026-03-02T18:50:16.313Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 297.4379,
+            "value.lower": 274.4968,
+            "value.upper": 335.6545
+          },
+          {
+            "year": 2021,
+            "value": 296.9757,
+            "value.lower": 271.7881,
+            "value.upper": 336.4577
+          },
+          {
+            "year": 2022,
+            "value": 266.2556,
+            "value.lower": 239.3077,
+            "value.upper": 304.8841
+          },
+          {
+            "year": 2023,
+            "value": 246.4942,
+            "value.lower": 218.7824,
+            "value.upper": 290.3952
+          },
+          {
+            "year": 2024,
+            "value": 232.4196,
+            "value.lower": 201.2172,
+            "value.upper": 278.9585
+          },
+          {
+            "year": 2025,
+            "value": 219.7934,
+            "value.lower": 187.4102,
+            "value.upper": 267.6923
+          },
+          {
+            "year": 2026,
+            "value": 208.1221,
+            "value.lower": 175.1872,
+            "value.upper": 256.9805
+          },
+          {
+            "year": 2027,
+            "value": 197.314,
+            "value.lower": 164.0537,
+            "value.upper": 246.2787
+          },
+          {
+            "year": 2028,
+            "value": 187.3942,
+            "value.lower": 153.9424,
+            "value.upper": 236.035
+          },
+          {
+            "year": 2029,
+            "value": 178.3098,
+            "value.lower": 144.6756,
+            "value.upper": 226.4153
+          },
+          {
+            "year": 2030,
+            "value": 170.0601,
+            "value.lower": 136.1831,
+            "value.upper": 217.8198
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 297.4379,
+            "value.lower": 274.4968,
+            "value.upper": 335.6545
+          },
+          {
+            "year": 2021,
+            "value": 296.9757,
+            "value.lower": 271.7881,
+            "value.upper": 336.4577
+          },
+          {
+            "year": 2022,
+            "value": 266.2556,
+            "value.lower": 239.3077,
+            "value.upper": 304.8841
+          },
+          {
+            "year": 2023,
+            "value": 246.4942,
+            "value.lower": 218.7824,
+            "value.upper": 290.3952
+          },
+          {
+            "year": 2024,
+            "value": 232.4196,
+            "value.lower": 201.2172,
+            "value.upper": 278.9585
+          },
+          {
+            "year": 2025,
+            "value": 279.1159,
+            "value.lower": 213.0936,
+            "value.upper": 346.3106
+          },
+          {
+            "year": 2026,
+            "value": 412.3204,
+            "value.lower": 234.4144,
+            "value.upper": 636.2748
+          },
+          {
+            "year": 2027,
+            "value": 409.8222,
+            "value.lower": 225.6958,
+            "value.upper": 640.2384
+          },
+          {
+            "year": 2028,
+            "value": 397.6912,
+            "value.lower": 215.8978,
+            "value.upper": 624.2256
+          },
+          {
+            "year": 2029,
+            "value": 385.6427,
+            "value.lower": 206.7862,
+            "value.upper": 605.7492
+          },
+          {
+            "year": 2030,
+            "value": 374.5208,
+            "value.lower": 198.5619,
+            "value.upper": 590.3478
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.35620",
+      "name": "New York-Newark-Jersey City, NY-NJ-PA",
+      "short": "New York",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.35620.json",
+      "generation_time": "2026-03-02T18:51:41.142Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 3151.9811,
+            "value.lower": 2995.5771,
+            "value.upper": 3338.916
+          },
+          {
+            "year": 2021,
+            "value": 3129.8283,
+            "value.lower": 2952.3554,
+            "value.upper": 3334.846
+          },
+          {
+            "year": 2022,
+            "value": 2930.4984,
+            "value.lower": 2707.9648,
+            "value.upper": 3240.053
+          },
+          {
+            "year": 2023,
+            "value": 2767.3151,
+            "value.lower": 2519.8517,
+            "value.upper": 3144.1246
+          },
+          {
+            "year": 2024,
+            "value": 2639.3689,
+            "value.lower": 2352.2866,
+            "value.upper": 3073.9995
+          },
+          {
+            "year": 2025,
+            "value": 2529.2563,
+            "value.lower": 2178.6988,
+            "value.upper": 3006.7336
+          },
+          {
+            "year": 2026,
+            "value": 2434.603,
+            "value.lower": 2028.1165,
+            "value.upper": 2966.0216
+          },
+          {
+            "year": 2027,
+            "value": 2355.0096,
+            "value.lower": 1880.4881,
+            "value.upper": 3052.9974
+          },
+          {
+            "year": 2028,
+            "value": 2290.883,
+            "value.lower": 1742.3594,
+            "value.upper": 3149.9824
+          },
+          {
+            "year": 2029,
+            "value": 2240.7327,
+            "value.lower": 1619.26,
+            "value.upper": 3317.3104
+          },
+          {
+            "year": 2030,
+            "value": 2203.6192,
+            "value.lower": 1510.4491,
+            "value.upper": 3598.6021
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 3151.9811,
+            "value.lower": 2995.5771,
+            "value.upper": 3338.916
+          },
+          {
+            "year": 2021,
+            "value": 3129.8283,
+            "value.lower": 2952.3554,
+            "value.upper": 3334.846
+          },
+          {
+            "year": 2022,
+            "value": 2930.4984,
+            "value.lower": 2707.9648,
+            "value.upper": 3240.053
+          },
+          {
+            "year": 2023,
+            "value": 2767.3151,
+            "value.lower": 2519.8517,
+            "value.upper": 3144.1246
+          },
+          {
+            "year": 2024,
+            "value": 2639.3689,
+            "value.lower": 2352.2866,
+            "value.upper": 3073.9995
+          },
+          {
+            "year": 2025,
+            "value": 2928.0751,
+            "value.lower": 2500.7226,
+            "value.upper": 3369.1374
+          },
+          {
+            "year": 2026,
+            "value": 3897.966,
+            "value.lower": 2749.9656,
+            "value.upper": 5095.7063
+          },
+          {
+            "year": 2027,
+            "value": 4005.9053,
+            "value.lower": 2660.7624,
+            "value.upper": 5500.3783
+          },
+          {
+            "year": 2028,
+            "value": 4010.5425,
+            "value.lower": 2528.1628,
+            "value.upper": 5812.9701
+          },
+          {
+            "year": 2029,
+            "value": 3988.8839,
+            "value.lower": 2400.9534,
+            "value.upper": 5945.9585
+          },
+          {
+            "year": 2030,
+            "value": 3958.2005,
+            "value.lower": 2282.1194,
+            "value.upper": 6023.5014
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.36740",
+      "name": "Orlando-Kissimmee-Sanford, FL",
+      "short": "Orlando",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.36740.json",
+      "generation_time": "2026-03-02T19:25:17.228Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 887.0142,
+            "value.lower": 817.5089,
+            "value.upper": 959.192
+          },
+          {
+            "year": 2021,
+            "value": 941.4461,
+            "value.lower": 847.2083,
+            "value.upper": 1033.1883
+          },
+          {
+            "year": 2022,
+            "value": 993.685,
+            "value.lower": 874.2038,
+            "value.upper": 1103.0018
+          },
+          {
+            "year": 2023,
+            "value": 1008.5902,
+            "value.lower": 871.2532,
+            "value.upper": 1141.7112
+          },
+          {
+            "year": 2024,
+            "value": 1018.0379,
+            "value.lower": 865.8651,
+            "value.upper": 1165.6516
+          },
+          {
+            "year": 2025,
+            "value": 1025.4788,
+            "value.lower": 853.1637,
+            "value.upper": 1189.488
+          },
+          {
+            "year": 2026,
+            "value": 1031.2561,
+            "value.lower": 830.5995,
+            "value.upper": 1213.675
+          },
+          {
+            "year": 2027,
+            "value": 1035.8728,
+            "value.lower": 806.9306,
+            "value.upper": 1238.7424
+          },
+          {
+            "year": 2028,
+            "value": 1040.3934,
+            "value.lower": 792.8079,
+            "value.upper": 1265.1982
+          },
+          {
+            "year": 2029,
+            "value": 1045.6449,
+            "value.lower": 786.24,
+            "value.upper": 1293.131
+          },
+          {
+            "year": 2030,
+            "value": 1053.0943,
+            "value.lower": 782.6832,
+            "value.upper": 1324.7935
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 887.0142,
+            "value.lower": 817.5089,
+            "value.upper": 959.192
+          },
+          {
+            "year": 2021,
+            "value": 941.4461,
+            "value.lower": 847.2083,
+            "value.upper": 1033.1883
+          },
+          {
+            "year": 2022,
+            "value": 993.685,
+            "value.lower": 874.2038,
+            "value.upper": 1103.0018
+          },
+          {
+            "year": 2023,
+            "value": 1008.5902,
+            "value.lower": 871.2532,
+            "value.upper": 1141.7112
+          },
+          {
+            "year": 2024,
+            "value": 1018.0379,
+            "value.lower": 865.8651,
+            "value.upper": 1165.6516
+          },
+          {
+            "year": 2025,
+            "value": 1085.9362,
+            "value.lower": 892.7941,
+            "value.upper": 1274.7972
+          },
+          {
+            "year": 2026,
+            "value": 1270.6968,
+            "value.lower": 983.6341,
+            "value.upper": 1569.7456
+          },
+          {
+            "year": 2027,
+            "value": 1339.697,
+            "value.lower": 1020.4825,
+            "value.upper": 1700.1954
+          },
+          {
+            "year": 2028,
+            "value": 1392.8346,
+            "value.lower": 1036.6318,
+            "value.upper": 1803.0936
+          },
+          {
+            "year": 2029,
+            "value": 1441.5077,
+            "value.lower": 1060.8338,
+            "value.upper": 1904.8181
+          },
+          {
+            "year": 2030,
+            "value": 1489.4235,
+            "value.lower": 1086.8086,
+            "value.upper": 2002.1682
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.37980",
+      "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD",
+      "short": "Philadelphia",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.37980.json",
+      "generation_time": "2026-03-02T19:34:47.849Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 896.8076,
+            "value.lower": 808.6135,
+            "value.upper": 983.1863
+          },
+          {
+            "year": 2021,
+            "value": 921.0182,
+            "value.lower": 825.88,
+            "value.upper": 1055.3906
+          },
+          {
+            "year": 2022,
+            "value": 934.8101,
+            "value.lower": 819.4338,
+            "value.upper": 1086.51
+          },
+          {
+            "year": 2023,
+            "value": 932.8392,
+            "value.lower": 793.2947,
+            "value.upper": 1121.7047
+          },
+          {
+            "year": 2024,
+            "value": 935.3788,
+            "value.lower": 769.3016,
+            "value.upper": 1152.81
+          },
+          {
+            "year": 2025,
+            "value": 941.2358,
+            "value.lower": 748.5022,
+            "value.upper": 1184.1263
+          },
+          {
+            "year": 2026,
+            "value": 948.9357,
+            "value.lower": 728.6513,
+            "value.upper": 1214.9185
+          },
+          {
+            "year": 2027,
+            "value": 958.3379,
+            "value.lower": 710.4918,
+            "value.upper": 1241.9514
+          },
+          {
+            "year": 2028,
+            "value": 969.3684,
+            "value.lower": 692.934,
+            "value.upper": 1272.6129
+          },
+          {
+            "year": 2029,
+            "value": 982.5216,
+            "value.lower": 677.3628,
+            "value.upper": 1292.2734
+          },
+          {
+            "year": 2030,
+            "value": 998.7443,
+            "value.lower": 664.0425,
+            "value.upper": 1324.0079
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 896.8076,
+            "value.lower": 808.6135,
+            "value.upper": 983.1863
+          },
+          {
+            "year": 2021,
+            "value": 921.0182,
+            "value.lower": 825.88,
+            "value.upper": 1055.3906
+          },
+          {
+            "year": 2022,
+            "value": 934.8101,
+            "value.lower": 819.4338,
+            "value.upper": 1086.51
+          },
+          {
+            "year": 2023,
+            "value": 932.8392,
+            "value.lower": 793.2947,
+            "value.upper": 1121.7047
+          },
+          {
+            "year": 2024,
+            "value": 935.3788,
+            "value.lower": 769.3016,
+            "value.upper": 1152.81
+          },
+          {
+            "year": 2025,
+            "value": 1083.5804,
+            "value.lower": 840.6948,
+            "value.upper": 1317.3461
+          },
+          {
+            "year": 2026,
+            "value": 1514.6702,
+            "value.lower": 1052.3953,
+            "value.upper": 2121.942
+          },
+          {
+            "year": 2027,
+            "value": 1622.7774,
+            "value.lower": 1098.175,
+            "value.upper": 2326.6204
+          },
+          {
+            "year": 2028,
+            "value": 1668.4098,
+            "value.lower": 1123.982,
+            "value.upper": 2419.3422
+          },
+          {
+            "year": 2029,
+            "value": 1699.4722,
+            "value.lower": 1144.4913,
+            "value.upper": 2473.8171
+          },
+          {
+            "year": 2030,
+            "value": 1728.8336,
+            "value.lower": 1160.4571,
+            "value.upper": 2514.2773
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.38060",
+      "name": "Phoenix-Mesa-Chandler, AZ",
+      "short": "Phoenix",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.38060.json",
+      "generation_time": "2026-03-02T19:31:44.277Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 768.9709,
+            "value.lower": 707.5372,
+            "value.upper": 829.9652
+          },
+          {
+            "year": 2021,
+            "value": 798.9252,
+            "value.lower": 727.299,
+            "value.upper": 866.0163
+          },
+          {
+            "year": 2022,
+            "value": 803.904,
+            "value.lower": 723.7278,
+            "value.upper": 882.2135
+          },
+          {
+            "year": 2023,
+            "value": 799.4662,
+            "value.lower": 714.9033,
+            "value.upper": 891.0102
+          },
+          {
+            "year": 2024,
+            "value": 796.5515,
+            "value.lower": 702.1023,
+            "value.upper": 897.4947
+          },
+          {
+            "year": 2025,
+            "value": 792.568,
+            "value.lower": 692.5348,
+            "value.upper": 900.7746
+          },
+          {
+            "year": 2026,
+            "value": 786.6159,
+            "value.lower": 682.8967,
+            "value.upper": 902.0068
+          },
+          {
+            "year": 2027,
+            "value": 778.8355,
+            "value.lower": 674.0104,
+            "value.upper": 904.7416
+          },
+          {
+            "year": 2028,
+            "value": 769.8833,
+            "value.lower": 654.8555,
+            "value.upper": 903.942
+          },
+          {
+            "year": 2029,
+            "value": 760.8707,
+            "value.lower": 637.1359,
+            "value.upper": 910.7981
+          },
+          {
+            "year": 2030,
+            "value": 751.8672,
+            "value.lower": 615.923,
+            "value.upper": 915.2979
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 768.9709,
+            "value.lower": 707.5372,
+            "value.upper": 829.9652
+          },
+          {
+            "year": 2021,
+            "value": 798.9252,
+            "value.lower": 727.299,
+            "value.upper": 866.0163
+          },
+          {
+            "year": 2022,
+            "value": 803.904,
+            "value.lower": 723.7278,
+            "value.upper": 882.2135
+          },
+          {
+            "year": 2023,
+            "value": 799.4662,
+            "value.lower": 714.9033,
+            "value.upper": 891.0102
+          },
+          {
+            "year": 2024,
+            "value": 796.5515,
+            "value.lower": 702.1023,
+            "value.upper": 897.4947
+          },
+          {
+            "year": 2025,
+            "value": 861.4276,
+            "value.lower": 724.3675,
+            "value.upper": 988.1309
+          },
+          {
+            "year": 2026,
+            "value": 1061.6657,
+            "value.lower": 781.8385,
+            "value.upper": 1306.2732
+          },
+          {
+            "year": 2027,
+            "value": 1112.3595,
+            "value.lower": 788.289,
+            "value.upper": 1428.5371
+          },
+          {
+            "year": 2028,
+            "value": 1138.3229,
+            "value.lower": 781.5973,
+            "value.upper": 1508.7502
+          },
+          {
+            "year": 2029,
+            "value": 1157.1866,
+            "value.lower": 772.511,
+            "value.upper": 1554.3934
+          },
+          {
+            "year": 2030,
+            "value": 1173.1162,
+            "value.lower": 762.2718,
+            "value.upper": 1579.6198
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.40140",
+      "name": "Riverside-San Bernardino-Ontario, CA",
+      "short": "Riverside",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.40140.json",
+      "generation_time": "2026-03-02T19:34:06.582Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 923.6309,
+            "value.lower": 779.0227,
+            "value.upper": 1048.8025
+          },
+          {
+            "year": 2021,
+            "value": 969.6062,
+            "value.lower": 804.1051,
+            "value.upper": 1107.2005
+          },
+          {
+            "year": 2022,
+            "value": 1025.2032,
+            "value.lower": 829.471,
+            "value.upper": 1202.4983
+          },
+          {
+            "year": 2023,
+            "value": 1068.4145,
+            "value.lower": 840.8595,
+            "value.upper": 1277.0736
+          },
+          {
+            "year": 2024,
+            "value": 1112.6179,
+            "value.lower": 849.7326,
+            "value.upper": 1353.4537
+          },
+          {
+            "year": 2025,
+            "value": 1159.0672,
+            "value.lower": 857.5972,
+            "value.upper": 1434.2094
+          },
+          {
+            "year": 2026,
+            "value": 1208.275,
+            "value.lower": 861.3422,
+            "value.upper": 1519.4444
+          },
+          {
+            "year": 2027,
+            "value": 1261.2418,
+            "value.lower": 866.4471,
+            "value.upper": 1615.0034
+          },
+          {
+            "year": 2028,
+            "value": 1317.9051,
+            "value.lower": 873.7197,
+            "value.upper": 1721.5576
+          },
+          {
+            "year": 2029,
+            "value": 1378.8388,
+            "value.lower": 866.9163,
+            "value.upper": 1828.453
+          },
+          {
+            "year": 2030,
+            "value": 1445.2951,
+            "value.lower": 875.6448,
+            "value.upper": 1940.3123
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 923.6309,
+            "value.lower": 779.0227,
+            "value.upper": 1048.8025
+          },
+          {
+            "year": 2021,
+            "value": 969.6062,
+            "value.lower": 804.1051,
+            "value.upper": 1107.2005
+          },
+          {
+            "year": 2022,
+            "value": 1025.2032,
+            "value.lower": 829.471,
+            "value.upper": 1202.4983
+          },
+          {
+            "year": 2023,
+            "value": 1068.4145,
+            "value.lower": 840.8595,
+            "value.upper": 1277.0736
+          },
+          {
+            "year": 2024,
+            "value": 1112.6179,
+            "value.lower": 849.7326,
+            "value.upper": 1353.4537
+          },
+          {
+            "year": 2025,
+            "value": 1181.4011,
+            "value.lower": 877.6322,
+            "value.upper": 1470.9425
+          },
+          {
+            "year": 2026,
+            "value": 1298.1774,
+            "value.lower": 956.6373,
+            "value.upper": 1646.0321
+          },
+          {
+            "year": 2027,
+            "value": 1376.0141,
+            "value.lower": 980.7064,
+            "value.upper": 1767.465
+          },
+          {
+            "year": 2028,
+            "value": 1451.3662,
+            "value.lower": 991.307,
+            "value.upper": 1890.9819
+          },
+          {
+            "year": 2029,
+            "value": 1529.0746,
+            "value.lower": 997.1242,
+            "value.upper": 2019.3915
+          },
+          {
+            "year": 2030,
+            "value": 1611.0701,
+            "value.lower": 1001.5971,
+            "value.upper": 2153.505
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.40900",
+      "name": "Sacramento-Roseville-Folsom, CA",
+      "short": "Sacramento",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.40900.json",
+      "generation_time": "2026-03-02T19:35:14.184Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 320.7467,
+            "value.lower": 289.7895,
+            "value.upper": 358.9334
+          },
+          {
+            "year": 2021,
+            "value": 348.7505,
+            "value.lower": 301.4468,
+            "value.upper": 407.5018
+          },
+          {
+            "year": 2022,
+            "value": 346.3101,
+            "value.lower": 298.2733,
+            "value.upper": 395.2514
+          },
+          {
+            "year": 2023,
+            "value": 350.4143,
+            "value.lower": 290.1404,
+            "value.upper": 402.7664
+          },
+          {
+            "year": 2024,
+            "value": 358.6731,
+            "value.lower": 288.7402,
+            "value.upper": 416.7751
+          },
+          {
+            "year": 2025,
+            "value": 368.7227,
+            "value.lower": 294.4497,
+            "value.upper": 429.5516
+          },
+          {
+            "year": 2026,
+            "value": 380.0353,
+            "value.lower": 303.7342,
+            "value.upper": 442.4642
+          },
+          {
+            "year": 2027,
+            "value": 392.4807,
+            "value.lower": 315.4252,
+            "value.upper": 455.8734
+          },
+          {
+            "year": 2028,
+            "value": 406.3097,
+            "value.lower": 327.634,
+            "value.upper": 482.2874
+          },
+          {
+            "year": 2029,
+            "value": 421.8477,
+            "value.lower": 344.6891,
+            "value.upper": 513.1422
+          },
+          {
+            "year": 2030,
+            "value": 439.1267,
+            "value.lower": 358.3892,
+            "value.upper": 552.4295
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 320.7467,
+            "value.lower": 289.7895,
+            "value.upper": 358.9334
+          },
+          {
+            "year": 2021,
+            "value": 348.7505,
+            "value.lower": 301.4468,
+            "value.upper": 407.5018
+          },
+          {
+            "year": 2022,
+            "value": 346.3101,
+            "value.lower": 298.2733,
+            "value.upper": 395.2514
+          },
+          {
+            "year": 2023,
+            "value": 350.4143,
+            "value.lower": 290.1404,
+            "value.upper": 402.7664
+          },
+          {
+            "year": 2024,
+            "value": 358.6731,
+            "value.lower": 288.7402,
+            "value.upper": 416.7751
+          },
+          {
+            "year": 2025,
+            "value": 395.0824,
+            "value.lower": 318.1441,
+            "value.upper": 456.34
+          },
+          {
+            "year": 2026,
+            "value": 494.2481,
+            "value.lower": 380.4247,
+            "value.upper": 622.0394
+          },
+          {
+            "year": 2027,
+            "value": 543.5663,
+            "value.lower": 398.8,
+            "value.upper": 707.4849
+          },
+          {
+            "year": 2028,
+            "value": 584.4427,
+            "value.lower": 421.319,
+            "value.upper": 787.4812
+          },
+          {
+            "year": 2029,
+            "value": 624.3187,
+            "value.lower": 435.3701,
+            "value.upper": 859.4703
+          },
+          {
+            "year": 2030,
+            "value": 664.2531,
+            "value.lower": 451.4854,
+            "value.upper": 938.5885
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.41700",
+      "name": "San Antonio-New Braunfels, TX",
+      "short": "San Antonio",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.41700.json",
+      "generation_time": "2026-03-02T19:34:32.144Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 434.367,
+            "value.lower": 406.6042,
+            "value.upper": 465.5372
+          },
+          {
+            "year": 2021,
+            "value": 446.2769,
+            "value.lower": 409.9003,
+            "value.upper": 489.075
+          },
+          {
+            "year": 2022,
+            "value": 446.4332,
+            "value.lower": 406.8489,
+            "value.upper": 494.9757
+          },
+          {
+            "year": 2023,
+            "value": 442.7951,
+            "value.lower": 398.9581,
+            "value.upper": 493.6821
+          },
+          {
+            "year": 2024,
+            "value": 443.0125,
+            "value.lower": 391.4827,
+            "value.upper": 500.0511
+          },
+          {
+            "year": 2025,
+            "value": 446.5327,
+            "value.lower": 385.7087,
+            "value.upper": 510.756
+          },
+          {
+            "year": 2026,
+            "value": 452.4989,
+            "value.lower": 379.9785,
+            "value.upper": 524.7624
+          },
+          {
+            "year": 2027,
+            "value": 461.3149,
+            "value.lower": 377.6053,
+            "value.upper": 541.5276
+          },
+          {
+            "year": 2028,
+            "value": 472.7478,
+            "value.lower": 377.28,
+            "value.upper": 572.5208
+          },
+          {
+            "year": 2029,
+            "value": 486.9041,
+            "value.lower": 379.0696,
+            "value.upper": 603.1122
+          },
+          {
+            "year": 2030,
+            "value": 503.9928,
+            "value.lower": 382.8322,
+            "value.upper": 639.7785
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 434.367,
+            "value.lower": 406.6042,
+            "value.upper": 465.5372
+          },
+          {
+            "year": 2021,
+            "value": 446.2769,
+            "value.lower": 409.9003,
+            "value.upper": 489.075
+          },
+          {
+            "year": 2022,
+            "value": 446.4332,
+            "value.lower": 406.8489,
+            "value.upper": 494.9757
+          },
+          {
+            "year": 2023,
+            "value": 442.7951,
+            "value.lower": 398.9581,
+            "value.upper": 493.6821
+          },
+          {
+            "year": 2024,
+            "value": 443.0125,
+            "value.lower": 391.4827,
+            "value.upper": 500.0511
+          },
+          {
+            "year": 2025,
+            "value": 493.3993,
+            "value.lower": 410.6806,
+            "value.upper": 569.6365
+          },
+          {
+            "year": 2026,
+            "value": 640.0954,
+            "value.lower": 468.7565,
+            "value.upper": 803.9696
+          },
+          {
+            "year": 2027,
+            "value": 696.627,
+            "value.lower": 484.944,
+            "value.upper": 888.9304
+          },
+          {
+            "year": 2028,
+            "value": 742.7705,
+            "value.lower": 496.9925,
+            "value.upper": 955.631
+          },
+          {
+            "year": 2029,
+            "value": 788.0158,
+            "value.lower": 509.9738,
+            "value.upper": 1021.3195
+          },
+          {
+            "year": 2030,
+            "value": 834.2066,
+            "value.lower": 523.3474,
+            "value.upper": 1100.0287
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.41740",
+      "name": "San Diego-Chula Vista-Carlsbad, CA",
+      "short": "San Diego",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.41740.json",
+      "generation_time": "2026-03-02T19:37:48.181Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 525.9856,
+            "value.lower": 490.5316,
+            "value.upper": 571.4924
+          },
+          {
+            "year": 2021,
+            "value": 535.0529,
+            "value.lower": 486.8979,
+            "value.upper": 598.3861
+          },
+          {
+            "year": 2022,
+            "value": 531.5509,
+            "value.lower": 475.3939,
+            "value.upper": 592.7788
+          },
+          {
+            "year": 2023,
+            "value": 529.3448,
+            "value.lower": 465.8601,
+            "value.upper": 601.0743
+          },
+          {
+            "year": 2024,
+            "value": 534.1858,
+            "value.lower": 465.785,
+            "value.upper": 610.5781
+          },
+          {
+            "year": 2025,
+            "value": 544.5438,
+            "value.lower": 469.6481,
+            "value.upper": 625.1925
+          },
+          {
+            "year": 2026,
+            "value": 559.8654,
+            "value.lower": 475.6799,
+            "value.upper": 642.9525
+          },
+          {
+            "year": 2027,
+            "value": 579.5479,
+            "value.lower": 485.0198,
+            "value.upper": 668.2915
+          },
+          {
+            "year": 2028,
+            "value": 604.1193,
+            "value.lower": 497.3913,
+            "value.upper": 706.8108
+          },
+          {
+            "year": 2029,
+            "value": 633.3914,
+            "value.lower": 513.718,
+            "value.upper": 753.1682
+          },
+          {
+            "year": 2030,
+            "value": 667.7914,
+            "value.lower": 533.7955,
+            "value.upper": 811.8019
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 525.9856,
+            "value.lower": 490.5316,
+            "value.upper": 571.4924
+          },
+          {
+            "year": 2021,
+            "value": 535.0529,
+            "value.lower": 486.8979,
+            "value.upper": 598.3861
+          },
+          {
+            "year": 2022,
+            "value": 531.5509,
+            "value.lower": 475.3939,
+            "value.upper": 592.7788
+          },
+          {
+            "year": 2023,
+            "value": 529.3448,
+            "value.lower": 465.8601,
+            "value.upper": 601.0743
+          },
+          {
+            "year": 2024,
+            "value": 534.1859,
+            "value.lower": 465.785,
+            "value.upper": 610.5781
+          },
+          {
+            "year": 2025,
+            "value": 596.0264,
+            "value.lower": 513.7655,
+            "value.upper": 672.3596
+          },
+          {
+            "year": 2026,
+            "value": 758.6445,
+            "value.lower": 582.1545,
+            "value.upper": 965.7026
+          },
+          {
+            "year": 2027,
+            "value": 820.1274,
+            "value.lower": 606.13,
+            "value.upper": 1084.9091
+          },
+          {
+            "year": 2028,
+            "value": 874.6693,
+            "value.lower": 628.2902,
+            "value.upper": 1188.8546
+          },
+          {
+            "year": 2029,
+            "value": 931.9605,
+            "value.lower": 652.4676,
+            "value.upper": 1290.5092
+          },
+          {
+            "year": 2030,
+            "value": 994.8806,
+            "value.lower": 678.8632,
+            "value.upper": 1395.0966
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.41860",
+      "name": "San Francisco-Oakland-Berkeley, CA",
+      "short": "San Francisco",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.41860.json",
+      "generation_time": "2026-03-02T19:34:40.837Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 660.5287,
+            "value.lower": 615.2884,
+            "value.upper": 713.3311
+          },
+          {
+            "year": 2021,
+            "value": 665.8777,
+            "value.lower": 611.1908,
+            "value.upper": 720.9917
+          },
+          {
+            "year": 2022,
+            "value": 620.9616,
+            "value.lower": 556.0655,
+            "value.upper": 691.9382
+          },
+          {
+            "year": 2023,
+            "value": 586.4481,
+            "value.lower": 513.1525,
+            "value.upper": 672.8671
+          },
+          {
+            "year": 2024,
+            "value": 565.0606,
+            "value.lower": 485.3248,
+            "value.upper": 659.3936
+          },
+          {
+            "year": 2025,
+            "value": 548.3879,
+            "value.lower": 462.0905,
+            "value.upper": 650.1712
+          },
+          {
+            "year": 2026,
+            "value": 534.2607,
+            "value.lower": 441.3773,
+            "value.upper": 643.5882
+          },
+          {
+            "year": 2027,
+            "value": 522.1598,
+            "value.lower": 417.9593,
+            "value.upper": 639.0106
+          },
+          {
+            "year": 2028,
+            "value": 511.8228,
+            "value.lower": 397.1834,
+            "value.upper": 636.0844
+          },
+          {
+            "year": 2029,
+            "value": 503.0634,
+            "value.lower": 380.7522,
+            "value.upper": 634.247
+          },
+          {
+            "year": 2030,
+            "value": 495.6118,
+            "value.lower": 367.8255,
+            "value.upper": 633.2744
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 660.5287,
+            "value.lower": 615.2884,
+            "value.upper": 713.3311
+          },
+          {
+            "year": 2021,
+            "value": 665.8777,
+            "value.lower": 611.1908,
+            "value.upper": 720.9917
+          },
+          {
+            "year": 2022,
+            "value": 620.9616,
+            "value.lower": 556.0655,
+            "value.upper": 691.9382
+          },
+          {
+            "year": 2023,
+            "value": 586.4481,
+            "value.lower": 513.1525,
+            "value.upper": 672.8671
+          },
+          {
+            "year": 2024,
+            "value": 565.0606,
+            "value.lower": 485.3248,
+            "value.upper": 659.3936
+          },
+          {
+            "year": 2025,
+            "value": 604.6824,
+            "value.lower": 500.7756,
+            "value.upper": 719.3379
+          },
+          {
+            "year": 2026,
+            "value": 770.8339,
+            "value.lower": 532.2203,
+            "value.upper": 1090.935
+          },
+          {
+            "year": 2027,
+            "value": 801.428,
+            "value.lower": 521.6484,
+            "value.upper": 1202.7358
+          },
+          {
+            "year": 2028,
+            "value": 805.3819,
+            "value.lower": 503.5308,
+            "value.upper": 1250.1075
+          },
+          {
+            "year": 2029,
+            "value": 804.9394,
+            "value.lower": 488.689,
+            "value.upper": 1280.0285
+          },
+          {
+            "year": 2030,
+            "value": 804.2866,
+            "value.lower": 477.5001,
+            "value.upper": 1303.8435
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.42660",
+      "name": "Seattle-Tacoma-Bellevue, WA",
+      "short": "Seattle",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.42660.json",
+      "generation_time": "2026-03-02T19:39:37.927Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 463.6016,
+            "value.lower": 423.482,
+            "value.upper": 505.1024
+          },
+          {
+            "year": 2021,
+            "value": 478.6707,
+            "value.lower": 432.9157,
+            "value.upper": 525.0389
+          },
+          {
+            "year": 2022,
+            "value": 475.6339,
+            "value.lower": 412.7576,
+            "value.upper": 541.1567
+          },
+          {
+            "year": 2023,
+            "value": 472.9384,
+            "value.lower": 396.2761,
+            "value.upper": 555.211
+          },
+          {
+            "year": 2024,
+            "value": 475.6859,
+            "value.lower": 393.5095,
+            "value.upper": 574.2107
+          },
+          {
+            "year": 2025,
+            "value": 481.3952,
+            "value.lower": 394.0886,
+            "value.upper": 590.3068
+          },
+          {
+            "year": 2026,
+            "value": 488.4671,
+            "value.lower": 397.0984,
+            "value.upper": 603.4643
+          },
+          {
+            "year": 2027,
+            "value": 496.7657,
+            "value.lower": 402.08,
+            "value.upper": 624.0682
+          },
+          {
+            "year": 2028,
+            "value": 506.0962,
+            "value.lower": 408.5994,
+            "value.upper": 644.3949
+          },
+          {
+            "year": 2029,
+            "value": 516.4191,
+            "value.lower": 415.7592,
+            "value.upper": 664.0479
+          },
+          {
+            "year": 2030,
+            "value": 527.9685,
+            "value.lower": 418.4174,
+            "value.upper": 677.5257
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 463.6016,
+            "value.lower": 423.482,
+            "value.upper": 505.1024
+          },
+          {
+            "year": 2021,
+            "value": 478.6707,
+            "value.lower": 432.9157,
+            "value.upper": 525.0389
+          },
+          {
+            "year": 2022,
+            "value": 475.6339,
+            "value.lower": 412.7576,
+            "value.upper": 541.1567
+          },
+          {
+            "year": 2023,
+            "value": 472.9384,
+            "value.lower": 396.2761,
+            "value.upper": 555.211
+          },
+          {
+            "year": 2024,
+            "value": 475.6859,
+            "value.lower": 393.5095,
+            "value.upper": 574.2107
+          },
+          {
+            "year": 2025,
+            "value": 558.1096,
+            "value.lower": 457.495,
+            "value.upper": 667.1166
+          },
+          {
+            "year": 2026,
+            "value": 820.1293,
+            "value.lower": 569.6069,
+            "value.upper": 1158.7688
+          },
+          {
+            "year": 2027,
+            "value": 918.8916,
+            "value.lower": 601.2037,
+            "value.upper": 1350.9941
+          },
+          {
+            "year": 2028,
+            "value": 989.5459,
+            "value.lower": 621.5723,
+            "value.upper": 1464.0205
+          },
+          {
+            "year": 2029,
+            "value": 1058.1358,
+            "value.lower": 639.8945,
+            "value.upper": 1560.8001
+          },
+          {
+            "year": 2030,
+            "value": 1130.5514,
+            "value.lower": 658.0766,
+            "value.upper": 1664.9595
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.45300",
+      "name": "Tampa-St. Petersburg-Clearwater, FL",
+      "short": "Tampa",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.45300.json",
+      "generation_time": "2026-03-02T19:56:31.946Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 736.2286,
+            "value.lower": 661.6296,
+            "value.upper": 808.6493
+          },
+          {
+            "year": 2021,
+            "value": 748.2504,
+            "value.lower": 653.9586,
+            "value.upper": 831.3459
+          },
+          {
+            "year": 2022,
+            "value": 749.4535,
+            "value.lower": 649.0951,
+            "value.upper": 824.7157
+          },
+          {
+            "year": 2023,
+            "value": 745.8587,
+            "value.lower": 626.2136,
+            "value.upper": 829.6851
+          },
+          {
+            "year": 2024,
+            "value": 743.6527,
+            "value.lower": 615.9656,
+            "value.upper": 838.769
+          },
+          {
+            "year": 2025,
+            "value": 742.848,
+            "value.lower": 604.2624,
+            "value.upper": 849.2535
+          },
+          {
+            "year": 2026,
+            "value": 742.8677,
+            "value.lower": 592.9449,
+            "value.upper": 860.944
+          },
+          {
+            "year": 2027,
+            "value": 743.5449,
+            "value.lower": 582.3801,
+            "value.upper": 874.3266
+          },
+          {
+            "year": 2028,
+            "value": 744.8718,
+            "value.lower": 569.9959,
+            "value.upper": 889.7284
+          },
+          {
+            "year": 2029,
+            "value": 747.5215,
+            "value.lower": 555.7319,
+            "value.upper": 908.0046
+          },
+          {
+            "year": 2030,
+            "value": 751.3155,
+            "value.lower": 542.3464,
+            "value.upper": 928.083
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 736.2286,
+            "value.lower": 661.6296,
+            "value.upper": 808.6493
+          },
+          {
+            "year": 2021,
+            "value": 748.2504,
+            "value.lower": 653.9586,
+            "value.upper": 831.3459
+          },
+          {
+            "year": 2022,
+            "value": 749.4535,
+            "value.lower": 649.0951,
+            "value.upper": 824.7157
+          },
+          {
+            "year": 2023,
+            "value": 745.8587,
+            "value.lower": 626.2136,
+            "value.upper": 829.6851
+          },
+          {
+            "year": 2024,
+            "value": 743.6527,
+            "value.lower": 615.9656,
+            "value.upper": 838.769
+          },
+          {
+            "year": 2025,
+            "value": 819.5306,
+            "value.lower": 664.1432,
+            "value.upper": 941.4646
+          },
+          {
+            "year": 2026,
+            "value": 1040.4127,
+            "value.lower": 785.638,
+            "value.upper": 1324.8529
+          },
+          {
+            "year": 2027,
+            "value": 1105.7537,
+            "value.lower": 813.1429,
+            "value.upper": 1444.4167
+          },
+          {
+            "year": 2028,
+            "value": 1147.1947,
+            "value.lower": 827.6546,
+            "value.upper": 1521.4233
+          },
+          {
+            "year": 2029,
+            "value": 1182.0271,
+            "value.lower": 837.5575,
+            "value.upper": 1578.774
+          },
+          {
+            "year": 2030,
+            "value": 1213.9206,
+            "value.lower": 845.7017,
+            "value.upper": 1622.6861
+          }
+        ]
+      }
+    },
+    {
+      "id": "C.47900",
+      "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV",
+      "short": "Washington",
+      "source": "https://d320iym4dtm9lj.cloudfront.net/ryan-white/C.47900.json",
+      "generation_time": "2026-03-02T19:37:00.008Z",
+      "series": {
+        "Baseline": [
+          {
+            "year": 2020,
+            "value": 860.993,
+            "value.lower": 788.4545,
+            "value.upper": 954.1778
+          },
+          {
+            "year": 2021,
+            "value": 845.0788,
+            "value.lower": 771.3671,
+            "value.upper": 941.1219
+          },
+          {
+            "year": 2022,
+            "value": 884.1551,
+            "value.lower": 813.8822,
+            "value.upper": 1009.812
+          },
+          {
+            "year": 2023,
+            "value": 850.3651,
+            "value.lower": 772.3806,
+            "value.upper": 972.9162
+          },
+          {
+            "year": 2024,
+            "value": 819.2109,
+            "value.lower": 730.6948,
+            "value.upper": 948.7589
+          },
+          {
+            "year": 2025,
+            "value": 796.3735,
+            "value.lower": 690.1758,
+            "value.upper": 936.9054
+          },
+          {
+            "year": 2026,
+            "value": 781.7831,
+            "value.lower": 656.9851,
+            "value.upper": 935.9596
+          },
+          {
+            "year": 2027,
+            "value": 775.0872,
+            "value.lower": 630.0711,
+            "value.upper": 948.5094
+          },
+          {
+            "year": 2028,
+            "value": 776.9063,
+            "value.lower": 603.0514,
+            "value.upper": 992.6963
+          },
+          {
+            "year": 2029,
+            "value": 788.3736,
+            "value.lower": 582.0368,
+            "value.upper": 1015.2874
+          },
+          {
+            "year": 2030,
+            "value": 811.1489,
+            "value.lower": 563.0924,
+            "value.upper": 1083.888
+          }
+        ],
+        "Cessation": [
+          {
+            "year": 2020,
+            "value": 860.993,
+            "value.lower": 788.4545,
+            "value.upper": 954.1778
+          },
+          {
+            "year": 2021,
+            "value": 845.0788,
+            "value.lower": 771.3671,
+            "value.upper": 941.1219
+          },
+          {
+            "year": 2022,
+            "value": 884.1551,
+            "value.lower": 813.8822,
+            "value.upper": 1009.812
+          },
+          {
+            "year": 2023,
+            "value": 850.3651,
+            "value.lower": 772.3806,
+            "value.upper": 972.9162
+          },
+          {
+            "year": 2024,
+            "value": 819.211,
+            "value.lower": 730.6948,
+            "value.upper": 948.7589
+          },
+          {
+            "year": 2025,
+            "value": 857.6553,
+            "value.lower": 740.0049,
+            "value.upper": 1006.776
+          },
+          {
+            "year": 2026,
+            "value": 1030.0109,
+            "value.lower": 796.9513,
+            "value.upper": 1322.8072
+          },
+          {
+            "year": 2027,
+            "value": 1086.2907,
+            "value.lower": 784.6569,
+            "value.upper": 1442.6474
+          },
+          {
+            "year": 2028,
+            "value": 1129.2394,
+            "value.lower": 768.7088,
+            "value.upper": 1550.2932
+          },
+          {
+            "year": 2029,
+            "value": 1176.3574,
+            "value.lower": 754.0249,
+            "value.upper": 1649.3797
+          },
+          {
+            "year": 2030,
+            "value": 1233.2305,
+            "value.lower": 742.1478,
+            "value.upper": 1797.6275
+          }
+        ]
+      }
+    }
+  ],
+  "publicationComparison": {
+    "doi": "10.7326/ANNALS-25-01737",
+    "publishedAdditionalInfections": 75436,
+    "note": "Portal aggregation and original published analysis differ. No explanation of the difference is inferred; do not label portal values as the paper\u2019s estimate."
+  }
+}

@@ -555,7 +555,7 @@ export default function GlobalAgingApp() {
             >
               <div>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-                  Upcoming
+                  Conference presentations
                 </p>
                 <h3 className="font-serif text-2xl leading-tight text-[color:var(--color-ink)]">
                   GMHA at AIDS 2026

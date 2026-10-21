@@ -23,7 +23,7 @@ const CONFIG = {
   
   // File paths
   TEAM_DATA_PATH: path.join(__dirname, '../src/data/team-data.json'),
-  CURRENT_PUBLICATIONS_PATH: path.join(__dirname, '../src/data/publications.ts'),
+  CURRENT_PUBLICATIONS_PATH: path.join(__dirname, '../src/data/publication-records.json'),
   REVIEW_FILE_PATH: path.join(__dirname, '../src/data/publications-review.json'),
   
   // JHU domains for additional matching
@@ -73,60 +73,12 @@ class PublicationFetcher {
     const teamData = JSON.parse(fs.readFileSync(CONFIG.TEAM_DATA_PATH, 'utf8'));
     this.teamMembers = teamData.teamMembers.filter(member => member.status === 'current');
     
-    // Load current publications (parse the TypeScript file)
+    // Load the curated JSON archive without discarding provenance or author metadata.
     const publicationsContent = fs.readFileSync(CONFIG.CURRENT_PUBLICATIONS_PATH, 'utf8');
-    this.currentPublications = this.parsePublicationsFromTS(publicationsContent);
+    this.currentPublications = JSON.parse(publicationsContent);
     
     console.log(`👥 Found ${this.teamMembers.length} active team members`);
     console.log(`📚 Current publications: ${this.currentPublications.length}`);
-  }
-
-  parsePublicationsFromTS(content) {
-    // Extract publications array from TypeScript file
-    // This is a simple parser - could be more robust
-    const match = content.match(/export const publications.*?=.*?\[(.*?)\];/s);
-    if (!match) return [];
-    
-    // Extract publication objects (simplified)
-    const publicationsText = match[1];
-    const publications = [];
-    
-    // Find all publication objects
-    const pubMatches = publicationsText.match(/\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}/g);
-    
-    if (pubMatches) {
-      pubMatches.forEach(pubText => {
-        try {
-          const pub = this.parsePublicationObject(pubText);
-          if (pub && pub.id) {
-            publications.push(pub);
-          }
-        } catch (error) {
-          // Skip malformed publications
-        }
-      });
-    }
-    
-    return publications;
-  }
-
-  parsePublicationObject(pubText) {
-    // Simple field extraction
-    const extractField = (field) => {
-      const regex = new RegExp(`${field}:\\s*["']([^"']+)["']`);
-      const match = pubText.match(regex);
-      return match ? match[1] : null;
-    };
-    
-    return {
-      id: extractField('id'),
-      title: extractField('title'),
-      authors: extractField('authors'),
-      journal: extractField('journal'),
-      year: extractField('year'),
-      doi: extractField('doi'),
-      url: extractField('url')
-    };
   }
 
   async searchPublications() {
@@ -459,7 +411,8 @@ class PublicationFetcher {
         message: "Review each publication below and set 'approved' to true/false",
         workflow: [
           "1. Review each publication for relevance and accuracy",
-          "2. Set 'approved': true for publications to include",
+          "2. Confirm group ownership (TB and PEARL are separate); set group: cipher for new records",
+          "3. Verify source, verified date, citation year, sortDate, preprint status, authorNames, projects and tags before setting approved: true",
           "3. Set 'approved': false for publications to reject", 
           "4. You can edit any fields (title, authors, journal, etc.)",
           "5. Run: npm run apply-publications"

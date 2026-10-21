@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@import "./cipher.css";
 
 :root {
   --background: #ffffff;
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   --foreground: #0f172a;
 }
 
