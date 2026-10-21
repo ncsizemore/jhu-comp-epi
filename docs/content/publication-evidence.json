@@ -1,0 +1,2271 @@
+{
+  "retrieved": "2026-10-19",
+  "queries": [
+    "Exact DOI/PMID matches for all 14 visible records",
+    "AUTH:\"Kasaie P\" AND FIRST_PDATE:[2016-01-01 TO 2026-10-19]",
+    "(AUTH_LAST:Kasaie OR AUTH_LAST:Fojo OR AUTH_LAST:Schnure) AND FIRST_PDATE:[2024-01-01 TO 2026-10-19]"
+  ],
+  "records": [
+    {
+      "id": "34750289",
+      "source": "MED",
+      "doi": "10.1097/qad.0000000000003128",
+      "title": "The shifting age distribution of people with HIV using antiretroviral therapy in the United States.",
+      "authorString": "Althoff KN, Stewart CN, Humes E, Zhang J, Gerace L, Boyd CM, Wong C, Justice AC, Gebo KA, Thorne JE, Rubtsova AA, Horberg MA, Silverberg MJ, Leng SX, Rebeiro PF, Moore RD, Buchacz K, Kasaie P.",
+      "pubYear": "2022",
+      "firstPublicationDate": "2022-03-01",
+      "firstIndexDate": "2021-11-27",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "36",
+        "journalIssueId": 3299633,
+        "dateOfPublication": "2022 Mar",
+        "monthOfPublication": 3,
+        "yearOfPublication": 2022,
+        "journal": {
+          "medlineAbbreviation": "AIDS",
+          "title": "AIDS (London, England)",
+          "essn": "1473-5571",
+          "issn": "0269-9370",
+          "isoabbreviation": "AIDS",
+          "nlmid": "8710219"
+        },
+        "printPublicationDate": "2022-03-01"
+      }
+    },
+    {
+      "id": "PPR567603",
+      "source": "PPR",
+      "doi": "10.1101/2022.11.04.22281891",
+      "title": "The projected prevalence of comorbidities and multimorbidity in people with HIV in the United States through the year 2030",
+      "authorString": "Althoff KN, Stewart C, Humes E, Gerace L, Boyd C, Gebo K, Justice AC, Hyle E, Coburn S, Lang R, Silverberg MJ, Horberg M, Lima VD, Gill MJ, Karris M, Rebeiro PF, Thorne J, Rich AJ, Crane H, Kitahata M, Rubtsova A, Wong C, Leng S, Marconi VC, D’Souza G, Kim HN, Napravnik S, McGinnis K, Kirk GD, Sterling TR, Moore RD, Kasaie P.",
+      "pubYear": "2022",
+      "firstPublicationDate": "2022-11-05",
+      "firstIndexDate": "2022-11-07"
+    },
+    {
+      "id": "35016216",
+      "source": "MED",
+      "doi": "10.1093/cid/ciab1029",
+      "title": "Potential Effects of the Coronavirus Disease 2019 (COVID-19) Pandemic on Human Immunodeficiency Virus (HIV) Transmission: A Modeling Study in 32 US Cities.",
+      "authorString": "Fojo A, Wallengren E, Schnure M, Dowdy DW, Shah M, Kasaie P.",
+      "pubYear": "2022",
+      "firstPublicationDate": "2022-08-01",
+      "firstIndexDate": "2022-01-12",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "75",
+        "journalIssueId": 3412341,
+        "dateOfPublication": "2022 Aug",
+        "monthOfPublication": 8,
+        "yearOfPublication": 2022,
+        "journal": {
+          "medlineAbbreviation": "Clin Infect Dis",
+          "title": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+          "essn": "1537-6591",
+          "issn": "1058-4838",
+          "nlmid": "9203213",
+          "isoabbreviation": "Clin Infect Dis"
+        },
+        "printPublicationDate": "2022-08-01"
+      }
+    },
+    {
+      "id": "IND605607480",
+      "source": "AGR",
+      "doi": "10.1080/10942912.2016.1141297",
+      "title": "A comparative study on different methods for the evaluation of baker’s yeast bioactivity",
+      "authorString": "Rad AH, Kasaie Z.",
+      "pubYear": "2017",
+      "firstPublicationDate": "2017-01-01",
+      "firstIndexDate": "2023-04-21",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "20",
+        "journalIssueId": 3546947,
+        "dateOfPublication": "2017 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2017,
+        "journal": {
+          "medlineAbbreviation": "Int J Food Prop",
+          "title": "International journal of food properties",
+          "essn": "1532-2386",
+          "issn": "1094-2912",
+          "nlmid": "9892066",
+          "isoabbreviation": "Int J Food Prop"
+        },
+        "printPublicationDate": "2017-01-01"
+      }
+    },
+    {
+      "id": "41739082",
+      "source": "MED",
+      "doi": "10.1097/qad.0000000000004425",
+      "title": "Targeted cuts to Ryan White programs could raise HIV incidence by 8-17% in 30 US states and the District of Columbia.",
+      "authorString": "Zalesak A, Schnure M, Forster R, Jones JL, Lesko CR, Batey DS, Althoff KN, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-02-26",
+      "firstIndexDate": "2026-02-25",
+      "journalInfo": {
+        "issue": "4",
+        "volume": "40",
+        "journalIssueId": 4131283,
+        "dateOfPublication": "2026 Apr",
+        "monthOfPublication": 4,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "AIDS",
+          "title": "AIDS (London, England)",
+          "essn": "1473-5571",
+          "issn": "0269-9370",
+          "isoabbreviation": "AIDS",
+          "nlmid": "8710219"
+        },
+        "printPublicationDate": "2026-04-01"
+      }
+    },
+    {
+      "id": "34543589",
+      "source": "MED",
+      "doi": "10.7326/m21-1501",
+      "title": "What Will It Take to End HIV in the United States? : A Comprehensive, Local-Level Modeling Study.",
+      "authorString": "Fojo AT, Schnure M, Kasaie P, Dowdy DW, Shah M.",
+      "pubYear": "2021",
+      "firstPublicationDate": "2021-09-21",
+      "firstIndexDate": "2021-09-21",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "174",
+        "journalIssueId": 3269226,
+        "dateOfPublication": "2021 Nov",
+        "monthOfPublication": 11,
+        "yearOfPublication": 2021,
+        "journal": {
+          "medlineAbbreviation": "Ann Intern Med",
+          "title": "Annals of internal medicine",
+          "essn": "1539-3704",
+          "issn": "0003-4819",
+          "isoabbreviation": "Ann Intern Med",
+          "nlmid": "0372351"
+        },
+        "printPublicationDate": "2021-11-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "34543585",
+            "reference": "Ann Intern Med. 2021 Nov;174(11):1620-1621. doi: 10.7326/M21-3607",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "26939737",
+      "source": "MED",
+      "doi": "10.1016/s2352-3018(16)00007-2",
+      "title": "Effect of the US National HIV/AIDS Strategy targets for improved HIV care engagement: a modelling study.",
+      "authorString": "Shah M, Perry A, Risher K, Kapoor S, Grey J, Sharma A, Rosenberg ES, Del Rio C, Sullivan P, Dowdy DW.",
+      "pubYear": "2016",
+      "firstPublicationDate": "2016-02-08",
+      "firstIndexDate": "2016-03-05",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "3",
+        "journalIssueId": 2382275,
+        "dateOfPublication": "2016 Mar",
+        "monthOfPublication": 3,
+        "yearOfPublication": 2016,
+        "journal": {
+          "medlineAbbreviation": "Lancet HIV",
+          "title": "The lancet. HIV",
+          "essn": "2352-3018",
+          "issn": "2405-4704",
+          "nlmid": "101645355",
+          "isoabbreviation": "Lancet HIV"
+        },
+        "printPublicationDate": "2016-03-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "26939733",
+            "reference": "Lancet HIV. 2016 Mar;3(3):e109-10. doi: 10.1016/S2352-3018(16)00017-5.",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "41248188",
+      "source": "MED",
+      "doi": "10.1371/journal.pgph.0005302",
+      "title": "Evaluating the impact of decentralized testing for tuberculosis in Ghana: A simulation model.",
+      "authorString": "Kasaie P, Dombrowski L, Pennington J, Kenu E, Adusi-Poku Y, Wadie B, Dowdy DW, Schroeder LF.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-11-17",
+      "firstIndexDate": "2025-11-17",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "5",
+        "journalIssueId": 4041497,
+        "dateOfPublication": "2025 ",
+        "monthOfPublication": 0,
+        "yearOfPublication": 2025,
+        "journal": {
+          "medlineAbbreviation": "PLOS Glob Public Health",
+          "title": "PLOS global public health",
+          "essn": "2767-3375",
+          "issn": "2767-3375",
+          "isoabbreviation": "PLOS Glob Public Health",
+          "nlmid": "9918283779606676"
+        },
+        "printPublicationDate": "2025-01-01"
+      }
+    },
+    {
+      "id": "31382959",
+      "source": "MED",
+      "doi": "10.1186/s12916-019-1384-8",
+      "title": "Informing decision-making for universal access to quality tuberculosis diagnosis in India: an economic-epidemiological model.",
+      "authorString": "Sohn H, Kasaie P, Kendall E, Gomez GB, Vassall A, Pai M, Dowdy D.",
+      "pubYear": "2019",
+      "firstPublicationDate": "2019-08-06",
+      "firstIndexDate": "2019-08-06",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "17",
+        "journalIssueId": 2843058,
+        "dateOfPublication": "2019 Aug",
+        "monthOfPublication": 8,
+        "yearOfPublication": 2019,
+        "journal": {
+          "medlineAbbreviation": "BMC Med",
+          "title": "BMC medicine",
+          "essn": "1741-7015",
+          "issn": "1741-7015",
+          "isoabbreviation": "BMC Med",
+          "nlmid": "101190723"
+        },
+        "printPublicationDate": "2019-08-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "31783754",
+            "reference": "BMC Med. 2019 Nov 29;17(1):224. doi: 10.1186/s12916-019-1468-5",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "42772706",
+      "source": "MED",
+      "doi": "10.1016/j.annepidem.2026.110292",
+      "title": "Impact of an early body mass index maintenance intervention at ART initiation on diabetes risk: Insights from a computer simulation study.",
+      "authorString": "Kasaie P, Zhao Y, Humes E, Gerace L, Reid K, Lesko CR, Kurgansky KE, Koethe JR, Rebeiro PF, Bourgi K, Erlandson KM, Gebo K, Althoff KN.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-09-22",
+      "firstIndexDate": "2026-09-23",
+      "journalInfo": {
+        "volume": "123",
+        "journalIssueId": 4261251,
+        "dateOfPublication": "2026 Sep",
+        "monthOfPublication": 9,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "Ann Epidemiol",
+          "title": "Annals of epidemiology",
+          "essn": "1873-2585",
+          "issn": "1047-2797",
+          "isoabbreviation": "Ann Epidemiol",
+          "nlmid": "9100013"
+        },
+        "printPublicationDate": "2026-09-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "41282892",
+            "reference": "medRxiv. 2025 Nov 06:2025.11.05.25339607. doi: 10.1101/2025.11.05.25339607.",
+            "type": "Update of",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "42869644",
+      "source": "MED",
+      "doi": "10.1093/aje/kwag255",
+      "title": "The effect of hypothetical interventions to limit weight gain on incident type 2 diabetes mellitus among people with HIV initiating antiretroviral therapy in the United States, 2012-2021.",
+      "authorString": "Lesko CR, Kurgansky K, Humes E, Kasaie P, Hyle EP, Lam JO, Lujintanon S, Rubtsova A, Horberg M, Leng SX, Lang R, Fojo AT, Marconi VC, Davy-Mendez T, Althoff KN.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-10-14",
+      "firstIndexDate": "2026-10-19",
+      "journalInfo": {
+        "journalIssueId": 4275239,
+        "dateOfPublication": "2026 Oct",
+        "monthOfPublication": 10,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "Am J Epidemiol",
+          "title": "American journal of epidemiology",
+          "essn": "1476-6256",
+          "issn": "0002-9262",
+          "isoabbreviation": "Am J Epidemiol",
+          "nlmid": "7910653"
+        },
+        "printPublicationDate": "2026-10-01"
+      }
+    },
+    {
+      "id": "PMC13665685",
+      "source": "PMC",
+      "title": "The effect of hypothetical interventions to limit weight gain on incident type 2 diabetes mellitus among people with HIV initiating antiretroviral therapy in the United States, 2012–2021",
+      "authorString": "Lesko C, Kurgansky K, Humes E, Kasaie P, Hyle E, Lam J, Lujintanon S, Rubtsova A, Horberg M, Leng S, Lang R, Fojo A, Marconi V, Davy-Mendez T, Althoff K.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-10-14",
+      "firstIndexDate": "2026-10-16",
+      "journalInfo": {
+        "journalIssueId": 4275239,
+        "dateOfPublication": "2026 Oct",
+        "monthOfPublication": 10,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "Am J Epidemiol",
+          "title": "American journal of epidemiology",
+          "essn": "1476-6256",
+          "issn": "0002-9262",
+          "isoabbreviation": "Am J Epidemiol",
+          "nlmid": "7910653"
+        },
+        "printPublicationDate": "2026-10-01"
+      }
+    },
+    {
+      "id": "42696278",
+      "source": "MED",
+      "doi": "10.1001/jamanetworkopen.2026.32299",
+      "title": "Projected Aging Among People With HIV in the US.",
+      "authorString": "Zalesak A, Kasaie P, Dansky Z, Althoff KN, Dowdy DW, Shah M, Fojo AT, Schnure M.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-09-01",
+      "firstIndexDate": "2026-09-05",
+      "journalInfo": {
+        "issue": "9",
+        "volume": "9",
+        "journalIssueId": 4252087,
+        "dateOfPublication": "2026 Sep",
+        "monthOfPublication": 9,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "JAMA Netw Open",
+          "title": "JAMA network open",
+          "essn": "2574-3805",
+          "issn": "2574-3805",
+          "isoabbreviation": "JAMA Netw Open",
+          "nlmid": "101729235"
+        },
+        "printPublicationDate": "2026-09-01"
+      }
+    },
+    {
+      "id": "PPR1287298",
+      "source": "PPR",
+      "doi": "10.64898/2026.07.27.26359045",
+      "title": "When Cuts Cost More: Projected Fiscal Impact of Eliminating the AIDS Drug Assistance Program in 30 US States",
+      "authorString": "Forster RM, Schnure M, Balasubramanian R, Jones JL, Hyle EP, Batey S, Althoff KN, Gebo K, Dowdy DW, Shah M, Fojo AT, Kasaie P.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-07-28",
+      "firstIndexDate": "2026-07-30"
+    },
+    {
+      "id": "42508440",
+      "source": "MED",
+      "doi": "10.1016/s2352-3018(26)00058-5",
+      "title": "The Lancet HIV Commission on ageing and HIV: a global perspective.",
+      "authorString": "Justice AC, Althoff KN, Clarfield AM, Ramirez BC, Ford N, Hartley MA, Kiplagat J, Lui GCY, Semeere AS, Vitoria M, Watiti S, Barber TJ, Barnighausen TW, Boffito M, Brennan-Ing M, Castilho J, Connor SR, Cortes C, Guaraldi G, Greene M, Grinsztejn B, Godfrey C, Hailu W, Ruiz VAH, Bellocq JH, Johnson V, Joska J, Kasaie P, Moseki O, Naous N, Negin J, Ochieng D, Onyango D, Policek N, Raphael Y, Rohr J, Rosenthal A, Schatz EJ, Schnure MC, Seiler KR, Shamu T, Smit M, Stafford KA, Sued O, Tan A, du Toit JD, Cardoso SW.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-07-27",
+      "firstIndexDate": "2026-07-30",
+      "journalInfo": {
+        "issue": "8",
+        "volume": "13",
+        "journalIssueId": 4235140,
+        "dateOfPublication": "2026 Aug",
+        "monthOfPublication": 8,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "Lancet HIV",
+          "title": "The lancet. HIV",
+          "essn": "2352-3018",
+          "issn": "2405-4704",
+          "isoabbreviation": "Lancet HIV",
+          "nlmid": "101645355"
+        },
+        "printPublicationDate": "2026-08-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "42815499",
+            "reference": "Lancet HIV. 2026 Oct;13(10):e688. doi: 10.1016/S2352-3018(26)00233-X.",
+            "type": "Erratum in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "42412430",
+      "source": "MED",
+      "doi": "10.1001/jamanetworkopen.2026.21966",
+      "title": "Ten-Year Cost Projections for Medicare Beneficiaries 65 Years or Older With HIV.",
+      "authorString": "Hyle EP, Ang L, Luu G, Kasaie P, Dai D, Ebem F, Phelan J, Koiso S, Duggan C, Humes E, Molozanov D, Sax PE, Gerace L, Giardina J, Orav EJ, Horn T, Neilan AM, Pandya A, Figueroa JF, Althoff KN, Freedberg KA.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-07-01",
+      "firstIndexDate": "2026-07-08",
+      "journalInfo": {
+        "issue": "7",
+        "volume": "9",
+        "journalIssueId": 4223908,
+        "dateOfPublication": "2026 Jul",
+        "monthOfPublication": 7,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "JAMA Netw Open",
+          "title": "JAMA network open",
+          "essn": "2574-3805",
+          "issn": "2574-3805",
+          "isoabbreviation": "JAMA Netw Open",
+          "nlmid": "101729235"
+        },
+        "printPublicationDate": "2026-07-01"
+      }
+    },
+    {
+      "id": "41950444",
+      "source": "MED",
+      "doi": "10.2105/ajph.2025.308409",
+      "title": "Projected Increase in HIV Incidence in 11 States if Ryan White Ends: A Simulation Study.",
+      "authorString": "Schnure M, Forster R, Jones JL, Lesko CR, Batey DS, Butler I, Ward D, Musgrove K, Althoff KN, Jain MK, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-05-01",
+      "firstIndexDate": "2026-04-08",
+      "journalInfo": {
+        "issue": "5",
+        "volume": "116",
+        "journalIssueId": 4174951,
+        "dateOfPublication": "2026 May",
+        "monthOfPublication": 5,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "Am J Public Health",
+          "title": "American journal of public health",
+          "essn": "1541-0048",
+          "issn": "0090-0036",
+          "isoabbreviation": "Am J Public Health",
+          "nlmid": "1254074"
+        },
+        "printPublicationDate": "2026-05-01"
+      }
+    },
+    {
+      "id": "41640117",
+      "source": "MED",
+      "doi": "10.1093/cid/ciag038",
+      "title": "The Potential Effect of Ending Centers for Disease Control and Prevention Funding for HIV Tests: A Modeling Study in 18 States.",
+      "authorString": "Balasubramanian R, Schnure M, Forster R, Hanage WP, Batey DS, Althoff KN, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-04-01",
+      "firstIndexDate": "2026-02-10",
+      "journalInfo": {
+        "issue": "4",
+        "volume": "82",
+        "journalIssueId": 4186918,
+        "dateOfPublication": "2026 Apr",
+        "monthOfPublication": 4,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "Clin Infect Dis",
+          "title": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+          "essn": "1537-6591",
+          "issn": "1058-4838",
+          "nlmid": "9203213",
+          "isoabbreviation": "Clin Infect Dis"
+        },
+        "printPublicationDate": "2026-04-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "41001495",
+            "reference": "medRxiv. 2025 Sep 21:2025.09.19.25336182. doi: 10.1101/2025.09.19.25336182.",
+            "type": "Update of",
+            "orderIn": 1
+          },
+          {
+            "source": "MED",
+            "id": "41639990",
+            "reference": "Clin Infect Dis. 2026 Apr 30;82(4):e755-e756. doi: 10.1093/cid/ciag039.",
+            "type": "Comment in",
+            "orderIn": 2
+          },
+          {
+            "source": "PPR",
+            "id": "PPR1088350",
+            "type": "Preprint in",
+            "note": "Link created based on a title-first author match",
+            "orderIn": 10002
+          }
+        ]
+      }
+    },
+    {
+      "id": "41622838",
+      "source": "MED",
+      "doi": "10.1093/infdis/jiag050",
+      "title": "Modeling the Impact of Case Finding for Tuberculosis: The Role of Infection Dynamics.",
+      "authorString": "Ryckman TS, Shrestha S, Fojo AT, Kasaie P, Dowdy DW, Kendall EA.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-04-01",
+      "firstIndexDate": "2026-02-06",
+      "journalInfo": {
+        "issue": "4",
+        "volume": "233",
+        "journalIssueId": 4186616,
+        "dateOfPublication": "2026 Apr",
+        "monthOfPublication": 4,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "J Infect Dis",
+          "title": "The Journal of infectious diseases",
+          "essn": "1537-6613",
+          "issn": "0022-1899",
+          "isoabbreviation": "J Infect Dis",
+          "nlmid": "0413675"
+        },
+        "printPublicationDate": "2026-04-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "40321291",
+            "reference": "medRxiv. 2025 Apr 16:2025.04.15.25325877. doi: 10.1101/2025.04.15.25325877.",
+            "type": "Update of",
+            "orderIn": 1
+          },
+          {
+            "source": "PPR",
+            "id": "PPR1004616",
+            "type": "Preprint in",
+            "note": "Link created based on a title-first author match",
+            "orderIn": 10002
+          }
+        ]
+      }
+    },
+    {
+      "id": "41804038",
+      "source": "MED",
+      "doi": "10.1002/jia2.70087",
+      "title": "Integrating HIV services in an era of global change.",
+      "authorString": "Ratevosian J, Bekker LG, Eakle R, Baral S, Cepeda J, Dugas L, Dybul M, Alleyne G, Eholie SP, Esom K, Grimsrud A, Havlir D, Kamarulzaman A, Kasaie P, Kazatchkine M, Kilonzo N, Klag M, Klein M, Lewin S, Luo C, Makofane K, Martin N, Mayer K, Millett G, Ntusi N, Pace L, Piot P, Poniatowski B, Daskalakis D, Pozniak A, Quinn T, Reynolds C, Rockstroh J, Sippel S, Spire B, Starrs A, Strathdee S, Schechter M, Thomson N, Vickerman P, Weir B, Beyrer C.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-03-01",
+      "firstIndexDate": "2026-03-10",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "29",
+        "journalIssueId": 4133808,
+        "dateOfPublication": "2026 Mar",
+        "monthOfPublication": 3,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "J Int AIDS Soc",
+          "title": "Journal of the International AIDS Society",
+          "essn": "1758-2652",
+          "issn": "1758-2652",
+          "isoabbreviation": "J Int AIDS Soc",
+          "nlmid": "101478566"
+        },
+        "printPublicationDate": "2026-03-01"
+      }
+    },
+    {
+      "id": "PPR1269221",
+      "source": "PPR",
+      "doi": "10.64898/2026.01.30.26345234",
+      "title": "Projected Aging Among People with HIV in the United States: A Modeling Analysis in 24 States",
+      "authorString": "Zalesak A, Kasaie P, Dansky Z, Althoff KN, Dowdy DW, Shah M, Fojo AT, Schnure M.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-02-02",
+      "firstIndexDate": "2026-07-03"
+    },
+    {
+      "id": "PPR1114715",
+      "source": "PPR",
+      "doi": "10.1101/2025.11.05.25339607",
+      "title": "Impact of an Early Body Mass Index Maintenance Intervention at ART initiation on Diabetes Risk: Insights from a Simulation Study",
+      "authorString": "Kasaie P, Zhao Y, Humes E, Gerace L, Reid K, Lesko CR, Kurgansky KE, Koethe JR, Rebeiro PF, Bourgi K, Erlandson KM, Gebo K, Althoff KN.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-11-06",
+      "firstIndexDate": "2025-11-07"
+    },
+    {
+      "id": "PPR1270461",
+      "source": "PPR",
+      "doi": "10.64898/2025.12.19.25342703",
+      "title": "Costs associated with increasing numbers of Medicare beneficiaries with HIV aged 65 years and older from 2026 to 2035",
+      "authorString": "Hyle EP, Ang L, Luu G, Kasaie P, Dai D, Koiso S, Phelan J, Ebem F, Duggan C, Humes E, Sax PE, Gerace L, Giardina J, Orav EJ, Neilan AM, Pandya A, Figueroa JF, Althoff KN, Freedberg KA.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-12-27",
+      "firstIndexDate": "2026-07-03"
+    },
+    {
+      "id": "PPR1102105",
+      "source": "PPR",
+      "doi": "10.1101/2025.10.14.25337745",
+      "title": "Proposed Cuts to the Ryan White Program Could Raise HIV Incidence by 18% in 30 US States and the District of Columbia: A Simulation Study",
+      "authorString": "Zalesak A, Schnure M, Forster R, Jones JL, Lesko CR, Batey DS, Althoff KN, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-10-15",
+      "firstIndexDate": "2025-10-17"
+    },
+    {
+      "id": "PPR1058939",
+      "source": "PPR",
+      "doi": "10.1101/2025.07.31.25332525",
+      "title": "HIV Incidence Could Rise by 68% in 11 States if Ryan White Ends: A Simulation Study",
+      "authorString": "Schnure M, Forster R, Jones JL, Lesko CR, Batey DS, Butler I, Ward D, Musgrove K, Althoff KN, Jain MK, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-08-01",
+      "firstIndexDate": "2025-08-02"
+    },
+    {
+      "id": "40921074",
+      "source": "MED",
+      "doi": "10.7326/annals-25-01737",
+      "title": "The Potential Impact of Ending the Ryan White HIV/AIDS Program on HIV Incidence: A Simulation Study in 31 U.S. Cities.",
+      "authorString": "Forster R, Schnure M, Jones J, Lesko C, Batey DS, Butler I, Ward D, Musgrove K, Althoff KN, Jain MK, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-09-09",
+      "firstIndexDate": "2025-09-09",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "178",
+        "journalIssueId": 4050043,
+        "dateOfPublication": "2025 Nov",
+        "monthOfPublication": 11,
+        "yearOfPublication": 2025,
+        "journal": {
+          "medlineAbbreviation": "Ann Intern Med",
+          "title": "Annals of internal medicine",
+          "essn": "1539-3704",
+          "issn": "0003-4819",
+          "nlmid": "0372351",
+          "isoabbreviation": "Ann Intern Med"
+        },
+        "printPublicationDate": "2025-11-01"
+      }
+    },
+    {
+      "id": "PPR1088350",
+      "source": "PPR",
+      "doi": "10.1101/2025.09.19.25336182",
+      "title": "The Potential Effect of Ending CDC Funding for HIV Tests: A Modeling Study in 18 States",
+      "authorString": "Balasubramanian R, Schnure M, Forster R, Hanage WP, Batey DS, Althoff KN, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-09-21",
+      "firstIndexDate": "2025-09-24",
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "41640117",
+            "reference": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America. \n    2026 Feb;:ciag038",
+            "type": "Preprint of",
+            "note": "Link created based on a title-first author match",
+            "orderIn": 10001
+          }
+        ]
+      }
+    },
+    {
+      "id": "PPR1004616",
+      "source": "PPR",
+      "doi": "10.1101/2025.04.15.25325877",
+      "title": "Modeling the impact of case finding for tuberculosis: The role of infection dynamics",
+      "authorString": "Ryckman TS, Shrestha S, Fojo AT, Kasaie P, Dowdy DW, Kendall EA.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-04-16",
+      "firstIndexDate": "2025-04-18",
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "41622838",
+            "reference": "The Journal of infectious diseases. \n    2026 Jan;:jiag050",
+            "type": "Preprint of",
+            "note": "Link created based on a title-first author match",
+            "orderIn": 10001
+          }
+        ]
+      }
+    },
+    {
+      "id": "39431507",
+      "source": "MED",
+      "doi": "10.1097/qai.0000000000003486",
+      "title": "The Contribution of Socioeconomic Factors to HIV RNA Suppression in Persons With HIV Engaged in Care in the NA-ACCORD.",
+      "authorString": "Chandran A, Feng X, Coburn SB, Kasaie P, Malone J, Horberg MA, Hogan B, Rebeiro PF, Gill MJ, McGinnis KA, Silverberg MJ, Karris MY, Napravnik S, Konkle-Parker D, Lee J, Freeman AM, Ghidey R, Garza V, Marconi VC, Kirk GD, Thorne J, Crane HM, Lang R, Kitahata MM, Moore RD, Althoff KN.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-11-01",
+      "firstIndexDate": "2024-10-22",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "97",
+        "journalIssueId": 3841291,
+        "dateOfPublication": "2024 Nov",
+        "monthOfPublication": 11,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "J Acquir Immune Defic Syndr",
+          "title": "Journal of acquired immune deficiency syndromes (1999)",
+          "essn": "1944-7884",
+          "issn": "1525-4135",
+          "isoabbreviation": "J Acquir Immune Defic Syndr",
+          "nlmid": "100892005"
+        },
+        "printPublicationDate": "2024-11-01"
+      }
+    },
+    {
+      "id": "38449385",
+      "source": "MED",
+      "doi": "10.1177/0272989x241232666",
+      "title": "A Generalizable Decision-Making Framework for Selecting Onsite versus Send-out Clinical Laboratory Testing.",
+      "authorString": "Schroeder LF, Rebman P, Kasaie P, Kenu E, Zelner J, Dowdy DW.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-03-06",
+      "firstIndexDate": "2024-03-07",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "44",
+        "journalIssueId": 3748498,
+        "dateOfPublication": "2024 Apr",
+        "monthOfPublication": 4,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "Med Decis Making",
+          "title": "Medical decision making : an international journal of the Society for Medical Decision Making",
+          "essn": "1552-681X",
+          "issn": "0272-989X",
+          "isoabbreviation": "Med Decis Making",
+          "nlmid": "8109073"
+        },
+        "printPublicationDate": "2024-04-01"
+      }
+    },
+    {
+      "id": "38537051",
+      "source": "MED",
+      "doi": "10.1097/qad.0000000000003895",
+      "title": "Forecasting the effect of HIV-targeted interventions on the age distribution of people with HIV in Kenya.",
+      "authorString": "Schnure MC, Kasaie P, Dowdy DW, Genberg BL, Kendall EA, Fojo AT.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-04-09",
+      "firstIndexDate": "2024-03-28",
+      "journalInfo": {
+        "issue": "9",
+        "volume": "38",
+        "journalIssueId": 3790664,
+        "dateOfPublication": "2024 Jul",
+        "monthOfPublication": 7,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "AIDS",
+          "title": "AIDS (London, England)",
+          "essn": "1473-5571",
+          "issn": "0269-9370",
+          "nlmid": "8710219",
+          "isoabbreviation": "AIDS"
+        },
+        "printPublicationDate": "2024-07-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "38932747",
+            "reference": "AIDS. 2024 Jul 15;38(9):1435-1436. doi: 10.1097/QAD.0000000000003910.",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "38215160",
+      "source": "MED",
+      "doi": "10.1371/journal.pmed.1004325",
+      "title": "The forecasted prevalence of comorbidities and multimorbidity in people with HIV in the United States through the year 2030: A modeling study.",
+      "authorString": "Althoff KN, Stewart C, Humes E, Gerace L, Boyd C, Gebo K, Justice AC, Hyle EP, Coburn SB, Lang R, Silverberg MJ, Horberg MA, Lima VD, Gill MJ, Karris M, Rebeiro PF, Thorne J, Rich AJ, Crane H, Kitahata M, Rubtsova A, Wong C, Leng S, Marconi VC, D'Souza G, Kim HN, Napravnik S, McGinnis K, Kirk GD, Sterling TR, Moore RD, Kasaie P.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-01-12",
+      "firstIndexDate": "2024-01-13",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "21",
+        "journalIssueId": 3688662,
+        "dateOfPublication": "2024 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "PLoS Med",
+          "title": "PLoS medicine",
+          "essn": "1549-1676",
+          "issn": "1549-1277",
+          "isoabbreviation": "PLoS Med",
+          "nlmid": "101231360"
+        },
+        "printPublicationDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "37724763",
+      "source": "MED",
+      "doi": "10.1093/cid/ciad557",
+      "title": "The Impact of Preventive Treatment for Multidrug- and Rifampin-Resistant Tuberculosis Exceeds Trial-Based Estimates.",
+      "authorString": "Kasaie P, Pennington J, Gupta A, Dowdy DW, Kendall EA.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-01-01",
+      "firstIndexDate": "2023-09-20",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "78",
+        "journalIssueId": 3702231,
+        "dateOfPublication": "2024 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "Clin Infect Dis",
+          "title": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+          "essn": "1537-6591",
+          "issn": "1058-4838",
+          "isoabbreviation": "Clin Infect Dis",
+          "nlmid": "9203213"
+        },
+        "printPublicationDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "37437108",
+      "source": "MED",
+      "doi": "10.1093/infdis/jiad263",
+      "title": "Evaluating Clinic-Based Interventions to Reduce Racial Differences in Mortality Among People With Human Immunodeficiency Virus in the United States.",
+      "authorString": "Zalla LC, Cole SR, Eron JJ, Adimora AA, Vines AI, Althoff KN, Marconi VC, Gill MJ, Horberg MA, Silverberg MJ, Rebeiro PF, Lang R, Kasaie P, Moore RD, Edwards JK.",
+      "pubYear": "2023",
+      "firstPublicationDate": "2023-12-01",
+      "firstIndexDate": "2023-07-12",
+      "journalInfo": {
+        "issue": "12",
+        "volume": "228",
+        "journalIssueId": 3684609,
+        "dateOfPublication": "2023 Dec",
+        "monthOfPublication": 12,
+        "yearOfPublication": 2023,
+        "journal": {
+          "medlineAbbreviation": "J Infect Dis",
+          "title": "The Journal of infectious diseases",
+          "essn": "1537-6613",
+          "issn": "0022-1899",
+          "isoabbreviation": "J Infect Dis",
+          "nlmid": "0413675"
+        },
+        "printPublicationDate": "2023-12-01"
+      }
+    },
+    {
+      "id": "36815334",
+      "source": "MED",
+      "doi": "10.1093/cid/ciad103",
+      "title": "The Testing Imperative: Why the US Ending the Human Immunodeficiency Virus (HIV) Epidemic Program Needs to Renew Efforts to Expand HIV Testing in Clinical and Community-Based Settings.",
+      "authorString": "Nosyk B, Fojo AT, Kasaie P, Enns B, Trigg L, Piske M, Hutchinson AB, DiNenno EA, Zang X, Del Rio C.",
+      "pubYear": "2023",
+      "firstPublicationDate": "2023-06-01",
+      "firstIndexDate": "2023-02-24",
+      "journalInfo": {
+        "issue": "12",
+        "volume": "76",
+        "journalIssueId": 3589865,
+        "dateOfPublication": "2023 Jun",
+        "monthOfPublication": 6,
+        "yearOfPublication": 2023,
+        "journal": {
+          "medlineAbbreviation": "Clin Infect Dis",
+          "title": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+          "essn": "1537-6591",
+          "issn": "1058-4838",
+          "nlmid": "9203213",
+          "isoabbreviation": "Clin Infect Dis"
+        },
+        "printPublicationDate": "2023-06-01"
+      }
+    },
+    {
+      "id": "37741499",
+      "source": "MED",
+      "doi": "10.1016/j.annepidem.2023.09.005",
+      "title": "Impact of subgroup-specific heterogeneities and dynamic changes in mortality rates on forecasted population size, deaths, and age distribution of persons receiving antiretroviral treatment in the United States: a computer simulation study.",
+      "authorString": "Kasaie P, Stewart C, Humes E, Gerace L, Hyle EP, Zalla LC, Rebeiro PF, Silverberg MJ, Rubtsova AA, Rich AJ, Gebo K, Lesko CR, Fojo AT, Lang R, Edwards JK, Althoff KN.",
+      "pubYear": "2023",
+      "firstPublicationDate": "2023-09-22",
+      "firstIndexDate": "2023-09-24",
+      "journalInfo": {
+        "volume": "87",
+        "journalIssueId": 3667541,
+        "dateOfPublication": "2023 Nov",
+        "monthOfPublication": 11,
+        "yearOfPublication": 2023,
+        "journal": {
+          "medlineAbbreviation": "Ann Epidemiol",
+          "title": "Annals of epidemiology",
+          "essn": "1873-2585",
+          "issn": "1047-2797",
+          "isoabbreviation": "Ann Epidemiol",
+          "nlmid": "9100013"
+        },
+        "printPublicationDate": "2023-11-01"
+      }
+    },
+    {
+      "id": "36478076",
+      "source": "MED",
+      "doi": "10.1093/infdis/jiac473",
+      "title": "A Growing Number of Men Who Have Sex With Men Aging With HIV (20212031): A Comparison of Two Microsimulation Models.",
+      "authorString": "Hyle EP, Kasaie P, Schwamm E, Stewart C, Humes E, Reddy KP, Rebeiro PF, Stanic T, Pei PP, Gerace L, Ang L, Gebo KA, Yu L, Shebl FM, Freedberg KA, Althoff KN.",
+      "pubYear": "2023",
+      "firstPublicationDate": "2023-02-01",
+      "firstIndexDate": "2022-12-09",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "227",
+        "journalIssueId": 3498763,
+        "dateOfPublication": "2023 Feb",
+        "monthOfPublication": 2,
+        "yearOfPublication": 2023,
+        "journal": {
+          "medlineAbbreviation": "J Infect Dis",
+          "title": "The Journal of infectious diseases",
+          "essn": "1537-6613",
+          "issn": "0022-1899",
+          "isoabbreviation": "J Infect Dis",
+          "nlmid": "0413675"
+        },
+        "printPublicationDate": "2023-02-01"
+      }
+    },
+    {
+      "id": "PPR614001",
+      "source": "PPR",
+      "doi": "10.1101/2023.02.06.23285528",
+      "title": "Trials underestimate the impact of preventive treatment for household contacts exposed to multidrug-resistant tuberculosis: a simulation study",
+      "authorString": "Kasaie P, Pennington J, Gupta A, Dowdy DW, Kendall EA.",
+      "pubYear": "2023",
+      "firstPublicationDate": "2023-02-08",
+      "firstIndexDate": "2023-02-11"
+    },
+    {
+      "id": "34983066",
+      "source": "MED",
+      "doi": "10.1093/cid/ciab1030",
+      "title": "Five-Year Mortality for Adults Entering Human Immunodeficiency Virus Care Under Universal Early Treatment Compared With the General US Population.",
+      "authorString": "Edwards JK, Cole SR, Breger TL, Filiatreau LM, Zalla L, Mulholland GE, Horberg MA, Silverberg MJ, John Gill M, Rebeiro PF, Thorne JE, Kasaie P, Marconi VC, Sterling TR, Althoff KN, Moore RD, Eron JJ.",
+      "pubYear": "2022",
+      "firstPublicationDate": "2022-09-01",
+      "firstIndexDate": "2022-01-05",
+      "journalInfo": {
+        "issue": "5",
+        "volume": "75",
+        "journalIssueId": 3423856,
+        "dateOfPublication": "2022 Sep",
+        "monthOfPublication": 9,
+        "yearOfPublication": 2022,
+        "journal": {
+          "medlineAbbreviation": "Clin Infect Dis",
+          "title": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+          "essn": "1537-6591",
+          "issn": "1058-4838",
+          "isoabbreviation": "Clin Infect Dis",
+          "nlmid": "9203213"
+        },
+        "printPublicationDate": "2022-09-01"
+      }
+    },
+    {
+      "id": "35636746",
+      "source": "MED",
+      "doi": "10.1097/qai.0000000000003029",
+      "title": "Projected Impact of Expanded Long-Acting Injectable PrEP Use Among Men Who Have Sex With Men on Local HIV Epidemics.",
+      "authorString": "Balasubramanian R, Kasaie P, Schnure M, Dowdy DW, Shah M, Fojo AT.",
+      "pubYear": "2022",
+      "firstPublicationDate": "2022-10-01",
+      "firstIndexDate": "2022-06-01",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "91",
+        "journalIssueId": 3422005,
+        "dateOfPublication": "2022 Oct",
+        "monthOfPublication": 10,
+        "yearOfPublication": 2022,
+        "journal": {
+          "medlineAbbreviation": "J Acquir Immune Defic Syndr",
+          "title": "Journal of acquired immune deficiency syndromes (1999)",
+          "essn": "1944-7884",
+          "issn": "1525-4135",
+          "nlmid": "100892005",
+          "isoabbreviation": "J Acquir Immune Defic Syndr"
+        },
+        "printPublicationDate": "2022-10-01"
+      }
+    },
+    {
+      "id": "35661018",
+      "source": "MED",
+      "doi": "10.1007/s10461-022-03705-6",
+      "title": "Abuse in the Continua: HIV Prevention and Care Outcomes and Syndemic Conditions Associated with Intimate Partner Violence Among Black Gay and Bisexual Men in the Southern United States.",
+      "authorString": "Wirtz AL, Burns PA, Poteat T, Malik M, White JJ, Brooks D, Kasaie P, Beyrer C.",
+      "pubYear": "2022",
+      "firstPublicationDate": "2022-06-04",
+      "firstIndexDate": "2022-06-07",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "26",
+        "journalIssueId": 3437833,
+        "dateOfPublication": "2022 Nov",
+        "monthOfPublication": 11,
+        "yearOfPublication": 2022,
+        "journal": {
+          "medlineAbbreviation": "AIDS Behav",
+          "title": "AIDS and behavior",
+          "essn": "1573-3254",
+          "issn": "1090-7165",
+          "isoabbreviation": "AIDS Behav",
+          "nlmid": "9712133"
+        },
+        "printPublicationDate": "2022-11-01"
+      }
+    },
+    {
+      "id": "34645429",
+      "source": "MED",
+      "doi": "10.1186/s12916-021-02110-5",
+      "title": "Achieving a \"step change\" in the tuberculosis epidemic through comprehensive community-wide intervention: a model-based analysis.",
+      "authorString": "Shrestha S, Kendall EA, Chang R, Joseph R, Kasaie P, Gillini L, Fojo AT, Campbell M, Arinaminpathy N, Dowdy DW.",
+      "pubYear": "2021",
+      "firstPublicationDate": "2021-10-14",
+      "firstIndexDate": "2021-10-15",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "19",
+        "journalIssueId": 3241319,
+        "dateOfPublication": "2021 Oct",
+        "monthOfPublication": 10,
+        "yearOfPublication": 2021,
+        "journal": {
+          "medlineAbbreviation": "BMC Med",
+          "title": "BMC medicine",
+          "essn": "1741-7015",
+          "issn": "1741-7015",
+          "isoabbreviation": "BMC Med",
+          "nlmid": "101190723"
+        },
+        "printPublicationDate": "2021-10-01"
+      }
+    },
+    {
+      "id": "34627998",
+      "source": "MED",
+      "doi": "10.1016/j.annepidem.2021.08.021",
+      "title": "Projecting the age-distribution of men who have sex with men receiving HIV treatment in the United States.",
+      "authorString": "Kasaie P, Stewart C, Humes E, Gerace L, Zhang J, Silverberg MJ, Horberg MA, Rebeiro PF, Hyle EP, Lima VD, Wong C, Gill MJ, Gebo K, Moore R, Kitahata MM, Althoff KN.",
+      "pubYear": "2022",
+      "firstPublicationDate": "2021-10-07",
+      "firstIndexDate": "2021-10-12",
+      "journalInfo": {
+        "volume": "65",
+        "journalIssueId": 3291530,
+        "dateOfPublication": "2022 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2022,
+        "journal": {
+          "medlineAbbreviation": "Ann Epidemiol",
+          "title": "Annals of epidemiology",
+          "essn": "1873-2585",
+          "issn": "1047-2797",
+          "isoabbreviation": "Ann Epidemiol",
+          "nlmid": "9100013"
+        },
+        "printPublicationDate": "2022-01-01"
+      }
+    },
+    {
+      "id": "32562353",
+      "source": "MED",
+      "doi": "10.1002/jia2.25499",
+      "title": "Integrated screening and treatment services for HIV, hypertension and diabetes in Kenya: assessing the epidemiological impact and cost-effectiveness from a national and regional perspective.",
+      "authorString": "Kasaie P, Weir B, Schnure M, Dun C, Pennington J, Teng Y, Wamai R, Mutai K, Dowdy D, Beyrer C.",
+      "pubYear": "2020",
+      "firstPublicationDate": "2020-06-01",
+      "firstIndexDate": "2020-06-21",
+      "journalInfo": {
+        "volume": "23 Suppl 1",
+        "journalIssueId": 2969773,
+        "dateOfPublication": "2020 Jun",
+        "monthOfPublication": 6,
+        "yearOfPublication": 2020,
+        "journal": {
+          "medlineAbbreviation": "J Int AIDS Soc",
+          "title": "Journal of the International AIDS Society",
+          "essn": "1758-2652",
+          "issn": "1758-2652",
+          "nlmid": "101478566",
+          "isoabbreviation": "J Int AIDS Soc"
+        },
+        "printPublicationDate": "2020-06-01"
+      }
+    },
+    {
+      "id": "32562338",
+      "source": "MED",
+      "doi": "10.1002/jia2.25505",
+      "title": "Recommendations for the use of mathematical modelling to support decision-making on integration of non-communicable diseases into HIV care.",
+      "authorString": "Kibachio J, Mwenda V, Ombiro O, Kamano JH, Perez-Guzman PN, Mutai KK, Guessous I, Beran D, Kasaie P, Weir B, Beecroft B, Kilonzo N, Kupfer L, Smit M.",
+      "pubYear": "2020",
+      "firstPublicationDate": "2020-06-01",
+      "firstIndexDate": "2020-06-21",
+      "journalInfo": {
+        "volume": "23 Suppl 1",
+        "journalIssueId": 2969773,
+        "dateOfPublication": "2020 Jun",
+        "monthOfPublication": 6,
+        "yearOfPublication": 2020,
+        "journal": {
+          "medlineAbbreviation": "J Int AIDS Soc",
+          "title": "Journal of the International AIDS Society",
+          "essn": "1758-2652",
+          "issn": "1758-2652",
+          "isoabbreviation": "J Int AIDS Soc",
+          "nlmid": "101478566"
+        },
+        "printPublicationDate": "2020-06-01"
+      }
+    },
+    {
+      "id": "30837248",
+      "source": "MED",
+      "doi": "10.1136/bmjopen-2018-023453",
+      "title": "Gonorrhoea and chlamydia diagnosis as an entry point for HIV pre-exposure prophylaxis: a modelling study.",
+      "authorString": "Kasaie P, Schumacher CM, Jennings JM, Berry SA, Tuddenham SA, Shah MS, Rosenberg ES, Hoover KW, Gift TL, Chesson H, German D, Dowdy DW.",
+      "pubYear": "2019",
+      "firstPublicationDate": "2019-03-04",
+      "firstIndexDate": "2019-03-07",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "9",
+        "journalIssueId": 2788248,
+        "dateOfPublication": "2019 Mar",
+        "monthOfPublication": 3,
+        "yearOfPublication": 2019,
+        "journal": {
+          "medlineAbbreviation": "BMJ Open",
+          "title": "BMJ open",
+          "essn": "2044-6055",
+          "issn": "2044-6055",
+          "isoabbreviation": "BMJ Open",
+          "nlmid": "101552874"
+        },
+        "printPublicationDate": "2019-03-01"
+      }
+    },
+    {
+      "id": "29944642",
+      "source": "MED",
+      "doi": "10.1097/olq.0000000000000882",
+      "title": "Impact of Providing Preexposure Prophylaxis for Human Immunodeficiency Virus at Clinics for Sexually Transmitted Infections in Baltimore City: An Agent-based Model.",
+      "authorString": "Kasaie P, Berry SA, Shah MS, Rosenberg ES, Hoover KW, Gift TL, Chesson H, Pennington J, German D, Flynn CP, Beyrer C, Dowdy DW.",
+      "pubYear": "2018",
+      "firstPublicationDate": "2018-12-01",
+      "firstIndexDate": "2018-06-27",
+      "journalInfo": {
+        "issue": "12",
+        "volume": "45",
+        "journalIssueId": 2748982,
+        "dateOfPublication": "2018 Dec",
+        "monthOfPublication": 12,
+        "yearOfPublication": 2018,
+        "journal": {
+          "medlineAbbreviation": "Sex Transm Dis",
+          "title": "Sexually transmitted diseases",
+          "essn": "1537-4521",
+          "issn": "0148-5717",
+          "isoabbreviation": "Sex Transm Dis",
+          "nlmid": "7705941"
+        },
+        "printPublicationDate": "2018-12-01"
+      }
+    },
+    {
+      "id": "32721087",
+      "source": "MED",
+      "doi": "10.1002/cnr2.1108",
+      "title": "Quantitative assessment of changes in diffusion tensor imaging (DTI) metrics along the courses of the cortico-ponto-cerebellar tracts secondary to supratentorial human brain glial tumors.",
+      "authorString": "Mirbagheri S, Kamali A, Cai C, Kasaie P, Pillai JJ, Gujar SK, Khorsandi A, Sair HI.",
+      "pubYear": "2018",
+      "firstPublicationDate": "2018-07-11",
+      "firstIndexDate": "2020-07-29",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "1",
+        "journalIssueId": 2985885,
+        "dateOfPublication": "2018 Aug",
+        "monthOfPublication": 8,
+        "yearOfPublication": 2018,
+        "journal": {
+          "medlineAbbreviation": "Cancer Rep (Hoboken)",
+          "title": "Cancer reports (Hoboken, N.J.)",
+          "essn": "2573-8348",
+          "issn": "2573-8348",
+          "isoabbreviation": "Cancer Rep (Hoboken)",
+          "nlmid": "101747728"
+        },
+        "printPublicationDate": "2018-08-01"
+      }
+    },
+    {
+      "id": "30395635",
+      "source": "MED",
+      "doi": "10.1371/journal.pone.0206755",
+      "title": "Economic and epidemiologic impact of guidelines for early ART initiation irrespective of CD4 count in Spain.",
+      "authorString": "Kasaie P, Radford M, Kapoor S, Jung Y, Hernandez Novoa B, Dowdy D, Shah M.",
+      "pubYear": "2018",
+      "firstPublicationDate": "2018-11-05",
+      "firstIndexDate": "2018-11-06",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "13",
+        "journalIssueId": 2743553,
+        "dateOfPublication": "2018 ",
+        "monthOfPublication": 0,
+        "yearOfPublication": 2018,
+        "journal": {
+          "medlineAbbreviation": "PLoS One",
+          "title": "PloS one",
+          "essn": "1932-6203",
+          "issn": "1932-6203",
+          "nlmid": "101285081",
+          "isoabbreviation": "PLoS One"
+        },
+        "printPublicationDate": "2018-01-01"
+      }
+    },
+    {
+      "id": "30032975",
+      "source": "MED",
+      "doi": "10.1016/s0140-6736(18)31070-5",
+      "title": "Advancing global health and strengthening the HIV response in the era of the Sustainable Development Goals: the International AIDS Society-Lancet Commission.",
+      "authorString": "Bekker LG, Alleyne G, Baral S, Cepeda J, Daskalakis D, Dowdy D, Dybul M, Eholie S, Esom K, Garnett G, Grimsrud A, Hakim J, Havlir D, Isbell MT, Johnson L, Kamarulzaman A, Kasaie P, Kazatchkine M, Kilonzo N, Klag M, Klein M, Lewin SR, Luo C, Makofane K, Martin NK, Mayer K, Millett G, Ntusi N, Pace L, Pike C, Piot P, Pozniak A, Quinn TC, Rockstroh J, Ratevosian J, Ryan O, Sippel S, Spire B, Soucat A, Starrs A, Strathdee SA, Thomson N, Vella S, Schechter M, Vickerman P, Weir B, Beyrer C.",
+      "pubYear": "2018",
+      "firstPublicationDate": "2018-07-20",
+      "firstIndexDate": "2018-07-24",
+      "journalInfo": {
+        "issue": "10144",
+        "volume": "392",
+        "journalIssueId": 2711191,
+        "dateOfPublication": "2018 Jul",
+        "monthOfPublication": 7,
+        "yearOfPublication": 2018,
+        "journal": {
+          "medlineAbbreviation": "Lancet",
+          "title": "Lancet (London, England)",
+          "essn": "1474-547X",
+          "issn": "0140-6736",
+          "isoabbreviation": "Lancet",
+          "nlmid": "2985213R"
+        },
+        "printPublicationDate": "2018-07-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "31034373",
+            "reference": "Lancet. 2019 Apr 27;393(10182):1695-1696. doi: 10.1016/S0140-6736(19)30355-1.",
+            "type": "Comment in",
+            "orderIn": 1
+          },
+          {
+            "source": "MED",
+            "id": "31034374",
+            "reference": "Lancet. 2019 Apr 27;393(10182):1696. doi: 10.1016/S0140-6736(19)30353-8.",
+            "type": "Comment in",
+            "orderIn": 2
+          },
+          {
+            "source": "MED",
+            "id": "32359401",
+            "reference": "Lancet. 2020 May 23;395(10237):1598-1599. doi: 10.1016/S0140-6736(20)31026-6.",
+            "type": "Comment in",
+            "orderIn": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "28925587",
+      "source": "MED",
+      "doi": "10.1111/acem.13314",
+      "title": "Lessons Learned From the Development and Parameterization of a Computer Simulation Model to Evaluate Task Modification for Health Care Providers.",
+      "authorString": "Kasaie P, David Kelton W, Ancona RM, Ward MJ, Froehle CM, Lyons MS.",
+      "pubYear": "2018",
+      "firstPublicationDate": "2017-11-11",
+      "firstIndexDate": "2017-09-20",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "25",
+        "journalIssueId": 2649357,
+        "dateOfPublication": "2018 Feb",
+        "monthOfPublication": 2,
+        "yearOfPublication": 2018,
+        "journal": {
+          "medlineAbbreviation": "Acad Emerg Med",
+          "title": "Academic emergency medicine : official journal of the Society for Academic Emergency Medicine",
+          "essn": "1553-2712",
+          "issn": "1069-6563",
+          "isoabbreviation": "Acad Emerg Med",
+          "nlmid": "9418450"
+        },
+        "printPublicationDate": "2018-02-01"
+      }
+    },
+    {
+      "id": "28796433",
+      "source": "MED",
+      "doi": "10.1111/acem.13272",
+      "title": "Understanding Emergency Care Delivery Through Computer Simulation Modeling.",
+      "authorString": "Laker LF, Torabi E, France DJ, Froehle CM, Goldlust EJ, Hoot NR, Kasaie P, Lyons MS, Barg-Walkow LH, Ward MJ, Wears RL.",
+      "pubYear": "2018",
+      "firstPublicationDate": "2017-09-21",
+      "firstIndexDate": "2017-08-10",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "25",
+        "journalIssueId": 2649357,
+        "dateOfPublication": "2018 Feb",
+        "monthOfPublication": 2,
+        "yearOfPublication": 2018,
+        "journal": {
+          "medlineAbbreviation": "Acad Emerg Med",
+          "title": "Academic emergency medicine : official journal of the Society for Academic Emergency Medicine",
+          "essn": "1553-2712",
+          "issn": "1069-6563",
+          "isoabbreviation": "Acad Emerg Med",
+          "nlmid": "9418450"
+        },
+        "printPublicationDate": "2018-02-01"
+      }
+    },
+    {
+      "id": "29423424",
+      "source": "MED",
+      "doi": "10.1093/ofid/ofy008",
+      "title": "What Will It Take to Reduce HIV Incidence in the United States: A Mathematical Modeling Analysis.",
+      "authorString": "Perry A, Kasaie P, Dowdy DW, Shah M.",
+      "pubYear": "2018",
+      "firstPublicationDate": "2018-01-06",
+      "firstIndexDate": "2018-02-10",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "5",
+        "journalIssueId": 2648723,
+        "dateOfPublication": "2018 Feb",
+        "monthOfPublication": 2,
+        "yearOfPublication": 2018,
+        "journal": {
+          "medlineAbbreviation": "Open Forum Infect Dis",
+          "title": "Open forum infectious diseases",
+          "essn": "2328-8957",
+          "issn": "2328-8957",
+          "nlmid": "101637045",
+          "isoabbreviation": "Open Forum Infect Dis"
+        },
+        "printPublicationDate": "2018-02-01"
+      }
+    },
+    {
+      "id": "28750093",
+      "source": "MED",
+      "doi": "10.1371/journal.pone.0182593",
+      "title": "Correction: Optimal costs of HIV pre-exposure prophylaxis for men who have sex with men.",
+      "authorString": "McKenney J, Chen A, Hoover KW, Kelly J, Dowdy D, Kasaie P, Sullivan PS, Rosenberg ES.",
+      "pubYear": "2017",
+      "firstPublicationDate": "2017-07-27",
+      "firstIndexDate": "2017-07-31",
+      "journalInfo": {
+        "issue": "7",
+        "volume": "12",
+        "journalIssueId": 2797090,
+        "dateOfPublication": "2017",
+        "monthOfPublication": 0,
+        "yearOfPublication": 2017,
+        "journal": {
+          "medlineAbbreviation": "PLoS One",
+          "title": "PloS one",
+          "essn": "1932-6203",
+          "issn": "1932-6203",
+          "isoabbreviation": "PLoS One",
+          "nlmid": "101285081"
+        },
+        "printPublicationDate": "2017-01-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "28570572",
+            "reference": "PLoS One. 2017 Jun 1;12(6):e0178170. doi: 10.1371/journal.pone.0178170",
+            "type": "Erratum for",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "29226167",
+      "source": "MED",
+      "doi": "10.1093/ofid/ofx172",
+      "title": "Mathematical Modeling of \"Chronic\" Infectious Diseases: Unpacking the Black Box.",
+      "authorString": "Fojo AT, Kendall EA, Kasaie P, Shrestha S, Louis TA, Dowdy DW.",
+      "pubYear": "2017",
+      "firstPublicationDate": "2017-08-14",
+      "firstIndexDate": "2017-12-11",
+      "journalInfo": {
+        "issue": "4",
+        "volume": "4",
+        "journalIssueId": 2607510,
+        "dateOfPublication": "2017 ",
+        "monthOfPublication": 0,
+        "yearOfPublication": 2017,
+        "journal": {
+          "medlineAbbreviation": "Open Forum Infect Dis",
+          "title": "Open forum infectious diseases",
+          "essn": "2328-8957",
+          "issn": "2328-8957",
+          "isoabbreviation": "Open Forum Infect Dis",
+          "nlmid": "101637045"
+        },
+        "printPublicationDate": "2017-01-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "31329805",
+            "reference": "Open Forum Infect Dis. 2018 Jan 25;5(1):ofx206. doi: 10.1093/ofid/ofx206",
+            "type": "Erratum in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "28498144",
+      "source": "MED",
+      "doi": "10.1097/qai.0000000000001354",
+      "title": "The Impact of Preexposure Prophylaxis Among Men Who Have Sex With Men: An Individual-Based Model.",
+      "authorString": "Kasaie P, Pennington J, Shah MS, Berry SA, German D, Flynn CP, Beyrer C, Dowdy DW.",
+      "pubYear": "2017",
+      "firstPublicationDate": "2017-06-01",
+      "firstIndexDate": "2017-05-12",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "75",
+        "journalIssueId": 2556649,
+        "dateOfPublication": "2017 Jun",
+        "monthOfPublication": 6,
+        "yearOfPublication": 2017,
+        "journal": {
+          "medlineAbbreviation": "J Acquir Immune Defic Syndr",
+          "title": "Journal of acquired immune deficiency syndromes (1999)",
+          "essn": "1944-7884",
+          "issn": "1525-4135",
+          "isoabbreviation": "J Acquir Immune Defic Syndr",
+          "nlmid": "100892005"
+        },
+        "printPublicationDate": "2017-06-01"
+      }
+    },
+    {
+      "id": "27499525",
+      "source": "MED",
+      "doi": "10.1017/ice.2016.160",
+      "title": "Research Methods in Healthcare Epidemiology and Antimicrobial Stewardship-Mathematical Modeling.",
+      "authorString": "Barnes SL, Kasaie P, Anderson DJ, Rubin M.",
+      "pubYear": "2016",
+      "firstPublicationDate": "2016-08-08",
+      "firstIndexDate": "2016-08-10",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "37",
+        "journalIssueId": 2478808,
+        "dateOfPublication": "2016 Nov",
+        "monthOfPublication": 11,
+        "yearOfPublication": 2016,
+        "journal": {
+          "medlineAbbreviation": "Infect Control Hosp Epidemiol",
+          "title": "Infection control and hospital epidemiology",
+          "essn": "1559-6834",
+          "issn": "0899-823X",
+          "isoabbreviation": "Infect Control Hosp Epidemiol",
+          "nlmid": "8804099"
+        },
+        "printPublicationDate": "2016-11-01"
+      }
+    },
+    {
+      "id": "26362321",
+      "source": "MED",
+      "doi": "10.1093/cid/civ801",
+      "title": "The Epidemiologic and Economic Impact of Improving HIV Testing, Linkage, and Retention in Care in the United States.",
+      "authorString": "Shah M, Risher K, Berry SA, Dowdy DW.",
+      "pubYear": "2016",
+      "firstPublicationDate": "2015-09-11",
+      "firstIndexDate": "2015-09-13",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "62",
+        "journalIssueId": 2356712,
+        "dateOfPublication": "2016 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2016,
+        "journal": {
+          "medlineAbbreviation": "Clin Infect Dis",
+          "title": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+          "essn": "1537-6591",
+          "issn": "1058-4838",
+          "nlmid": "9203213",
+          "isoabbreviation": "Clin Infect Dis"
+        },
+        "printPublicationDate": "2016-01-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "26362322",
+            "reference": "Clin Infect Dis. 2016 Jan 15;62(2):230-2. doi: 10.1093/cid/civ804.",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "PPR1331611",
+      "source": "PPR",
+      "doi": "10.64898/2026.09.28.26364204",
+      "title": "Axitinib in Progressive Metastatic Pheochromocytoma and Paraganglioma: Results of a Phase II Study",
+      "authorString": "Del Rivero J, Apolo AB, Edgerly M, Figg WD, Lee J, Ausiello J, Pacak K, Bates SE, Fojo T.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-09-30",
+      "firstIndexDate": "2026-10-01"
+    },
+    {
+      "id": "PPR1333353",
+      "source": "PPR",
+      "doi": "10.64898/2026.10.01.26364504",
+      "title": "Lanreotide for Advanced Pheochromocytoma and Paraganglioma: Results of a Multicenter Phase II Trial",
+      "authorString": "Del Rivero J, Laderian B, Zhou M, Luk L, Bates S, Fojo T.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2026-10-02",
+      "firstIndexDate": "2026-10-04"
+    },
+    {
+      "id": "41348990",
+      "source": "MED",
+      "doi": "10.1200/jco-25-01607",
+      "title": "Opportunities for Harmonization of US Food and Drug Administration Regulatory Decisions Exemplified by the Traditional Approval of Sotorasib and Panitumumab for Colorectal Cancer.",
+      "authorString": "Ratain MJ, Fojo AT.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2025-12-05",
+      "firstIndexDate": "2025-12-06",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "44",
+        "journalIssueId": 4088245,
+        "dateOfPublication": "2026 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "J Clin Oncol",
+          "title": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology",
+          "essn": "1527-7755",
+          "issn": "0732-183X",
+          "isoabbreviation": "J Clin Oncol",
+          "nlmid": "8309333"
+        },
+        "printPublicationDate": "2026-01-01"
+      }
+    },
+    {
+      "id": "40493142",
+      "source": "MED",
+      "doi": "10.1007/s10461-025-04797-6",
+      "title": "Patterns in Mental Health Symptoms, Substance Use, and Viral Suppression in People with HIV: A Clustering Analysis.",
+      "authorString": "Hwang YJ, Lesko CR, Pytell JD, Falade-Nwulia O, Jones JL, Keruly JC, Snow LN, Moore RD, Fojo AT.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-06-10",
+      "firstIndexDate": "2025-06-12",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "29",
+        "journalIssueId": 4028981,
+        "dateOfPublication": "2025 Nov",
+        "monthOfPublication": 11,
+        "yearOfPublication": 2025,
+        "journal": {
+          "medlineAbbreviation": "AIDS Behav",
+          "title": "AIDS and behavior",
+          "essn": "1573-3254",
+          "issn": "1090-7165",
+          "isoabbreviation": "AIDS Behav",
+          "nlmid": "9712133"
+        },
+        "printPublicationDate": "2025-11-01"
+      }
+    },
+    {
+      "id": "40440238",
+      "source": "MED",
+      "doi": "10.1097/01.aids.0001113564.82122.a2",
+      "title": "Association between switching to integrase strand transfer inhibitors and incident diabetes in people with HIV: Erratum.",
+      "authorString": "Hwang YJ, Lesko CR, Brown TT, Alexander GC, Zalla LC, Keruly JC, Snow LN, Pytell JD, Falade-Nwulia O, Jones JL, Moore RD, Fojo AT.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-05-29",
+      "firstIndexDate": "2025-05-31",
+      "journalInfo": {
+        "issue": "8",
+        "volume": "39",
+        "journalIssueId": 3948568,
+        "dateOfPublication": "2025 Jul",
+        "monthOfPublication": 7,
+        "yearOfPublication": 2025,
+        "journal": {
+          "medlineAbbreviation": "AIDS",
+          "title": "AIDS (London, England)",
+          "essn": "1473-5571",
+          "issn": "0269-9370",
+          "isoabbreviation": "AIDS",
+          "nlmid": "8710219"
+        },
+        "printPublicationDate": "2025-07-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "38864578",
+            "reference": "AIDS. 2024 Sep 1;38(11):1696-1702. doi: 10.1097/QAD.0000000000003954.",
+            "type": "Erratum for",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "41313546",
+      "source": "MED",
+      "doi": "10.1007/s12325-025-03434-x",
+      "title": "Letter to the Editor Regarding 'Overall Survival with Apalutamide Versus Enzalutamide in Metastatic Castration-Sensitive Prostate Cancer'.",
+      "authorString": "Schoen MW, Fojo T.",
+      "pubYear": "2026",
+      "firstPublicationDate": "2025-11-28",
+      "firstIndexDate": "2025-11-28",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "43",
+        "journalIssueId": 4110518,
+        "dateOfPublication": "2026 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2026,
+        "journal": {
+          "medlineAbbreviation": "Adv Ther",
+          "title": "Advances in therapy",
+          "essn": "1865-8652",
+          "issn": "0741-238X",
+          "isoabbreviation": "Adv Ther",
+          "nlmid": "8611864"
+        },
+        "printPublicationDate": "2026-01-01"
+      }
+    },
+    {
+      "id": "40796114",
+      "source": "MED",
+      "doi": "10.1093/oncolo/oyaf003",
+      "title": "Harvesting information from Kaplan-Meier plots: part 2-detecting informative censoring as the starting point for an in-depth analysis. Sotorasib plus panitumumab in colorectal cancer as an example.",
+      "authorString": "DaSilva B, Zhou M, Fojo T.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-08-01",
+      "firstIndexDate": "2025-08-21",
+      "journalInfo": {
+        "issue": "8",
+        "volume": "30",
+        "journalIssueId": 3988405,
+        "dateOfPublication": "2025 Aug",
+        "monthOfPublication": 8,
+        "yearOfPublication": 2025,
+        "journal": {
+          "medlineAbbreviation": "Oncologist",
+          "title": "The oncologist",
+          "essn": "1549-490X",
+          "issn": "1083-7159",
+          "isoabbreviation": "Oncologist",
+          "nlmid": "9607837"
+        },
+        "printPublicationDate": "2025-08-01"
+      }
+    },
+    {
+      "id": "39180789",
+      "source": "MED",
+      "doi": "10.1016/j.ebiom.2024.105288",
+      "title": "Assessing olaparib efficacy in U.S. Veterans with metastatic prostate cancer utilizing a time-indifferent g-rate method ideal for real-world analyses.",
+      "authorString": "Leuva H, Zhou M, Jamaleddine N, Meseha M, Faiena I, Anna Park YH, McWilliams G, Luhrs C, Maxwell KN, Von Hoff D, Bates SE, Fojo T.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-08-23",
+      "firstIndexDate": "2024-08-27",
+      "journalInfo": {
+        "volume": "107",
+        "journalIssueId": 3823041,
+        "dateOfPublication": "2024 Sep",
+        "monthOfPublication": 9,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "EBioMedicine",
+          "title": "EBioMedicine",
+          "essn": "2352-3964",
+          "issn": "2352-3964",
+          "isoabbreviation": "EBioMedicine",
+          "nlmid": "101647039"
+        },
+        "printPublicationDate": "2024-09-01"
+      }
+    },
+    {
+      "id": "40228181",
+      "source": "MED",
+      "doi": "10.1200/jco-24-02683",
+      "title": "Why We Do Not Recommend That Women With Breast Cancer Receive Adjuvant Treatment With a CDK4/6 Inhibitor.",
+      "authorString": "Tannock IF, Khan QJ, Fojo T.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-04-14",
+      "firstIndexDate": "2025-04-14",
+      "journalInfo": {
+        "issue": "22",
+        "volume": "43",
+        "journalIssueId": 3984706,
+        "dateOfPublication": "2025 Aug",
+        "monthOfPublication": 8,
+        "yearOfPublication": 2025,
+        "journal": {
+          "medlineAbbreviation": "J Clin Oncol",
+          "title": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology",
+          "essn": "1527-7755",
+          "issn": "0732-183X",
+          "isoabbreviation": "J Clin Oncol",
+          "nlmid": "8309333"
+        },
+        "printPublicationDate": "2025-08-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "40950694",
+            "reference": "Transl Cancer Res. 2025 Aug 31;14(8):4479-4481. doi: 10.21037/tcr-2025-879.",
+            "type": "Comment in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "38864578",
+      "source": "MED",
+      "doi": "10.1097/qad.0000000000003954",
+      "title": "Association between switching to integrase strand transfer inhibitors and incident diabetes in people with HIV.",
+      "authorString": "Hwang YJ, Lesko CR, Brown TT, Alexander GC, Zalla LC, Keruly JC, Snow LN, Pytell JD, Falade-Nwulia O, Jones JL, Moore RD, Fojo AT.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-06-11",
+      "firstIndexDate": "2024-06-13",
+      "journalInfo": {
+        "issue": "11",
+        "volume": "38",
+        "journalIssueId": 3807080,
+        "dateOfPublication": "2024 Sep",
+        "monthOfPublication": 9,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "AIDS",
+          "title": "AIDS (London, England)",
+          "essn": "1473-5571",
+          "issn": "0269-9370",
+          "isoabbreviation": "AIDS",
+          "nlmid": "8710219"
+        },
+        "printPublicationDate": "2024-09-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "40440238",
+            "reference": "AIDS. 2025 Jul 1;39(8):1094. doi: 10.1097/01.aids.0001113564.82122.a2.",
+            "type": "Erratum in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "38899706",
+      "source": "MED",
+      "doi": "10.1056/nejmc2404917",
+      "title": "Ribociclib plus Endocrine Therapy in Early Breast Cancer.",
+      "authorString": "Tannock IF, Meirson T, Fojo A.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-06-01",
+      "firstIndexDate": "2024-06-21",
+      "journalInfo": {
+        "issue": "23",
+        "volume": "390",
+        "journalIssueId": 3788181,
+        "dateOfPublication": "2024 Jun",
+        "monthOfPublication": 6,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "N Engl J Med",
+          "title": "The New England journal of medicine",
+          "essn": "1533-4406",
+          "issn": "0028-4793",
+          "isoabbreviation": "N Engl J Med",
+          "nlmid": "0255562"
+        },
+        "printPublicationDate": "2024-06-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "38507751",
+            "reference": "N Engl J Med. 2024 Mar 21;390(12):1080-1091. doi: 10.1056/NEJMoa2305488.",
+            "type": "Comment on",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "39756447",
+      "source": "MED",
+      "doi": "10.1016/s1470-2045(24)00594-1",
+      "title": "Evidence for a reduction in number of cycles of immune checkpoint inhibitors.",
+      "authorString": "Bazarbachi AH, Magrini N, Aziz Z, Fojo T.",
+      "pubYear": "2025",
+      "firstPublicationDate": "2025-01-01",
+      "firstIndexDate": "2025-01-06",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "26",
+        "journalIssueId": 3880574,
+        "dateOfPublication": "2025 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2025,
+        "journal": {
+          "medlineAbbreviation": "Lancet Oncol",
+          "title": "The Lancet. Oncology",
+          "essn": "1474-5488",
+          "issn": "1470-2045",
+          "isoabbreviation": "Lancet Oncol",
+          "nlmid": "100957246"
+        },
+        "printPublicationDate": "2025-01-01"
+      }
+    },
+    {
+      "id": "39037424",
+      "source": "MED",
+      "doi": "10.1093/oncolo/oyae084",
+      "title": "A review of mitotane in the management of adrenocortical cancer.",
+      "authorString": "Del Rivero J, Else T, Hallanger-Johnson J, Kiseljak-Vassiliades K, Raj N, Reidy-Lagunes D, Srinivas S, Gilbert J, Vaidya A, Aboujaoude E, Bancos I, Tito Fojo A.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-09-01",
+      "firstIndexDate": "2024-07-22",
+      "journalInfo": {
+        "issue": "9",
+        "volume": "29",
+        "journalIssueId": 3826386,
+        "dateOfPublication": "2024 Sep",
+        "monthOfPublication": 9,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "Oncologist",
+          "title": "The oncologist",
+          "essn": "1549-490X",
+          "issn": "1083-7159",
+          "isoabbreviation": "Oncologist",
+          "nlmid": "9607837"
+        },
+        "printPublicationDate": "2024-09-01"
+      }
+    },
+    {
+      "id": "38886159",
+      "source": "MED",
+      "doi": "10.1093/oncolo/oyae118",
+      "title": "Entinostat in patients with relapsed or refractory abdominal neuroendocrine tumors.",
+      "authorString": "Jamison JK, Zhou M, Gelmann EP, Luk L, Bates SE, Califano A, Fojo T.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-09-01",
+      "firstIndexDate": "2024-06-18",
+      "journalInfo": {
+        "issue": "9",
+        "volume": "29",
+        "journalIssueId": 3826386,
+        "dateOfPublication": "2024 Sep",
+        "monthOfPublication": 9,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "Oncologist",
+          "title": "The oncologist",
+          "essn": "1549-490X",
+          "issn": "1083-7159",
+          "isoabbreviation": "Oncologist",
+          "nlmid": "9607837"
+        },
+        "printPublicationDate": "2024-09-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "39215827",
+            "reference": "Oncologist. 2024 Nov 4;29(11):e1626. doi: 10.1093/oncolo/oyae199.",
+            "type": "Erratum in",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "38986067",
+      "source": "MED",
+      "doi": "10.1056/nejmc2406109",
+      "title": "Sotorasib in KRAS-Mutated Colorectal Cancer.",
+      "authorString": "Fojo T.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-07-01",
+      "firstIndexDate": "2024-07-10",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "391",
+        "journalIssueId": 3798333,
+        "dateOfPublication": "2024 Jul",
+        "monthOfPublication": 7,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "N Engl J Med",
+          "title": "The New England journal of medicine",
+          "essn": "1533-4406",
+          "issn": "0028-4793",
+          "isoabbreviation": "N Engl J Med",
+          "nlmid": "0255562"
+        },
+        "printPublicationDate": "2024-07-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "37870968",
+            "reference": "N Engl J Med. 2023 Dec 7;389(23):2125-2139. doi: 10.1056/NEJMoa2308795.",
+            "type": "Comment on",
+            "orderIn": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "38684185",
+      "source": "MED",
+      "doi": "10.1093/jncics/pkae035",
+      "title": "The statistical significance revolution.",
+      "authorString": "Neugut AI, Fojo T.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-04-01",
+      "firstIndexDate": "2024-04-30",
+      "journalInfo": {
+        "issue": "3",
+        "volume": "8",
+        "journalIssueId": 3762706,
+        "dateOfPublication": "2024 Apr",
+        "monthOfPublication": 4,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "JNCI Cancer Spectr",
+          "title": "JNCI cancer spectrum",
+          "essn": "2515-5091",
+          "issn": "2515-5091",
+          "isoabbreviation": "JNCI Cancer Spectr",
+          "nlmid": "101721827"
+        },
+        "printPublicationDate": "2024-04-01"
+      }
+    },
+    {
+      "id": "38480106",
+      "source": "MED",
+      "doi": "10.1053/j.seminoncol.2024.02.003",
+      "title": "Seminars in oncology 50th anniversary.",
+      "authorString": "Fojo T.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-02-29",
+      "firstIndexDate": "2024-03-14",
+      "journalInfo": {
+        "issue": "1-2",
+        "volume": "51",
+        "journalIssueId": 3757980,
+        "dateOfPublication": "2024 Feb-Apr",
+        "monthOfPublication": 0,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "Semin Oncol",
+          "title": "Seminars in oncology",
+          "essn": "1532-8708",
+          "issn": "0093-7754",
+          "isoabbreviation": "Semin Oncol",
+          "nlmid": "0420432"
+        },
+        "printPublicationDate": "2024-02-01"
+      }
+    },
+    {
+      "id": "38181804",
+      "source": "MED",
+      "doi": "10.1016/s1470-2045(23)00537-5",
+      "title": "Mitotane and the myth of 14 mg/L.",
+      "authorString": "Ehrlich MI, Labadie BW, Bates SE, Fojo T.",
+      "pubYear": "2024",
+      "firstPublicationDate": "2024-01-01",
+      "firstIndexDate": "2024-01-07",
+      "journalInfo": {
+        "issue": "1",
+        "volume": "25",
+        "journalIssueId": 3691915,
+        "dateOfPublication": "2024 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2024,
+        "journal": {
+          "medlineAbbreviation": "Lancet Oncol",
+          "title": "The Lancet. Oncology",
+          "essn": "1474-5488",
+          "issn": "1470-2045",
+          "isoabbreviation": "Lancet Oncol",
+          "nlmid": "100957246"
+        },
+        "printPublicationDate": "2024-01-01"
+      }
+    },
+    {
+      "id": "32112512",
+      "source": "MED",
+      "doi": "10.1002/jia2.25451",
+      "title": "Modelling impact and cost-effectiveness of oral pre-exposure prophylaxis in 13 low-resource countries.",
+      "authorString": "Pretorius C, Schnure M, Dent J, Glaubius R, Mahiane G, Hamilton M, Reidy M, Matse S, Njeuhmeli E, Castor D, Kripke K.",
+      "pubYear": "2020",
+      "firstPublicationDate": "2020-02-01",
+      "firstIndexDate": "2020-03-01",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "23",
+        "journalIssueId": 2907522,
+        "dateOfPublication": "2020 Feb",
+        "monthOfPublication": 2,
+        "yearOfPublication": 2020,
+        "journal": {
+          "medlineAbbreviation": "J Int AIDS Soc",
+          "title": "Journal of the International AIDS Society",
+          "essn": "1758-2652",
+          "issn": "1758-2652",
+          "nlmid": "101478566",
+          "isoabbreviation": "J Int AIDS Soc"
+        },
+        "printPublicationDate": "2020-02-01"
+      }
+    },
+    {
+      "id": "26362322",
+      "source": "MED",
+      "doi": "10.1093/cid/civ804",
+      "title": "Improving Retention in HIV Care: A Cost-effective Strategy to Turn the Tide on HIV and AIDS in the United States.",
+      "authorString": "Gardner EM.",
+      "pubYear": "2016",
+      "firstPublicationDate": "2015-09-11",
+      "firstIndexDate": "2015-09-13",
+      "journalInfo": {
+        "issue": "2",
+        "volume": "62",
+        "journalIssueId": 2356712,
+        "dateOfPublication": "2016 Jan",
+        "monthOfPublication": 1,
+        "yearOfPublication": 2016,
+        "journal": {
+          "medlineAbbreviation": "Clin Infect Dis",
+          "title": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+          "essn": "1537-6591",
+          "issn": "1058-4838",
+          "nlmid": "9203213",
+          "isoabbreviation": "Clin Infect Dis"
+        },
+        "printPublicationDate": "2016-01-01"
+      },
+      "commentCorrectionList": {
+        "commentCorrection": [
+          {
+            "source": "MED",
+            "id": "26362321",
+            "reference": "Clin Infect Dis. 2016 Jan 15;62(2):220-229. doi: 10.1093/cid/civ801.",
+            "type": "Comment on",
+            "orderIn": 1
+          }
+        ]
+      }
+    }
+  ],
+  "medrxiv": {
+    "state": {
+      "messages": [
+        {
+          "status": "ok",
+          "category": "all"
+        }
+      ],
+      "collection": [
+        {
+          "title": "Proposed Cuts to the Ryan White Program Could Raise HIV Incidence by 18% in 30 US States and the District of Columbia: A Simulation Study",
+          "authors": "Zalesak, A.; Schnure, M.; Forster, R.; Jones, J. L.; Lesko, C. R.; Batey, D. S.; Althoff, K. N.; Gebo, K. A.; Dowdy, D. W.; Shah, M.; Kasaie, P.; Fojo, A. T.",
+          "author_corresponding": "Anthony T Fojo",
+          "author_corresponding_institution": "Johns Hopkins University School of Medicine",
+          "doi": "10.1101/2025.10.14.25337745",
+          "date": "2025-10-15",
+          "version": "1",
+          "type": "PUBLISHAHEADOFPRINT",
+          "license": "cc_by",
+          "category": "hiv aids",
+          "jatsxml": "https://www.medrxiv.org/content/early/2025/10/15/2025.10.14.25337745.source.xml",
+          "abstract": "Potential cuts to Ryan White Parts C and D, and funding for the Minority AIDS and EHE threaten to undermine the progress made in controlling the US HIV epidemic. Using an HIV simulation model in 30 states and Washington, DC, we project that ending these programs would lead to 23,883 additional HIV infections over five years - a 17.6% increase compared to continuing all Ryan White programs. The projected increases varied by state but were disproportionately large in the seven EHE priority states with a high rural burden of HIV. These findings highlight the importance of Ryan White services in preventing HIV transmission in the US.",
+          "published": "NA",
+          "server": "medRxiv"
+        }
+      ]
+    },
+    "adap": {
+      "messages": [
+        {
+          "status": "ok",
+          "category": "all"
+        }
+      ],
+      "collection": [
+        {
+          "title": "When Cuts Cost More: Projected Fiscal Impact of Eliminating the AIDS Drug Assistance Program in 30 US States",
+          "authors": "Forster, R. M.; Schnure, M.; Balasubramanian, R.; Jones, J. L.; Hyle, E. P.; Batey, S.; Althoff, K. N.; Gebo, K.; Dowdy, D.; Shah, M.; Fojo, A. T.; Kasaie, P.",
+          "author_corresponding": "Parastu Kasaie",
+          "author_corresponding_institution": "Johns Hopkins Bloomberg School of Public Health",
+          "doi": "10.64898/2026.07.27.26359045",
+          "date": "2026-07-28",
+          "version": "1",
+          "type": "PUBLISHAHEADOFPRINT",
+          "license": "cc_by",
+          "category": "health economics",
+          "jatsxml": "https://www.medrxiv.org/content/early/2026/07/28/2026.07.27.26359045.source.xml",
+          "abstract": "BackgroundThe AIDS Drug Assistance Program (ADAP) supports antiretroviral therapy for low-income people with HIV. We assessed whether ADAP savings would offset additional HIV care costs resulting from new infections.\n\nMethodsUsing the Joint HIV Epidemiologic and Economic Model calibrated to 30 US states and the District of Columbia, we compared continued 2025 ADAP coverage with elimination beginning Jan-2026. We projected excess HIV infections and care costs through 2035 under three cost-scenarios. Projected costs were limited to HIV care costs attributable to excess incident infections that would results from eliminating ADAP. The primary outcome was the Net Cost to Expenditure Ratio (NCER), defined as healthcare-system costs minus ADAP expenditure, relative to ADAP expenditure by 2035.\n\nResultsAcross the modeled US jurisdictions, ADAP elimination was projected to result in a median of 143,347 additional HIV incident cases, generating $11.24 billion in HIV care costs through 2035. Compared with $6.58 billion in ADAP spending, this resulted in $4.66 billion in net additional costs (NCER=0.71). For every $1 in ADAP spending avoided, the healthcare system incurred $1.71 in downstream HIV care costs, a net increase of $0.71. This pattern was strongest in states with high baseline ADAP coverage and more rural HIV populations, many of which were Medicaid non-expansion states in the South, with substantial variation in NCER across jurisdictions (3.79 in Missouri to -0.97 in the District of Columbia).\n\nConclusionsEliminating ADAP would be medically and fiscally counterproductive, increasing HIV burden and generating healthcare costs that would exceed program savings within seven years.",
+          "published": "NA",
+          "server": "medRxiv"
+        },
+        {
+          "title": "When Cuts Cost More: Projected Fiscal Impact of Eliminating the AIDS Drug Assistance Program in 30 US States",
+          "authors": "Forster, R. M.; Schnure, M.; Balasubramanian, R.; Jones, J. L.; Hyle, E. P.; Batey, S.; Althoff, K. N.; Gebo, K.; Dowdy, D.; Shah, M.; Fojo, A. T.; Kasaie, P.",
+          "author_corresponding": "Parastu Kasaie",
+          "author_corresponding_institution": "Johns Hopkins Bloomberg School of Public Health",
+          "doi": "10.64898/2026.07.27.26359045",
+          "date": "2026-07-29",
+          "version": "2",
+          "type": "PUBLISHAHEADOFPRINT",
+          "license": "cc_by",
+          "category": "health economics",
+          "jatsxml": "https://www.medrxiv.org/content/early/2026/07/29/2026.07.27.26359045.source.xml",
+          "abstract": "BackgroundThe AIDS Drug Assistance Program (ADAP) supports antiretroviral therapy for low-income people with HIV. We assessed whether ADAP savings would offset additional HIV care costs resulting from new infections.\n\nMethodsUsing the Joint HIV Epidemiologic and Economic Model calibrated to 30 US states and the District of Columbia, we compared continued 2025 ADAP coverage with elimination beginning Jan-2026. We projected excess HIV infections and care costs through 2035 under three cost-scenarios. Projected costs were limited to HIV care costs attributable to excess incident infections that would results from eliminating ADAP. The primary outcome was the Net Cost to Expenditure Ratio (NCER), defined as healthcare-system costs minus ADAP expenditure, relative to ADAP expenditure by 2035.\n\nResultsAcross the modeled US jurisdictions, ADAP elimination was projected to result in a median of 143,347 additional HIV incident cases, generating $11.24 billion in HIV care costs through 2035. Compared with $6.58 billion in ADAP spending, this resulted in $4.66 billion in net additional costs (NCER=0.71). For every $1 in ADAP spending avoided, the healthcare system incurred $1.71 in downstream HIV care costs, a net increase of $0.71. This pattern was strongest in states with high baseline ADAP coverage and more rural HIV populations, many of which were Medicaid non-expansion states in the South, with substantial variation in NCER across jurisdictions (3.79 in Missouri to -0.97 in the District of Columbia).\n\nConclusionsEliminating ADAP would be medically and fiscally counterproductive, increasing HIV burden and generating healthcare costs that would exceed program savings within seven years.",
+          "published": "NA",
+          "server": "medRxiv"
+        },
+        {
+          "title": "When Cuts Cost More: Projected Fiscal Impact of Eliminating the AIDS Drug Assistance Program in 30 US States",
+          "authors": "Forster, R. M.; Schnure, M.; Balasubramanian, R.; Jones, J. L.; Hyle, E. P.; Batey, S.; Althoff, K. N.; Gebo, K.; Dowdy, D.; Shah, M.; Fojo, A. T.; Kasaie, P.",
+          "author_corresponding": "Parastu Kasaie",
+          "author_corresponding_institution": "Johns Hopkins Bloomberg School of Public Health",
+          "doi": "10.64898/2026.07.27.26359045",
+          "date": "2026-07-31",
+          "version": "3",
+          "type": "PUBLISHAHEADOFPRINT",
+          "license": "cc_by",
+          "category": "health economics",
+          "jatsxml": "https://www.medrxiv.org/content/early/2026/07/31/2026.07.27.26359045.source.xml",
+          "abstract": "BackgroundThe AIDS Drug Assistance Program (ADAP) supports antiretroviral therapy for low-income people with HIV. We assessed whether ADAP savings would offset additional HIV care costs resulting from new infections.\n\nMethodsUsing the Joint HIV Epidemiologic and Economic Model calibrated to 30 US states and the District of Columbia, we compared continued 2025 ADAP coverage with elimination beginning Jan-2026. We projected excess HIV infections and care costs through 2035 under three cost-scenarios. Projected costs were limited to HIV care costs attributable to excess incident infections that would results from eliminating ADAP. The primary outcome was the Net Cost to Expenditure Ratio (NCER), defined as healthcare-system costs minus ADAP expenditure, relative to ADAP expenditure by 2035.\n\nResultsAcross the modeled US jurisdictions, ADAP elimination was projected to result in a median of 143,347 additional HIV incident cases, generating $11.24 billion in HIV care costs through 2035. Compared with $6.58 billion in ADAP spending, this resulted in $4.66 billion in net additional costs (NCER=0.71). For every $1 in ADAP spending avoided, the healthcare system incurred $1.71 in downstream HIV care costs, a net increase of $0.71. This pattern was strongest in states with high baseline ADAP coverage and more rural HIV populations, many of which were Medicaid non-expansion states in the South, with substantial variation in NCER across jurisdictions (3.79 in Missouri to -0.97 in the District of Columbia).\n\nConclusionsEliminating ADAP would be medically and fiscally counterproductive, increasing HIV burden and generating healthcare costs that would exceed program savings within seven years.",
+          "published": "NA",
+          "server": "medRxiv"
+        },
+        {
+          "title": "When Cuts Cost More: Projected Fiscal Impact of Eliminating the AIDS Drug Assistance Program in 30 US States",
+          "authors": "Forster, R. M.; Schnure, M.; Balasubramanian, R.; Jones, J. L.; Hyle, E. P.; Batey, S.; Althoff, K. N.; Gebo, K.; Dowdy, D.; Shah, M.; Fojo, A. T.; Kasaie, P.",
+          "author_corresponding": "Parastu Kasaie",
+          "author_corresponding_institution": "Johns Hopkins Bloomberg School of Public Health",
+          "doi": "10.64898/2026.07.27.26359045",
+          "date": "2026-10-11",
+          "version": "4",
+          "type": "PUBLISHAHEADOFPRINT",
+          "license": "cc_by",
+          "category": "health economics",
+          "jatsxml": "https://www.medrxiv.org/content/early/2026/10/11/2026.07.27.26359045.source.xml",
+          "abstract": "BackgroundThe AIDS Drug Assistance Program (ADAP) supports antiretroviral therapy for low-income people with HIV. We assessed whether ADAP savings would offset additional HIV care costs resulting from new infections.\n\nMethodsUsing the Joint HIV Epidemiologic and Economic Model calibrated to 30 US states and the District of Columbia, we compared continued 2025 ADAP coverage with elimination beginning Jan-2026. We projected excess HIV infections and care costs through 2035 under three cost-scenarios. Projected costs were limited to HIV care costs attributable to excess incident infections that would results from eliminating ADAP. The primary outcome was the Net Cost to Expenditure Ratio (NCER), defined as healthcare-system costs minus ADAP expenditure, relative to ADAP expenditure by 2035.\n\nResultsAcross the modeled US jurisdictions, ADAP elimination was projected to result in a median of 143,347 additional HIV incident cases, generating $11.24 billion in HIV care costs through 2035. Compared with $6.58 billion in ADAP spending, this resulted in $4.66 billion in net additional costs (NCER=0.71). For every $1 in ADAP spending avoided, the healthcare system incurred $1.71 in downstream HIV care costs, a net increase of $0.71. This pattern was strongest in states with high baseline ADAP coverage and more rural HIV populations, many of which were Medicaid non-expansion states in the South, with substantial variation in NCER across jurisdictions (3.79 in Missouri to -0.97 in the District of Columbia).\n\nConclusionsEliminating ADAP would be medically and fiscally counterproductive, increasing HIV burden and generating healthcare costs that would exceed program savings within seven years.",
+          "published": "NA",
+          "server": "medRxiv"
+        }
+      ]
+    }
+  }
+}

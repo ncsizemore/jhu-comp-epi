@@ -1,133 +1,76 @@
-import MainLayout from '@/components/layout/MainLayout';
-import { SITE } from '@/lib/site';
-
-export const metadata = {
-  title: `Media Coverage | ${SITE.name}`,
-  description:
-    'Selected public-facing media coverage and commentary from CIPHER Lab.',
+import Link from "next/link";
+import type { Metadata } from "next";
+import MainLayout from "@/components/layout/MainLayout";
+export const metadata: Metadata = {
+  title: "In the news | CIPHER Lab",
+  description: "News coverage of CIPHER Lab’s infectious disease research.",
+  alternates: { canonical: "/news" },
 };
-
-const coverageItems = [
-  {
-    id: 1,
-    date: 'September 2025',
-    source: 'NBC News',
-    title: 'Experts warn of consequences from proposed HIV funding cuts',
-    description:
-      "Dr. Anthony Fojo discusses how eliminating the CDC's HIV-prevention division could disrupt critical functions as models project over 213,000 additional infections through 2030.",
-    url: 'https://www.nbcnews.com/health/sexual-health/republicans-seek-deep-cuts-hiv-prevention-treatment-funding-rcna233776',
-    category: 'Media coverage',
-    context:
-      'The coverage connects proposed HIV funding changes to model-based projections of infections, prevention capacity, and public-health disruption.',
-  },
-];
-
-function NewsIntro() {
-  return (
-    <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-14">
-        <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              Media coverage
-            </p>
-            <h1 className="mt-3 font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
-              News and commentary
-            </h1>
-          </div>
-          <div>
-            <p className="max-w-4xl text-xl leading-relaxed text-[color:var(--color-ink)]">
-              Selected public-facing coverage of CIPHER Lab&apos;s modeling work and
-              related policy commentary.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CoverageArchive() {
-  return (
-    <section>
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-        <div className="mb-10 grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-              Archive
-            </p>
-            <h2 className="mt-3 font-serif text-2xl text-[color:var(--color-ink)]">
-              Selected coverage
-            </h2>
-          </div>
-          <p className="max-w-3xl text-base leading-relaxed text-[color:var(--color-muted)]">
-            Coverage that places model projections in public discussion about
-            prevention, treatment, funding, and implementation.
-          </p>
-        </div>
-
-        <div className="border-t border-[color:var(--color-rule)]">
-          {coverageItems.map(item => (
-            <article
-              key={item.id}
-              className="grid gap-8 border-b border-[color:var(--color-rule)] py-9 lg:grid-cols-[16rem_minmax(0,1fr)]"
-            >
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[color:var(--color-muted)]">
-                  {item.source}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                  {item.date}
-                  <br />
-                  {item.category}
-                </p>
-              </div>
-              <div className="max-w-3xl">
-                <h3 className="font-serif text-3xl leading-tight text-[color:var(--color-ink)]">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-[color:var(--color-link)]"
-                  >
-                    {item.title}
-                  </a>
-                </h3>
-                <p className="mt-5 text-base leading-relaxed text-[color:var(--color-ink)]">
-                  {item.description}
-                </p>
-                <div className="mt-6 border-t border-[color:var(--color-rule)] pt-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[color:var(--color-muted)]">
-                    Modeling context
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                    {item.context}
-                  </p>
-                </div>
-                <p className="mt-6 text-sm">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
-                  >
-                    Read full article →
-                  </a>
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function NewsPage() {
   return (
-    <MainLayout>
-      <NewsIntro />
-      <CoverageArchive />
+    <MainLayout editorial>
+      <section className="directory-hero">
+        <div className="wrap">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">News</span>
+          </nav>
+          <div className="directory-opening">
+            <div>
+              <h1>In the news.</h1>
+              <p className="intro">
+                Coverage of the group’s research and its implications for public
+                health.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="wrap news-grid">
+          <p className="kicker">Media coverage</p>
+          <article className="news-story">
+            <p className="news-meta">
+              NBC News <span aria-hidden="true">·</span>{" "}
+              <time dateTime="2025-09">September 2025</time>
+            </p>
+            <h3>
+              <a href="https://www.nbcnews.com/health/sexual-health/republicans-seek-deep-cuts-hiv-prevention-treatment-funding-rcna233776">
+                Republicans seek deep cuts to HIV prevention and treatment
+                funding <span aria-hidden="true">↗</span>
+              </a>
+            </h3>
+            <p className="news-summary">
+              CIPHER researcher Todd Fojo discusses the public health
+              implications of proposed HIV funding cuts.
+            </p>
+          </article>
+        </div>
+      </section>
+      <section
+        id="contact"
+        className="contact"
+        aria-labelledby="contact-heading"
+      >
+        <div className="wrap contact-grid">
+          <div>
+            <h2 id="contact-heading">Discuss the research.</h2>
+            <p>
+              For questions about the group’s work or a potential collaboration,
+              get in touch with the CIPHER team.
+            </p>
+          </div>
+          <div className="contact-links">
+            <a className="text-link" href="mailto:pkasaie@jhu.edu">
+              Contact CIPHER <span aria-hidden="true">↗</span>
+            </a>
+            <Link className="text-link" href="/team">
+              Meet the group <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
     </MainLayout>
   );
 }

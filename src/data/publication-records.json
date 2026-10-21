@@ -1,0 +1,1193 @@
+[
+  {
+    "id": "PPR1287298",
+    "title": "When Cuts Cost More: Projected Fiscal Impact of Eliminating the AIDS Drug Assistance Program in 30 US States",
+    "authors": "Forster RM, Schnure M, Balasubramanian R, Jones JL, Hyle EP, Batey S, Althoff KN, Gebo K, Dowdy DW, Shah M, Fojo AT, Kasaie P",
+    "shortAuthors": "Forster RM et al.",
+    "authorNames": [
+      {
+        "citation": "Forster RM",
+        "name": "Ryan Forster"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Balasubramanian R",
+        "name": "Ruchita Balasubramanian"
+      },
+      {
+        "citation": "Jones JL",
+        "name": "Joyce Jones"
+      },
+      {
+        "citation": "Hyle EP",
+        "name": "Emily Hyle"
+      },
+      {
+        "citation": "Batey S",
+        "name": "Scott Batey"
+      },
+      {
+        "citation": "Althoff KN",
+        "name": "Keri Althoff"
+      },
+      {
+        "citation": "Gebo K",
+        "name": "Kelly Gebo"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony Fojo"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      }
+    ],
+    "journal": "medRxiv",
+    "year": "2026",
+    "sortDate": "2026-10-11",
+    "doi": "10.64898/2026.07.27.26359045",
+    "url": "https://doi.org/10.64898/2026.07.27.26359045",
+    "tags": [
+      "HIV",
+      "Ryan White",
+      "ADAP",
+      "JHEEM",
+      "costs",
+      "policy"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": true,
+    "featured": false,
+    "source": "https://api.biorxiv.org/details/medrxiv/10.64898/2026.07.27.26359045",
+    "verified": "2026-10-19",
+    "version": 4,
+    "versionDate": "2026-10-11"
+  },
+  {
+    "id": "42696278",
+    "title": "Projected Aging Among People With HIV in the US",
+    "authors": "Zalesak A, Kasaie P, Dansky Z, Althoff KN, Dowdy DW, Shah M, Fojo AT, Schnure M",
+    "shortAuthors": "Zalesak A et al.",
+    "authorNames": [
+      {
+        "citation": "Zalesak A",
+        "name": "Andrew Zalesak"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Dansky Z",
+        "name": "Zoe Dansky"
+      },
+      {
+        "citation": "Althoff KN",
+        "name": "Keri N Althoff"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony T Fojo"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      }
+    ],
+    "journal": "JAMA Network Open",
+    "year": "2026",
+    "sortDate": "2026-09-01",
+    "doi": "10.1001/jamanetworkopen.2026.32299",
+    "url": "https://doi.org/10.1001/jamanetworkopen.2026.32299",
+    "tags": [
+      "HIV",
+      "aging",
+      "JHEEM",
+      "United States"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/42696278",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "41950444",
+    "title": "Projected Increase in HIV Incidence in 11 States if Ryan White Ends: A Simulation Study",
+    "authors": "Schnure M, Forster R, Jones JL, Lesko CR, Batey DS, Butler I, Ward D, Musgrove K, Althoff KN, Jain MK, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT",
+    "shortAuthors": "Schnure M et al.",
+    "authorNames": [
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Forster R",
+        "name": "Ryan Forster"
+      },
+      {
+        "citation": "Jones JL",
+        "name": "Joyce L Jones"
+      },
+      {
+        "citation": "Lesko CR",
+        "name": "Catherine R Lesko"
+      },
+      {
+        "citation": "Batey DS",
+        "name": "D Scott Batey"
+      },
+      {
+        "citation": "Butler I",
+        "name": "Isolde Butler"
+      },
+      {
+        "citation": "Ward D",
+        "name": "Dafina Ward"
+      },
+      {
+        "citation": "Musgrove K",
+        "name": "Karen Musgrove"
+      },
+      {
+        "citation": "Althoff KN",
+        "name": "Keri N Althoff"
+      },
+      {
+        "citation": "Jain MK",
+        "name": "Mamta K Jain"
+      },
+      {
+        "citation": "Gebo KA",
+        "name": "Kelly A Gebo"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony T Fojo"
+      }
+    ],
+    "journal": "American Journal of Public Health",
+    "year": "2026",
+    "sortDate": "2026-05-01",
+    "doi": "10.2105/ajph.2025.308409",
+    "url": "https://doi.org/10.2105/ajph.2025.308409",
+    "tags": [
+      "HIV",
+      "Ryan White",
+      "JHEEM",
+      "policy",
+      "states"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/41950444",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "balasubramanian-2025",
+    "title": "The Potential Effect of Ending Centers for Disease Control and Prevention Funding for HIV Tests: A Modeling Study in 18 States",
+    "authors": "Balasubramanian R, Schnure M, Forster R, Hanage WP, Batey DS, Althoff KN, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT",
+    "shortAuthors": "Balasubramanian R et al.",
+    "authorNames": [
+      {
+        "citation": "Balasubramanian R",
+        "name": "Ruchita Balasubramanian"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Forster R",
+        "name": "Ryan Forster"
+      },
+      {
+        "citation": "Hanage WP",
+        "name": "William P Hanage"
+      },
+      {
+        "citation": "Batey DS",
+        "name": "D Scott Batey"
+      },
+      {
+        "citation": "Althoff KN",
+        "name": "Keri N Althoff"
+      },
+      {
+        "citation": "Gebo KA",
+        "name": "Kelly A Gebo"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony T Fojo"
+      }
+    ],
+    "journal": "Clinical Infectious Diseases",
+    "year": "2026",
+    "sortDate": "2026-04-01",
+    "doi": "10.1093/cid/ciag038",
+    "url": "https://doi.org/10.1093/cid/ciag038",
+    "tags": [
+      "HIV",
+      "testing",
+      "CDC",
+      "policy"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": true,
+    "source": "https://europepmc.org/article/MED/41640117",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "zalesak-2025",
+    "title": "Targeted cuts to Ryan White programs could raise HIV incidence by 8-17% in 30 US states and the District of Columbia",
+    "authors": "Zalesak A, Schnure M, Forster R, Jones JL, Lesko CR, Batey DS, Althoff KN, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT",
+    "shortAuthors": "Zalesak A et al.",
+    "authorNames": [
+      {
+        "citation": "Zalesak A",
+        "name": "Andrew Zalesak"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Forster R",
+        "name": "Ryan Forster"
+      },
+      {
+        "citation": "Jones JL",
+        "name": "Joyce L Jones"
+      },
+      {
+        "citation": "Lesko CR",
+        "name": "Catherine R Lesko"
+      },
+      {
+        "citation": "Batey DS",
+        "name": "D Scott Batey"
+      },
+      {
+        "citation": "Althoff KN",
+        "name": "Keri N Althoff"
+      },
+      {
+        "citation": "Gebo KA",
+        "name": "Kelly A Gebo"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony T Fojo"
+      }
+    ],
+    "journal": "AIDS",
+    "year": "2026",
+    "sortDate": "2026-04-01",
+    "doi": "10.1097/qad.0000000000004425",
+    "url": "https://doi.org/10.1097/qad.0000000000004425",
+    "tags": [
+      "HIV",
+      "Ryan White",
+      "policy",
+      "modeling"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/41739082",
+    "verified": "2026-10-19"
+  },
+  {
+    "imageUrl": "/images/publications/forster-2025-fig2.png",
+    "imageCaption": "Figure 2: Projected HIV incidence if Ryan White programs end or are interrupted",
+    "id": "forster-2025",
+    "title": "The Potential Impact of Ending the Ryan White HIV/AIDS Program on HIV Incidence: A Simulation Study in 31 U.S. Cities",
+    "authors": "Forster R, Schnure M, Jones J, Lesko C, Batey DS, Butler I, Ward D, Musgrove K, Althoff KN, Jain MK, Gebo KA, Dowdy DW, Shah M, Kasaie P, Fojo AT",
+    "shortAuthors": "Forster R et al.",
+    "authorNames": [
+      {
+        "citation": "Forster R",
+        "name": "Ryan Forster"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Jones J",
+        "name": "Joyce Jones"
+      },
+      {
+        "citation": "Lesko C",
+        "name": "Catherine Lesko"
+      },
+      {
+        "citation": "Batey DS",
+        "name": "D Scott Batey"
+      },
+      {
+        "citation": "Butler I",
+        "name": "Isolde Butler"
+      },
+      {
+        "citation": "Ward D",
+        "name": "Dafina Ward"
+      },
+      {
+        "citation": "Musgrove K",
+        "name": "Karen Musgrove"
+      },
+      {
+        "citation": "Althoff KN",
+        "name": "Keri N Althoff"
+      },
+      {
+        "citation": "Jain MK",
+        "name": "Mamta K Jain"
+      },
+      {
+        "citation": "Gebo KA",
+        "name": "Kelly A Gebo"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony T Fojo"
+      }
+    ],
+    "journal": "Annals of Internal Medicine",
+    "year": "2025",
+    "sortDate": "2025-11-01",
+    "doi": "10.7326/annals-25-01737",
+    "url": "https://doi.org/10.7326/annals-25-01737",
+    "tags": [
+      "HIV",
+      "Ryan White",
+      "policy",
+      "modeling"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": true,
+    "source": "https://europepmc.org/article/MED/40921074",
+    "verified": "2026-10-19"
+  },
+  {
+    "imageUrl": "/images/publications/schnuremc-2024-fig3.jpeg",
+    "imageCaption": "Figure 3: Age structure of people with HIV in Kenya in 2025, 2040 (status quo), and 2040 (full intervention)",
+    "id": "schnuremc-2024",
+    "title": "Forecasting the effect of HIV-targeted interventions on the age distribution of people with HIV in Kenya",
+    "authors": "Schnure MC, Kasaie P, Dowdy DW, Genberg BL, Kendall EA, Fojo AT",
+    "shortAuthors": "Schnure MC et al.",
+    "authorNames": [
+      {
+        "citation": "Schnure MC",
+        "name": "Melissa C Schnure"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Genberg BL",
+        "name": "Becky L Genberg"
+      },
+      {
+        "citation": "Kendall EA",
+        "name": "Emily A Kendall"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony T Fojo"
+      }
+    ],
+    "journal": "AIDS",
+    "year": "2024",
+    "sortDate": "2024-07-01",
+    "doi": "10.1097/qad.0000000000003895",
+    "url": "https://doi.org/10.1097/qad.0000000000003895",
+    "tags": [
+      "HIV",
+      "Kenya",
+      "aging",
+      "modeling"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/38537051",
+    "verified": "2026-10-19"
+  },
+  {
+    "imageUrl": "/images/publications/nosykb-2023-fig1.jpeg",
+    "imageCaption": "Figure 1: Total testing volumes and test positivity of CDC-funded HIV tests (2013-2020)",
+    "id": "nosykb-2023",
+    "title": "The Testing Imperative: Why the US Ending the Human Immunodeficiency Virus (HIV) Epidemic Program Needs to Renew Efforts to Expand HIV Testing in Clinical and Community-Based Settings",
+    "authors": "Nosyk B, Fojo AT, Kasaie P, Enns B, Trigg L, Piske M, Hutchinson AB, DiNenno EA, Zang X, Del Rio C",
+    "shortAuthors": "Nosyk B et al.",
+    "authorNames": [
+      {
+        "citation": "Nosyk B",
+        "name": "Bohdan Nosyk"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony Todd Fojo"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Enns B",
+        "name": "Benjamin Enns"
+      },
+      {
+        "citation": "Trigg L",
+        "name": "Laura Trigg"
+      },
+      {
+        "citation": "Piske M",
+        "name": "Micah Piske"
+      },
+      {
+        "citation": "Hutchinson AB",
+        "name": "Angela B Hutchinson"
+      },
+      {
+        "citation": "DiNenno EA",
+        "name": "Elizabeth A DiNenno"
+      },
+      {
+        "citation": "Zang X",
+        "name": "Xiao Zang"
+      },
+      {
+        "citation": "Del Rio C",
+        "name": "Carlos Del Rio"
+      }
+    ],
+    "journal": "Clinical Infectious Diseases",
+    "year": "2023",
+    "sortDate": "2023-06-01",
+    "doi": "10.1093/cid/ciad103",
+    "url": "https://doi.org/10.1093/cid/ciad103",
+    "tags": [
+      "HIV",
+      "testing",
+      "EHE",
+      "policy"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/36815334",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "balasubramanianr-2022",
+    "title": "Projected Impact of Expanded Long-Acting Injectable PrEP Use Among Men Who Have Sex With Men on Local HIV Epidemics",
+    "authors": "Balasubramanian R, Kasaie P, Schnure M, Dowdy DW, Shah M, Fojo AT",
+    "shortAuthors": "Balasubramanian R et al.",
+    "authorNames": [
+      {
+        "citation": "Balasubramanian R",
+        "name": "Ruchita Balasubramanian"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony Todd Fojo"
+      }
+    ],
+    "journal": "Journal of Acquired Immune Deficiency Syndromes",
+    "year": "2022",
+    "sortDate": "2022-10-01",
+    "doi": "10.1097/qai.0000000000003029",
+    "url": "https://doi.org/10.1097/qai.0000000000003029",
+    "tags": [
+      "HIV",
+      "PrEP",
+      "long-acting injectable",
+      "MSM"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/35636746",
+    "verified": "2026-10-19"
+  },
+  {
+    "imageUrl": "/images/publications/fojo-2022-covid-hiv-fig2.jpeg",
+    "imageCaption": "Figure 2: Projected incidence and reported diagnoses, according to potential effects of COVID-19 on sexual transmission and viral suppression",
+    "id": "fojo-2022-covid-hiv",
+    "title": "Potential Effects of the Coronavirus Disease 2019 (COVID-19) Pandemic on Human Immunodeficiency Virus (HIV) Transmission: A Modeling Study in 32 US Cities",
+    "authors": "Fojo A, Wallengren E, Schnure M, Dowdy DW, Shah M, Kasaie P",
+    "shortAuthors": "Fojo A et al.",
+    "authorNames": [
+      {
+        "citation": "Fojo A",
+        "name": "Anthony Fojo"
+      },
+      {
+        "citation": "Wallengren E",
+        "name": "Emma Wallengren"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      }
+    ],
+    "journal": "Clinical Infectious Diseases",
+    "year": "2022",
+    "sortDate": "2022-08-01",
+    "doi": "10.1093/cid/ciab1029",
+    "url": "https://doi.org/10.1093/cid/ciab1029",
+    "tags": [
+      "HIV",
+      "COVID-19",
+      "pandemic",
+      "transmission"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/35016216",
+    "verified": "2026-10-19"
+  },
+  {
+    "imageUrl": "/images/publications/fojo-2021-end-hiv-fig4.png",
+    "imageCaption": "Figure 4: Reduction in HIV incidence from 2020 to 2030 for intervention scenarios across 32 MSAs",
+    "id": "fojo-2021-end-hiv",
+    "title": "What Will It Take to End HIV in the United States?: A Comprehensive, Local-Level Modeling Study",
+    "authors": "Fojo AT, Schnure M, Kasaie P, Dowdy DW, Shah M",
+    "shortAuthors": "Fojo AT et al.",
+    "authorNames": [
+      {
+        "citation": "Fojo AT",
+        "name": "Anthony Todd Fojo"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      }
+    ],
+    "journal": "Annals of Internal Medicine",
+    "year": "2021",
+    "sortDate": "2021-11-01",
+    "doi": "10.7326/m21-1501",
+    "url": "https://doi.org/10.7326/m21-1501",
+    "tags": [
+      "HIV",
+      "prevention",
+      "PrEP",
+      "health disparities"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/34543589",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "kasaiep-2020",
+    "title": "Integrated screening and treatment services for HIV, hypertension and diabetes in Kenya: assessing the epidemiological impact and cost-effectiveness from a national and regional perspective",
+    "authors": "Kasaie P, Weir B, Schnure M, Dun C, Pennington J, Teng Y, Wamai R, Mutai K, Dowdy D, Beyrer C",
+    "shortAuthors": "Kasaie P et al.",
+    "authorNames": [
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Weir B",
+        "name": "Brian Weir"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Dun C",
+        "name": "Chen Dun"
+      },
+      {
+        "citation": "Pennington J",
+        "name": "Jeff Pennington"
+      },
+      {
+        "citation": "Teng Y",
+        "name": "Yu Teng"
+      },
+      {
+        "citation": "Wamai R",
+        "name": "Richard Wamai"
+      },
+      {
+        "citation": "Mutai K",
+        "name": "Kipkoech Mutai"
+      },
+      {
+        "citation": "Dowdy D",
+        "name": "David Dowdy"
+      },
+      {
+        "citation": "Beyrer C",
+        "name": "Chris Beyrer"
+      }
+    ],
+    "journal": "Journal of the International AIDS Society",
+    "year": "2020",
+    "sortDate": "2020-06-01",
+    "doi": "10.1002/jia2.25499",
+    "url": "https://doi.org/10.1002/jia2.25499",
+    "tags": [
+      "HIV",
+      "cost-effectiveness",
+      "treatment"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/32562353",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "pretoriusc-2020",
+    "title": "Modelling impact and cost-effectiveness of oral pre-exposure prophylaxis in 13 low-resource countries",
+    "authors": "Pretorius C, Schnure M, Dent J, Glaubius R, Mahiane G, Hamilton M, Reidy M, Matse S, Njeuhmeli E, Castor D, Kripke K",
+    "shortAuthors": "Pretorius C et al.",
+    "authorNames": [
+      {
+        "citation": "Pretorius C",
+        "name": "Carel Pretorius"
+      },
+      {
+        "citation": "Schnure M",
+        "name": "Melissa Schnure"
+      },
+      {
+        "citation": "Dent J",
+        "name": "Juan Dent"
+      },
+      {
+        "citation": "Glaubius R",
+        "name": "Robert Glaubius"
+      },
+      {
+        "citation": "Mahiane G",
+        "name": "Guy Mahiane"
+      },
+      {
+        "citation": "Hamilton M",
+        "name": "Matthew Hamilton"
+      },
+      {
+        "citation": "Reidy M",
+        "name": "Meghan Reidy"
+      },
+      {
+        "citation": "Matse S",
+        "name": "Sindy Matse"
+      },
+      {
+        "citation": "Njeuhmeli E",
+        "name": "Emmanuel Njeuhmeli"
+      },
+      {
+        "citation": "Castor D",
+        "name": "Delivette Castor"
+      },
+      {
+        "citation": "Kripke K",
+        "name": "Katharine Kripke"
+      }
+    ],
+    "journal": "Journal of the International AIDS Society",
+    "year": "2020",
+    "sortDate": "2020-02-01",
+    "doi": "10.1002/jia2.25451",
+    "url": "https://doi.org/10.1002/jia2.25451",
+    "tags": [
+      "HIV",
+      "PrEP",
+      "modeling",
+      "cost-effectiveness"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/32112512",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "29944642",
+    "title": "Impact of Providing Preexposure Prophylaxis for Human Immunodeficiency Virus at Clinics for Sexually Transmitted Infections in Baltimore City: An Agent-based Model",
+    "authors": "Kasaie P, Berry SA, Shah MS, Rosenberg ES, Hoover KW, Gift TL, Chesson H, Pennington J, German D, Flynn CP, Beyrer C, Dowdy DW",
+    "shortAuthors": "Kasaie P et al.",
+    "authorNames": [
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Berry SA",
+        "name": "Stephen A Berry"
+      },
+      {
+        "citation": "Shah MS",
+        "name": "Maunank S Shah"
+      },
+      {
+        "citation": "Rosenberg ES",
+        "name": "Eli S Rosenberg"
+      },
+      {
+        "citation": "Hoover KW",
+        "name": "Karen W Hoover"
+      },
+      {
+        "citation": "Gift TL",
+        "name": "Thomas L Gift"
+      },
+      {
+        "citation": "Chesson H",
+        "name": "Harrell Chesson"
+      },
+      {
+        "citation": "Pennington J",
+        "name": "Jeff Pennington"
+      },
+      {
+        "citation": "German D",
+        "name": "Danielle German"
+      },
+      {
+        "citation": "Flynn CP",
+        "name": "Colin P Flynn"
+      },
+      {
+        "citation": "Beyrer C",
+        "name": "Chris Beyrer"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      }
+    ],
+    "journal": "Sexually Transmitted Diseases",
+    "year": "2018",
+    "sortDate": "2018-12-01",
+    "doi": "10.1097/olq.0000000000000882",
+    "url": "https://doi.org/10.1097/olq.0000000000000882",
+    "tags": [
+      "HIV",
+      "PrEP",
+      "STI",
+      "Baltimore",
+      "agent-based model"
+    ],
+    "projects": [],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/29944642",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "perry-2018",
+    "title": "What Will It Take to Reduce HIV Incidence in the United States: A Mathematical Modeling Analysis",
+    "authors": "Perry A, Kasaie P, Dowdy DW, Shah M",
+    "shortAuthors": "Perry A et al.",
+    "authorNames": [
+      {
+        "citation": "Perry A",
+        "name": "Allison Perry"
+      },
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      }
+    ],
+    "journal": "Open Forum Infectious Diseases",
+    "year": "2018",
+    "sortDate": "2018-02-01",
+    "doi": "10.1093/ofid/ofy008",
+    "url": "https://doi.org/10.1093/ofid/ofy008",
+    "tags": [
+      "HIV",
+      "modeling",
+      "prevention",
+      "PrEP"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/29423424",
+    "verified": "2026-10-19"
+  },
+  {
+    "imageUrl": "/images/publications/kasaie-2018-fig1.jpg",
+    "imageCaption": "Figure 1: Projected new HIV infections, cumulative infections averted, HIV deaths, and cumulative deaths averted in Spain from 2017 to 2037 under early versus delayed ART",
+    "id": "kasaie-2018-spain-art",
+    "title": "Economic and epidemiologic impact of guidelines for early ART initiation irrespective of CD4 count in Spain",
+    "authors": "Kasaie P, Radford M, Kapoor S, Jung Y, Hernandez Novoa B, Dowdy D, Shah M",
+    "shortAuthors": "Kasaie P et al.",
+    "authorNames": [
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Radford M",
+        "name": "Matthew Radford"
+      },
+      {
+        "citation": "Kapoor S",
+        "name": "Sunaina Kapoor"
+      },
+      {
+        "citation": "Jung Y",
+        "name": "Younghee Jung"
+      },
+      {
+        "citation": "Hernandez Novoa B",
+        "name": "Beatriz Hernandez Novoa"
+      },
+      {
+        "citation": "Dowdy D",
+        "name": "David Dowdy"
+      },
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      }
+    ],
+    "journal": "PLOS ONE",
+    "year": "2018",
+    "sortDate": "2018-01-01",
+    "doi": "10.1371/journal.pone.0206755",
+    "url": "https://doi.org/10.1371/journal.pone.0206755",
+    "tags": [
+      "HIV",
+      "ART",
+      "guidelines",
+      "Spain"
+    ],
+    "projects": [
+      "jheem"
+    ],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/30395635",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "28498144",
+    "title": "The Impact of Preexposure Prophylaxis Among Men Who Have Sex With Men: An Individual-Based Model",
+    "authors": "Kasaie P, Pennington J, Shah MS, Berry SA, German D, Flynn CP, Beyrer C, Dowdy DW",
+    "shortAuthors": "Kasaie P et al.",
+    "authorNames": [
+      {
+        "citation": "Kasaie P",
+        "name": "Parastu Kasaie"
+      },
+      {
+        "citation": "Pennington J",
+        "name": "Jeff Pennington"
+      },
+      {
+        "citation": "Shah MS",
+        "name": "Maunank S Shah"
+      },
+      {
+        "citation": "Berry SA",
+        "name": "Stephen A Berry"
+      },
+      {
+        "citation": "German D",
+        "name": "Danielle German"
+      },
+      {
+        "citation": "Flynn CP",
+        "name": "Colin P Flynn"
+      },
+      {
+        "citation": "Beyrer C",
+        "name": "Chris Beyrer"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      }
+    ],
+    "journal": "Journal of Acquired Immune Deficiency Syndromes",
+    "year": "2017",
+    "sortDate": "2017-06-01",
+    "doi": "10.1097/qai.0000000000001354",
+    "url": "https://doi.org/10.1097/qai.0000000000001354",
+    "tags": [
+      "HIV",
+      "PrEP",
+      "MSM",
+      "individual-based model"
+    ],
+    "projects": [],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/28498144",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "26939737",
+    "title": "Effect of the US National HIV/AIDS Strategy targets for improved HIV care engagement: a modelling study",
+    "authors": "Shah M, Perry A, Risher K, Kapoor S, Grey J, Sharma A, Rosenberg ES, Del Rio C, Sullivan P, Dowdy DW",
+    "shortAuthors": "Shah M et al.",
+    "authorNames": [
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Perry A",
+        "name": "Allison Perry"
+      },
+      {
+        "citation": "Risher K",
+        "name": "Kathryn Risher"
+      },
+      {
+        "citation": "Kapoor S",
+        "name": "Sunaina Kapoor"
+      },
+      {
+        "citation": "Grey J",
+        "name": "Jeremy Grey"
+      },
+      {
+        "citation": "Sharma A",
+        "name": "Akshay Sharma"
+      },
+      {
+        "citation": "Rosenberg ES",
+        "name": "Eli S Rosenberg"
+      },
+      {
+        "citation": "Del Rio C",
+        "name": "Carlos Del Rio"
+      },
+      {
+        "citation": "Sullivan P",
+        "name": "Patrick Sullivan"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      }
+    ],
+    "journal": "The Lancet HIV",
+    "year": "2016",
+    "sortDate": "2016-03-01",
+    "doi": "10.1016/s2352-3018(16)00007-2",
+    "url": "https://doi.org/10.1016/s2352-3018(16)00007-2",
+    "tags": [
+      "HIV",
+      "modeling",
+      "care engagement",
+      "policy"
+    ],
+    "projects": [],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/26939737",
+    "verified": "2026-10-19"
+  },
+  {
+    "id": "26362321",
+    "title": "The Epidemiologic and Economic Impact of Improving HIV Testing, Linkage, and Retention in Care in the United States",
+    "authors": "Shah M, Risher K, Berry SA, Dowdy DW",
+    "shortAuthors": "Shah M et al.",
+    "authorNames": [
+      {
+        "citation": "Shah M",
+        "name": "Maunank Shah"
+      },
+      {
+        "citation": "Risher K",
+        "name": "Kathryn Risher"
+      },
+      {
+        "citation": "Berry SA",
+        "name": "Stephen A Berry"
+      },
+      {
+        "citation": "Dowdy DW",
+        "name": "David W Dowdy"
+      }
+    ],
+    "journal": "Clinical Infectious Diseases",
+    "year": "2016",
+    "sortDate": "2016-01-01",
+    "doi": "10.1093/cid/civ801",
+    "url": "https://doi.org/10.1093/cid/civ801",
+    "tags": [
+      "HIV",
+      "modeling",
+      "testing",
+      "care continuum"
+    ],
+    "projects": [],
+    "preprint": false,
+    "featured": false,
+    "source": "https://europepmc.org/article/MED/26362321",
+    "verified": "2026-10-19"
+  }
+]

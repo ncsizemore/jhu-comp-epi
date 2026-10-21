@@ -1,75 +1,65 @@
-import MainLayout from '@/components/layout/MainLayout';
-import TeamSection from '@/components/sections/team/TeamSection';
-import {
-  getTeamCategories,
-  getTeamMembersByCategory
-} from '@/lib/data/team';
-import { SITE } from '@/lib/site';
-
-export const metadata = {
-  title: `Our Team | ${SITE.name}`,
-  description: 'Meet the researchers and staff of CIPHER Lab.',
+import PeopleDirectory from "@/components/sections/team/PeopleDirectory";
+import Link from "next/link";
+import MainLayout from "@/components/layout/MainLayout";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "People | CIPHER Lab",
+  description:
+    "Meet the faculty, scientists, and research staff of CIPHER Lab at Johns Hopkins.",
+  alternates: { canonical: "/team" },
 };
 
-// Enable Incremental Static Regeneration - regenerate every hour
-export const revalidate = 3600;
-
-export default async function TeamPage() {
-  const [teamCategories, faculty, postdocs, students, staff] = await Promise.all([
-    getTeamCategories(),
-    getTeamMembersByCategory('faculty'),
-    getTeamMembersByCategory('postdoc'),
-    getTeamMembersByCategory('student'),
-    getTeamMembersByCategory('staff'),
-  ]);
-
-  const membersByCategory = {
-    faculty,
-    postdoc: postdocs,
-    student: students,
-    staff,
-  };
-  const populatedCategories = teamCategories
-    .sort((a, b) => a.order - b.order)
-    .map(category => ({
-      category,
-      members: membersByCategory[category.id as keyof typeof membersByCategory] || [],
-    }))
-    .filter(group => group.members.length > 0);
-
+export default function PeoplePage() {
   return (
-    <MainLayout>
-      <section className="border-b border-[color:var(--color-rule)] bg-[#fbfcfe]">
-        <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
-          <div className="grid gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+    <MainLayout editorial className="people-page">
+      <section className="directory-hero">
+        <div className="wrap">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">People</span>
+          </nav>
+          <div className="directory-opening">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--color-muted)]">
-                People
-              </p>
-              <h1 className="mt-3 font-serif text-4xl leading-tight text-[color:var(--color-ink)]">
-                Team
-              </h1>
-            </div>
-
-            <div>
-              <p className="max-w-3xl text-xl leading-relaxed text-[color:var(--color-ink)]">
+              <h1>People.</h1>
+              <p className="intro">
                 Researchers and staff building computational models for
                 infectious disease and population-health decision support.
               </p>
             </div>
+            <nav className="contents" aria-label="On this page">
+              <h2>Meet the group</h2>
+              <div>
+                <a href="#faculty">Faculty &amp; investigators</a>
+                <a href="#scientists">Fellows &amp; scientists</a>
+                <a href="#staff">Research staff</a>
+              </div>
+            </nav>
           </div>
         </div>
       </section>
-
-      <section className="border-b border-[color:var(--color-rule)] bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-          {populatedCategories.map(({ category, members }) => (
-            <TeamSection
-              key={category.id}
-              category={category}
-              members={members}
-            />
-          ))}
+      <PeopleDirectory />
+      <section
+        id="contact"
+        className="contact"
+        aria-labelledby="contact-heading"
+      >
+        <div className="wrap contact-grid">
+          <div>
+            <h2 id="contact-heading">Connect with the group.</h2>
+            <p>
+              Interested in collaborating on an infectious disease or
+              public-health question? Get in touch with the CIPHER team.
+            </p>
+          </div>
+          <div className="contact-links">
+            <a className="text-link" href="mailto:pkasaie@jhu.edu">
+              Contact CIPHER <span aria-hidden="true">↗</span>
+            </a>
+            <Link className="text-link" href="/research">
+              Explore our research <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
     </MainLayout>
