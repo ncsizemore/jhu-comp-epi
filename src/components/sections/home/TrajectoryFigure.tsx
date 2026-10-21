@@ -420,16 +420,30 @@ export default function TrajectoryFigure() {
         </div>
       </div>
       <figcaption>
-        <p>
-          Annual model means summed across the 31 portal metropolitan areas.
-          Ryan White services end permanently in July 2025 in the cessation
-          scenario. Shading marks the difference between scenarios; combined
-          uncertainty is not shown. Values are rounded. Source:{" "}
-          <a href="https://jheem.org/ryan-white">JHEEM portal</a>, March 2026
-          data release. This portal aggregation differs from the original 2025
-          study estimate of 75,436 additional infections.{" "}
-          <a href="/data/ryan-white-trajectory.json">View the source data</a>.
-        </p>
+        <div className="figure-source">
+          <p>
+            Source: <a href="https://jheem.org/ryan-white">JHEEM portal</a>,
+            March 2026 release. Shading shows the difference between scenarios,
+            not uncertainty. This portal aggregation differs from the published
+            study’s estimate of 75,436 additional infections.
+          </p>
+          <details className="figure-methods">
+            <summary>Source and calculation</summary>
+            <p>
+              We sum annual model means across 31 metropolitan areas. In the
+              cessation scenario, services end permanently in July 2025. The
+              additional infections are summed over 2025–2030; displayed values
+              are rounded. A combined uncertainty interval is not shown.
+            </p>
+            <p>
+              Both the paper and portal report means, and the paper’s results
+              table names the same 31 metros. Their estimates differ within
+              individual metros; the cause has not yet been established.
+              {" "}<a href="/data/ryan-white-trajectory.json">Annual source data</a>
+              {" · "}<a href="/data/ryan-white-publication-comparison.json">Comparison with the publication</a>.
+            </p>
+          </details>
+        </div>
         <a className="text-link" href="https://doi.org/10.7326/ANNALS-25-01737">
           Related publication <span aria-hidden="true">↗</span>
         </a>

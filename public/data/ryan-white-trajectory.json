@@ -4600,6 +4600,8 @@
   "publicationComparison": {
     "doi": "10.7326/ANNALS-25-01737",
     "publishedAdditionalInfections": 75436,
-    "note": "Portal aggregation and original published analysis differ. No explanation of the difference is inferred; do not label portal values as the paper\u2019s estimate."
+    "note": "Both sources report means and name the same 31 metros in their results. Estimates differ within metros; the source-result difference remains unresolved. Do not label portal values as the paper\u2019s estimate.",
+    "comparisonSource": "/data/ryan-white-publication-comparison.json",
+    "reviewed": "2026-10-21"
   }
 }

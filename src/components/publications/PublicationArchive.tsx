@@ -1,16 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { publications, publicationYears } from "@/data/publications";
 import { filterPublications } from "@/lib/publication-search";
+import { PROJECT_THEME } from "@/lib/projects/config";
 
 export default function PublicationArchive() {
-  const [query, setQuery] = useState("");
-  const [year, setYear] = useState("");
-  const records = filterPublications(publications, query, year);
+  const params = useSearchParams();
+  const query = params.get("q") ?? "";
+  const year = params.get("year") ?? "";
+  const project = params.get("project") ?? "";
+  const records = filterPublications(publications, query, year, project);
+  const programs = Object.values(PROJECT_THEME);
+  const update = (values: Record<string, string>, replace = false) => {
+    const url = new URL(window.location.href);
+    Object.entries(values).forEach(([key, value]) => {
+      if (value) url.searchParams.set(key, value);
+      else url.searchParams.delete(key);
+    });
+    // Next observes native history changes without a server request per keystroke.
+    window.history[replace ? "replaceState" : "pushState"](null, "", url);
+  };
   const clear = () => {
-    setQuery("");
-    setYear("");
+    update({ q: "", year: "", project: "" });
   };
   return (
     <section className="publication-archive" aria-label="Publication archive">
@@ -30,8 +42,27 @@ export default function PublicationArchive() {
               autoComplete="off"
               aria-controls="publication-results"
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => update({ q: event.target.value }, true)}
             />
+          </div>
+          <div className="publication-program-filter">
+            <label htmlFor="publication-program">Research program</label>
+            <select
+              id="publication-program"
+              aria-controls="publication-results"
+              value={project}
+              onChange={(event) => update({ project: event.target.value })}
+            >
+              <option value="">All programs</option>
+              {programs.map((program) => (
+                <option key={program.id} value={program.id}>
+                  {program.name}
+                </option>
+              ))}
+              {project && !programs.some((p) => p.id === project) && (
+                <option value={project}>Unknown program</option>
+              )}
+            </select>
           </div>
           <div className="publication-year-filter">
             <label htmlFor="publication-year">Year</label>
@@ -39,9 +70,12 @@ export default function PublicationArchive() {
               id="publication-year"
               aria-controls="publication-results"
               value={year}
-              onChange={(event) => setYear(event.target.value)}
+              onChange={(event) => update({ year: event.target.value })}
             >
               <option value="">All years</option>
+              {year && !publicationYears.includes(year) && (
+                <option value={year}>{year}</option>
+              )}
               {publicationYears.map((value) => (
                 <option key={value} value={value}>
                   {value}
@@ -52,7 +86,7 @@ export default function PublicationArchive() {
           <button
             className="clear-filters"
             type="button"
-            disabled={!query && !year}
+            disabled={!query && !year && !project}
             onClick={clear}
           >
             Clear filters

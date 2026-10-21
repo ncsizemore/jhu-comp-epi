@@ -28,6 +28,17 @@ describe('curated publication archive', () => {
     expect(found.map(p => p.doi)).toEqual(['10.1001/jamanetworkopen.2026.32299']);
     expect(filterPublications(publications, 'Zoe Dansky', '2025')).toEqual([]);
   });
+  it('keeps the JHEEM handoff scoped while combining archive filters', async () => {
+    const archive = filterPublications(publications, '', '', 'jheem');
+    const api = await (await query('project=jheem')).json();
+    expect(archive.map(p => p.id)).toEqual(api.publications.map((p: { id: string }) => p.id));
+    expect(archive).toHaveLength(15);
+    expect(filterPublications(publications, 'Zoe Dansky', '2026', 'jheem').map(p => p.doi))
+      .toEqual(['10.1001/jamanetworkopen.2026.32299']);
+    expect(filterPublications(publications, 'Zoe Dansky', '2025', 'jheem')).toEqual([]);
+    expect(filterPublications(publications, '', '', 'unknown')).toEqual([]);
+    expect(filterPublications(publications, '', '', 'pearl')).toEqual([]);
+  });
   it('applies all API filters before limiting without changing its response shape', async () => {
     const response = await query('project=jheem&featured=true&year=2025&limit=1');
     const body = await response.json();

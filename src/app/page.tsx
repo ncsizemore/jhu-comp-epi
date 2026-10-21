@@ -24,9 +24,9 @@ export default function HomePage() {
               Informing public health.
             </h1>
             <p className="intro">
-              We develop policy-relevant models of infectious disease dynamics
-              to support public health decision-making in the United States and
-              globally.
+              We model how prevention, treatment, and funding decisions shape
+              infectious disease outcomes. Our work supports public health
+              decision-making in the United States and globally.
             </p>
             <div className="actions">
               <Link className="text-link" href="/research">
