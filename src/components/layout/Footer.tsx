@@ -1,3 +1,4 @@
+import { CONTACT_HREF } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 export default function Footer() {
@@ -60,7 +61,7 @@ export default function Footer() {
           </div>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} CIPHER Lab</span>
-            <a href="mailto:pkasaie@jhu.edu">Contact CIPHER</a>
+            <a href={CONTACT_HREF}>Contact CIPHER</a>
           </div>
         </div>
       </footer>

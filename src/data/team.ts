@@ -68,9 +68,19 @@ export interface TeamData {
 
 // Import team data from JSON
 import teamDataJson from './team-data.json';
+import { SITE } from '@/lib/site';
 
-// Cast the imported JSON to our TypeScript interface
-export const teamData: TeamData = teamDataJson as TeamData;
+// Group contact details follow the site setting; personal profile emails stay in JSON.
+export const teamData: TeamData = {
+  ...teamDataJson,
+  contactInfo: {
+    ...teamDataJson.contactInfo,
+    primaryContact: {
+      ...teamDataJson.contactInfo.primaryContact,
+      email: SITE.contactEmail,
+    },
+  },
+} as TeamData;
 
 // Export individual arrays for easier use
 export const teamMembers: TeamMember[] = teamData.teamMembers;

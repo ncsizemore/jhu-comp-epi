@@ -5,7 +5,7 @@ export const SITE = {
   fullName:
     'CIPHER Lab: Computational and Infectious Disease Public Health Epidemiology Research',
   affiliation: 'Johns Hopkins Schools of Public Health and Medicine',
-  contactEmail: 'pkasaie@jhu.edu',
+  contactEmail: 'jheem.jhu@gmail.com',
 } as const;
 
 export const JHEEM = {
@@ -15,3 +15,6 @@ export const JHEEM = {
   transitionNote:
     'The Joint HIV Epidemiology and Economic Model (JHEEM) was previously published under the name "Johns Hopkins Epidemiology and Economic Model" (JHEEM). The acronym has been retained; the name was revised in 2026 to reflect the model\'s expanded use beyond a single institutional context. Citations referencing the prior name should be considered equivalent for the purposes of attribution, reproducibility, and methodological continuity.',
 } as const;
+
+// Group inquiry links and legacy contact data derive from the same address.
+export const CONTACT_HREF = `mailto:${SITE.contactEmail}`;
