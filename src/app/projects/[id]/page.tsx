@@ -3,7 +3,7 @@ import ShieldPage from '@/components/sections/ShieldPage';
 import { notFound } from 'next/navigation';
 import MainLayout from '@/components/layout/MainLayout';
 import { getProjectById, getProjects, type Project, type ProjectStats } from '@/lib/data/projects';
-import { JHEEM, SITE } from '@/lib/site';
+import { CONTACT_HREF, JHEEM, SITE } from '@/lib/site';
 
 type Props = {
   params: Promise<{
@@ -298,7 +298,7 @@ function ProjectActions({ project }: { project: Project }) {
               </h3>
               <p className="mt-3 text-sm">
                 <a
-                  href={`mailto:${SITE.contactEmail}`}
+                  href={CONTACT_HREF}
                   className="text-[color:var(--color-link)] underline decoration-[color:var(--color-rule)] underline-offset-4 hover:decoration-[color:var(--color-link)]"
                 >
                   Contact the lab

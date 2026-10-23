@@ -1,3 +1,4 @@
+import { CONTACT_HREF } from "@/lib/site";
 import Link from "next/link";
 import MainLayout from "@/components/layout/MainLayout";
 import TrajectoryFigure from "@/components/sections/home/TrajectoryFigure";
@@ -222,7 +223,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="contact-links">
-            <a className="text-link" href="mailto:pkasaie@jhu.edu">
+            <a className="text-link" href={CONTACT_HREF}>
               Contact CIPHER <span aria-hidden="true">↗</span>
             </a>
             <a className="text-link" href="https://jheem.org/work-with-us">
