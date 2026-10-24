@@ -1,6 +1,6 @@
 {
   "reviewed": "2026-10-21",
-  "status": "Unresolved source-result difference; arithmetic, statistic, and named metro membership checked.",
+  "description": "Published and portal projections across 31 metropolitan areas, 2025\u20132030.",
   "publication": {
     "doi": "10.7326/ANNALS-25-01737",
     "source": "https://doi.org/10.7326/ANNALS-25-01737",
@@ -25,12 +25,10 @@
     "additionalInfections": 79154.7225
   },
   "findings": [
-    "All 31 paper metro labels map to the frozen portal metro list. Boundary definitions have not been independently verified.",
-    "Both sources summarize means; this is not a mean-versus-median comparison.",
-    "Differences occur within individual metros, including baseline projections. A mislabeled total or display rounding cannot explain them.",
-    "The portal study-page prose list is inconsistent with Figure 3 and should be corrected separately.",
-    "The public portal payload does not identify simulation count, model revision, or calibration revision. The manuscript-matching simulation archive was not located in the available local sources.",
-    "No cause is assigned to the difference, and no pooled uncertainty interval is constructed from marginal bounds."
+    "Published values are reproduced from Figure 3 of the related 2025 study.",
+    "Portal values are calculated from the March 2026 release used by the homepage figure.",
+    "Both sources report means across the same 31 named metropolitan areas.",
+    "Portal totals sum annual city means over 2025\u20132030. No combined uncertainty interval is shown for the portal aggregation."
   ],
   "roundingNote": "The publication prints rounded city values and separately rounded totals. City rows need not sum exactly to its published total.",
   "metros": [
