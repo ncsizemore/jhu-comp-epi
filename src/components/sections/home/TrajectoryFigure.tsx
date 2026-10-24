@@ -424,8 +424,7 @@ export default function TrajectoryFigure() {
           <p>
             Source: <a href="https://jheem.org/ryan-white">JHEEM portal</a>,
             March 2026 release. Shading shows the difference between scenarios,
-            not uncertainty. This portal aggregation differs from the published
-            study’s estimate of 75,436 additional infections.
+            not uncertainty.
           </p>
           <details className="figure-methods">
             <summary>Source and calculation</summary>
@@ -436,11 +435,10 @@ export default function TrajectoryFigure() {
               are rounded. A combined uncertainty interval is not shown.
             </p>
             <p>
-              Both the paper and portal report means, and the paper’s results
-              table names the same 31 metros. Their estimates differ within
-              individual metros; the cause has not yet been established.
+              This figure uses estimates from the portal release. The related
+              2025 study reports 75,436 additional infections over the same period.
               {" "}<a href="/data/ryan-white-trajectory.json">Annual source data</a>
-              {" · "}<a href="/data/ryan-white-publication-comparison.json">Comparison with the publication</a>.
+              {" · "}<a href="/data/ryan-white-publication-comparison.json">Published and portal estimates</a>.
             </p>
           </details>
         </div>

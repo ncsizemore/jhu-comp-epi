@@ -4600,7 +4600,7 @@
   "publicationComparison": {
     "doi": "10.7326/ANNALS-25-01737",
     "publishedAdditionalInfections": 75436,
-    "note": "Both sources report means and name the same 31 metros in their results. Estimates differ within metros; the source-result difference remains unresolved. Do not label portal values as the paper\u2019s estimate.",
+    "note": "This figure uses estimates from the portal's March 2026 release. The related 2025 publication reports 75,436 additional infections over 2025\u20132030 across the same 31 named metropolitan areas.",
     "comparisonSource": "/data/ryan-white-publication-comparison.json",
     "reviewed": "2026-10-21"
   }
