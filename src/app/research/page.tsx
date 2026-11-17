@@ -1,4 +1,4 @@
-import { CONTACT_HREF } from "@/lib/site";
+import { CONTACT_HREF, SITE } from "@/lib/site";
 import Link from "next/link";
 import MainLayout from "@/components/layout/MainLayout";
 import type { Metadata } from "next";
@@ -278,7 +278,7 @@ export default function ResearchPage() {
           </div>
           <div className="contact-links">
             <a className="text-link" href={CONTACT_HREF}>
-              Contact CIPHER <span aria-hidden="true">↗</span>
+              {SITE.contactEmail} <span aria-hidden="true">↗</span>
             </a>
             <a className="text-link" href="https://jheem.org/work-with-us">
               Explore a JHEEM collaboration <span aria-hidden="true">↗</span>
