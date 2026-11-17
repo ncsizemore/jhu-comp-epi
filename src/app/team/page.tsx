@@ -1,4 +1,4 @@
-import { CONTACT_HREF } from "@/lib/site";
+import { CONTACT_HREF, SITE } from "@/lib/site";
 import PeopleDirectory from "@/components/sections/team/PeopleDirectory";
 import Link from "next/link";
 import MainLayout from "@/components/layout/MainLayout";
@@ -55,7 +55,7 @@ export default function PeoplePage() {
           </div>
           <div className="contact-links">
             <a className="text-link" href={CONTACT_HREF}>
-              Contact CIPHER <span aria-hidden="true">↗</span>
+              {SITE.contactEmail} <span aria-hidden="true">↗</span>
             </a>
             <Link className="text-link" href="/research">
               Explore our research <span aria-hidden="true">→</span>

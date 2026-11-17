@@ -320,28 +320,15 @@ Decisions to confirm:
 
 ### Email
 
-Use a JHU-managed group inbox if possible. Do not create an informal personal
-email account as the only public lab contact.
+Updated 17 November 2026: the team has provided the institutional address
+`CIPHERteam@jh.edu`. It is now the public group contact in `SITE.contactEmail`,
+with matching configuration in the JHEEM portal. Contact sections display the
+clickable address; navigation links retain concise descriptive labels.
 
-Recommendation:
-
-- Ask the relevant JHU IT/admin channel for a managed group inbox or alias, such
-  as `cipherlab@jhu.edu` or another institutionally approved address.
-- Keep `pkasaie@jhu.edu` on the site until the group inbox exists and ownership
-  is confirmed.
-- Keep `jheem.jhu@gmail.com` as a legacy/admin/recovery account if it remains
-  useful, but avoid making it the primary public CIPHER contact because it is
-  JHEEM-branded and non-institutional.
-- Consider creating a CIPHER-branded non-institutional backup account if the
-  team wants continuity outside JHU affiliation.
-- Once the group inbox is live, update `SITE.contactEmail` and redeploy.
-
-Decisions to confirm:
-
-- desired address, e.g. `cipherlab@jhu.edu`
-- owner(s)
-- forwarding/list behavior
-- whether address should appear publicly on the site
+Personal researcher profile addresses remain individual contacts. The historical
+Gmail inbox can remain available for legacy correspondence and administrative or
+recovery uses. Mailbox access, forwarding, infrastructure-alert recipients and
+GitHub organization contact settings are administered separately from the sites.
 
 ## Phase 8: Verification and Deployment
 

@@ -1,4 +1,4 @@
-import { CONTACT_HREF } from "@/lib/site";
+import { CONTACT_HREF, SITE } from "@/lib/site";
 import Link from "next/link";
 import type { Metadata } from "next";
 import MainLayout from "@/components/layout/MainLayout";
@@ -64,7 +64,7 @@ export default function NewsPage() {
           </div>
           <div className="contact-links">
             <a className="text-link" href={CONTACT_HREF}>
-              Contact CIPHER <span aria-hidden="true">↗</span>
+              {SITE.contactEmail} <span aria-hidden="true">↗</span>
             </a>
             <Link className="text-link" href="/team">
               Meet the group <span aria-hidden="true">→</span>
